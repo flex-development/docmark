@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": false,
+    "allowJs": false,
+    "checkJs": false,
+    "customConditions": ["docmark"],
+    "declarationMap": false,
+    "noEmitOnError": true,
+    "sourceMap": false,
+    "target": "es2024"
+  },
+  "exclude": ["**/__mocks__/**", "**/__tests__/**"],
+  "extends": "./tsconfig.json",
+  "files": [
+    "typings/@flex-development/docast/index.d.mts",
+    "typings/@flex-development/fsm-tokenizer/index.d.mts",
+    "typings/micromark-util-types/index.d.mts"
+  ],
+  "include": ["dist/**/*", "src/**/**.mts"],
+  "references": [
+    {
+      "path": "packages/docmark/tsconfig.build.json"
+    },
+    {
+      "path": "packages/docmark-factory-whitespace/tsconfig.build.json"
+    }
+  ]
+}

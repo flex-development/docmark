@@ -1,0 +1,86 @@
+{
+  "name": "@flex-development/docmark",
+  "description": "commonmark compliant documentation parser with positional info and concrete tokens",
+  "version": "0.0.0",
+  "keywords": [
+    "comment",
+    "commonmark",
+    "compiler",
+    "docblock",
+    "docdown",
+    "documentation",
+    "gfm",
+    "html",
+    "jsdoc",
+    "lexer",
+    "markdown",
+    "md",
+    "mdast",
+    "parse",
+    "parser",
+    "token",
+    "tokenize",
+    "tokenizer",
+    "tsdoc",
+    "typedoc",
+    "typescript",
+    "unified"
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/flex-development/docmark",
+  "repository": {
+    "directory": "packages/docmark",
+    "type": "git",
+    "url": "git+https://github.com/flex-development/docmark.git"
+  },
+  "bugs": "https://github.com/flex-development/docmark/issues",
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "diff-dst-prefix": "docmark",
+    "diff-src-prefix": "docmark",
+    "directory": "./",
+    "executableFiles": [],
+    "node-options": null,
+    "pack-destination": ".",
+    "parseable": true,
+    "prefer-dedupe": true,
+    "provenance": true,
+    "tag-version-prefix": "docmark"
+  },
+  "type": "module",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "docmark": "./src/index.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "attw": "tsc --build tsconfig.build.json --clean --dry && tsc --build tsconfig.build.json --clean && tsc --build tsconfig.build.json --verbose"
+  },
+  "dependencies": {
+    "@flex-development/docast": "1.0.0-beta.2",
+    "@flex-development/docmark-core": "workspace:*",
+    "@flex-development/docmark-util-combine-extensions": "workspace:*",
+    "@flex-development/docmark-util-subtokenize": "workspace:*",
+    "@flex-development/docmark-util-symbol": "workspace:*",
+    "@flex-development/docmark-util-types": "workspace:*",
+    "@flex-development/fsm-tokenizer": "1.0.0-alpha.1",
+    "@flex-development/tutils": "6.0.0-alpha.25",
+    "devlop": "1.1.0",
+    "micromark-util-character": "2.1.1"
+  },
+  "sideEffects": false
+}

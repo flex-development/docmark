@@ -1,0 +1,58 @@
+{
+  "name": "@flex-development/docmark-util-symbol",
+  "description": "",
+  "version": "0.0.0",
+  "keywords": [
+    "docmark",
+    "symbol",
+    "typescript",
+    "util",
+    "utility"
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/flex-development/docmark-util-types/tree/main/packages/flex-development/docmark-util-symbol",
+  "repository": {
+    "directory": "packages/docmark-util-symbol",
+    "type": "git",
+    "url": "git+https://github.com/flex-development/docmark.git"
+  },
+  "bugs": "https://github.com/flex-development/docmark/issues",
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "diff-dst-prefix": "docmark-util-symbol",
+    "diff-src-prefix": "docmark-util-symbol",
+    "directory": "./",
+    "executableFiles": [],
+    "node-options": null,
+    "pack-destination": ".",
+    "parseable": true,
+    "prefer-dedupe": true,
+    "provenance": true,
+    "tag-version-prefix": "docmark-util-symbol"
+  },
+  "type": "module",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "docmark": "./src/index.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "devDependencies": {
+    "@flex-development/docmark-util-types": "workspace:*",
+    "@flex-development/unist-util-types": "1.6.1"
+  },
+  "sideEffects": false
+}

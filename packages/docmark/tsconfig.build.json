@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "extends": "../../tsconfig.build.json",
+  "include": ["src/**/**.mts"],
+  "references": [
+    {
+      "path": "../docmark-core/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-util-combine-extensions/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-util-subtokenize/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-util-symbol/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-util-types/tsconfig.build.json"
+    }
+  ]
+}

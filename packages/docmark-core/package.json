@@ -1,0 +1,63 @@
+{
+  "name": "@flex-development/docmark-core",
+  "description": "docmark core library",
+  "version": "0.0.0",
+  "keywords": [
+    "core",
+    "docmark",
+    "typescript"
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/flex-development/docmark-util-types/tree/main/packages/flex-development/docmark-core",
+  "repository": {
+    "directory": "packages/docmark-core",
+    "type": "git",
+    "url": "git+https://github.com/flex-development/docmark.git"
+  },
+  "bugs": "https://github.com/flex-development/docmark/issues",
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "diff-dst-prefix": "docmark-core",
+    "diff-src-prefix": "docmark-core",
+    "directory": "./",
+    "executableFiles": [],
+    "node-options": null,
+    "pack-destination": ".",
+    "parseable": true,
+    "prefer-dedupe": true,
+    "provenance": true,
+    "tag-version-prefix": "docmark-core"
+  },
+  "type": "module",
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "docmark": "./src/index.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "dependencies": {
+    "@flex-development/docmark-core-commonmark": "workspace:*",
+    "@flex-development/docmark-factory-space": "workspace:*",
+    "@flex-development/docmark-util-symbol": "workspace:*",
+    "@flex-development/docmark-util-types": "workspace:*",
+    "devlop": "1.1.0",
+    "micromark-util-character": "2.1.1"
+  },
+  "devDependencies": {
+    "@flex-development/docast": "1.0.0-beta.2"
+  },
+  "sideEffects": false
+}

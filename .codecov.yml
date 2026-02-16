@@ -1,0 +1,145 @@
+# CODECOV CONFIGURATION
+# https://docs.codecov.com/docs/codecovyml-reference
+
+---
+codecov:
+  notify:
+    after_n_builds: 7
+    wait_for_ci: true
+  require_ci_to_pass: true
+
+comment:
+  after_n_builds: 7
+  behavior: default
+  layout: header,diff,flags,components,tree,footer
+  require_base: false
+  require_changes: false
+  require_head: true
+  show_carryforward_flags: true
+  show_critical_paths: true
+
+component_management:
+  default_rules:
+    statuses:
+      - type: project
+        target: 100%
+  individual_components:
+    - component_id: docmark
+      name: docmark
+      paths:
+        - packages/docmark/**/*.mts
+    - component_id: docmark-core
+      name: docmark-core
+      paths:
+        - packages/docmark-core/**/*.mts
+    - component_id: docmark-factory-space
+      name: docmark-factory-space
+      paths:
+        - packages/docmark-factory-space/**/*.mts
+    - component_id: docmark-factory-whitespace
+      name: docmark-factory-whitespace
+      paths:
+        - packages/docmark-factory-whitespace/**/*.mts
+    - component_id: docmark-util-combine-extensions
+      name: docmark-util-combine-extensions
+      paths:
+        - packages/docmark-util-combine-extensions/**/*.mts
+    - component_id: docmark-util-subtokenize
+      name: docmark-util-subtokenize
+      paths:
+        - packages/docmark-util-subtokenize/**/*.mts
+    - component_id: docmark-util-symbol
+      name: docmark-util-symbol
+      paths:
+        - packages/docmark-util-symbol/**/*.mts
+
+coverage:
+  precision: 2
+  range: 90..100
+  round: nearest
+  status:
+    changes:
+      default:
+        branches:
+          - dependabot/*
+          - feat/*
+          - hotfix/*
+          - main
+          - release/*
+        if_ci_failed: error
+        if_not_found: success
+        informational: false
+        only_pulls: false
+    patch:
+      default:
+        branches:
+          - dependabot/*
+          - feat/*
+          - hotfix/*
+          - main
+          - release/*
+        if_ci_failed: error
+        if_not_found: success
+        informational: false
+        only_pulls: false
+        target: 100%
+        threshold: 0%
+    project:
+      default:
+        branches:
+          - dependabot/*
+          - feat/*
+          - hotfix/*
+          - main
+          - release/*
+        if_ci_failed: error
+        if_not_found: success
+        informational: false
+        only_pulls: false
+        target: 100%
+        threshold: 0%
+
+flags:
+  bun-canary:
+    carryforward: false
+    paths:
+      - src/
+  bun-latest:
+    carryforward: false
+    paths:
+      - src/
+  node24:
+    carryforward: false
+    paths:
+      - src/
+  node23:
+    carryforward: false
+    paths:
+      - src/
+  node22:
+    carryforward: false
+    paths:
+      - src/
+  node21:
+    carryforward: false
+    paths:
+      - src/
+  node20:
+    carryforward: false
+    paths:
+      - src/
+
+github_checks:
+  annotations: true
+
+ignore:
+  - '**/*.d.mts'
+  - '**/__mocks__/**'
+  - '**/__tests__/**'
+  - '**/index.mts'
+  - '**/interfaces/**'
+  - '**/types/**'
+  - '!src/index.mts'
+
+profiling:
+  critical_files_paths: []
