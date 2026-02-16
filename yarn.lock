@@ -4789,6 +4789,7 @@ __metadata:
     devlop: "npm:1.1.0"
     dprint: "npm:0.51.1"
     editorconfig: "npm:3.0.1"
+    esbuild: "npm:0.27.3"
     eslint: "npm:9.39.2"
     growl: "npm:1.10.5"
     happy-dom: "npm:20.6.1"
@@ -5254,7 +5255,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.27.0":
+"esbuild@npm:0.27.3, esbuild@npm:^0.27.0":
   version: 0.27.3
   resolution: "esbuild@npm:0.27.3"
   dependencies:
