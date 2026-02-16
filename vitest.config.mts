@@ -5,7 +5,6 @@
  */
 
 import Notifier from '#tests/reporters/notifier'
-import VerboseReporter from '#tests/reporters/verbose'
 import listWorkspaces from '#utils/list-workspaces'
 import pathe from '@flex-development/pathe'
 import { ok } from 'devlop'
@@ -138,15 +137,15 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
         })
       }),
       reporters: JSON.parse(process.env['VITEST_UI'] ?? '0')
-        ? [new Notifier(), new VerboseReporter()]
+        ? [new Notifier(), ['tree']]
         : env.mode === 'reports'
-        ? [new VerboseReporter()]
+        ? [['tree']]
         : [
           ci ? 'github-actions' : new Notifier(),
           'blob',
           'json',
           ['junit', { suiteName: pkg.name }],
-          new VerboseReporter()
+          ['tree']
         ],
       /**
        * Store snapshots next to the directory of `file`.

@@ -3,4 +3,4 @@
  * @module docmark-util-symbol
  */
 
-export {}
+export { default as constants } from '#lib/constants'

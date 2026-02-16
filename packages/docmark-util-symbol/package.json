@@ -48,11 +48,15 @@
     },
     "./package.json": "./package.json"
   },
+  "imports": {
+    "#lib/*": "./src/*.mts"
+  },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "devDependencies": {
     "@flex-development/docmark-util-types": "workspace:*",
-    "@flex-development/unist-util-types": "1.6.1"
+    "@flex-development/unist-util-types": "1.6.1",
+    "micromark-util-symbol": "2.0.1"
   },
   "sideEffects": false
 }

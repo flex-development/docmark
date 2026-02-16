@@ -139,7 +139,7 @@ ignore:
   - '**/index.mts'
   - '**/interfaces/**'
   - '**/types/**'
-  - '!src/index.mts'
+  - '!packages/*/src/index.mts'
 
 profiling:
   critical_files_paths: []

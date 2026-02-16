@@ -3,11 +3,17 @@
  * @module config/rollup
  */
 
-import dts from '#build/plugins/dts'
 import listWorkspaces from '#utils/list-workspaces'
 import pathe from '@flex-development/pathe'
+import resolve from '@rollup/plugin-node-resolve'
 import type { Dirent } from 'node:fs'
-import type { RollupOptions } from 'rollup'
+import type {
+  NormalizedOutputOptions,
+  OutputBundle,
+  PluginContext,
+  RollupOptions
+} from 'rollup'
+import { dts } from 'rollup-plugin-dts'
 
 /**
  * The rollup configuration.
@@ -41,6 +47,55 @@ export default listWorkspaces().map((
     }),
     input: file,
     output: [{ file, format: 'esm' }],
-    plugins: [dts()]
+    plugins: [
+      resolve({ extensions: ['.d.mts', '.mts'] }),
+      dts({
+        includeExternal: workspace.name === 'docmark-util-types'
+          ? ['@flex-development/fsm-tokenizer']
+          : []
+      }),
+      {
+        /**
+         * Re-add lost `type` modifiers.
+         *
+         * @see https://github.com/Swatinem/rollup-plugin-dts/issues/354
+         *
+         * @this {PluginContext}
+         *
+         * @param {NormalizedOutputOptions} options
+         *  The normalized output options
+         * @param {OutputBundle} bundle
+         *  The output bundle object
+         * @return {undefined}
+         */
+        generateBundle(
+          this: PluginContext,
+          options: NormalizedOutputOptions,
+          bundle: OutputBundle
+        ): undefined {
+          for (const output of Object.values(bundle)) {
+            if (output.type === 'chunk') {
+              output.code = output.code
+                .replaceAll('import *', 'import type *')
+                .replaceAll('import {', 'import type {')
+
+              if (workspace.name === 'docmark-util-types') {
+                output.code = output.code.replaceAll(
+                  'export {',
+                  'export type {'
+                )
+              }
+            }
+          }
+
+          return void this
+        },
+
+        /**
+         * The plugin name.
+         */
+        name: 'build:dts'
+      }
+    ]
   }
 })

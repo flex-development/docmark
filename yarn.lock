@@ -1600,6 +1600,7 @@ __metadata:
   dependencies:
     "@flex-development/docmark-util-types": "workspace:*"
     "@flex-development/unist-util-types": "npm:1.6.1"
+    micromark-util-symbol: "npm:2.0.1"
   languageName: unknown
   linkType: soft
 
@@ -8293,7 +8294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromark-util-symbol@npm:^2.0.0":
+"micromark-util-symbol@npm:2.0.1, micromark-util-symbol@npm:^2.0.0":
   version: 2.0.1
   resolution: "micromark-util-symbol@npm:2.0.1"
   checksum: 10/497e6d95fc21c2bb5265b78a6a60db518c376dc438739b2e7d4aee6f9f165222711724b456c63163314f32b8eea68a064687711d41e986262926eab23ddb9229
