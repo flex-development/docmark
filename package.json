@@ -95,7 +95,7 @@
     "dprint": "0.51.1",
     "editorconfig": "3.0.1",
     "esbuild": "0.27.3",
-    "eslint": "9.39.2",
+    "eslint": "10.0.0",
     "growl": "1.10.5",
     "happy-dom": "20.6.1",
     "husky": "9.1.7",
