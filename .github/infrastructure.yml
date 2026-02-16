@@ -94,13 +94,13 @@ labels:
   - name: package:docmark-factory-whitespace
     description: '@flex-development/docmark-factory-whitespace'
     color: c6cde1
-  - name: scope:docmark-util-combine-extensions
+  - name: package:docmark-util-combine-extensions
     description: '@flex-development/docmark-util-combine-extensions'
     color: c6cde1
   - name: package:docmark-util-subtokenize
     description: '@flex-development/docmark-util-subtokenize'
     color: c6cde1
-  - name: scope:docmark-util-symbol
+  - name: package:docmark-util-symbol
     description: '@flex-development/docmark-util-symbol'
     color: c6cde1
   - name: package:docmark-util-types
