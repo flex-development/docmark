@@ -459,26 +459,26 @@ jobs:
       - id: local-binaries
         name: Add local binaries to $PATH
         run: echo "$GITHUB_WORKSPACE/node_modules/.bin" >> $GITHUB_PATH
-      # - id: changelog
-      #   name: Changelog preview
-      #   env:
-      #     TZ: ${{ vars.TZ }}
-      #   run: echo "$(grease changelog)" >>$GITHUB_STEP_SUMMARY
-      #   working-directory: ${{ env.PACKAGE_DIRECTORY }}
-      # - id: build
-      #   name: Build project
-      #   run: yarn build
-      # - id: pack
-      #   name: Pack project
-      #   run: |
-      #     yarn workspaces foreach --worktree --from=${{ format('@{0}/1', github.repository_owner, matrix.package) }} pack --out=${{ steps.tarball.outputs.result }}
-      # - id: attw
-      #   name: Analyze types distribution
-      #   run: attw ${{ steps.tarball.outputs.result }} --config-path=../../.attw.json"
-      #   working-directory: ${{ env.PACKAGE_DIRECTORY }}
-      # - id: archive
-      #   name: Archive production artifact
-      #   uses: actions/upload-artifact@v6.0.0
-      #   with:
-      #     name: ${{ steps.tarball.outputs.result }}
-      #     path: ${{ env.PACKAGE_DIRECTORY }}/${{ steps.tarball.outputs.result }}
+      - id: changelog
+        name: Changelog preview
+        env:
+          TZ: ${{ vars.TZ }}
+        run: echo "$(grease changelog)" >>$GITHUB_STEP_SUMMARY
+        working-directory: ${{ env.PACKAGE_DIRECTORY }}
+      - id: build
+        name: Build project
+        run: yarn build
+      - id: pack
+        name: Pack project
+        run: |
+          yarn workspaces foreach --worktree --from=${{ format('@{0}/1', github.repository_owner, matrix.package) }} pack --out=${{ steps.tarball.outputs.result }}
+      - id: attw
+        name: Analyze types distribution
+        run: attw ${{ steps.tarball.outputs.result }} --config-path=../../.attw.json"
+        working-directory: ${{ env.PACKAGE_DIRECTORY }}
+      - id: archive
+        name: Archive production artifact
+        uses: actions/upload-artifact@v6.0.0
+        with:
+          name: ${{ steps.tarball.outputs.result }}
+          path: ${{ env.PACKAGE_DIRECTORY }}/${{ steps.tarball.outputs.result }}
