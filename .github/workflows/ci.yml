@@ -239,7 +239,7 @@ jobs:
         run: yarn typecheck
       - id: report
         name: Upload report
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: ${{ format('{0}.typecheck.blob.json', env.SHA) }}
           path: ./.vitest-reports/typecheck.blob.json
@@ -287,13 +287,13 @@ jobs:
           filter: "'${{ env.PCT }}'"
       - id: report
         name: Upload report
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: ${{ format('{0}.node{1}.blob.json', env.SHA, matrix.node-version) }}
           path: ./.vitest-reports/test.blob.json
       - id: coverage-summary
         name: Upload coverage summary
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: ${{ format('{0}.node{1}.coverage.json', env.SHA, matrix.node-version) }}
           path: ${{ env.COVERAGE_SUMMARY }}
@@ -366,13 +366,13 @@ jobs:
           filter: "'${{ env.PCT }}'"
       - id: report
         name: Upload report
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: ${{ format('{0}.bun-{1}.blob.json', env.SHA, matrix.bun-version) }}
           path: ./.vitest-reports/test.blob.json
       - id: coverage-summary
         name: Upload coverage summary
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: ${{ format('{0}.bun-{1}.coverage.json', env.SHA, matrix.bun-version) }}
           path: ${{ env.COVERAGE_SUMMARY }}
@@ -480,7 +480,7 @@ jobs:
         working-directory: ${{ env.PACKAGE_DIRECTORY }}
       - id: archive
         name: Archive production artifact
-        uses: actions/upload-artifact@v6.0.0
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: ${{ steps.tarball.outputs.result }}
           path: ${{ env.PACKAGE_DIRECTORY }}/${{ steps.tarball.outputs.result }}
