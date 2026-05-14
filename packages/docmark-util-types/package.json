@@ -57,7 +57,7 @@
     "@flex-development/unist-util-types": "1.6.1"
   },
   "devDependencies": {
-    "@flex-development/fsm-tokenizer": "1.0.0-alpha.1"
+    "@flex-development/fsm-tokenizer": "1.0.0-alpha.3"
   },
   "sideEffects": false
 }
