@@ -3,4 +3,4 @@
  * @module docmark-factory-space
  */
 
-export {}
+export { default as factorySpace } from './factory.mts'

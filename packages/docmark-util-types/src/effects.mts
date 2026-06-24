@@ -5,9 +5,11 @@
 
 import type {
   Attempt,
+  Check,
   Consume,
   Enter,
-  Exit
+  Exit,
+  Interrupt
 } from '@flex-development/docmark-util-types'
 
 /**
@@ -24,9 +26,9 @@ interface Effects {
   /**
    * Try to tokenize a construct, then revert.
    *
-   * @see {@linkcode Attempt}
+   * @see {@linkcode Check}
    */
-  check: Attempt
+  check: Check
 
   /**
    * Deal with a character code and move onto the next.
@@ -54,9 +56,9 @@ interface Effects {
    *
    * > 👉 **Note**: Sets `context.interrupt` to `true`.
    *
-   * @see {@linkcode Attempt}
+   * @see {@linkcode Interrupt}
    */
-  interrupt: Attempt
+  interrupt: Interrupt
 }
 
 export type { Effects as default }

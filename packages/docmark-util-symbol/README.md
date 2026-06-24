@@ -6,7 +6,6 @@
 [![install size](https://packagephobia.now.sh/badge?p=@flex-development/docmark-util-symbol)](https://packagephobia.now.sh/result?p=@flex-development/docmark-util-symbol)
 [![minified bundle size](https://badgen.net/bundlephobia/min/@flex-development/docmark-util-symbol?cache)](https://bundlephobia.com/package/@flex-development/docmark-util-symbol)
 [![tree shaking suppport](https://badgen.net/bundlephobia/tree-shaking/@flex-development/docmark-util-symbol)](https://bundlephobia.com/package/@flex-development/docmark-util-symbol)
-[![codecov](https://codecov.io/github/flex-development/docmark-util-symbol/graph/badge.svg?token=DKEZw55sGM)](https://codecov.io/github/flex-development/docmark-util-symbol)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![license](https://img.shields.io/github/license/flex-development/docmark-util-symbol.svg)](LICENSE.md)
 [![typescript](https://img.shields.io/badge/-typescript-3178c6?logo=typescript\&logoColor=ffffff)](https://typescriptlang.org)

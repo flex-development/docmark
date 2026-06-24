@@ -5,9 +5,11 @@
 
 import type {
   Attempt,
+  Check,
   Consume,
   Enter,
-  Exit
+  Exit,
+  Interrupt
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../effects.mts'
 
@@ -18,8 +20,8 @@ describe('unit-d:interfaces/Effects', () => {
       .toEqualTypeOf<Attempt>()
   })
 
-  it('should match [check: Attempt]', () => {
-    expectTypeOf<TestSubject>().toHaveProperty('check').toEqualTypeOf<Attempt>()
+  it('should match [check: Check]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('check').toEqualTypeOf<Check>()
   })
 
   it('should match [consume: Consume]', () => {
@@ -36,9 +38,9 @@ describe('unit-d:interfaces/Effects', () => {
     expectTypeOf<TestSubject>().toHaveProperty('exit').toEqualTypeOf<Exit>()
   })
 
-  it('should match [interrupt: Attempt]', () => {
+  it('should match [interrupt: Interrupt]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('interrupt')
-      .toEqualTypeOf<Attempt>()
+      .toEqualTypeOf<Interrupt>()
   })
 })

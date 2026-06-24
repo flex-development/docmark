@@ -15,6 +15,9 @@
     "noUncheckedSideEffectImports": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "paths": {
+      "@tests/*": ["./__tests__/*"]
+    },
     "resolveJsonModule": true,
     "sourceMap": true,
     "target": "esnext",
@@ -22,5 +25,8 @@
   },
   "exclude": ["coverage", "dist", "node_modules"],
   "extends": "@tsconfig/strictest/tsconfig",
+  "files": [
+    "packages/docmark-factory-space/typings/@flex-development/docmark-util-types/index.d.mts"
+  ],
   "include": ["**/**.json", "**/**.mjs", "**/**.mts", "**/**.ts"]
 }

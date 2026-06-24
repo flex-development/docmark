@@ -24,7 +24,8 @@ const config: UserConfig = {
       'factory-space',
       'subtokenize',
       'symbol'
-    ])]
+    ])],
+    'scope-max-length': [Severity.Error, 'always', Number.POSITIVE_INFINITY]
   }
 }
 
