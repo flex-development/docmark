@@ -3,6 +3,7 @@ cefc
 commitlintrc
 dedupe
 devlop
+exiter
 fbca
 gpgsign
 hmarr
@@ -13,3 +14,4 @@ unstub
 vates
 vitest
 yarnrc
+zwnj

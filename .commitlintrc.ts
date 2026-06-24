@@ -18,7 +18,13 @@ import { scopes } from '@flex-development/commitlint-config'
 const config: UserConfig = {
   extends: ['@flex-development'],
   rules: {
-    'scope-enum': [Severity.Error, 'always', scopes(['chore'])]
+    'scope-enum': [Severity.Error, 'always', scopes([
+      'chore',
+      'docmark',
+      'factory-space',
+      'subtokenize',
+      'symbol'
+    ])]
   }
 }
 

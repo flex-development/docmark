@@ -51,7 +51,10 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "dependencies": {
+    "@flex-development/docmark-util-symbol": "workspace:*",
     "@flex-development/docmark-util-types": "workspace:*",
+    "@flex-development/mark-parser": "flex-development/mark-parser#commit=8c66ac342e53f1b7a23308597be4a38bd23de4d4",
+    "devlop": "1.1.0",
     "micromark-util-subtokenize": "2.1.0",
     "micromark-util-types": "2.0.2"
   },

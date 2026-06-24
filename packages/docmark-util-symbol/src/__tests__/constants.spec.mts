@@ -3,12 +3,11 @@
  * @module docmark-util-symbol/tests/unit/constants
  */
 
-import testSubject from '#lib/constants'
 import * as micromark from 'micromark-util-symbol'
+import testSubject from '../constants.mts'
 
 describe('unit:constants', () => {
-  it('should be readonly record of constant values', () => {
-    expect(testSubject).to.be.frozen
+  it('should be constants dictionary', () => {
     expect(testSubject).toMatchSnapshot()
   })
 

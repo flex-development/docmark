@@ -11,5 +11,5 @@ set -e
 # - https://github.com/arethetypeswrong/arethetypeswrong.github.io/tree/main/packages/cli
 
 for workspace in packages/*/; do
-  attw ${workspace}package.tgz
+  attw --pack ${workspace}
 done

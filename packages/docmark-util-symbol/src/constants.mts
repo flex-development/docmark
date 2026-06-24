@@ -8,7 +8,7 @@
  *
  * @enum {number | string}
  */
-const constants = Object.freeze({
+const constants = {
   attentionSideAfter: 2,
   attentionSideBefore: 1,
   atxHeadingOpeningFenceSizeMax: 6,
@@ -21,9 +21,11 @@ const constants = Object.freeze({
   characterReferenceHexadecimalSizeMax: 6,
   characterReferenceNamedSizeMax: 31,
   codeFencedSequenceSizeMin: 3,
+  contentTypeComment: 'comment',
   contentTypeContent: 'content',
   contentTypeDocument: 'document',
   contentTypeFlow: 'flow',
+  contentTypeSource: 'source',
   contentTypeString: 'string',
   contentTypeText: 'text',
   hardBreakPrefixSizeMin: 2,
@@ -43,6 +45,6 @@ const constants = Object.freeze({
   tabSize: 4,
   thematicBreakMarkerCountMin: 3,
   v8MaxSafeChunkSize: 10_000
-} as const)
+} as const
 
 export default constants

@@ -9,10 +9,7 @@
   "include": ["src/**/**.mts"],
   "references": [
     {
-      "path": "../docmark-core/tsconfig.build.json"
-    },
-    {
-      "path": "../docmark-util-combine-extensions/tsconfig.build.json"
+      "path": "../docmark-factory-space/tsconfig.build.json"
     },
     {
       "path": "../docmark-util-subtokenize/tsconfig.build.json"

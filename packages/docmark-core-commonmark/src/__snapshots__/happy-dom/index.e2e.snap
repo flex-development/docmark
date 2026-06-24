@@ -1,3 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`e2e:docmark-core-commonmark > should expose public api 1`] = `[]`;

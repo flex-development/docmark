@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`unit:constants > should be readonly record of constant values 1`] = `
+exports[`unit:constants > should be constants dictionary 1`] = `
 {
   "attentionSideAfter": 2,
   "attentionSideBefore": 1,
@@ -14,9 +14,11 @@ exports[`unit:constants > should be readonly record of constant values 1`] = `
   "characterReferenceHexadecimalSizeMax": 6,
   "characterReferenceNamedSizeMax": 31,
   "codeFencedSequenceSizeMin": 3,
+  "contentTypeComment": "comment",
   "contentTypeContent": "content",
   "contentTypeDocument": "document",
   "contentTypeFlow": "flow",
+  "contentTypeSource": "source",
   "contentTypeString": "string",
   "contentTypeText": "text",
   "hardBreakPrefixSizeMin": 2,

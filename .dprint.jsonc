@@ -18,13 +18,13 @@
     "commands": [
       {
         "cacheKeyFiles": ["package.json"],
-        "command": "node --experimental-strip-types --experimental-transform-types ./dprint/remark.mts {{file_path}}",
+        "command": "node --experimental-strip-types ./dprint/remark.mts {{file_path}}",
         "exts": ["md", "mdx"],
         "stdin": true
       },
       {
         "cacheKeyFiles": [".editorconfig"],
-        "command": "node --experimental-strip-types --experimental-transform-types ./dprint/shfmt.mts {{file_path}}",
+        "command": "node --experimental-strip-types ./dprint/shfmt.mts {{file_path}}",
         "exts": ["sh", "zsh"],
         "fileNames": [
           ".editorconfig",

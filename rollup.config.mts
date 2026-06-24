@@ -4,16 +4,23 @@
  */
 
 import listWorkspaces from '#utils/list-workspaces'
+import { EXPORT_AGGREGATE_REGEX } from '@flex-development/export-regex'
+import { STATIC_IMPORT_REGEX } from '@flex-development/import-regex'
+import { readPackageJson } from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
+import type { PackageJson } from '@flex-development/pkg-types'
 import resolve from '@rollup/plugin-node-resolve'
+import { ok } from 'devlop'
 import type { Dirent } from 'node:fs'
 import type {
   NormalizedOutputOptions,
   OutputBundle,
+  Plugin,
   PluginContext,
   RollupOptions
 } from 'rollup'
-import { dts } from 'rollup-plugin-dts'
+import cleanup from 'rollup-plugin-cleanup'
+import { dts as dtsBundle } from 'rollup-plugin-dts'
 
 /**
  * The rollup configuration.
@@ -22,80 +29,136 @@ import { dts } from 'rollup-plugin-dts'
  *
  * @type {RollupOptions[]}
  */
-export default listWorkspaces().map((
-  workspace: Dirent,
-  index: number,
-  workspaces: readonly Dirent[]
-): RollupOptions => {
+export default listWorkspaces().flatMap((
+  workspace: Dirent
+): RollupOptions[] => {
   /**
-   * The path to the package directory.
+   * The URL to the package directory.
    *
-   * @const {string} dir
+   * @const {URL} url
    */
-  const directory: string = pathe.join(workspace.parentPath, workspace.name)
+  const url: URL = new URL(
+    workspace.name + pathe.sep,
+    pathe.pathToFileURL(workspace.parentPath + '/packages')
+  )
 
   /**
-   * The target file.
+   * The list of target files.
    *
-   * @const {string} file
+   * @const {string[]} files
    */
-  const file: string = pathe.join(directory, 'dist/index.d.mts')
+  const files: string[] = [pathe.join(url.pathname, 'dist/index.d.mts')]
 
-  return {
-    external: workspaces.filter(w => !directory.endsWith(w.name)).map(w => {
-      return '@flex-development/' + w.name
-    }),
-    input: file,
-    output: [{ file, format: 'esm' }],
-    plugins: [
-      resolve({ extensions: ['.d.mts', '.mts'] }),
-      dts({
-        includeExternal: workspace.name === 'docmark-util-types'
-          ? ['@flex-development/fsm-tokenizer']
-          : []
-      }),
-      {
-        /**
-         * Re-add lost `type` modifiers.
-         *
-         * @see https://github.com/Swatinem/rollup-plugin-dts/issues/354
-         *
-         * @this {PluginContext}
-         *
-         * @param {NormalizedOutputOptions} options
-         *  The normalized output options
-         * @param {OutputBundle} bundle
-         *  The output bundle object
-         * @return {undefined}
-         */
-        generateBundle(
-          this: PluginContext,
-          options: NormalizedOutputOptions,
-          bundle: OutputBundle
-        ): undefined {
-          for (const output of Object.values(bundle)) {
-            if (output.type === 'chunk') {
-              output.code = output.code
-                .replaceAll('import *', 'import type *')
-                .replaceAll('import {', 'import type {')
-
-              if (workspace.name === 'docmark-util-types') {
-                output.code = output.code.replaceAll(
-                  'export {',
-                  'export type {'
-                )
-              }
-            }
-          }
-
-          return void this
-        },
-
-        /**
-         * The plugin name.
-         */
-        name: 'build:dts'
-      }
-    ]
+  // add mjs target file for non-types build.
+  if (workspace.name !== 'docmark-util-types') {
+    files.push(pathe.join(url.pathname, 'dist/index.mjs'))
   }
+
+  /**
+   * The package manifest.
+   *
+   * @const {PackageJson | null} manifest
+   */
+  const manifest: PackageJson | null = readPackageJson(url)
+
+  return files.map(input => {
+    ok(manifest, 'expected `manifest`')
+    ok(manifest.name, 'expected `manifest.name`')
+
+    /**
+     * The list of plugins.
+     *
+     * @const {(Plugin | Plugin[])[]} plugins
+     */
+    const plugins: (Plugin | Plugin[])[] = []
+
+    if (input.endsWith('.mjs')) {
+      plugins.push(resolve(), cleanup({ comments: 'none' }))
+    } else {
+      plugins.push(resolve({ extensions: ['.d.mts', '.mts'] }), dts(workspace))
+    }
+
+    return {
+      external: Object.keys(manifest.dependencies ?? {}),
+      input,
+      output: [{ file: input, format: 'esm' }],
+      plugins
+    }
+  })
 })
+
+/**
+ * Create a plugin pack to bundle declaration files and fix `type` modifiers.
+ *
+ * @this {void}
+ *
+ * @param {Dirent} workspace
+ *  The dirent representing the workspace
+ * @return {Plugin[]}
+ *  The plugin pack
+ */
+function dts(this: void, workspace: Dirent): Plugin[] {
+  return [
+    dtsBundle(),
+    {
+      /**
+       * Re-add lost `type` modifiers.
+       *
+       * @see https://github.com/Swatinem/rollup-plugin-dts/issues/354
+       *
+       * @this {PluginContext}
+       *
+       * @param {NormalizedOutputOptions} options
+       *  The normalized output options
+       * @param {OutputBundle} bundle
+       *  The output bundle object
+       * @return {undefined}
+       */
+      generateBundle(
+        this: PluginContext,
+        options: NormalizedOutputOptions,
+        bundle: OutputBundle
+      ): undefined {
+        for (const output of Object.values(bundle)) {
+          if (output.type === 'chunk') {
+            output.code = output.code.replace(EXPORT_AGGREGATE_REGEX, (
+              match: string,
+              type: string | undefined,
+              exports: string,
+              specifier: string | undefined
+            ) => {
+              ok(specifier, 'expected `specifier`')
+
+              // re-exporting `Numeric` from `@flex-development/mark/core`
+              // only to remove it is annoying, but unfortunately required
+              // because `rollup-plugin-dts` does not know how to bundle types
+              // only used in index signatures.
+              if (
+                workspace.name === 'docmark-util-types' &&
+                specifier === '@flex-development/mark/core'
+              ) {
+                return match.replace('export {', 'import type {')
+              }
+
+              return type ? match : match.replace('export {', 'export type {')
+            })
+
+            output.code = output.code.replace(STATIC_IMPORT_REGEX, (
+              match: string,
+              type: string | undefined
+            ) => {
+              return type ? match : match.replace('import', 'import type')
+            })
+          }
+        }
+
+        return void this
+      },
+
+      /**
+       * The plugin name.
+       */
+      name: 'dts:fix'
+    }
+  ]
+}

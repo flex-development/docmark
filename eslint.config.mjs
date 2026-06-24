@@ -5,6 +5,8 @@
  */
 
 import fldv from '@flex-development/eslint-config'
+import pathe from '@flex-development/pathe'
+import fs from 'node:fs'
 
 /**
  * eslint configuration.
@@ -12,6 +14,26 @@ import fldv from '@flex-development/eslint-config'
  * @type {import('eslint').Linter.Config[]}
  * @const config
  */
-const config = [...fldv.configs.node]
+const config = [
+  ...fldv.configs.node,
+  {
+    files: ['**/*.+(cjs|cts|js|jsx|mjs|mts|ts|tsx)'],
+    rules: {
+      'node/no-unsupported-features/node-builtins': [
+        2,
+        {
+          allowExperimental: true,
+          version: fs.readFileSync(pathe.resolve('.nvmrc'), 'utf8').trim()
+        }
+      ]
+    }
+  },
+  {
+    files: ['packages/docmark-util-symbol/src/codes.mts'],
+    rules: {
+      'sort-keys': 0
+    }
+  }
+]
 
 export default config

@@ -10,6 +10,7 @@ import pathe from '@flex-development/pathe'
 import { ok } from 'devlop'
 import ci from 'is-ci'
 import type { Dirent } from 'node:fs'
+import type { LabelColor } from 'vitest'
 import {
   defineConfig,
   type ConfigEnv,
@@ -17,6 +18,7 @@ import {
   type ViteUserConfig
 } from 'vitest/config'
 import type {
+  BuiltinEnvironment,
   ResolveSnapshotPathHandlerContext
 } from 'vitest/node'
 import pkg from './package.json' with { type: 'json' }
@@ -63,7 +65,8 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
           '**/__mocks__/',
           '**/__tests__/',
           '**/interfaces/',
-          '**/types/'
+          '**/types/',
+          'packages/docmark-util-types/'
         ],
         ignoreClassMethods: [],
         include: ['packages/**/src/**/*.mts'],
@@ -86,32 +89,69 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
         junit: pathe.join('__tests__', 'reports', env.mode + '.junit.xml')
       },
       passWithNoTests: true,
-      projects: workspaces.flatMap((workspace, groupOrder) => {
-        return ['node' as const, 'happy-dom' as const].map(environment => {
+      projects: workspaces.flatMap((
+        workspace: Dirent,
+        groupOrder: number
+      ): TestProjectInlineConfiguration[] => {
+        const { customConditions } = tsconfig.compilerOptions
+
+        /**
+         * The list of environments to test in.
+         *
+         * @const {BuiltinEnvironment[]} environments
+         */
+        const environments: BuiltinEnvironment[] = [
+          'node',
+          'edge-runtime',
+          'happy-dom'
+        ]
+
+        return environments.map(environment => {
           /**
-           * The workspace test configuration.
+           * The list of conditions to apply.
            *
-           * @const {TestProjectInlineConfiguration} project
+           * @const {string[]} conditions
            */
-          const project: TestProjectInlineConfiguration = {
-            extends: true,
-            resolve: {
-              conditions: tsconfig.compilerOptions.customConditions,
-              preserveSymlinks: true
-            },
+          const conditions: string[] = Object.assign([], customConditions)
+
+          /**
+           * The color of the project name label.
+           *
+           * @var {LabelColor} color
+           */
+          let color: LabelColor
+
+          switch (environment) {
+            case 'edge-runtime':
+              color = 'magenta'
+              break
+            case 'happy-dom':
+              // @ts-expect-error blueBright is a valid color (2322).
+              color = env.mode === 'typecheck' ? 'blueBright' : 'blue'
+              conditions.unshift('browser')
+              break
+            default:
+              color = 'blackBright' as LabelColor
+              break
+          }
+
+          return {
+            extends: true as const,
+            mode: env.mode === 'reports'
+              ? env.mode
+              : workspace.name === 'docmark-util-types'
+              ? 'typecheck'
+              : env.mode,
+            resolve: { conditions, preserveSymlinks: true },
             root: pathe.join(workspace.parentPath, workspace.name),
-            ssr: {
-              resolve: {
-                conditions: tsconfig.compilerOptions.customConditions
-              }
-            },
+            ssr: { resolve: { conditions } },
             test: {
               env: { VITEST_ENVIRONMENT: environment },
               environment,
               environmentOptions: {},
-              name: { label: workspace.name },
+              name: { color, label: workspace.name + ':' + environment },
               sequence: { groupOrder },
-              setupFiles: [],
+              setupFiles: [pathe.resolve('__tests__/setup/chai.mts')],
               typecheck: {
                 allowJs: false,
                 checker: 'tsc',
@@ -119,21 +159,10 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
                 ignoreSourceErrors: false,
                 include: ['**/__tests__/*.spec-d.mts'],
                 only: true,
-                tsconfig: 'tsconfig.json'
+                tsconfig: pathe.resolve('tsconfig.json')
               }
             }
           }
-
-          ok(project.test, 'expected `test`')
-          ok(project.test.typecheck, 'expected `test.typecheck`')
-          ok(typeof project.test.name === 'object', 'expected `test.name`')
-
-          if (project.test.name.label === 'docmark-util-types') {
-            project.mode = 'typecheck'
-          }
-
-          project.test.name.label += ':' + environment
-          return project
         })
       }),
       reporters: JSON.parse(process.env['VITEST_UI'] ?? '0')
@@ -184,7 +213,7 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
           inline: ['devlop']
         }
       },
-      setupFiles: [],
+      setupFiles: [pathe.resolve('__tests__/setup/chai.mts')],
       snapshotFormat: {
         callToJSON: true,
         min: false,

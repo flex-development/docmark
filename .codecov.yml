@@ -28,22 +28,10 @@ component_management:
       name: docmark
       paths:
         - packages/docmark/**/*.mts
-    - component_id: docmark-core
-      name: docmark-core
-      paths:
-        - packages/docmark-core/**/*.mts
     - component_id: docmark-factory-space
       name: docmark-factory-space
       paths:
         - packages/docmark-factory-space/**/*.mts
-    - component_id: docmark-factory-whitespace
-      name: docmark-factory-whitespace
-      paths:
-        - packages/docmark-factory-whitespace/**/*.mts
-    - component_id: docmark-util-combine-extensions
-      name: docmark-util-combine-extensions
-      paths:
-        - packages/docmark-util-combine-extensions/**/*.mts
     - component_id: docmark-util-subtokenize
       name: docmark-util-subtokenize
       paths:
@@ -140,6 +128,7 @@ ignore:
   - '**/interfaces/**'
   - '**/types/**'
   - '!packages/*/src/index.mts'
+  - 'packages/docmark-util-types/**'
 
 profiling:
   critical_files_paths: []

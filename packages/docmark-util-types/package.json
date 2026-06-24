@@ -49,15 +49,9 @@
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.mts",
-  "scripts": {
-    "post:build": "trash \"dist/*.d.mts\" !dist/index.d.mts"
-  },
   "dependencies": {
-    "@flex-development/docast": "1.0.0-beta.2",
-    "@flex-development/unist-util-types": "1.6.1"
-  },
-  "devDependencies": {
-    "@flex-development/fsm-tokenizer": "1.0.0-alpha.1"
+    "@flex-development/mark": "flex-development/mark#commit=cde4845c3550ee23279e61ff594962110c61713e",
+    "micromark-util-types": "2.0.2"
   },
   "sideEffects": false
 }
