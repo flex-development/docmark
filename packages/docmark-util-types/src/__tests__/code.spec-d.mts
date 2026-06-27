@@ -5,7 +5,7 @@
 
 import type TestSubject from '../code.mts'
 
-describe('unit-d:types/Code', () => {
+describe('unit-d:Code', () => {
   it('should extract null', () => {
     expectTypeOf<TestSubject>().extract<null>().not.toBeNever()
   })

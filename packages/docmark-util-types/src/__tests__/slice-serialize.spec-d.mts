@@ -9,7 +9,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../slice-serialize.mts'
 
-describe('unit-d:types/SliceSerialize', () => {
+describe('unit-d:SliceSerialize', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })

@@ -6,7 +6,7 @@
 import type { Code } from '@flex-development/docmark-util-types'
 import type TestSubject from '../chunk.mts'
 
-describe('unit-d:types/Chunk', () => {
+describe('unit-d:Chunk', () => {
   it('should extract Code', () => {
     expectTypeOf<TestSubject>().extract<Code>().not.toBeNever()
   })

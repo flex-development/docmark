@@ -10,7 +10,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../token-fields.mts'
 
-describe('unit-d:interfaces/TokenFields', () => {
+describe('unit-d:TokenFields', () => {
   it('should match [_balanced?: boolean | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('_balanced')

@@ -1,0 +1,6 @@
+@this {void}
+
+@param {Code} code
+ The current character code
+@return {State | undefined}
+ The next state

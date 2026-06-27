@@ -6,7 +6,7 @@
 import type { Construct } from '@flex-development/docmark-util-types'
 import type TestSubject from '../construct-record.mts'
 
-describe('unit-d:interfaces/ConstructRecord', () => {
+describe('unit-d:ConstructRecord', () => {
   type Value = Construct | Construct[] | undefined
 
   it('should match [[x: Numeric]: Construct | Construct[] | undefined]', () => {

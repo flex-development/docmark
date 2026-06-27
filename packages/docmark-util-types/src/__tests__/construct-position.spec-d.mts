@@ -5,7 +5,7 @@
 
 import type TestSubject from '../construct-position.mts'
 
-describe('unit-d:types/ConstructPosition', () => {
+describe('unit-d:ConstructPosition', () => {
   it('should extract "after"', () => {
     expectTypeOf<TestSubject>().extract<'after'>().not.toBeNever()
   })

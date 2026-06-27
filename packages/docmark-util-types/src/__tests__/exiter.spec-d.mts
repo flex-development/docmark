@@ -9,7 +9,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../exiter.mts'
 
-describe('unit-d:types/Exiter', () => {
+describe('unit-d:Exiter', () => {
   it('should match [this: TokenizeContext]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<TokenizeContext>()
   })

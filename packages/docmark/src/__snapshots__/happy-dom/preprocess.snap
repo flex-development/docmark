@@ -1,0 +1,112 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:preprocess > preprocessor > should return non-empty character code chunk list (0) 1`] = `
+[
+  -13,
+]
+`;
+
+exports[`unit:preprocess > preprocessor > should return non-empty character code chunk list (1) 1`] = `
+[
+  null,
+]
+`;
+
+exports[`unit:preprocess > preprocessor > should return non-empty character code chunk list (2) 1`] = `
+[
+  -4,
+  -5,
+  -3,
+]
+`;
+
+exports[`unit:preprocess > preprocessor > should return non-empty character code chunk list (3) 1`] = `
+[
+  null,
+]
+`;
+
+exports[`unit:preprocess > preprocessor > should return non-empty character code chunk list (4) 1`] = `
+[
+  47,
+  42,
+  42,
+  32,
+  104,
+  101,
+  108,
+  108,
+  111,
+  -2,
+  -1,
+  -1,
+  119,
+  111,
+  114,
+  108,
+  100,
+  32,
+  42,
+  47,
+]
+`;
+
+exports[`unit:preprocess > preprocessor > should return non-empty character code chunk list (5) 1`] = `
+[
+  47,
+  42,
+  42,
+  32,
+  104,
+  105,
+  -2,
+  -1,
+  119,
+  111,
+  114,
+  108,
+  100,
+  32,
+  42,
+  47,
+]
+`;
+
+exports[`unit:preprocess > preprocessor > should return non-empty character code chunk list (6) 1`] = `
+[
+  47,
+  42,
+  42,
+  32,
+  64,
+  109,
+  111,
+  100,
+  117,
+  108,
+  101,
+  32,
+  100,
+  111,
+  99,
+  109,
+  97,
+  114,
+  107,
+  47,
+  112,
+  114,
+  101,
+  112,
+  114,
+  111,
+  99,
+  101,
+  115,
+  115,
+  32,
+  42,
+  47,
+  null,
+]
+`;

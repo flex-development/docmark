@@ -6,7 +6,7 @@
 import type { Place } from '@flex-development/docmark-util-types'
 import type TestSubject from '../position.mts'
 
-describe('unit-d:interfaces/Position', () => {
+describe('unit-d:Position', () => {
   it('should match [end: Place]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('end').toEqualTypeOf<Place>()
   })

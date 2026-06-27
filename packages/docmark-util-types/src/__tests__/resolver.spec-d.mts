@@ -3,11 +3,13 @@
  * @module docmark-util-types/tests/unit-d/Resolver
  */
 
-import type { Event,
-  TokenizeContext } from '@flex-development/docmark-util-types'
+import type {
+  Event,
+  TokenizeContext
+} from '@flex-development/docmark-util-types'
 import type TestSubject from '../resolver.mts'
 
-describe('unit-d:types/Resolver', () => {
+describe('unit-d:Resolver', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })

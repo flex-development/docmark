@@ -11,7 +11,7 @@ import type {
 import type { NIL } from '@flex-development/tutils'
 import type TestSubject from '../normalized-extension.mts'
 
-describe('unit-d:types/NormalizedExtension', () => {
+describe('unit-d:NormalizedExtension', () => {
   it('should extend `Extension`', () => {
     expectTypeOf<TestSubject>().toExtend<Extension>()
   })

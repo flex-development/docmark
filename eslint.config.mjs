@@ -29,9 +29,24 @@ const config = [
     }
   },
   {
+    files: ['packages/docmark/src/constructs/*.mts'],
+    rules: {
+      'unicorn/no-this-assignment': 0
+    }
+  },
+  {
     files: ['packages/docmark-util-symbol/src/codes.mts'],
     rules: {
       'sort-keys': 0
+    }
+  },
+  {
+    files: [
+      'packages/docmark-util-types/src/__tests__/encoding-map.spec-d.mts',
+      'packages/docmark-util-types/src/encoding-map.mts'
+    ],
+    rules: {
+      'unicorn/text-encoding-identifier-case': 0
     }
   }
 ]

@@ -5,7 +5,7 @@
 
 import type TestSubject from '../disable.mts'
 
-describe('unit-d:types/Disable', () => {
+describe('unit-d:Disable', () => {
   it('should match [null?: string[] | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('null')

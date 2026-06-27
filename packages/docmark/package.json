@@ -53,7 +53,6 @@
   },
   "type": "module",
   "files": [
-    "CHANGELOG.md",
     "LICENSE.md",
     "README.md",
     "dist"
@@ -64,6 +63,9 @@
       "default": "./dist/index.mjs"
     },
     "./package.json": "./package.json"
+  },
+  "imports": {
+    "#lib/preprocess": "./src/preprocess.mts"
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

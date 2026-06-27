@@ -10,7 +10,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../initializer.mts'
 
-describe('unit-d:types/Initializer', () => {
+describe('unit-d:Initializer', () => {
   it('should match [this: TokenizeContext]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<TokenizeContext>()
   })

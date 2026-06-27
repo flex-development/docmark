@@ -11,7 +11,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../extension.mts'
 
-describe('unit-d:interfaces/Extension', () => {
+describe('unit-d:Extension', () => {
   it('should match [attentionMarkers?: AttentionMarkers | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('attentionMarkers')

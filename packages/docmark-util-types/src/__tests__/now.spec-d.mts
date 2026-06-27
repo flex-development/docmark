@@ -7,7 +7,7 @@ import type { Place } from '@flex-development/docmark-util-types'
 import type { EmptyArray } from '@flex-development/tutils'
 import type TestSubject from '../now.mts'
 
-describe('unit-d:types/Now', () => {
+describe('unit-d:Now', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })

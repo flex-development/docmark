@@ -6,7 +6,7 @@
 import type { Point } from '@flex-development/docmark-util-types'
 import type TestSubject from '../place.mts'
 
-describe('unit-d:interfaces/Place', () => {
+describe('unit-d:Place', () => {
   it('should extend Point', () => {
     expectTypeOf<TestSubject>().toExtend<Point>()
   })

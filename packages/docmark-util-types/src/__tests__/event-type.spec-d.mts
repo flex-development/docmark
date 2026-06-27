@@ -5,7 +5,7 @@
 
 import type TestSubject from '../event-type.mts'
 
-describe('unit-d:types/EventType', () => {
+describe('unit-d:EventType', () => {
   it('should extract "enter"', () => {
     expectTypeOf<TestSubject>().extract<'enter'>().not.toBeNever()
   })

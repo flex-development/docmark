@@ -3,7 +3,10 @@
  * @module docmark-util-types/ParseOptions
  */
 
-import type { Extension } from '@flex-development/docmark-util-types'
+import type {
+  Extension,
+  PreprocessOptions
+} from '@flex-development/docmark-util-types'
 import type { List } from '@flex-development/mark/core'
 
 /**
@@ -17,8 +20,12 @@ import type { List } from '@flex-development/mark/core'
  *      from?: Point | null | undefined
  *    }
  *  }
+ *
+ * @see {@linkcode PreprocessOptions}
+ *
+ * @extends {PreprocessOptions}
  */
-interface ParseOptions {
+interface ParseOptions extends PreprocessOptions {
   /**
    * The list of syntax extensions to apply.
    *

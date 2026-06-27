@@ -5,7 +5,7 @@
 
 import type TestSubject from '../column.mts'
 
-describe('unit-d:types/Column', () => {
+describe('unit-d:Column', () => {
   it('should equal number', () => {
     expectTypeOf<TestSubject>().toEqualTypeOf<number>()
   })

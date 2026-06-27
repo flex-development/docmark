@@ -6,7 +6,7 @@
 import type { TokenTypeMap } from '@flex-development/docmark-util-types'
 import type TestSubject from '../token-type.mts'
 
-describe('unit-d:types/TokenType', () => {
+describe('unit-d:TokenType', () => {
   it('should equal TokenTypeMap[keyof TokenTypeMap]', () => {
     // Arrange
     type Expect = TokenTypeMap[keyof TokenTypeMap]

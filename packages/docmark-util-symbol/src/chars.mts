@@ -24,7 +24,7 @@ const chars = {
   bar: '|',
   bel: '\u0007',
   bom: '\uFEFF',
-  break: null, // stream break
+  break: '', // stream break
   bs: '\b',
   can: '\u0018',
   caret: '^',
@@ -55,6 +55,7 @@ const chars = {
   empty: '',
   enq: '\u0005',
   eof: null,
+  eos: null,
   eot: '\u0004',
   equal: '=',
   esc: '\u001B',

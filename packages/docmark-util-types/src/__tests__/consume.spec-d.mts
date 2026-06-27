@@ -6,7 +6,7 @@
 import type { Code } from '@flex-development/docmark-util-types'
 import type TestSubject from '../consume.mts'
 
-describe('unit-d:types/Consume', () => {
+describe('unit-d:Consume', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })

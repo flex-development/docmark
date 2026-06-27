@@ -6,7 +6,7 @@
 import type { Token, TokenType } from '@flex-development/docmark-util-types'
 import type TestSubject from '../exit.mts'
 
-describe('unit-d:types/Exit', () => {
+describe('unit-d:Exit', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })

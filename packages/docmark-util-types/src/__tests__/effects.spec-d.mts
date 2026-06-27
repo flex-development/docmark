@@ -13,7 +13,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../effects.mts'
 
-describe('unit-d:interfaces/Effects', () => {
+describe('unit-d:Effects', () => {
   it('should match [attempt: Attempt]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('attempt')

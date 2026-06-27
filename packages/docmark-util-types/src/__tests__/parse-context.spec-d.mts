@@ -10,7 +10,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../parse-context.mts'
 
-describe('unit-d:interfaces/ParseContext', () => {
+describe('unit-d:ParseContext', () => {
   it('should match [comment: Create]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('comment')

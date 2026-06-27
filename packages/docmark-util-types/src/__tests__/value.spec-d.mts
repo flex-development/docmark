@@ -5,7 +5,7 @@
 
 import type TestSubject from '../value.mts'
 
-describe('unit-d:types/Value', () => {
+describe('unit-d:Value', () => {
   it('should extract Uint8Array', () => {
     expectTypeOf<TestSubject>().extract<Uint8Array>().not.toBeNever()
   })

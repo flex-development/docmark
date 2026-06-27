@@ -6,7 +6,7 @@
 import type { Column, Line, Offset } from '@flex-development/docmark-util-types'
 import type TestSubject from '../point.mts'
 
-describe('unit-d:interfaces/Point', () => {
+describe('unit-d:Point', () => {
   it('should match [column: Column]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('column').toEqualTypeOf<Column>()
   })

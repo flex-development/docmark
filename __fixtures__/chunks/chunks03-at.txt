@@ -1,0 +1,1 @@
+This summary contains an `@` symbol

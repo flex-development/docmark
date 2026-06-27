@@ -1,0 +1,10 @@
+Context object to assist with parsing.
+
+This interface can be augmented to register custom fields.
+
+@example
+ declare module '@flex-development/docmark-util-types' {
+   interface ParseContext {
+     list: string[]
+   }
+ }

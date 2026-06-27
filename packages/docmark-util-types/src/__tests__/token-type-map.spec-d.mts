@@ -6,9 +6,15 @@
 import type * as micromark from 'micromark-util-types'
 import type TestSubject from '../token-type-map.mts'
 
-describe('unit-d:interfaces/TokenTypeMap', () => {
+describe('unit-d:TokenTypeMap', () => {
   it('should extend micromark.TokenTypeMap', () => {
     expectTypeOf<TestSubject>().toExtend<micromark.TokenTypeMap>()
+  })
+
+  it('should match [blockTag: "blockTag"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('blockTag')
+      .toEqualTypeOf<'blockTag'>()
   })
 
   it('should match [chunkComment: "chunkComment"]', () => {
@@ -61,6 +67,18 @@ describe('unit-d:interfaces/TokenTypeMap', () => {
 
   it('should match [eoc: "eoc"]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('eoc').toEqualTypeOf<'eoc'>()
+  })
+
+  it('should match [inlineTag: "inlineTag"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('inlineTag')
+      .toEqualTypeOf<'inlineTag'>()
+  })
+
+  it('should match [inlineTagText: "inlineTagText"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('inlineTagText')
+      .toEqualTypeOf<'inlineTagText'>()
   })
 
   it('should match [null: never]', () => {

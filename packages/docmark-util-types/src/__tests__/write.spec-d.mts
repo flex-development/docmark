@@ -6,7 +6,7 @@
 import type { Chunk, Event } from '@flex-development/docmark-util-types'
 import type TestSubject from '../write.mts'
 
-describe('unit-d:types/Write', () => {
+describe('unit-d:Write', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })

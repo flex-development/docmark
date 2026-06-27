@@ -1,0 +1,14 @@
+Start a new token.
+
+@see {@linkcode TokenFields}
+@see {@linkcode TokenType}
+@see {@linkcode Token}
+
+@this {void}
+
+@param {TokenType} type
+ The token type
+@param {TokenFields | undefined} [fields]
+ The token fields
+@return {Token}
+ The open token

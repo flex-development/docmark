@@ -3,4 +3,4 @@
  * @module docmark
  */
 
-export {}
+export { default as preprocess } from './preprocess.mts'

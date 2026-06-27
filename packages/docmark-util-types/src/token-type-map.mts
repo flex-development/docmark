@@ -26,6 +26,7 @@ import type * as micromark from 'micromark-util-types'
  * @extends {micromark.TokenTypeMap}
  */
 interface TokenTypeMap extends micromark.TokenTypeMap {
+  blockTag: 'blockTag'
   chunkComment: 'chunkComment'
   chunkMarkdown: 'chunkMarkdown'
   comment: 'comment'
@@ -35,6 +36,8 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   commentLinePrefix: 'commentLinePrefix'
   commentOpener: 'commentOpener'
   eoc: 'eoc'
+  inlineTag: 'inlineTag'
+  inlineTagText: 'inlineTagText'
   null: never
   summary: 'summary'
   tagName: 'tagName'

@@ -142,7 +142,11 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
               : workspace.name === 'docmark-util-types'
               ? 'typecheck'
               : env.mode,
-            resolve: { conditions, preserveSymlinks: true },
+            resolve: {
+              conditions,
+              preserveSymlinks: true,
+              tsconfigPaths: true
+            },
             root: pathe.join(workspace.parentPath, workspace.name),
             ssr: { resolve: { conditions } },
             test: {

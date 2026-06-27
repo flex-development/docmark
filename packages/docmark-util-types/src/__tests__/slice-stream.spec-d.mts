@@ -6,7 +6,7 @@
 import type { Chunk, Position } from '@flex-development/docmark-util-types'
 import type TestSubject from '../slice-stream.mts'
 
-describe('unit-d:types/SliceStream', () => {
+describe('unit-d:SliceStream', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })

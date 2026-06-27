@@ -9,7 +9,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../previous.mts'
 
-describe('unit-d:types/Previous', () => {
+describe('unit-d:Previous', () => {
   it('should match [this: TokenizeContext]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<TokenizeContext>()
   })

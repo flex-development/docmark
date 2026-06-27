@@ -12,7 +12,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../construct.mts'
 
-describe('unit-d:interfaces/Construct', () => {
+describe('unit-d:Construct', () => {
   it('should match [add?: ConstructPosition | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('add')

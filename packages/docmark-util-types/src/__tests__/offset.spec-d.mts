@@ -5,7 +5,7 @@
 
 import type TestSubject from '../offset.mts'
 
-describe('unit-d:types/Offset', () => {
+describe('unit-d:Offset', () => {
   it('should equal number', () => {
     expectTypeOf<TestSubject>().toEqualTypeOf<number>()
   })

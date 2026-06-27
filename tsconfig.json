@@ -16,6 +16,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "paths": {
+      "@fixtures/*": ["./__fixtures__/*"],
       "@tests/*": ["./__tests__/*"]
     },
     "resolveJsonModule": true,

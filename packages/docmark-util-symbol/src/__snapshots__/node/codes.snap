@@ -4,8 +4,8 @@ exports[`unit:codes > should be character code dictionary 1`] = `
 {
   "eof": null,
   "eos": null,
-  "bos": null,
-  "sof": null,
+  "bos": -1000,
+  "sof": -1000,
   "empty": -999,
   "break": -13,
   "vcr": -5,

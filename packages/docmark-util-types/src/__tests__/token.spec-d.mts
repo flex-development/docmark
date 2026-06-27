@@ -10,7 +10,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../token.mts'
 
-describe('unit-d:interfaces/Token', () => {
+describe('unit-d:Token', () => {
   it('should extend Position', () => {
     expectTypeOf<TestSubject>().toExtend<Position>()
   })

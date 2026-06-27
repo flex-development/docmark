@@ -6,7 +6,7 @@
 import type { Construct } from '@flex-development/docmark-util-types'
 import type TestSubject from '../partial-construct.mts'
 
-describe('unit-d:interfaces/PartialConstruct', () => {
+describe('unit-d:PartialConstruct', () => {
   it('should extend Construct', () => {
     expectTypeOf<TestSubject>().toExtend<Construct>()
   })

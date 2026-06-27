@@ -1,0 +1,748 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Code}") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "inlineTag",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "tagNameIdentifier",
+      "value": "linkcode",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "tagNameIdentifier",
+      "value": "linkcode",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "whitespace",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "whitespace",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 15,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "inlineTagText",
+      "value": "Code",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 15,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "inlineTagText",
+      "value": "Code",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "inlineTag",
+    },
+  ],
+]
+`;
+
+exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t{Code\\\\}}") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 20,
+        "column": 21,
+        "line": 1,
+        "offset": 19,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "inlineTag",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "tagNameIdentifier",
+      "value": "linkcode",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "tagNameIdentifier",
+      "value": "linkcode",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 13,
+        "line": 1,
+        "offset": 11,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "whitespace",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 13,
+        "line": 1,
+        "offset": 11,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 11,
+        "line": 1,
+        "offset": 10,
+      },
+      "type": "whitespace",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 19,
+        "column": 20,
+        "line": 1,
+        "offset": 18,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 13,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "inlineTagText",
+      "value": "{Code\\}",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 19,
+        "column": 20,
+        "line": 1,
+        "offset": 18,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 13,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "inlineTagText",
+      "value": "{Code\\}",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 20,
+        "column": 21,
+        "line": 1,
+        "offset": 19,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "inlineTag",
+    },
+  ],
+]
+`;
+
+exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parser {@linkcode Event}s") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 32,
+        "column": 33,
+        "line": 1,
+        "offset": 32,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 15,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "type": "inlineTag",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 17,
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 17,
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 17,
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "type": "tagNameIdentifier",
+      "value": "linkcode",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 17,
+        "column": 18,
+        "line": 1,
+        "offset": 17,
+      },
+      "type": "tagNameIdentifier",
+      "value": "linkcode",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 26,
+        "column": 27,
+        "line": 1,
+        "offset": 26,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "type": "whitespace",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 26,
+        "column": 27,
+        "line": 1,
+        "offset": 26,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "type": "whitespace",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 31,
+        "column": 32,
+        "line": 1,
+        "offset": 31,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 26,
+        "column": 27,
+        "line": 1,
+        "offset": 26,
+      },
+      "type": "inlineTagText",
+      "value": "Event",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 31,
+        "column": 32,
+        "line": 1,
+        "offset": 31,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 26,
+        "column": 27,
+        "line": 1,
+        "offset": 26,
+      },
+      "type": "inlineTagText",
+      "value": "Event",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 32,
+        "column": 33,
+        "line": 1,
+        "offset": 32,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 15,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "type": "inlineTag",
+    },
+  ],
+]
+`;

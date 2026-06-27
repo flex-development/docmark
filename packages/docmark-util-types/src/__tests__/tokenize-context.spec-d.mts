@@ -17,7 +17,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../tokenize-context.mts'
 
-describe('unit-d:interfaces/TokenizeContext', () => {
+describe('unit-d:TokenizeContext', () => {
   it('should match [_contentTypeTextTrailing?: boolean | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('_contentTypeTextTrailing')

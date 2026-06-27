@@ -27,8 +27,8 @@
 const codes = {
   eof: null, // end of file; alias for `eos`
   eos: null, // end of stream
-  bos: null, // start of stream
-  sof: null, // start of file; alias for `bos`
+  bos: -1000, // start of stream
+  sof: -1000, // start of file; alias for `bos`
   empty: -999, // empty string chunk
   break: -13, // stream break
   vcr: -5, // virtual carriage return (\r)

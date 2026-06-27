@@ -10,7 +10,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../event.mts'
 
-describe('unit-d:types/Event', () => {
+describe('unit-d:Event', () => {
   type T = 'comment'
   type Subject = TestSubject<T>
 

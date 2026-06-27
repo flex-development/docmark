@@ -9,7 +9,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import type TestSubject from '../initial-construct.mts'
 
-describe('unit-d:interfaces/InitialConstruct', () => {
+describe('unit-d:InitialConstruct', () => {
   it('should extend Construct', () => {
     expectTypeOf<TestSubject>().toExtend<Construct>()
   })

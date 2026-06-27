@@ -6,7 +6,7 @@
 import type * as micromark from 'micromark-util-types'
 import type TestSubject from '../content-type.mts'
 
-describe('unit-d:types/ContentType', () => {
+describe('unit-d:ContentType', () => {
   it('should extract "comment"', () => {
     expectTypeOf<TestSubject>().extract<'comment'>().not.toBeNever()
   })
