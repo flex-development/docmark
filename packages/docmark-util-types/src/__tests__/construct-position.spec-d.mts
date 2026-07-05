@@ -3,6 +3,7 @@
  * @module docmark-util-types/tests/unit-d/ConstructPosition
  */
 
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../construct-position.mts'
 
 describe('unit-d:ConstructPosition', () => {

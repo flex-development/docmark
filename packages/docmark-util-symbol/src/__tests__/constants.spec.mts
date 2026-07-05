@@ -4,6 +4,7 @@
  */
 
 import * as micromark from 'micromark-util-symbol'
+import { describe, expect, it } from 'vitest'
 import testSubject from '../constants.mts'
 
 describe('unit:constants', () => {

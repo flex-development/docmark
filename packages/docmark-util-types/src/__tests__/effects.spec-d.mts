@@ -11,6 +11,7 @@ import type {
   Exit,
   Interrupt
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../effects.mts'
 
 describe('unit-d:Effects', () => {

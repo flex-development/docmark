@@ -4,6 +4,7 @@
  */
 
 import type { Chunk, Event } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../write.mts'
 
 describe('unit-d:Write', () => {

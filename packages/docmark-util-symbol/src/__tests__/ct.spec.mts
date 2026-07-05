@@ -3,6 +3,7 @@
  * @module docmark-util-symbol/tests/unit/ct
  */
 
+import { beforeAll, describe, expect, it } from 'vitest'
 import constants from '../constants.mts'
 import testSubject from '../ct.mts'
 

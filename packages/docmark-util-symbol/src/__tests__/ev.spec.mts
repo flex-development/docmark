@@ -3,6 +3,7 @@
  * @module docmark-util-symbol/tests/unit/ev
  */
 
+import { describe, expect, it } from 'vitest'
 import testSubject from '../ev.mts'
 
 describe('unit:chars', () => {

@@ -6,7 +6,7 @@
     "customConditions": ["docmark", "development"],
     "declaration": true,
     "declarationMap": true,
-    "lib": ["es2024"],
+    "lib": ["es2024", "dom"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "newLine": "lf",
@@ -22,12 +22,14 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "target": "esnext",
+    "types": ["node"],
     "verbatimModuleSyntax": true
   },
-  "exclude": ["coverage", "dist", "node_modules"],
+  "exclude": ["**/dist", "**/node_modules", "coverage"],
   "extends": "@tsconfig/strictest/tsconfig",
-  "files": [
-    "packages/docmark-factory-space/typings/@flex-development/docmark-util-types/index.d.mts"
-  ],
-  "include": ["**/**.json", "**/**.mjs", "**/**.mts", "**/**.ts"]
+  "references": [
+    {
+      "path": "packages/docmark/tsconfig.build.json"
+    }
+  ]
 }

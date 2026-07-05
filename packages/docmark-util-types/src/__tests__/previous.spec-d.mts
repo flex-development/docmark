@@ -7,6 +7,7 @@ import type {
   Code,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../previous.mts'
 
 describe('unit-d:Previous', () => {

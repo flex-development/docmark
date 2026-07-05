@@ -7,13 +7,13 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 4,
+        "_index": 1,
         "column": 5,
         "line": 1,
         "offset": 4,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -26,14 +26,14 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -46,14 +46,14 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -67,14 +67,14 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 4,
+        "_index": 1,
         "column": 5,
         "line": 1,
         "offset": 4,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -88,14 +88,14 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 4,
+        "_index": 1,
         "column": 5,
         "line": 1,
         "offset": 4,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -109,13 +109,13 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 4,
+        "_index": 1,
         "column": 5,
         "line": 1,
         "offset": 4,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -133,14 +133,14 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 5,
+        "_bufferIndex": 5,
+        "_index": 0,
         "column": 6,
         "line": 1,
         "offset": 5,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -153,14 +153,14 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -173,14 +173,14 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -193,15 +193,15 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 5,
+        "_bufferIndex": 5,
+        "_index": 0,
         "column": 6,
         "line": 1,
         "offset": 5,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -214,15 +214,15 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 5,
+        "_bufferIndex": 5,
+        "_index": 0,
         "column": 6,
         "line": 1,
         "offset": 5,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -235,14 +235,14 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 5,
+        "_bufferIndex": 5,
+        "_index": 0,
         "column": 6,
         "line": 1,
         "offset": 5,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,

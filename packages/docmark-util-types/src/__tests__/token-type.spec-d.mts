@@ -4,6 +4,7 @@
  */
 
 import type { TokenTypeMap } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../token-type.mts'
 
 describe('unit-d:TokenType', () => {

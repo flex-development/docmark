@@ -9,7 +9,7 @@ import type {
   State,
   TokenType
 } from '@flex-development/docmark-util-types'
-import { markdownSpace } from 'micromark-util-character'
+import { whitespace } from '@flex-development/mark-util-character'
 import type * as micromark from 'micromark-util-types'
 
 /**
@@ -62,7 +62,7 @@ function factorySpace(
    *  The next state
    */
   function space(this: void, code: Code): State | undefined {
-    if (!markdownSpace(code)) return ok(code)
+    if (!whitespace(code)) return ok(code)
     return type && effects.enter(type as never), prefix(code)
   }
 
@@ -75,7 +75,7 @@ function factorySpace(
    *  The next state
    */
   function prefix(this: void, code: Code): State | undefined {
-    if (markdownSpace(code) && size++ < limit) {
+    if (whitespace(code) && size++ < limit) {
       effects.consume(code)
       return prefix
     }

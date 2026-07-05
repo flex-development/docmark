@@ -2,6 +2,8 @@ import type * as docmark from '@flex-development/docmark-util-types'
 import type {} from '@flex-development/mark/parse'
 
 declare module '@flex-development/mark/parse' {
+  interface ContainerState extends docmark.ContainerState {}
+
   interface ContentTypeMap {
     comment: 'comment'
     content: 'content'

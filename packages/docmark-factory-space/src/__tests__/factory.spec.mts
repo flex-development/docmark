@@ -16,6 +16,7 @@ import {
   initialize as initial
 } from '@flex-development/mark-parser'
 import type { InitialConstruct } from '@flex-development/mark/parse'
+import { describe, expect, it, vi } from 'vitest'
 import testSubject from '../factory.mts'
 
 describe('unit:factory', () => {

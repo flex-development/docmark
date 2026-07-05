@@ -1559,7 +1559,7 @@ __metadata:
   resolution: "@flex-development/docmark-factory-space@workspace:packages/docmark-factory-space"
   dependencies:
     "@flex-development/docmark-util-types": "workspace:*"
-    micromark-util-character: "npm:2.1.1"
+    "@flex-development/mark-util-character": "npm:1.0.0"
     micromark-util-types: "npm:2.0.2"
   languageName: unknown
   linkType: soft
@@ -1570,10 +1570,8 @@ __metadata:
   dependencies:
     "@flex-development/docmark-util-symbol": "workspace:*"
     "@flex-development/docmark-util-types": "workspace:*"
-    "@flex-development/mark-parser": "flex-development/mark-parser#commit=8c66ac342e53f1b7a23308597be4a38bd23de4d4"
+    "@flex-development/mark-util-chunked": "npm:1.0.0"
     devlop: "npm:1.1.0"
-    micromark-util-subtokenize: "npm:2.1.0"
-    micromark-util-types: "npm:2.0.2"
   languageName: unknown
   linkType: soft
 
@@ -1589,7 +1587,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-util-types@workspace:packages/docmark-util-types"
   dependencies:
-    "@flex-development/mark": "flex-development/mark#commit=cde4845c3550ee23279e61ff594962110c61713e"
+    "@flex-development/mark": "npm:1.0.0-alpha.1"
     micromark-util-types: "npm:2.0.2"
   languageName: unknown
   linkType: soft
@@ -1602,11 +1600,12 @@ __metadata:
     "@flex-development/docmark-util-subtokenize": "workspace:*"
     "@flex-development/docmark-util-symbol": "workspace:*"
     "@flex-development/docmark-util-types": "workspace:*"
-    "@flex-development/mark": "flex-development/mark#commit=cde4845c3550ee23279e61ff594962110c61713e"
-    "@flex-development/mark-parser": "flex-development/mark-parser#commit=8c66ac342e53f1b7a23308597be4a38bd23de4d4"
+    "@flex-development/mark": "npm:1.0.0-alpha.1"
+    "@flex-development/mark-parser": "npm:1.0.0-alpha.11"
+    "@flex-development/mark-util-character": "npm:1.0.0"
+    "@flex-development/mark-util-chunked": "npm:1.0.0"
     devlop: "npm:1.1.0"
     micromark-core-commonmark: "npm:2.0.3"
-    micromark-util-character: "npm:2.1.1"
     micromark-util-subtokenize: "npm:2.1.0"
   languageName: unknown
   linkType: soft
@@ -1808,44 +1807,62 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/mark-parser@flex-development/mark-parser#commit=8c66ac342e53f1b7a23308597be4a38bd23de4d4":
-  version: 1.0.0-alpha.9
-  resolution: "@flex-development/mark-parser@https://github.com/flex-development/mark-parser.git#commit=8c66ac342e53f1b7a23308597be4a38bd23de4d4"
+"@flex-development/mark-parser@npm:1.0.0-alpha.11":
+  version: 1.0.0-alpha.11
+  resolution: "@flex-development/mark-parser@npm:1.0.0-alpha.11"
   dependencies:
-    "@flex-development/mark": "flex-development/mark#commit=9a157dbfc5822e3bd6c513e32855bceace566320"
-    "@flex-development/mark-util-symbol": "npm:1.1.0"
+    "@flex-development/mark": "npm:1.0.0-alpha.1"
+    "@flex-development/mark-util-character": "npm:1.0.0"
+    "@flex-development/mark-util-chunked": "npm:1.0.0"
+    "@flex-development/mark-util-symbol": "npm:3.1.0"
     "@flex-development/unist-util-builder": "npm:2.0.0"
-    "@flex-development/vfile-location": "npm:1.1.1"
     debug: "npm:4.4.3"
     devlop: "npm:1.1.0"
-  checksum: 10/fa1499aef20a2e40a16708beb276b0e2fb0e5ec50fd48a24c598ae0d1fcb44e0484cca9ea84cbafc03fc5c0a1cd8e37b1630e7c892248b8696ff8a4e79d5377a
+  checksum: 10/6e591422bea28dfa5828be4d017d3361623fef8efff9a32f1396225c1a9cc8d46e909f27f3c5025878437c017d752918ade52c858fd0890d655a803672599350
   languageName: node
   linkType: hard
 
-"@flex-development/mark-util-symbol@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@flex-development/mark-util-symbol@npm:1.1.0"
-  checksum: 10/69318cd4c9e5bfd977e9746d0b2721f4026ee4a1d3dd9f251ebb1191561ee6d17719705bfceb357f43ea6eaf660e47eb61f1e80263bcbcee629e05f46d8dc0ba
+"@flex-development/mark-util-character@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@flex-development/mark-util-character@npm:1.0.0"
+  dependencies:
+    "@flex-development/mark": "npm:1.0.0-alpha.1"
+    "@flex-development/mark-util-symbol": "npm:3.0.0"
+  checksum: 10/693f36a2523ac7f4c1506772cc6e5f902863c6c7c23e7ed6f336f357abfa9758b6b94972b25bc9a6489aa1612380ce81af1d23340d63d41fb701094b205676df
   languageName: node
   linkType: hard
 
-"@flex-development/mark@flex-development/mark#commit=9a157dbfc5822e3bd6c513e32855bceace566320":
-  version: 0.0.0
-  resolution: "@flex-development/mark@https://github.com/flex-development/mark.git#commit=9a157dbfc5822e3bd6c513e32855bceace566320"
+"@flex-development/mark-util-chunked@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@flex-development/mark-util-chunked@npm:1.0.0"
+  dependencies:
+    "@flex-development/mark": "npm:1.0.0-alpha.1"
+    "@flex-development/mark-util-symbol": "npm:3.0.0"
+  checksum: 10/5ca1986ab3ab3664c9a910ddd3161eb0599c9d1a1431c86980a29448a670e0bbcf7ef7d689c38b29f8915a8991cb7d19cf3b99cec45c885776c4985d0afd4bbd
+  languageName: node
+  linkType: hard
+
+"@flex-development/mark-util-symbol@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@flex-development/mark-util-symbol@npm:3.0.0"
+  checksum: 10/45ec31061e04a0366016d66f9c445caced13cf9b61eb6e09a1e1bb1f6b2353ed8fc4f70aebd3010d70eb83d1a9d197a202cbd131952ff377c2f5383c2c7656e7
+  languageName: node
+  linkType: hard
+
+"@flex-development/mark-util-symbol@npm:3.1.0":
+  version: 3.1.0
+  resolution: "@flex-development/mark-util-symbol@npm:3.1.0"
+  checksum: 10/5fbdbdfbc89011ab7389d4216dbaa5ef40f82c6dfd7e7694155d35d3f1b3d248d5ac7806a7b448c6c97b7075b79b69603599bb07b439e3de4498c27675f7d262
+  languageName: node
+  linkType: hard
+
+"@flex-development/mark@npm:1.0.0-alpha.1":
+  version: 1.0.0-alpha.1
+  resolution: "@flex-development/mark@npm:1.0.0-alpha.1"
   dependencies:
     "@flex-development/unist-util-types": "npm:1.6.1"
     "@types/unist": "npm:3.0.3"
-  checksum: 10/2d2a035914737f2dc530d875616f8e602a4792d17ca4b07cf51c1d96f56b8efedd5efad9fe8e47d468692b75d1ec9300debcd1ecfc621ca3a5002293f16b8a95
-  languageName: node
-  linkType: hard
-
-"@flex-development/mark@flex-development/mark#commit=cde4845c3550ee23279e61ff594962110c61713e":
-  version: 0.0.0
-  resolution: "@flex-development/mark@https://github.com/flex-development/mark.git#commit=cde4845c3550ee23279e61ff594962110c61713e"
-  dependencies:
-    "@flex-development/unist-util-types": "npm:1.6.1"
-    "@types/unist": "npm:3.0.3"
-  checksum: 10/550f00bc700e05daf379e9eb23100a6b201c0d4b6404755bea60f8c3690b42ac38b7c9412c9f3239619fb0d1718aec529da3c7ea7b5e351d3db7cc7b59ec65b9
+  checksum: 10/7329561e42c49429de401b368fdaec235b60d12e85b503ffb6c5facf9cff19201801515ecc470c89fd1b60dc280b4bf5e6c53285dbf92d674bd0d36a53ef1122
   languageName: node
   linkType: hard
 
@@ -2233,17 +2250,6 @@ __metadata:
   dependencies:
     "@types/unist": "npm:3.0.2"
   checksum: 10/fd308bb9673987b588d54afc56821fefaad9233fecf8d76f352a055c339716979f3c2e1b2d145628ffa0d9ac033fbe28d942294a029d98b52334dd9703471f99
-  languageName: node
-  linkType: hard
-
-"@flex-development/vfile-location@npm:1.1.1":
-  version: 1.1.1
-  resolution: "@flex-development/vfile-location@npm:1.1.1"
-  dependencies:
-    "@flex-development/unist-util-types": "npm:1.6.1"
-    "@types/unist": "npm:3.0.3"
-    vfile: "npm:6.0.3"
-  checksum: 10/38d232c21560de4695f963b964b7c38db175018eed5acc59af5f18ba5e8c2901854ac5d420193961a4f6a1c82eed03410b043f81ba168ff08bf995b7720c2e43
   languageName: node
   linkType: hard
 
@@ -4496,6 +4502,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commonmark.json@npm:0.31.0":
+  version: 0.31.0
+  resolution: "commonmark.json@npm:0.31.0"
+  checksum: 10/457519df977443df620ef46230ca54b5ab3b5845ea85fc620ebb386eaceaafcc2dae1fa6b6785f858ddf8c55ed597e0c608c95180ea32e45bb97e52d7eb35aae
+  languageName: node
+  linkType: hard
+
 "compare-func@npm:^2.0.0":
   version: 2.0.0
   resolution: "compare-func@npm:2.0.0"
@@ -4970,8 +4983,8 @@ __metadata:
     "@flex-development/export-regex": "npm:2.0.0"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/import-regex": "npm:3.0.0"
-    "@flex-development/mark": "flex-development/mark#commit=9a157dbfc5822e3bd6c513e32855bceace566320"
-    "@flex-development/mark-parser": "flex-development/mark-parser#commit=8c66ac342e53f1b7a23308597be4a38bd23de4d4"
+    "@flex-development/mark": "npm:1.0.0-alpha.1"
+    "@flex-development/mark-parser": "npm:1.0.0-alpha.11"
     "@flex-development/mlly": "npm:1.0.0-beta.7"
     "@flex-development/pathe": "npm:4.0.2"
     "@flex-development/pkg-types": "npm:4.1.0"
@@ -4987,6 +5000,7 @@ __metadata:
     "@vitest/coverage-v8": "npm:4.1.9"
     "@vitest/ui": "npm:4.1.9"
     clean-modules: "npm:4.0.0"
+    commonmark.json: "npm:0.31.0"
     concat-stream: "npm:2.0.0"
     convert-hrtime: "npm:5.0.0"
     cross-env: "npm:10.1.0"
@@ -5001,6 +5015,7 @@ __metadata:
     happy-dom: "npm:20.10.6"
     husky: "npm:9.1.7"
     is-ci: "npm:4.1.0"
+    micromark: "npm:4.0.2"
     node-notifier: "npm:10.0.1"
     pkg-size: "npm:2.4.0"
     remark: "npm:15.0.1"
@@ -5011,7 +5026,7 @@ __metadata:
     sh-syntax: "npm:0.5.8"
     to-vfile: "npm:8.0.0"
     trash-cli: "npm:7.2.0"
-    tsx: "npm:4.22.4"
+    tsx: "npm:4.22.5"
     typescript: "npm:6.0.3"
     unified: "npm:11.0.5"
     vfile: "npm:6.0.3"
@@ -8521,7 +8536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromark-util-character@npm:2.1.1, micromark-util-character@npm:^2.0.0":
+"micromark-util-character@npm:^2.0.0":
   version: 2.1.1
   resolution: "micromark-util-character@npm:2.1.1"
   dependencies:
@@ -8666,7 +8681,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromark@npm:^4.0.0":
+"micromark@npm:4.0.2, micromark@npm:^4.0.0":
   version: 4.0.2
   resolution: "micromark@npm:4.0.2"
   dependencies:
@@ -11816,9 +11831,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:4.22.4":
-  version: 4.22.4
-  resolution: "tsx@npm:4.22.4"
+"tsx@npm:4.22.5":
+  version: 4.22.5
+  resolution: "tsx@npm:4.22.5"
   dependencies:
     esbuild: "npm:~0.28.0"
     fsevents: "npm:~2.3.3"
@@ -11827,7 +11842,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/9d6e7e9d1158eb84327d822720a2053bcfd972f8988e4789041bac5a767fc394ef302b1ff7e1d3dfbee391a0b03bd3dbb02cd302387729baf1dc7b9dce93b3ba
+  checksum: 10/606a90576cbaae27c0359b187226f292397ee171b72c42436d58c34be596b31bf325920b86a88f2fcf4c8fead3fead961881c2830b0595448c062e1b953110b7
   languageName: node
   linkType: hard
 

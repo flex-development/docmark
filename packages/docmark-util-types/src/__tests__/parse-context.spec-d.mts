@@ -8,6 +8,7 @@ import type {
   FullNormalizedExtension,
   Line
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../parse-context.mts'
 
 describe('unit-d:ParseContext', () => {

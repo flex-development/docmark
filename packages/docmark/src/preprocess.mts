@@ -3,43 +3,44 @@
  * @module docmark/preprocess
  */
 
-import { chars, codes, constants } from '@flex-development/docmark-util-symbol'
+import { codes, constants } from '@flex-development/docmark-util-symbol'
 import type {
+  Chunk,
   Code,
-  Column,
   Encoding,
   FileLike,
-  Preprocess,
   PreprocessOptions,
+  Preprocessor,
   Value
 } from '@flex-development/docmark-util-types'
-import { decode } from '@flex-development/mark-parser'
+import { decode } from '@flex-development/mark-parser/utils'
+import { eol, htab } from '@flex-development/mark-util-character'
 
 /**
- * Create a preprocessor to turn a value into character code chunks.
+ * Create a preprocessor to turn a value into chunks.
  *
- * @see {@linkcode Preprocess}
+ * @see {@linkcode Preprocessor}
  * @see {@linkcode PreprocessOptions}
  *
  * @this {void}
  *
  * @param {PreprocessOptions | null | undefined} [options]
  *  The configuration options
- * @return {Preprocess}
- *  The character code preprocessor
+ * @return {Preprocessor}
+ *  The preprocessor
  */
 function preprocess(
   this: void,
   options?: PreprocessOptions | null | undefined
-): Preprocess {
+): Preprocessor {
   /**
-   * The number of spaces a tab is equivalent to.
+   * The number of columns represented by a horizontal tab.
    *
    * @const {number} tabSize
    */
   const tabSize: number = options?.tabSize ?? constants.tabSize
 
-  return preprocessor as Preprocess
+  return preprocessor as Preprocessor
 
   /**
    * @this {void}
@@ -51,33 +52,54 @@ function preprocess(
    *  or its contents is {@linkcode Uint8Array}
    * @param {boolean | null | undefined} [end]
    *  Whether the end of stream has been reached
-   * @return {Code[]}
-   *  The list of character code chunks
+   * @return {Chunk[]}
+   *  The list of chunks
    */
   function preprocessor(
     this: void,
     value: Code | FileLike | Value | undefined,
     encoding?: Encoding | null | undefined,
     end?: boolean | null | undefined
-  ): Code[] {
+  ): Chunk[] {
     /**
-     * The list of character code chunks.
+     * The list of chunks.
      *
-     * @const {Code[]} chunks
+     * @const {Chunk[]} chunks
      */
-    const chunks: Code[] = []
+    const chunks: Chunk[] = []
 
+    // add character code chunk.
     if (typeof value === 'number') {
       if (value !== codes.bos && value !== codes.empty) chunks.push(value)
-    } else if (value !== chars.empty && value !== null && value !== undefined) {
-      value = decode<string>(value, encoding)
+      if (end) chunks.push(codes.eos)
+      return chunks
+    }
+
+    // decode file or value and extract chunks.
+    if (value !== null && value !== undefined) {
+      /**
+       * The decoded chunk.
+       *
+       * @var {Chunk | undefined} decoded
+       */
+      let decoded: Chunk | undefined = decode(value, encoding)
+
+      if (typeof decoded === 'number') {
+        if (end) chunks.push(codes.eos)
+        return chunks
+      }
+
+      // value is now decoded.
+      value = decoded
 
       /**
-       * The current column.
+       * The current visual column.
        *
-       * @var {Column} column
+       * Used to determine how many virtual spaces follow a horizontal tab.
+       *
+       * @var {number} column
        */
-      let column: Column = 1
+      let column: number = 1
 
       /**
        * The index of the current character code.
@@ -86,33 +108,55 @@ function preprocess(
        */
       let index: number = 0
 
+      /**
+       * The index to start the next string chunk at.
+       *
+       * @var {number} sliceIndex
+       */
+      let sliceIndex: number = 0
+
+      // store chunks.
       while (index < value.length) {
         /**
          * The current character code.
          *
-         * @var {NonNullable<Code>} code
+         * @const {NonNullable<Code>} code
          */
-        let code: NonNullable<Code> = value[index]!.codePointAt(0)!
+        const code: NonNullable<Code> = value.codePointAt(index)!
 
         /**
          * The difference between the next column and the current column.
          *
          * @var {number} k
          */
-        let k: number = 1
+        let k: number = code > 0xffff ? 2 : 1
 
-        switch (true) {
-          case code === codes.cr:
-            if (value[index + 1]?.codePointAt(0) === codes.lf) {
-              chunks.push(codes.crlf)
-              k++
-            } else {
-              chunks.push(codes.vcr)
-            }
+        // continue building string chunk.
+        if (code !== codes.nul && !eol(code) && !htab(code)) {
+          index += k
+          continue
+        }
 
-            column = 1
+        // string chunk before `nul`, eol, or horizontal tab.
+        if (sliceIndex < index) {
+          /**
+           * The string chunk.
+           *
+           * @const {string} chunk
+           */
+          const chunk: string = value.slice(sliceIndex, index)
+
+          chunks.push(chunk)
+          column += [...chunk].length
+        }
+
+        // process character code.
+        switch (code) {
+          case codes.nul:
+            chunks.push(codes.replacementCharacter)
+            column++
             break
-          case code === codes.ht:
+          case codes.ht:
             /**
              * The next column.
              *
@@ -120,22 +164,47 @@ function preprocess(
              */
             const n: number = Math.ceil(column / tabSize) * tabSize
 
-            chunks.push(codes.vht)
-            while (column++ < n) chunks.push(codes.vs)
+            // normalize horizontal tab into virtual tab and spaces.
+            chunks.push(codes.horizontalTab)
+            while (column++ < n) chunks.push(codes.virtualSpace)
 
             break
-          case code === codes.lf:
-            chunks.push(codes.vlf)
+          case codes.lf: // add virtual line feed.
+            chunks.push(codes.lineFeed)
             column = 1
             break
-          default:
-            chunks.push(code)
-            column++
+          default: // carriage return.
+            /**
+             * The index of the next character code.
+             *
+             * @const {number} nextIndex
+             */
+            const nextIndex: number = index + 1
+
+            /**
+             * The next character code.
+             *
+             * @const {Code | undefined} next
+             */
+            const next: Code | undefined = value.codePointAt(nextIndex)
+
+            if (next === codes.lf) {
+              chunks.push(codes.carriageReturnLineFeed)
+              index = nextIndex
+            } else {
+              chunks.push(codes.carriageReturn)
+            }
+
+            column = 1
             break
         }
 
         index += k
+        sliceIndex = index
       }
+
+      // final string chunk.
+      if (sliceIndex < value.length) chunks.push(value.slice(sliceIndex))
     }
 
     return end && chunks.push(codes.eos), chunks

@@ -4,6 +4,7 @@
  */
 
 import * as testSubject from '@flex-development/docmark-util-symbol'
+import { describe, expect, it } from 'vitest'
 
 describe('e2e:docmark-util-symbol', () => {
   it('should expose public api', () => {

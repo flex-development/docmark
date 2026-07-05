@@ -12,9 +12,8 @@ import type {
   Token,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { eos } from '@flex-development/mark-parser'
+import { eol, eos } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
-import { markdownLineEnding } from 'micromark-util-character'
 import blockTagStart from './block-tag-start.mts'
 
 /**
@@ -208,12 +207,12 @@ function tokenizeSummary(
     if (eos(code)) return endChunk(code)
 
     // end before block tag on new line or start new line.
-    if (markdownLineEnding(code)) {
+    if (eol(code)) {
       return effects.check(blockTagStart, endBeforeNewLine, restartChunk)(code)
     }
 
     // consume code that cannot start a block tag, then move onto next code.
-    if (code !== codes.at) return effects.consume(code), insideChunk
+    if (code !== codes.atSign) return effects.consume(code), insideChunk
 
     // check for a block tag.
     // end chunk and summary before block tag or move onto next code.
@@ -231,7 +230,7 @@ function tokenizeSummary(
    *  The next state
    */
   function endBeforeNewLine(this: void, code: Code): State | undefined {
-    assert(markdownLineEnding(code), 'expected eol')
+    assert(eol(code), 'expected eol')
 
     effects.exit(tt.chunkMarkdown)
     effects.exit(tt.summary)

@@ -7,6 +7,7 @@ import type {
   Code,
   Construct,
   ContainerState,
+  ContentType,
   DefineSkip,
   Event,
   Now,
@@ -62,6 +63,13 @@ interface TokenizeContext {
    * @see {@linkcode ContainerState}
    */
   containerState?: ContainerState | undefined
+
+  /**
+   * The content type the tokenizer deals with.
+   *
+   * @see {@linkcode ContentType}
+   */
+  contentType?: ContentType | undefined
 
   /**
    * The current construct.

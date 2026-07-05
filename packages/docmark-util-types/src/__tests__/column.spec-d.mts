@@ -3,6 +3,7 @@
  * @module docmark-util-types/tests/unit-d/Column
  */
 
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../column.mts'
 
 describe('unit-d:Column', () => {

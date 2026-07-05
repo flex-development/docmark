@@ -9,6 +9,7 @@ import type {
   Disable,
   InsideSpan
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../extension.mts'
 
 describe('unit-d:Extension', () => {

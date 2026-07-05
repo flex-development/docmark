@@ -8,8 +8,7 @@
     "noEmitOnError": true,
     "rewriteRelativeImportExtensions": true,
     "sourceMap": false,
-    "target": "es2024",
-    "types": ["node"]
+    "target": "es2025"
   },
   "exclude": ["**/__mocks__/**", "**/__tests__/**"],
   "extends": "./tsconfig.json",

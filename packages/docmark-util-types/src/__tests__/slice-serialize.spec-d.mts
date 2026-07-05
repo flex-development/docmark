@@ -7,6 +7,7 @@ import type {
   Position,
   SerializeOptions
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../slice-serialize.mts'
 
 describe('unit-d:SliceSerialize', () => {

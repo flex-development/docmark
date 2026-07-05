@@ -7,6 +7,7 @@ import type {
   Effects,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../exiter.mts'
 
 describe('unit-d:Exiter', () => {

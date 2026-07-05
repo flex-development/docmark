@@ -4,6 +4,7 @@
  */
 
 import type { Chunk, Position } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../slice-stream.mts'
 
 describe('unit-d:SliceStream', () => {

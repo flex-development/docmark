@@ -8,6 +8,7 @@ import type {
   State,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../tokenizer.mts'
 
 describe('unit-d:Tokenizer', () => {

@@ -11,6 +11,7 @@ import type {
   State,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
+import { idContinue, idStart } from '@flex-development/mark-util-character'
 
 /**
  * The tag name construct.
@@ -34,13 +35,13 @@ export default tagName
  *  The previous character code
  * @return {boolean}
  *  If {@linkcode this.currentConstruct} is not `inlineTag`, `true` if `code` is
- *  not {@linkcode codes.backslash} and not {@linkcode codes.leftBrace}.
- *  Otherwise, `true` if `code` ***is*** {@linkcode codes.leftBrace}
+ *  not {@linkcode codes.backslash} and not {@linkcode codes.leftCurlyBrace}.
+ *  Otherwise, `true` if `code` ***is*** {@linkcode codes.leftCurlyBrace}
  */
 function previousTagName(this: TokenizeContext, code: Code): boolean {
   return this.currentConstruct?.name === tt.inlineTag
-    ? code === codes.leftBrace
-    : code !== codes.backslash && code !== codes.leftBrace
+    ? code === codes.leftCurlyBrace
+    : code !== codes.backslash && code !== codes.leftCurlyBrace
 }
 
 /**
@@ -63,20 +64,6 @@ function tokenizeTagName(
   ok: State,
   nok: State
 ): State {
-  /**
-   * Regular expression matching characters that can continue an identifier.
-   *
-   * @const {RegExp} ID_Continue
-   */
-  const ID_Continue: RegExp = /[$\p{ID_Continue}]/u
-
-  /**
-   * Regular expression matching characters that can start an identifier.
-   *
-   * @const {RegExp} ID_Start
-   */
-  const ID_Start: RegExp = /[$_\p{ID_Start}]/u
-
   return tagName
 
   /**
@@ -102,7 +89,7 @@ function tokenizeTagName(
    *  The next state
    */
   function tagName(this: void, code: Code): State | undefined {
-    if (code !== codes.at) return nok(code)
+    if (code !== codes.atSign) return nok(code)
 
     effects.enter(tt.tagName)
 
@@ -136,17 +123,12 @@ function tokenizeTagName(
    *  The next state
    */
   function afterMarker(this: void, code: Code): State | undefined {
-    if (
-      code !== codes.eos &&
-      code >= 0 &&
-      ID_Start.test(String.fromCodePoint(code))
-    ) {
-      effects.enter(tt.tagNameIdentifier)
-      effects.consume(code)
-      return identifier
-    }
+    if (!idStart(code)) return nok(code)
 
-    return nok(code)
+    effects.enter(tt.tagNameIdentifier)
+    effects.consume(code)
+
+    return identifier
   }
 
   /**
@@ -172,14 +154,7 @@ function tokenizeTagName(
    *  The next state
    */
   function identifier(this: void, code: Code): State | undefined {
-    if (
-      code !== codes.eos &&
-      code >= 0 &&
-      ID_Continue.test(String.fromCodePoint(code))
-    ) {
-      effects.consume(code)
-      return identifier
-    }
+    if (idContinue(code)) return effects.consume(code), identifier
 
     effects.exit(tt.tagNameIdentifier)
     effects.exit(tt.tagName)

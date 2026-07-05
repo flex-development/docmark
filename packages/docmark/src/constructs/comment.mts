@@ -12,9 +12,8 @@ import type {
   Token,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { eos } from '@flex-development/mark-parser'
+import { eol, eos, whitespace } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
-import { markdownLineEnding, markdownSpace } from 'micromark-util-character'
 import commentCloser from './comment-closer.mts'
 import commentLinePrefix from './comment-line-prefix.mts'
 import commentOpener from './comment-opener.mts'
@@ -143,7 +142,7 @@ function tokenizeComment(
   function afterOpener(this: void, code: Code): State | undefined {
     // check for a comment closer, or a comment closer preceded by a space.
     // note: check performed on known start codes for performance.
-    if (code === codes.asterisk || markdownSpace(code)) {
+    if (code === codes.asterisk || whitespace(code)) {
       // end comment after closer, or start comment line chunk.
       return effects.attempt(commentCloser, endComment, startChunk)(code)
     }
@@ -151,7 +150,7 @@ function tokenizeComment(
     // capture first line ending.
     // if line ending is handled by micromark, it will be considered a blank
     // line even though the comment opener is on this line.
-    if (markdownLineEnding(code)) {
+    if (eol(code)) {
       effects.enter(tt.lineEnding)
       effects.consume(code)
       effects.exit(tt.lineEnding)
@@ -205,7 +204,7 @@ function tokenizeComment(
    *  The next state
    */
   function lineStart(this: void, code: Code): State | undefined {
-    assert(markdownLineEnding(self.previous), 'expected eol')
+    assert(eol(self.previous), 'expected eol')
 
     // try capturing comment line prefix.
     // the comment line prefix attempt only fails if a comment line marker is
@@ -362,7 +361,7 @@ function tokenizeComment(
 
     // check for a comment closer, or a comment closer preceded by a space.
     // note: check performed on known start codes for performance.
-    if (code === codes.asterisk || markdownSpace(code)) {
+    if (code === codes.asterisk || whitespace(code)) {
       return effects.check(
         commentCloser,
         beforeChunkCloser,
@@ -371,7 +370,7 @@ function tokenizeComment(
     }
 
     // restart chunk after line ending.
-    if (markdownLineEnding(code)) {
+    if (eol(code)) {
       effects.consume(code)
       effects.exit(tt.chunkComment)
       return lineStart

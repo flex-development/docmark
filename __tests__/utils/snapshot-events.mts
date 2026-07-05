@@ -40,6 +40,11 @@ function snapshotEvents(this: void, events: Event[]): [EventType, Token][] {
       token.value = self.sliceSerialize(token)
     }
 
+    Object.defineProperties(token, {
+      next: { enumerable: false },
+      previous: { enumerable: false }
+    })
+
     return [event, token] as const
   })
 }

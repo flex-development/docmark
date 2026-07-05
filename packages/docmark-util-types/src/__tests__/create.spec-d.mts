@@ -7,6 +7,7 @@ import type {
   Point,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../create.mts'
 
 describe('unit-d:Create', () => {

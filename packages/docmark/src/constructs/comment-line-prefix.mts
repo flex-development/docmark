@@ -12,8 +12,8 @@ import type {
   State,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
+import { eol } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
-import { markdownLineEnding } from 'micromark-util-character'
 import commentCloser from './comment-closer.mts'
 
 /**
@@ -27,7 +27,7 @@ import commentCloser from './comment-closer.mts'
  */
 const commentLinePrefix: PartialConstruct = {
   partial: true,
-  previous: markdownLineEnding,
+  previous: eol,
   tokenize: tokenizeCommentLinePrefix
 }
 

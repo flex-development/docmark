@@ -4,6 +4,7 @@
  */
 
 import type { Code } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../chunk.mts'
 
 describe('unit-d:Chunk', () => {

@@ -4,6 +4,7 @@
  */
 
 import type { Construct } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../named-construct.mts'
 
 describe('unit-d:NamedConstruct', () => {

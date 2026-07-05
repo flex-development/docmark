@@ -61,9 +61,16 @@ export default listWorkspaces().flatMap((
    */
   const manifest: PackageJson | null = readPackageJson(url)
 
-  return files.map(input => {
+  return files.map((input: string): RollupOptions => {
     ok(manifest, 'expected `manifest`')
     ok(manifest.name, 'expected `manifest.name`')
+
+    /**
+     * The list of external dependencies.
+     *
+     * @const {string[]} external
+     */
+    const external: string[] = Object.keys(manifest.dependencies ?? {})
 
     /**
      * The list of plugins.
@@ -78,8 +85,24 @@ export default listWorkspaces().flatMap((
       plugins.push(resolve({ extensions: ['.d.mts', '.mts'] }), dts(workspace))
     }
 
+    if (external.includes('@flex-development/mark-parser')) {
+      external.push('@flex-development/mark-parser/utils')
+    }
+
     return {
-      external: Object.keys(manifest.dependencies ?? {}),
+      /**
+       * Determine if a module is external.
+       *
+       * @this {void}
+       *
+       * @param {string} source
+       *  The module id
+       * @return {boolean}
+       *  Whether the `source` module is external
+       */
+      external(this: void, source: string): boolean {
+        return external.includes(source)
+      },
       input,
       output: [{ file: input, format: 'esm' }],
       plugins

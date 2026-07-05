@@ -7,6 +7,7 @@ import type {
   Construct,
   Initializer
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../initial-construct.mts'
 
 describe('unit-d:InitialConstruct', () => {

@@ -3,6 +3,8 @@
  * @module docmark-util-symbol/tests/unit/codes
  */
 
+import * as micromark from 'micromark-util-symbol'
+import { describe, expect, it } from 'vitest'
 import testSubject from '../codes.mts'
 
 describe('unit:codes', () => {
@@ -34,5 +36,9 @@ describe('unit:codes', () => {
 
   it('should be character code dictionary', () => {
     expect(testSubject).toMatchSnapshot()
+  })
+
+  it('should be superset of micromark.codes', () => {
+    expect(testSubject).toMatchObject(micromark.codes)
   })
 })

@@ -7,13 +7,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks03-at
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 35,
+        "_index": 1,
         "column": 36,
         "line": 1,
         "offset": 35,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -28,13 +28,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks03-at
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 35,
+        "_index": 1,
         "column": 36,
         "line": 1,
         "offset": 35,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -50,13 +50,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks03-at
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 35,
+        "_index": 1,
         "column": 36,
         "line": 1,
         "offset": 35,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -71,13 +71,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks03-at
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 35,
+        "_index": 1,
         "column": 36,
         "line": 1,
         "offset": 35,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -95,14 +95,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks04-ta
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 28,
+        "_bufferIndex": 28,
+        "_index": 0,
         "column": 29,
         "line": 1,
         "offset": 28,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -116,14 +116,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks04-ta
     {
       "contentType": "document",
       "end": {
-        "_bufferIndex": -1,
-        "_index": 28,
+        "_bufferIndex": 28,
+        "_index": 0,
         "column": 29,
         "line": 1,
         "offset": 28,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -138,14 +138,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks04-ta
     {
       "contentType": "document",
       "end": {
-        "_bufferIndex": -1,
-        "_index": 28,
+        "_bufferIndex": 28,
+        "_index": 0,
         "column": 29,
         "line": 1,
         "offset": 28,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -159,14 +159,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks04-ta
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 28,
+        "_bufferIndex": 28,
+        "_index": 0,
         "column": 29,
         "line": 1,
         "offset": 28,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -185,13 +185,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks05-su
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 18,
+        "_index": 1,
         "column": 19,
         "line": 1,
         "offset": 18,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -206,13 +206,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks05-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 18,
+        "_index": 1,
         "column": 19,
         "line": 1,
         "offset": 18,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -228,13 +228,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks05-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 18,
+        "_index": 1,
         "column": 19,
         "line": 1,
         "offset": 18,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -249,13 +249,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks05-su
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 18,
+        "_index": 1,
         "column": 19,
         "line": 1,
         "offset": 18,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -270,14 +270,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks05-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 19,
+        "_index": 2,
         "column": 1,
         "line": 2,
         "offset": 19,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 18,
+        "_index": 1,
         "column": 19,
         "line": 1,
         "offset": 18,
@@ -293,14 +293,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks05-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 19,
+        "_index": 2,
         "column": 1,
         "line": 2,
         "offset": 19,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 18,
+        "_index": 1,
         "column": 19,
         "line": 1,
         "offset": 18,
@@ -320,13 +320,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 98,
+        "_index": 4,
         "column": 59,
         "line": 3,
         "offset": 98,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -341,13 +341,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 39,
+        "_index": 2,
         "column": 1,
         "line": 2,
         "offset": 39,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -364,13 +364,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 39,
+        "_index": 2,
         "column": 1,
         "line": 2,
         "offset": 39,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -387,14 +387,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 40,
+        "_index": 3,
         "column": 1,
         "line": 3,
         "offset": 40,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 39,
+        "_index": 2,
         "column": 1,
         "line": 2,
         "offset": 39,
@@ -410,14 +410,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 40,
+        "_index": 3,
         "column": 1,
         "line": 3,
         "offset": 40,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 39,
+        "_index": 2,
         "column": 1,
         "line": 2,
         "offset": 39,
@@ -433,14 +433,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 98,
+        "_index": 4,
         "column": 59,
         "line": 3,
         "offset": 98,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 40,
+        "_bufferIndex": 0,
+        "_index": 3,
         "column": 1,
         "line": 3,
         "offset": 40,
@@ -455,14 +455,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 98,
+        "_index": 4,
         "column": 59,
         "line": 3,
         "offset": 98,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 40,
+        "_bufferIndex": 0,
+        "_index": 3,
         "column": 1,
         "line": 3,
         "offset": 40,
@@ -476,13 +476,13 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 98,
+        "_index": 4,
         "column": 59,
         "line": 3,
         "offset": 98,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -497,14 +497,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 99,
+        "_index": 5,
         "column": 1,
         "line": 4,
         "offset": 99,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 98,
+        "_index": 4,
         "column": 59,
         "line": 3,
         "offset": 98,
@@ -520,14 +520,14 @@ exports[`unit:constructs/summary > should tokenize comment summary ("chunks06-su
       "contentType": "document",
       "end": {
         "_bufferIndex": -1,
-        "_index": 99,
+        "_index": 5,
         "column": 1,
         "line": 4,
         "offset": 99,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 98,
+        "_index": 4,
         "column": 59,
         "line": 3,
         "offset": 98,

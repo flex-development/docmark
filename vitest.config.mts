@@ -80,7 +80,6 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
         thresholds: { 100: true, perFile: true }
       },
       globalSetup: [],
-      globals: true,
       include: ['**/__tests__/*.spec.mts'],
       mockReset: true,
       outputFile: {
@@ -163,7 +162,7 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
                 ignoreSourceErrors: false,
                 include: ['**/__tests__/*.spec-d.mts'],
                 only: true,
-                tsconfig: pathe.resolve('tsconfig.json')
+                tsconfig: pathe.resolve('tsconfig.typecheck.json')
               }
             }
           }

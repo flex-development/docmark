@@ -31,11 +31,11 @@ const codes = {
   sof: -1000, // start of file; alias for `bos`
   empty: -999, // empty string chunk
   break: -13, // stream break
-  vcr: -5, // virtual carriage return (\r)
-  vlf: -4, // virtual line feed (\n)
-  crlf: -3, // carriage return + line feed (\r + \n)
-  vht: -2, // virtual horizontal tab (\t)
-  vs: -1, // virtual space
+  carriageReturn: -5, // virtual carriage return (\r)
+  lineFeed: -4, // virtual line feed (\n)
+  carriageReturnLineFeed: -3, // carriage return + line feed (\r + \n)
+  horizontalTab: -2, // virtual horizontal tab (\t)
+  virtualSpace: -1, // virtual space
   nul: 0,
   soh: 1,
   stx: 2,
@@ -69,20 +69,19 @@ const codes = {
   rs: 30,
   us: 31,
   space: 32,
-  exclamation: 33, // !
-  quotation: 34, // "
-  hash: 35, // #
-  dollar: 36, // $
-  percent: 37, // %
+  exclamationMark: 33, // !
+  quotationMark: 34, // "
+  numberSign: 35, // #
+  dollarSign: 36, // $
+  percentSign: 37, // %
   ampersand: 38, // &
   apostrophe: 39, // '
-  leftParen: 40, // (
-  rightParen: 41, // )
+  leftParenthesis: 40, // (
+  rightParenthesis: 41, // )
   asterisk: 42, // *
-  plus: 43, // +
+  plusSign: 43, // +
   comma: 44, // ,
-  hyphen: 45, // -
-  minus: 45, // -
+  dash: 45, // -
   dot: 46, // .
   slash: 47, // /
   digit0: 48, // 0
@@ -97,13 +96,11 @@ const codes = {
   digit9: 57, // 9
   colon: 58, // :
   semicolon: 59, // ;
-  leftAngleBracket: 60, // <
-  lt: 60, // <
-  equal: 61, // =
-  gt: 62, // >
-  rightAngleBracket: 62, // >
+  lessThan: 60, // <
+  equalsTo: 61, // =
+  greaterThan: 62, // >
   questionMark: 63, // ?
-  at: 64, // @
+  atSign: 64, // @
   uppercaseA: 65, // A
   uppercaseB: 66, // B
   uppercaseC: 67, // C
@@ -130,9 +127,9 @@ const codes = {
   uppercaseX: 88, // X
   uppercaseY: 89, // Y
   uppercaseZ: 90, // Z
-  leftBracket: 91, // [
+  leftSquareBracket: 91, // [
   backslash: 92, // \
-  rightBracket: 93, // ]
+  rightSquareBracket: 93, // ]
   caret: 94, // ^
   underscore: 95, // _
   graveAccent: 96, // `
@@ -162,9 +159,9 @@ const codes = {
   lowercaseX: 120, // x
   lowercaseY: 121, // y
   lowercaseZ: 122, // z
-  leftBrace: 123, // {
-  bar: 124, // |
-  rightBrace: 125, // }
+  leftCurlyBrace: 123, // {
+  verticalBar: 124, // |
+  rightCurlyBrace: 125, // }
   tilde: 126, // ~
   del: 127,
   nbsp: 160, // \u00A0
@@ -173,7 +170,9 @@ const codes = {
   ls: 8232, // \u2028
   ps: 8233, // \u2029
   bom: 65_279, // byte order marker
-  replacement: 65_533 // �
+  byteOrderMarker: 65_279, // byte order marker
+  replacement: 65_533, // �
+  replacementCharacter: 65_533 // �
 } as const
 
 export default codes

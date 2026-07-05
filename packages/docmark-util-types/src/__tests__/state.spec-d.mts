@@ -5,6 +5,7 @@
 
 import type { Code } from '@flex-development/docmark-util-types'
 import type { Optional } from '@flex-development/tutils'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../state.mts'
 
 describe('unit-d:State', () => {

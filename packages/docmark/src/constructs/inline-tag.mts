@@ -12,7 +12,7 @@ import type {
   State,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { eos } from '@flex-development/mark-parser'
+import { eos } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
 import tagName from './tag-name.mts'
 
@@ -97,7 +97,7 @@ function tokenizeInlineTag(
    *  The next state
    */
   function inlineTag(this: void, code: Code): State | undefined {
-    assert(code === codes.leftBrace, 'expected `codes.leftBrace`')
+    assert(code === codes.leftCurlyBrace, 'expected `codes.leftCurlyBrace`')
 
     effects.enter(tt.inlineTag)
     effects.consume(code)
@@ -165,7 +165,7 @@ function tokenizeInlineTag(
   function insideInlineTagText(this: void, code: Code): State | undefined {
     if (eos(code)) return nok(code)
 
-    if (code === codes.rightBrace && self.previous !== codes.backslash) {
+    if (code === codes.rightCurlyBrace && self.previous !== codes.backslash) {
       effects.exit(tt.inlineTagText)
       effects.consume(code)
       effects.exit(tt.inlineTag)

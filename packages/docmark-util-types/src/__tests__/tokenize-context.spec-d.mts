@@ -7,6 +7,7 @@ import type {
   Code,
   Construct,
   ContainerState,
+  ContentType,
   DefineSkip,
   Event,
   Now,
@@ -15,6 +16,7 @@ import type {
   SliceStream,
   Write
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../tokenize-context.mts'
 
 describe('unit-d:TokenizeContext', () => {
@@ -38,6 +40,12 @@ describe('unit-d:TokenizeContext', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('containerState')
       .toEqualTypeOf<ContainerState | undefined>()
+  })
+
+  it('should match [contentType?: ContentType | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('contentType')
+      .toEqualTypeOf<ContentType | undefined>()
   })
 
   it('should match [currentConstruct?: Construct | undefined]', () => {

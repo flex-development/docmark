@@ -7,6 +7,7 @@ import type {
   Event,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../resolver.mts'
 
 describe('unit-d:Resolver', () => {

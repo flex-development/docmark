@@ -4,6 +4,7 @@
  */
 
 import type { Point } from '@flex-development/docmark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../place.mts'
 
 describe('unit-d:Place', () => {

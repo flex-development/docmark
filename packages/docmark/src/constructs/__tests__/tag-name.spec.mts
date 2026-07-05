@@ -8,16 +8,17 @@ import initialize from '@fixtures/initialize.mts'
 import { chars, ct } from '@flex-development/docmark-util-symbol'
 import type {
   Chunk,
+  Preprocessor,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { createTokenizer } from '@flex-development/mark-parser'
-import type { Preprocess } from '@flex-development/mark/parse'
 import snapshot from '@tests/utils/snapshot-events.mts'
+import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
 import testSubject from '../tag-name.mts'
 
 describe('unit:constructs/tagName', () => {
   let context: TokenizeContext
-  let preprocess: Preprocess
+  let preprocess: Preprocessor
 
   beforeAll(() => {
     preprocess = createPreprocess()

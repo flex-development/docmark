@@ -18,6 +18,11 @@ const config = [
   ...fldv.configs.node,
   {
     files: ['**/*.+(cjs|cts|js|jsx|mjs|mts|ts|tsx)'],
+    languageOptions: {
+      parserOptions: {
+        project: pathe.resolve('tsconfig.eslint.json')
+      }
+    },
     rules: {
       'node/no-unsupported-features/node-builtins': [
         2,
@@ -29,7 +34,10 @@ const config = [
     }
   },
   {
-    files: ['packages/docmark/src/constructs/*.mts'],
+    files: [
+      'packages/docmark/src/constructs/*.mts',
+      'packages/docmark/src/constructs/initialize/*.mts'
+    ],
     rules: {
       'unicorn/no-this-assignment': 0
     }
@@ -47,6 +55,12 @@ const config = [
     ],
     rules: {
       'unicorn/text-encoding-identifier-case': 0
+    }
+  },
+  {
+    files: ['packages/docmark-util-types/src/preprocessor.mts'],
+    rules: {
+      'jsdoc/valid-types': 0
     }
   }
 ]

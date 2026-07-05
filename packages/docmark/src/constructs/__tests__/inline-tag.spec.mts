@@ -3,29 +3,30 @@
  * @module docmark/constructs/tests/unit/inlineTag
  */
 
-import createPreprocess from '#lib/preprocess'
+import preprocess from '#lib/preprocess'
 import initialize from '@fixtures/initialize.mts'
 import { chars, codes, ct, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Chunk,
+  Preprocessor,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { createTokenizer } from '@flex-development/mark-parser'
-import type { Preprocess } from '@flex-development/mark/parse'
 import snapshot from '@tests/utils/snapshot-events.mts'
+import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
 import testSubject from '../inline-tag.mts'
 
 describe('unit:constructs/inlineTag', () => {
   let context: TokenizeContext
-  let preprocess: Preprocess
+  let pre: Preprocessor
 
   beforeAll(() => {
-    preprocess = createPreprocess()
+    pre = preprocess()
   })
 
   beforeEach(() => {
     context = createTokenizer({
-      extensions: { [ct.text]: { [codes.leftBrace]: testSubject } },
+      extensions: { [ct.text]: { [codes.leftCurlyBrace]: testSubject } },
       initialize
     })
 
@@ -44,7 +45,7 @@ describe('unit:constructs/inlineTag', () => {
     ['{@linkcode']
   ])('should not produce events without inline tags (%#)', slice => {
     // Act
-    const result = context.write(preprocess(slice, null, true))
+    const result = context.write(pre(slice, null, true))
 
     // Expect
     expect(result).to.be.an('array').that.is.empty
@@ -56,7 +57,7 @@ describe('unit:constructs/inlineTag', () => {
     ['Consume parser {@linkcode Event}s']
   ])('should tokenize inline tags (%j)', slice => {
     // Act
-    const result = context.write(preprocess(slice, null, true))
+    const result = context.write(pre(slice, null, true))
 
     // Expect
     expect(result).to.have.property('length').be.at.least(2)

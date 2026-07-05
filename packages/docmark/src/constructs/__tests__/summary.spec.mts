@@ -3,25 +3,27 @@
  * @module docmark/constructs/tests/unit/summary
  */
 
-import createPreprocess from '#lib/preprocess'
+import preprocess from '#lib/preprocess'
 import initialize from '@fixtures/initialize.mts'
 import { ct } from '@flex-development/docmark-util-symbol'
 import type {
-  Code,
+  Chunk,
+  Preprocessor,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { createTokenizer } from '@flex-development/mark-parser'
-import type { FileLike, Preprocess } from '@flex-development/mark/parse'
+import type { FileLike } from '@flex-development/mark/parse'
 import snapshot from '@tests/utils/snapshot-events.mts'
 import { readSync as read } from 'to-vfile'
+import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
 import testSubject from '../summary.mts'
 
 describe('unit:constructs/summary', () => {
   let context: TokenizeContext
-  let preprocess: Preprocess
+  let pre: Preprocessor
 
   beforeAll(() => {
-    preprocess = createPreprocess()
+    pre = preprocess()
   })
 
   beforeEach(() => {
@@ -46,7 +48,7 @@ describe('unit:constructs/summary', () => {
   ])('should not produce events without comment summary (%j)', path => {
     // Arrange
     const file: FileLike = read('__fixtures__/chunks/' + path, 'utf8')
-    const slice: Code[] = preprocess(file, null, true)
+    const slice: Chunk[] = pre(file, null, true)
 
     // Act + Expect
     expect(context.write(slice)).to.be.an('array').that.is.empty
@@ -60,7 +62,7 @@ describe('unit:constructs/summary', () => {
   ])('should tokenize comment summary (%j)', path => {
     // Arrange
     const file: FileLike = read('__fixtures__/chunks/' + path, 'utf8')
-    const slice: Code[] = preprocess(file, null, true)
+    const slice: Chunk[] = pre(file, null, true)
 
     // Act
     const result = context.write(slice)

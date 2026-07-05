@@ -1,0 +1,376 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:parse > should return parse context 1`] = `
+{
+  "comment": [Function create],
+  "constructs": {
+    "attentionMarkers": {
+      "null": [
+        42,
+        95,
+      ],
+    },
+    "comment": {},
+    "content": {},
+    "contentInitial": {
+      "91": [
+        {
+          "name": "definition",
+          "tokenize": [Function tokenizeDefinition],
+        },
+      ],
+    },
+    "disable": {
+      "null": [],
+    },
+    "document": {
+      "42": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "43": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "45": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "48": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "49": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "50": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "51": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "52": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "53": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "54": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "55": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "56": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "57": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeListContinuation],
+          },
+          "exit": [Function tokenizeListEnd],
+          "name": "list",
+          "tokenize": [Function tokenizeListStart],
+        },
+      ],
+      "62": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeBlockQuoteContinuation],
+          },
+          "exit": [Function exit],
+          "name": "blockQuote",
+          "tokenize": [Function tokenizeBlockQuoteStart],
+        },
+      ],
+    },
+    "flow": {
+      "126": [
+        {
+          "concrete": true,
+          "name": "codeFenced",
+          "tokenize": [Function tokenizeCodeFenced],
+        },
+      ],
+      "35": [
+        {
+          "name": "headingAtx",
+          "resolve": [Function resolveHeadingAtx],
+          "tokenize": [Function tokenizeHeadingAtx],
+        },
+      ],
+      "42": [
+        {
+          "name": "thematicBreak",
+          "tokenize": [Function tokenizeThematicBreak],
+        },
+      ],
+      "45": [
+        {
+          "name": "setextUnderline",
+          "resolveTo": [Function resolveToSetextUnderline],
+          "tokenize": [Function tokenizeSetextUnderline],
+        },
+        {
+          "name": "thematicBreak",
+          "tokenize": [Function tokenizeThematicBreak],
+        },
+      ],
+      "60": [
+        {
+          "concrete": true,
+          "name": "htmlFlow",
+          "resolveTo": [Function resolveToHtmlFlow],
+          "tokenize": [Function tokenizeHtmlFlow],
+        },
+      ],
+      "61": [
+        {
+          "name": "setextUnderline",
+          "resolveTo": [Function resolveToSetextUnderline],
+          "tokenize": [Function tokenizeSetextUnderline],
+        },
+      ],
+      "95": [
+        {
+          "name": "thematicBreak",
+          "tokenize": [Function tokenizeThematicBreak],
+        },
+      ],
+      "96": [
+        {
+          "concrete": true,
+          "name": "codeFenced",
+          "tokenize": [Function tokenizeCodeFenced],
+        },
+      ],
+    },
+    "flowInitial": {
+      "-1": [
+        {
+          "name": "codeIndented",
+          "tokenize": [Function tokenizeCodeIndented],
+        },
+      ],
+      "-2": [
+        {
+          "name": "codeIndented",
+          "tokenize": [Function tokenizeCodeIndented],
+        },
+      ],
+      "32": [
+        {
+          "name": "codeIndented",
+          "tokenize": [Function tokenizeCodeIndented],
+        },
+      ],
+    },
+    "insideSpan": {
+      "null": [
+        {
+          "name": "attention",
+          "resolveAll": [Function resolveAllAttention],
+          "tokenize": [Function tokenizeAttention],
+        },
+        {
+          "resolveAll": [Function resolveAll],
+        },
+      ],
+    },
+    "source": {},
+    "string": {
+      "38": [
+        {
+          "name": "characterReference",
+          "tokenize": [Function tokenizeCharacterReference],
+        },
+      ],
+      "92": [
+        {
+          "name": "characterEscape",
+          "tokenize": [Function tokenizeCharacterEscape],
+        },
+      ],
+    },
+    "text": {
+      "-3": [
+        {
+          "name": "lineEnding",
+          "tokenize": [Function tokenizeLineEnding],
+        },
+      ],
+      "-4": [
+        {
+          "name": "lineEnding",
+          "tokenize": [Function tokenizeLineEnding],
+        },
+      ],
+      "-5": [
+        {
+          "name": "lineEnding",
+          "tokenize": [Function tokenizeLineEnding],
+        },
+      ],
+      "33": [
+        {
+          "name": "labelStartImage",
+          "resolveAll": [Function resolveAllLabelEnd],
+          "tokenize": [Function tokenizeLabelStartImage],
+        },
+      ],
+      "38": [
+        {
+          "name": "characterReference",
+          "tokenize": [Function tokenizeCharacterReference],
+        },
+      ],
+      "42": [
+        {
+          "name": "attention",
+          "resolveAll": [Function resolveAllAttention],
+          "tokenize": [Function tokenizeAttention],
+        },
+      ],
+      "60": [
+        {
+          "name": "autolink",
+          "tokenize": [Function tokenizeAutolink],
+        },
+        {
+          "name": "htmlText",
+          "tokenize": [Function tokenizeHtmlText],
+        },
+      ],
+      "91": [
+        {
+          "name": "labelStartLink",
+          "resolveAll": [Function resolveAllLabelEnd],
+          "tokenize": [Function tokenizeLabelStartLink],
+        },
+      ],
+      "92": [
+        {
+          "name": "hardBreakEscape",
+          "tokenize": [Function tokenizeHardBreakEscape],
+        },
+        {
+          "name": "characterEscape",
+          "tokenize": [Function tokenizeCharacterEscape],
+        },
+      ],
+      "93": [
+        {
+          "name": "labelEnd",
+          "resolveAll": [Function resolveAllLabelEnd],
+          "resolveTo": [Function resolveToLabelEnd],
+          "tokenize": [Function tokenizeLabelEnd],
+        },
+      ],
+      "95": [
+        {
+          "name": "attention",
+          "resolveAll": [Function resolveAllAttention],
+          "tokenize": [Function tokenizeAttention],
+        },
+      ],
+      "96": [
+        {
+          "name": "codeText",
+          "previous": [Function previous],
+          "resolve": [Function resolveCodeText],
+          "tokenize": [Function tokenizeCodeText],
+        },
+      ],
+    },
+  },
+  "content": [Function create],
+  "defined": [],
+  "document": [Function create],
+  "flow": [Function create],
+  "lazy": {},
+  "source": [Function create],
+  "string": [Function create],
+  "text": [Function create],
+}
+`;

@@ -3,6 +3,7 @@
  * @module docmark-util-types/tests/unit-d/EncodingMap
  */
 
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../encoding-map.mts'
 
 describe('unit-d:EncodingMap', () => {

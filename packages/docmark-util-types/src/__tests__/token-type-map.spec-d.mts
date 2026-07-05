@@ -4,6 +4,7 @@
  */
 
 import type * as micromark from 'micromark-util-types'
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../token-type-map.mts'
 
 describe('unit-d:TokenTypeMap', () => {

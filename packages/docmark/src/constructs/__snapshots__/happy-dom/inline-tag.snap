@@ -7,13 +7,13 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 16,
+        "_index": 1,
         "column": 17,
         "line": 1,
         "offset": 16,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -26,15 +26,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 10,
+        "_bufferIndex": 10,
+        "_index": 0,
         "column": 11,
         "line": 1,
         "offset": 10,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -46,15 +46,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 2,
+        "_bufferIndex": 2,
+        "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -66,15 +66,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 2,
+        "_bufferIndex": 2,
+        "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -86,15 +86,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 10,
+        "_bufferIndex": 10,
+        "_index": 0,
         "column": 11,
         "line": 1,
         "offset": 10,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 2,
+        "_bufferIndex": 2,
+        "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
@@ -107,15 +107,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 10,
+        "_bufferIndex": 10,
+        "_index": 0,
         "column": 11,
         "line": 1,
         "offset": 10,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 2,
+        "_bufferIndex": 2,
+        "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
@@ -128,15 +128,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 10,
+        "_bufferIndex": 10,
+        "_index": 0,
         "column": 11,
         "line": 1,
         "offset": 10,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -148,15 +148,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 11,
+        "_bufferIndex": 11,
+        "_index": 0,
         "column": 12,
         "line": 1,
         "offset": 11,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 10,
+        "_bufferIndex": 10,
+        "_index": 0,
         "column": 11,
         "line": 1,
         "offset": 10,
@@ -168,15 +168,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 11,
+        "_bufferIndex": 11,
+        "_index": 0,
         "column": 12,
         "line": 1,
         "offset": 11,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 10,
+        "_bufferIndex": 10,
+        "_index": 0,
         "column": 11,
         "line": 1,
         "offset": 10,
@@ -188,15 +188,36 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 15,
+        "_bufferIndex": 15,
+        "_index": 0,
         "column": 16,
         "line": 1,
         "offset": 15,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 11,
+        "_bufferIndex": 11,
+        "_index": 0,
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "inlineTagText",
+      "value": "Code",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 15,
+        "_index": 0,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "start": {
+        "_bufferIndex": 11,
+        "_index": 0,
         "column": 12,
         "line": 1,
         "offset": 11,
@@ -210,34 +231,13 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode Co
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 15,
-        "column": 16,
-        "line": 1,
-        "offset": 15,
-      },
-      "start": {
-        "_bufferIndex": -1,
-        "_index": 11,
-        "column": 12,
-        "line": 1,
-        "offset": 11,
-      },
-      "type": "inlineTagText",
-      "value": "Code",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": -1,
-        "_index": 16,
+        "_index": 1,
         "column": 17,
         "line": 1,
         "offset": 16,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -256,13 +256,13 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 20,
-        "column": 21,
+        "_index": 4,
+        "column": 20,
         "line": 1,
         "offset": 19,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -276,14 +276,14 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 10,
+        "_index": 1,
         "column": 11,
         "line": 1,
         "offset": 10,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -295,15 +295,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 2,
+        "_bufferIndex": 2,
+        "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -315,15 +315,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 2,
+        "_bufferIndex": 2,
+        "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -336,14 +336,14 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 10,
+        "_index": 1,
         "column": 11,
         "line": 1,
         "offset": 10,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 2,
+        "_bufferIndex": 2,
+        "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
@@ -357,14 +357,14 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 10,
+        "_index": 1,
         "column": 11,
         "line": 1,
         "offset": 10,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 2,
+        "_bufferIndex": 2,
+        "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
@@ -378,14 +378,14 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 10,
+        "_index": 1,
         "column": 11,
         "line": 1,
         "offset": 10,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 1,
+        "_bufferIndex": 1,
+        "_index": 0,
         "column": 2,
         "line": 1,
         "offset": 1,
@@ -397,15 +397,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 12,
-        "column": 13,
+        "_bufferIndex": 0,
+        "_index": 3,
+        "column": 12,
         "line": 1,
         "offset": 11,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 10,
+        "_index": 1,
         "column": 11,
         "line": 1,
         "offset": 10,
@@ -417,15 +417,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 12,
-        "column": 13,
+        "_bufferIndex": 0,
+        "_index": 3,
+        "column": 12,
         "line": 1,
         "offset": 11,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 10,
+        "_index": 1,
         "column": 11,
         "line": 1,
         "offset": 10,
@@ -437,16 +437,37 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 19,
-        "column": 20,
+        "_bufferIndex": 7,
+        "_index": 3,
+        "column": 19,
         "line": 1,
         "offset": 18,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 12,
-        "column": 13,
+        "_bufferIndex": 0,
+        "_index": 3,
+        "column": 12,
+        "line": 1,
+        "offset": 11,
+      },
+      "type": "inlineTagText",
+      "value": "{Code\\}",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 3,
+        "column": 19,
+        "line": 1,
+        "offset": 18,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 3,
+        "column": 12,
         "line": 1,
         "offset": 11,
       },
@@ -459,34 +480,13 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("{@linkcode\\t
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 19,
+        "_index": 4,
         "column": 20,
-        "line": 1,
-        "offset": 18,
-      },
-      "start": {
-        "_bufferIndex": -1,
-        "_index": 12,
-        "column": 13,
-        "line": 1,
-        "offset": 11,
-      },
-      "type": "inlineTagText",
-      "value": "{Code\\}",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": -1,
-        "_index": 20,
-        "column": 21,
         "line": 1,
         "offset": 19,
       },
       "start": {
-        "_bufferIndex": -1,
+        "_bufferIndex": 0,
         "_index": 0,
         "column": 1,
         "line": 1,
@@ -504,15 +504,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 32,
+        "_bufferIndex": 32,
+        "_index": 0,
         "column": 33,
         "line": 1,
         "offset": 32,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 15,
+        "_bufferIndex": 15,
+        "_index": 0,
         "column": 16,
         "line": 1,
         "offset": 15,
@@ -524,15 +524,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 25,
+        "_bufferIndex": 25,
+        "_index": 0,
         "column": 26,
         "line": 1,
         "offset": 25,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 16,
+        "_bufferIndex": 16,
+        "_index": 0,
         "column": 17,
         "line": 1,
         "offset": 16,
@@ -544,15 +544,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 17,
+        "_bufferIndex": 17,
+        "_index": 0,
         "column": 18,
         "line": 1,
         "offset": 17,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 16,
+        "_bufferIndex": 16,
+        "_index": 0,
         "column": 17,
         "line": 1,
         "offset": 16,
@@ -564,15 +564,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 17,
+        "_bufferIndex": 17,
+        "_index": 0,
         "column": 18,
         "line": 1,
         "offset": 17,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 16,
+        "_bufferIndex": 16,
+        "_index": 0,
         "column": 17,
         "line": 1,
         "offset": 16,
@@ -584,15 +584,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 25,
+        "_bufferIndex": 25,
+        "_index": 0,
         "column": 26,
         "line": 1,
         "offset": 25,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 17,
+        "_bufferIndex": 17,
+        "_index": 0,
         "column": 18,
         "line": 1,
         "offset": 17,
@@ -605,15 +605,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 25,
+        "_bufferIndex": 25,
+        "_index": 0,
         "column": 26,
         "line": 1,
         "offset": 25,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 17,
+        "_bufferIndex": 17,
+        "_index": 0,
         "column": 18,
         "line": 1,
         "offset": 17,
@@ -626,15 +626,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 25,
+        "_bufferIndex": 25,
+        "_index": 0,
         "column": 26,
         "line": 1,
         "offset": 25,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 16,
+        "_bufferIndex": 16,
+        "_index": 0,
         "column": 17,
         "line": 1,
         "offset": 16,
@@ -646,15 +646,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 26,
+        "_bufferIndex": 26,
+        "_index": 0,
         "column": 27,
         "line": 1,
         "offset": 26,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 25,
+        "_bufferIndex": 25,
+        "_index": 0,
         "column": 26,
         "line": 1,
         "offset": 25,
@@ -666,15 +666,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 26,
+        "_bufferIndex": 26,
+        "_index": 0,
         "column": 27,
         "line": 1,
         "offset": 26,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 25,
+        "_bufferIndex": 25,
+        "_index": 0,
         "column": 26,
         "line": 1,
         "offset": 25,
@@ -686,15 +686,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 31,
+        "_bufferIndex": 31,
+        "_index": 0,
         "column": 32,
         "line": 1,
         "offset": 31,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 26,
+        "_bufferIndex": 26,
+        "_index": 0,
         "column": 27,
         "line": 1,
         "offset": 26,
@@ -707,15 +707,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 31,
+        "_bufferIndex": 31,
+        "_index": 0,
         "column": 32,
         "line": 1,
         "offset": 31,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 26,
+        "_bufferIndex": 26,
+        "_index": 0,
         "column": 27,
         "line": 1,
         "offset": 26,
@@ -728,15 +728,15 @@ exports[`unit:constructs/inlineTag > should tokenize inline tags ("Consume parse
     "exit",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 32,
+        "_bufferIndex": 32,
+        "_index": 0,
         "column": 33,
         "line": 1,
         "offset": 32,
       },
       "start": {
-        "_bufferIndex": -1,
-        "_index": 15,
+        "_bufferIndex": 15,
+        "_index": 0,
         "column": 16,
         "line": 1,
         "offset": 15,

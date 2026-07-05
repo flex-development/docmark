@@ -3,6 +3,7 @@
  * @module docmark-util-types/tests/unit-d/Disable
  */
 
+import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../disable.mts'
 
 describe('unit-d:Disable', () => {

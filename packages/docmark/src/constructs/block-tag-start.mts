@@ -11,7 +11,7 @@ import type {
   State,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { markdownLineEnding } from 'micromark-util-character'
+import { eol } from '@flex-development/mark-util-character'
 import tagName from './tag-name.mts'
 
 /**
@@ -87,7 +87,7 @@ function tokenizeBlockTagStart(
    *  The next state
    */
   function lineEnding(this: void, code: Code): State | undefined {
-    if (!markdownLineEnding(code)) return nok(code)
+    if (!eol(code)) return nok(code)
     effects.consume(code)
     return effects.attempt(tagName, ok, factorySpace(effects, lineEnding))
   }

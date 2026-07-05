@@ -77,11 +77,12 @@
     "@flex-development/docmark-util-subtokenize": "workspace:*",
     "@flex-development/docmark-util-symbol": "workspace:*",
     "@flex-development/docmark-util-types": "workspace:*",
-    "@flex-development/mark": "flex-development/mark#commit=cde4845c3550ee23279e61ff594962110c61713e",
-    "@flex-development/mark-parser": "flex-development/mark-parser#commit=8c66ac342e53f1b7a23308597be4a38bd23de4d4",
+    "@flex-development/mark": "1.0.0-alpha.1",
+    "@flex-development/mark-parser": "1.0.0-alpha.11",
+    "@flex-development/mark-util-character": "1.0.0",
+    "@flex-development/mark-util-chunked": "1.0.0",
     "devlop": "1.1.0",
     "micromark-core-commonmark": "2.0.3",
-    "micromark-util-character": "2.1.1",
     "micromark-util-subtokenize": "2.1.0"
   },
   "sideEffects": false
