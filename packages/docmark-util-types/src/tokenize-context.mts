@@ -53,9 +53,14 @@ interface TokenizeContext {
   code: Code
 
   /**
-   * Shared state set when parsing containers.
+   * Whether concrete content is being parsed.
+   */
+  concrete?: boolean | undefined
+
+  /**
+   * Shared state set when parsing comment regions and markdown containers.
    *
-   * Containers are typically parsed in separate phases:
+   * Regions and containers are parsed in separate phases:
    * their first line (`tokenize`), continued lines (`continuation.tokenize`),
    * and finally `exit`.
    * This record can be used to store information between these hooks.

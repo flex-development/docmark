@@ -1,0 +1,2 @@
+@return {State | undefined}
+The next state

@@ -11,4 +11,10 @@ describe('unit-d:ContainerState', () => {
   it('should extend micromark.ContainerState', () => {
     expectTypeOf<TestSubject>().toExtend<micromark.ContainerState>()
   })
+
+  it('should match [tag?: string | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('tag')
+      .toEqualTypeOf<string | undefined>()
+  })
 })

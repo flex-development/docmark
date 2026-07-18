@@ -24,23 +24,28 @@ function snapshotEvents(this: void, events: Event[]): [EventType, Token][] {
   return events.map(([event, token, self]) => {
     if (
       event === ev.enter &&
-      token.type !== tt.blockTag &&
+      token.type !== tt.codeFenced &&
+      token.type !== tt.codeIndented &&
+      token.type !== tt.codeText &&
       token.type !== tt.comment &&
       token.type !== tt.commentLinePrefix &&
       token.type !== tt.content &&
       token.type !== tt.eoc &&
       token.type !== tt.inlineTag &&
       token.type !== tt.paragraph &&
-      token.type !== tt.summary &&
+      token.type !== tt.summaryMarker &&
       token.type !== tt.tagName &&
       token.type !== tt.tagNameMarker &&
-      token.type !== tt.whitespace &&
+      token.type !== tt.typeMetadata &&
+      token.type !== tt.typeMetadataMarker &&
+      !token._container &&
       !Object.prototype.hasOwnProperty.call(token, 'value')
     ) {
       token.value = self.sliceSerialize(token)
     }
 
     Object.defineProperties(token, {
+      _tokenizer: { enumerable: false },
       next: { enumerable: false },
       previous: { enumerable: false }
     })

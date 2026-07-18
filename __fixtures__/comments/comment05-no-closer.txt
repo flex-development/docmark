@@ -1,2 +1,0 @@
-
-    /** a comment without a closer  

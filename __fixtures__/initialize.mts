@@ -20,7 +20,8 @@ const initialize: InitialConstructs = {
   [ct.flow]: initialConstruct(ct.flow),
   [ct.content]: initialConstruct(ct.content),
   [ct.string]: initialConstruct(ct.string),
-  [ct.text]: initialConstruct(ct.text)
+  [ct.text]: initialConstruct(ct.text),
+  [ct.type]: initialConstruct(ct.type)
 }
 
 export default initialize

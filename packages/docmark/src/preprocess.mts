@@ -15,6 +15,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import { decode } from '@flex-development/mark-parser/utils'
 import { eol, htab } from '@flex-development/mark-util-character'
+import nil from './internal/nil.mts'
 
 /**
  * Create a preprocessor to turn a value into chunks.
@@ -76,7 +77,7 @@ function preprocess(
     }
 
     // decode file or value and extract chunks.
-    if (value !== null && value !== undefined) {
+    if (!nil(value)) {
       /**
        * The decoded chunk.
        *
@@ -152,10 +153,6 @@ function preprocess(
 
         // process character code.
         switch (code) {
-          case codes.nul:
-            chunks.push(codes.replacementCharacter)
-            column++
-            break
           case codes.ht:
             /**
              * The next column.

@@ -1,0 +1,1 @@
+{@linkcode codes.eos}

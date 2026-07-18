@@ -10,7 +10,31 @@ exports[`unit:parse > should return parse context 1`] = `
         95,
       ],
     },
-    "comment": {},
+    "comment": {
+      "64": [
+        {
+          "concrete": true,
+          "continuation": {
+            "partial": true,
+            "tokenize": [Function tokenizeBlockTagContinuation],
+          },
+          "exit": [Function exitBlockTag],
+          "name": "blockTag",
+          "tokenize": [Function tokenizeBlockTag],
+        },
+      ],
+      "null": [
+        {
+          "concrete": true,
+          "continuation": {
+            "tokenize": [Function tokenizeSummaryContinuation],
+          },
+          "exit": [Function exitSummary],
+          "name": "summary",
+          "tokenize": [Function tokenizeSummary],
+        },
+      ],
+    },
     "content": {},
     "contentInitial": {
       "91": [
@@ -292,6 +316,13 @@ exports[`unit:parse > should return parse context 1`] = `
           "tokenize": [Function tokenizeLineEnding],
         },
       ],
+      "123": [
+        {
+          "name": "inlineTag",
+          "previous": [Function previousInlineTag],
+          "tokenize": [Function tokenizeInlineTag],
+        },
+      ],
       "33": [
         {
           "name": "labelStartImage",
@@ -363,6 +394,7 @@ exports[`unit:parse > should return parse context 1`] = `
         },
       ],
     },
+    "type": {},
   },
   "content": [Function create],
   "defined": [],
@@ -372,5 +404,6 @@ exports[`unit:parse > should return parse context 1`] = `
   "source": [Function create],
   "string": [Function create],
   "text": [Function create],
+  "type": [Function create],
 }
 `;

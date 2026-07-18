@@ -16,6 +16,10 @@ describe('unit-d:ContentType', () => {
     expectTypeOf<TestSubject>().extract<'source'>().not.toBeNever()
   })
 
+  it('should extract "type"', () => {
+    expectTypeOf<TestSubject>().extract<'type'>().not.toBeNever()
+  })
+
   it('should extract micromark.ContentType', () => {
     expectTypeOf<TestSubject>().extract<micromark.ContentType>().not.toBeNever()
   })

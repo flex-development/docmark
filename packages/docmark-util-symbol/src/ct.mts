@@ -17,7 +17,8 @@ const ct = {
   flow: constants.contentTypeFlow,
   source: constants.contentTypeSource,
   string: constants.contentTypeString,
-  text: constants.contentTypeText
+  text: constants.contentTypeText,
+  type: constants.contentTypeType
 } as const
 
 export default ct

@@ -5,7 +5,7 @@
 [![install size](https://packagephobia.now.sh/badge?p=@flex-development/docmark)](https://packagephobia.now.sh/result?p=@flex-development/docmark)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 
-Documentation parser.
+a comment parser.
 
 > **Note**: This is the `docmark` package from the docmark monorepo.
 > See the [monorepo readme][docmark] for more on the project.

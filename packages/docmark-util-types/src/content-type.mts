@@ -12,13 +12,15 @@ import type * as micromark from 'micromark-util-types'
  * The highest level of content is `source`, and represents a source document or
  * source content fragment.
  *
- * The next level is `comment`, and represents the lines of a comment, i.e.
- * comment content. By default it includes comment summaries and block tags.
+ * The next level is `comment`, and represents the contents of a documentation
+ * comment after the opening delimiter and before the closing delimiter.\
+ * By default, comment content consists of an optional summary followed by zero
+ * or more block tags.
  *
  * @todo document markdown content levels
  *
  * @see {@linkcode micromark.ContentType}
  */
-type ContentType = micromark.ContentType | 'comment' | 'source'
+type ContentType = micromark.ContentType | 'comment' | 'source' | 'type'
 
 export type { ContentType as default }

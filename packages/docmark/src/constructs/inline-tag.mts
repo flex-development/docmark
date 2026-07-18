@@ -12,12 +12,22 @@ import type {
   State,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { eos } from '@flex-development/mark-util-character'
+import { asciiControl, eos } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
 import tagName from './tag-name.mts'
 
 /**
  * The inline tag construct.
+ *
+ * An inline tag begins with a left curly brace (`{`), followed immediately by a
+ * tag name, optional whitespace, inline tag text, and a closing right curly
+ * brace (`}`).
+ *
+ * Inline tag text may contain non-control characters and horizontal whitespace.
+ * Unless immediately preceded by a backslash (`\`), a right curly brace closes
+ * an inline tag.
+ *
+ * This construct is expected to run at the `text` content level.
  *
  * @const {NamedConstruct} inlineTag
  */
@@ -30,14 +40,16 @@ const inlineTag: NamedConstruct = {
 export default inlineTag
 
 /**
- * Check if the previous character code can precede an inline tag.
+ * Check if `code` can precede an inline tag.
+ *
+ * A left curly brace preceded by a backslash cannot begin an inline tag.
  *
  * @this {TokenizeContext}
  *
  * @param {Code} code
- *  The character code to check
+ *  The previous character code
  * @return {boolean}
- *  `true` if `code` is not {@linkcode codes.backslash}, `false` otherwise
+ *  Whether `code` can precede an inline tag
  */
 function previousInlineTag(this: TokenizeContext, code: Code): boolean {
   return code !== codes.backslash
@@ -45,6 +57,13 @@ function previousInlineTag(this: TokenizeContext, code: Code): boolean {
 
 /**
  * Tokenize an inline tag.
+ *
+ * The opening left curly brace is consumed before a {@linkcode tagName} is
+ * attempted. The tag name must therefore begin immediately after the opening
+ * marker.
+ *
+ * After the tag name, optional whitespace is consumed before inline tag text.
+ * The construct succeeds when an unescaped right curly brace is encountered.
  *
  * @this {TokenizeContext}
  *
@@ -70,23 +89,26 @@ function tokenizeInlineTag(
    */
   const self: TokenizeContext = this
 
-  return inlineTag
+  return inlineTagStart
 
   /**
-   * Start of an inline tag.
+   * At the beginning of an inline tag, before the opening marker.
+   *
+   * The previous character is checked before the marker is consumed.
+   * After entering the inline tag, a tag name is attempted immediately.
    *
    * @example
    *  ```markdown
-   *  > | * @see {@linkcode Code}
-   *             ^
+   *  > |@see {@linkcode Code}
+   *          ^
    *  ```
    *
    * @example
    *  ```markdown
-   *  > | * Event compilation consumes the {@linkcode Event}s of a parser to
-   *                                       ^
-   *  > | * produce a single {@linkcode CompileResult}.
-   *                         ^
+   *  > |Event compilation consumes the {@linkcode Event}s of a parser to
+   *                                    ^
+   *  > |produce a single {@linkcode CompileResult}.
+   *                      ^
    *  ```
    *
    * @this {void}
@@ -96,7 +118,8 @@ function tokenizeInlineTag(
    * @return {State | undefined}
    *  The next state
    */
-  function inlineTag(this: void, code: Code): State | undefined {
+  function inlineTagStart(this: void, code: Code): State | undefined {
+    if (!previousInlineTag.call(self, self.previous)) return nok(code)
     assert(code === codes.leftCurlyBrace, 'expected `codes.leftCurlyBrace`')
 
     effects.enter(tt.inlineTag)
@@ -106,12 +129,23 @@ function tokenizeInlineTag(
   }
 
   /**
-   * After tag name.
+   * After tag name, at optional whitespace.
+   *
+   * Any whitespace between the tag name and inline tag text is captured as
+   * {@linkcode tt.whitespace}.
    *
    * @example
    *  ```markdown
-   *  > | * @see {@linkcode Code}
-   *                       ^
+   *  > |@see {@linkcode Code}
+   *                    ^
+   *  ```
+   *
+   * @example
+   *  ```markdown
+   *  > |Event compilation consumes the {@linkcode Event}s of a parser to
+   *                                              ^
+   *  > |produce a single {@linkcode CompileResult}.
+   *                                ^
    *  ```
    *
    * @this {void}
@@ -122,16 +156,35 @@ function tokenizeInlineTag(
    *  The next state
    */
   function afterTagName(this: void, code: Code): State | undefined {
-    return factorySpace(effects, inlineTagText, tt.whitespace)(code)
+    return factorySpace(effects, atStringChunk, tt.whitespace)(code)
   }
 
   /**
-   * At inline tag text.
+   * At the beginning of inline tag text.
+   *
+   * If the current code is a right curly brace and not preceded by a backslash,
+   * the inline tag is closed and the construct succeeds.\
+   * Otherwise, a {@linkcode tt.chunkString} token is opened at the current
+   * position.
    *
    * @example
    *  ```markdown
-   *  > | * @see {@linkcode Code}
-   *                        ^
+   *  > |@see {@linkcode Code}
+   *                     ^
+   *  ```
+   *
+   * @example
+   *  ```markdown
+   *  > |Event compilation consumes the {@linkcode Event}s of a parser to
+   *                                               ^
+   *  > |produce a single {@linkcode CompileResult}.
+   *                                 ^
+   *  ```
+   *
+   * @example
+   *  ```markdown
+   *  > |@see {@linkcode Code Chunk}
+   *                     ^
    *  ```
    *
    * @this {void}
@@ -141,38 +194,54 @@ function tokenizeInlineTag(
    * @return {State | undefined}
    *  The next state
    */
-  function inlineTagText(this: void, code: Code): State | undefined {
-    effects.enter(tt.inlineTagText)
-    return factorySpace(effects, insideInlineTagText, tt.whitespace)(code)
-  }
-
-  /**
-   * Inside inline tag text.
-   *
-   * @example
-   *  ```markdown
-   *  > | * @see {@linkcode Code}
-   *                        ^^^^
-   *  ```
-   *
-   * @this {void}
-   *
-   * @param {Code} code
-   *  The current character code
-   * @return {State | undefined}
-   *  The next state
-   */
-  function insideInlineTagText(this: void, code: Code): State | undefined {
-    if (eos(code)) return nok(code)
-
+  function atStringChunk(this: void, code: Code): State | undefined {
     if (code === codes.rightCurlyBrace && self.previous !== codes.backslash) {
-      effects.exit(tt.inlineTagText)
       effects.consume(code)
       effects.exit(tt.inlineTag)
       return ok
     }
 
-    effects.consume(code)
-    return insideInlineTagText
+    effects.enter(tt.chunkString)
+    return insideStringChunk(code)
+  }
+
+  /**
+   * Inside inline tag text.
+   *
+   * An unescaped right curly brace (`}`) closes the current `chunkString` token
+   * and the enclosing inline tag.
+   *
+   * End of stream and ASCII control characters are invalid inside inline tag
+   * text and cause the construct to fail.
+   *
+   * @example
+   *  ```markdown
+   *  > |@see {@linkcode Code}
+   *                     ^^^^
+   *  ```
+   *
+   * @example
+   *  ```markdown
+   *  > |@see {@linkcode Code Chunk}
+   *                     ^^^^^^^^^^
+   *  ```
+   *
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function insideStringChunk(this: void, code: Code): State | undefined {
+    if (code === codes.rightCurlyBrace && self.previous !== codes.backslash) {
+      effects.exit(tt.chunkString)
+      effects.consume(code)
+      effects.exit(tt.inlineTag)
+      return ok
+    }
+
+    if (asciiControl(code) || eos(code)) return nok(code)
+    return effects.consume(code), insideStringChunk
   }
 }

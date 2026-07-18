@@ -12,6 +12,7 @@ declare module '@flex-development/mark/parse' {
     source: 'source'
     string: 'string'
     text: 'text'
+    type: 'type'
   }
 
   interface ContextMap {

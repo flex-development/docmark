@@ -21,7 +21,6 @@ const tt = {
   blockQuotePrefix: 'blockQuotePrefix',
   blockQuotePrefixWhitespace: 'blockQuotePrefixWhitespace',
   blockTag: 'blockTag',
-  blockTagContent: 'blockTagContent',
   characterEscape: 'characterEscape',
   characterEscapeValue: 'characterEscapeValue',
   characterReference: 'characterReference',
@@ -36,6 +35,7 @@ const tt = {
   chunkMarkdown: 'chunkMarkdown',
   chunkString: 'chunkString',
   chunkText: 'chunkText',
+  chunkType: 'chunkType',
   codeFenced: 'codeFenced',
   codeFencedFence: 'codeFencedFence',
   codeFencedFenceInfo: 'codeFencedFenceInfo',
@@ -81,7 +81,6 @@ const tt = {
   htmlTextData: 'htmlTextData',
   image: 'image',
   inlineTag: 'inlineTag',
-  inlineTagText: 'inlineTagText',
   label: 'label',
   labelEnd: 'labelEnd',
   labelImage: 'labelImage',
@@ -123,11 +122,14 @@ const tt = {
   strongSequence: 'strongSequence',
   strongText: 'strongText',
   summary: 'summary',
+  summaryMarker: 'summaryMarker',
   tagName: 'tagName',
   tagNameIdentifier: 'tagNameIdentifier',
   tagNameMarker: 'tagNameMarker',
   thematicBreak: 'thematicBreak',
   thematicBreakSequence: 'thematicBreakSequence',
+  typeMetadata: 'typeMetadata',
+  typeMetadataMarker: 'typeMetadataMarker',
   whitespace: 'whitespace'
 } as const
 

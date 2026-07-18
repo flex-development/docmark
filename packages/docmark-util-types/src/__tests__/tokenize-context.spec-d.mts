@@ -36,6 +36,12 @@ describe('unit-d:TokenizeContext', () => {
     expectTypeOf<TestSubject>().toHaveProperty('code').toEqualTypeOf<Code>()
   })
 
+  it('should match [concrete?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('concrete')
+      .toEqualTypeOf<boolean | undefined>()
+  })
+
   it('should match [containerState?: ContainerState | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('containerState')

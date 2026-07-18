@@ -29,6 +29,7 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   blockTag: 'blockTag'
   chunkComment: 'chunkComment'
   chunkMarkdown: 'chunkMarkdown'
+  chunkType: 'chunkType'
   comment: 'comment'
   commentCloser: 'commentCloser'
   commentLineMarker: 'commentLineMarker'
@@ -37,12 +38,14 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   commentOpener: 'commentOpener'
   eoc: 'eoc'
   inlineTag: 'inlineTag'
-  inlineTagText: 'inlineTagText'
   null: never
   summary: 'summary'
+  summaryMarker: 'summaryMarker'
   tagName: 'tagName'
   tagNameIdentifier: 'tagNameIdentifier'
   tagNameMarker: 'tagNameMarker'
+  typeMetadata: 'typeMetadata'
+  typeMetadataMarker: 'typeMetadataMarker'
 }
 
 export type { TokenTypeMap as default }

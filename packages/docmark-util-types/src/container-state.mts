@@ -21,6 +21,12 @@ import type * as micromark from 'micromark-util-types'
  *
  * @extends {micromark.ContainerState}
  */
-interface ContainerState extends micromark.ContainerState {}
+interface ContainerState extends micromark.ContainerState {
+  /**
+   * For block tag containers and type expressions,
+   * the current tag name identifier.
+   */
+  tag?: string | undefined
+}
 
 export type { ContainerState as default }

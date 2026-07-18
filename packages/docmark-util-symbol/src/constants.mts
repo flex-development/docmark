@@ -28,6 +28,7 @@ const constants = {
   contentTypeSource: 'source',
   contentTypeString: 'string',
   contentTypeText: 'text',
+  contentTypeType: 'type',
   hardBreakPrefixSizeMin: 2,
   htmlBasic: 6,
   htmlCdata: 5,

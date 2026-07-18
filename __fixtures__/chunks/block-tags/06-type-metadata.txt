@@ -1,0 +1,5 @@
+@typedef {(
+Plugin<Array<any>, any, any> |
+PluginTuple<Array<any>, any, any> |
+Preset
+)} Pluggable

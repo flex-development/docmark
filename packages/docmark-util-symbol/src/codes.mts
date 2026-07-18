@@ -14,8 +14,7 @@
  * and CR+LF, commonly known as end-of-line: EOLs), as well as tab (horizontal
  * tab) and its expansion based on what column it’s at (virtual space).
  * As values are preprocessed before handling them, the actual characters LF,
- * CR, HT, and NUL (which is present as the replacement character), are
- * guaranteed to not exist.
+ * CR, and HT are guaranteed to not exist.
  *
  * @see https://symbl.cc/en/unicode/blocks/basic-latin
  * @see https://symbl.cc/en/unicode/blocks/latin-1-supplement

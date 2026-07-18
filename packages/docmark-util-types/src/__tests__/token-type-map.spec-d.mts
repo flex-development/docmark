@@ -30,6 +30,12 @@ describe('unit-d:TokenTypeMap', () => {
       .toEqualTypeOf<'chunkMarkdown'>()
   })
 
+  it('should match [chunkType: "chunkType"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('chunkType')
+      .toEqualTypeOf<'chunkType'>()
+  })
+
   it('should match [comment: "comment"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('comment')
@@ -76,12 +82,6 @@ describe('unit-d:TokenTypeMap', () => {
       .toEqualTypeOf<'inlineTag'>()
   })
 
-  it('should match [inlineTagText: "inlineTagText"]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('inlineTagText')
-      .toEqualTypeOf<'inlineTagText'>()
-  })
-
   it('should match [null: never]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('null').toEqualTypeOf<never>()
   })
@@ -90,6 +90,12 @@ describe('unit-d:TokenTypeMap', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('summary')
       .toEqualTypeOf<'summary'>()
+  })
+
+  it('should match [summaryMarker: "summaryMarker"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('summaryMarker')
+      .toEqualTypeOf<'summaryMarker'>()
   })
 
   it('should match [tagName: "tagName"]', () => {
@@ -108,5 +114,17 @@ describe('unit-d:TokenTypeMap', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('tagNameMarker')
       .toEqualTypeOf<'tagNameMarker'>()
+  })
+
+  it('should match [typeMetadata: "typeMetadata"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('typeMetadata')
+      .toEqualTypeOf<'typeMetadata'>()
+  })
+
+  it('should match [typeMetadataMarker: "typeMetadataMarker"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('typeMetadataMarker')
+      .toEqualTypeOf<'typeMetadataMarker'>()
   })
 })

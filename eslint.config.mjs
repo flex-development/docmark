@@ -30,13 +30,14 @@ const config = [
           allowExperimental: true,
           version: fs.readFileSync(pathe.resolve('.nvmrc'), 'utf8').trim()
         }
-      ]
+      ],
+      'unicorn/escape-case': [2, 'lowercase']
     }
   },
   {
     files: [
       'packages/docmark/src/constructs/*.mts',
-      'packages/docmark/src/constructs/initialize/*.mts'
+      'packages/docmark/src/initialize/*.mts'
     ],
     rules: {
       'unicorn/no-this-assignment': 0

@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
+exports[`unit:constructs/tagName > should tokenize tag names ("@Component") 1`] = `
 [
   [
     "enter",
@@ -8,9 +8,9 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
       "end": {
         "_bufferIndex": -1,
         "_index": 1,
-        "column": 5,
+        "column": 11,
         "line": 1,
-        "offset": 4,
+        "offset": 10,
       },
       "start": {
         "_bufferIndex": 0,
@@ -68,9 +68,9 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
       "end": {
         "_bufferIndex": -1,
         "_index": 1,
-        "column": 5,
+        "column": 11,
         "line": 1,
-        "offset": 4,
+        "offset": 10,
       },
       "start": {
         "_bufferIndex": 1,
@@ -80,7 +80,7 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
         "offset": 1,
       },
       "type": "tagNameIdentifier",
-      "value": "see",
+      "value": "Component",
     },
   ],
   [
@@ -89,9 +89,9 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
       "end": {
         "_bufferIndex": -1,
         "_index": 1,
-        "column": 5,
+        "column": 11,
         "line": 1,
-        "offset": 4,
+        "offset": 10,
       },
       "start": {
         "_bufferIndex": 1,
@@ -101,7 +101,7 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
         "offset": 1,
       },
       "type": "tagNameIdentifier",
-      "value": "see",
+      "value": "Component",
     },
   ],
   [
@@ -110,9 +110,9 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
       "end": {
         "_bufferIndex": -1,
         "_index": 1,
-        "column": 5,
+        "column": 11,
         "line": 1,
-        "offset": 4,
+        "offset": 10,
       },
       "start": {
         "_bufferIndex": 0,
@@ -127,17 +127,17 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@see") 1`] = `
 ]
 `;
 
-exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`] = `
+exports[`unit:constructs/tagName > should tokenize tag names ("@alpha1") 1`] = `
 [
   [
     "enter",
     {
       "end": {
-        "_bufferIndex": 5,
-        "_index": 0,
-        "column": 6,
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 8,
         "line": 1,
-        "offset": 5,
+        "offset": 7,
       },
       "start": {
         "_bufferIndex": 0,
@@ -193,11 +193,11 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
     "enter",
     {
       "end": {
-        "_bufferIndex": 5,
-        "_index": 0,
-        "column": 6,
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 8,
         "line": 1,
-        "offset": 5,
+        "offset": 7,
       },
       "start": {
         "_bufferIndex": 1,
@@ -207,18 +207,18 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
         "offset": 1,
       },
       "type": "tagNameIdentifier",
-      "value": "this",
+      "value": "alpha1",
     },
   ],
   [
     "exit",
     {
       "end": {
-        "_bufferIndex": 5,
-        "_index": 0,
-        "column": 6,
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 8,
         "line": 1,
-        "offset": 5,
+        "offset": 7,
       },
       "start": {
         "_bufferIndex": 1,
@@ -228,18 +228,399 @@ exports[`unit:constructs/tagName > should tokenize tag names ("@this {void}") 1`
         "offset": 1,
       },
       "type": "tagNameIdentifier",
-      "value": "this",
+      "value": "alpha1",
     },
   ],
   [
     "exit",
     {
       "end": {
-        "_bufferIndex": 5,
-        "_index": 0,
-        "column": 6,
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 8,
         "line": 1,
-        "offset": 5,
+        "offset": 7,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagName",
+    },
+  ],
+]
+`;
+
+exports[`unit:constructs/tagName > should tokenize tag names ("@override") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameIdentifier",
+      "value": "override",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameIdentifier",
+      "value": "override",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagName",
+    },
+  ],
+]
+`;
+
+exports[`unit:constructs/tagName > should tokenize tag names ("@packageDocumentation") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 22,
+        "line": 1,
+        "offset": 21,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 22,
+        "line": 1,
+        "offset": 21,
+      },
+      "start": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameIdentifier",
+      "value": "packageDocumentation",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 22,
+        "line": 1,
+        "offset": 21,
+      },
+      "start": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameIdentifier",
+      "value": "packageDocumentation",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 22,
+        "line": 1,
+        "offset": 21,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagName",
+    },
+  ],
+]
+`;
+
+exports[`unit:constructs/tagName > should tokenize tag names ("@private_remarks") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagName",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "tagNameMarker",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "start": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameIdentifier",
+      "value": "private_remarks",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
+      },
+      "start": {
+        "_bufferIndex": 1,
+        "_index": 0,
+        "column": 2,
+        "line": 1,
+        "offset": 1,
+      },
+      "type": "tagNameIdentifier",
+      "value": "private_remarks",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 17,
+        "line": 1,
+        "offset": 16,
       },
       "start": {
         "_bufferIndex": 0,

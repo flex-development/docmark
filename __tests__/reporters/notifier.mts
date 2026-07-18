@@ -120,7 +120,7 @@ class Notifier implements Reporter {
     let title: string = ''
 
     if (tests.failed.length || errors.length > 0) {
-      title = '\u274C Failed'
+      title = '\u274c Failed'
       message = `${tests.failed.length} of ${total} tests failed`
       message += `\n${errors.length} unhandled errors`
     } else {

@@ -99,6 +99,11 @@ interface TokenFields {
    * @see {@linkcode Token}
    */
   previous?: Token | undefined
+
+  /**
+   * For type expression chunks, the current tag name identifier.
+   */
+  tag?: string | undefined
 }
 
 export type { TokenFields as default }

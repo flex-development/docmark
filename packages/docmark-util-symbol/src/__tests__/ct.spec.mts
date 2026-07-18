@@ -18,7 +18,8 @@ describe('unit:ct', () => {
       constants.contentTypeFlow,
       constants.contentTypeContent,
       constants.contentTypeText,
-      constants.contentTypeString
+      constants.contentTypeString,
+      constants.contentTypeType
     ]
   })
 

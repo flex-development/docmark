@@ -84,4 +84,10 @@ describe('unit-d:Extension', () => {
       .toHaveProperty('text')
       .toEqualTypeOf<ConstructRecord | undefined>()
   })
+
+  it('should match [type?: ConstructRecord | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('type')
+      .toEqualTypeOf<ConstructRecord | undefined>()
+  })
 })

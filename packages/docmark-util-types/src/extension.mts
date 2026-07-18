@@ -110,6 +110,13 @@ interface Extension {
    * @see {@linkcode ConstructRecord}
    */
   text?: ConstructRecord | undefined
+
+  /**
+   * @todo `type`
+   *
+   * @see {@linkcode ConstructRecord}
+   */
+  type?: ConstructRecord | undefined
 }
 
 export type { Extension as default }

@@ -83,4 +83,10 @@ describe('unit-d:TokenFields', () => {
       .toHaveProperty('previous')
       .toEqualTypeOf<Token | undefined>()
   })
+
+  it('should match [tag?: string | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('tag')
+      .toEqualTypeOf<string | undefined>()
+  })
 })

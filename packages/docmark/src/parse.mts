@@ -3,7 +3,7 @@
  * @module docmark/parse
  */
 
-import { ct } from '@flex-development/docmark-util-symbol'
+import { codes, ct } from '@flex-development/docmark-util-symbol'
 import type {
   NormalizedExtension,
   ParseContext,
@@ -21,12 +21,13 @@ import type {
   InitialConstruct,
   InitialConstructs
 } from '@flex-development/mark/parse'
-import content from './constructs/initialize/content.mts'
-import document from './constructs/initialize/document.mts'
-import flow from './constructs/initialize/flow.mts'
-import { string, text } from './constructs/initialize/text.mts'
 import docmark from './extensions/docmark.mts'
 import markdown from './extensions/markdown.mts'
+import comment from './initialize/comment.mts'
+import content from './initialize/content.mts'
+import document from './initialize/document.mts'
+import flow from './initialize/flow.mts'
+import { string, text } from './initialize/text.mts'
 
 export default parse
 
@@ -105,8 +106,13 @@ function parse(
     if (typeof self.parser.defined === 'undefined') self.parser.defined = []
     if (typeof self.parser.lazy === 'undefined') self.parser.lazy = {}
 
-    if (self.contentType !== ct.document && self.contentType !== ct.source) {
-      options.noPrevious = true
+    if (self.contentType) {
+      if (self.contentType !== ct.comment && self.contentType !== ct.source) {
+        options.noEmptyTokens = true
+        options.noPrevious = true
+      } else {
+        self.previous = codes.bos
+      }
     }
 
     return void void self
@@ -123,12 +129,13 @@ function parse(
   function initialize(this: void): InitialConstructs {
     return {
       [ct.source]: initial(ct.source),
-      [ct.comment]: initial(ct.comment),
+      [ct.comment]: comment,
       [ct.document]: document,
       [ct.flow]: flow,
       [ct.content]: content,
       [ct.string]: string,
-      [ct.text]: text
+      [ct.text]: text,
+      [ct.type]: initial(ct.type)
     }
   }
 }
