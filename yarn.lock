@@ -1587,7 +1587,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-util-types@workspace:packages/docmark-util-types"
   dependencies:
-    "@flex-development/mark": "npm:1.0.0-alpha.1"
+    "@flex-development/mark": "npm:1.0.0-alpha.2"
     micromark-util-types: "npm:2.0.2"
   languageName: unknown
   linkType: soft
@@ -1600,8 +1600,8 @@ __metadata:
     "@flex-development/docmark-util-subtokenize": "workspace:*"
     "@flex-development/docmark-util-symbol": "workspace:*"
     "@flex-development/docmark-util-types": "workspace:*"
-    "@flex-development/mark": "npm:1.0.0-alpha.1"
-    "@flex-development/mark-parser": "npm:1.0.0-alpha.11"
+    "@flex-development/mark": "npm:1.0.0-alpha.2"
+    "@flex-development/mark-parser": "npm:1.0.0-alpha.12"
     "@flex-development/mark-util-character": "npm:1.0.0"
     "@flex-development/mark-util-chunked": "npm:1.0.0"
     devlop: "npm:1.1.0"
@@ -1807,18 +1807,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/mark-parser@npm:1.0.0-alpha.11":
-  version: 1.0.0-alpha.11
-  resolution: "@flex-development/mark-parser@npm:1.0.0-alpha.11"
+"@flex-development/mark-parser@npm:1.0.0-alpha.12":
+  version: 1.0.0-alpha.12
+  resolution: "@flex-development/mark-parser@npm:1.0.0-alpha.12"
   dependencies:
-    "@flex-development/mark": "npm:1.0.0-alpha.1"
+    "@flex-development/mark": "npm:1.0.0-alpha.2"
     "@flex-development/mark-util-character": "npm:1.0.0"
     "@flex-development/mark-util-chunked": "npm:1.0.0"
     "@flex-development/mark-util-symbol": "npm:3.1.0"
     "@flex-development/unist-util-builder": "npm:2.0.0"
     debug: "npm:4.4.3"
     devlop: "npm:1.1.0"
-  checksum: 10/6e591422bea28dfa5828be4d017d3361623fef8efff9a32f1396225c1a9cc8d46e909f27f3c5025878437c017d752918ade52c858fd0890d655a803672599350
+  checksum: 10/11af56012bd04aebce77ed17b817c791142a30876e34dbcef094cf8efeb913220a36355d672290c24cd64082a23ba2955b64ad4b42201f085dd9c9bd76e7a40d
   languageName: node
   linkType: hard
 
@@ -1863,6 +1863,16 @@ __metadata:
     "@flex-development/unist-util-types": "npm:1.6.1"
     "@types/unist": "npm:3.0.3"
   checksum: 10/7329561e42c49429de401b368fdaec235b60d12e85b503ffb6c5facf9cff19201801515ecc470c89fd1b60dc280b4bf5e6c53285dbf92d674bd0d36a53ef1122
+  languageName: node
+  linkType: hard
+
+"@flex-development/mark@npm:1.0.0-alpha.2":
+  version: 1.0.0-alpha.2
+  resolution: "@flex-development/mark@npm:1.0.0-alpha.2"
+  dependencies:
+    "@flex-development/unist-util-types": "npm:1.6.1"
+    "@types/unist": "npm:3.0.3"
+  checksum: 10/3ec39f7bc224d414590ab40e92d03e888e172e7d4ebadc3578d0a9af98c7a0b48e7cc84deb2d337ee77b1e741e5c20f933be2c5aef12cf69e84b9ac410ec6522
   languageName: node
   linkType: hard
 
@@ -4983,8 +4993,8 @@ __metadata:
     "@flex-development/export-regex": "npm:2.0.0"
     "@flex-development/grease": "npm:3.0.0-alpha.9"
     "@flex-development/import-regex": "npm:3.0.0"
-    "@flex-development/mark": "npm:1.0.0-alpha.1"
-    "@flex-development/mark-parser": "npm:1.0.0-alpha.11"
+    "@flex-development/mark": "npm:1.0.0-alpha.2"
+    "@flex-development/mark-parser": "npm:1.0.0-alpha.12"
     "@flex-development/mlly": "npm:1.0.0-beta.7"
     "@flex-development/pathe": "npm:4.0.2"
     "@flex-development/pkg-types": "npm:4.1.0"

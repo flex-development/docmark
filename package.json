@@ -1,6 +1,6 @@
 {
   "name": "docmark",
-  "description": "",
+  "description": "a comment parser ecosystem with support for markdown",
   "version": "0.0.0",
   "keywords": [],
   "license": "BSD-3-Clause",
@@ -78,8 +78,8 @@
     "@flex-development/export-regex": "2.0.0",
     "@flex-development/grease": "3.0.0-alpha.9",
     "@flex-development/import-regex": "3.0.0",
-    "@flex-development/mark": "1.0.0-alpha.1",
-    "@flex-development/mark-parser": "1.0.0-alpha.11",
+    "@flex-development/mark": "1.0.0-alpha.2",
+    "@flex-development/mark-parser": "1.0.0-alpha.12",
     "@flex-development/mlly": "1.0.0-beta.7",
     "@flex-development/pathe": "4.0.2",
     "@flex-development/pkg-types": "4.1.0",

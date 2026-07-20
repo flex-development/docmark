@@ -3,7 +3,7 @@
  * @module docmark-util-types/ContinuableConstruct
  */
 
-import type { Construct } from '@flex-development/docmark-util-types'
+import type { Construct, Exiter } from '@flex-development/docmark-util-types'
 
 /**
  * A construct that can be continued.
@@ -21,6 +21,15 @@ interface ContinuableConstruct extends Construct {
    * @override
    */
   continuation: Construct
+
+  /**
+   * For containers, a final exit hook.
+   *
+   * @see {@linkcode Exiter}
+   *
+   * @override
+   */
+  exit: Exiter
 }
 
 export type { ContinuableConstruct as default }

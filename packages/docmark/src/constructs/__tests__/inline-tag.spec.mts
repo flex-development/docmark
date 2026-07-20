@@ -28,12 +28,13 @@ describe('unit:constructs/inlineTag', () => {
   beforeEach(() => {
     context = createTokenizer({
       extensions: { [ct.text]: { [codes.leftCurlyBrace]: testSubject } },
-      initialize,
-      noEmptyTokens: true,
-      noPrevious: true
+      initialize
     })
 
     context = context.parser.text()
+
+    context.noEmptyTokens = true
+    context.noPrevious = true
   })
 
   it('should be named `Construct`', () => {

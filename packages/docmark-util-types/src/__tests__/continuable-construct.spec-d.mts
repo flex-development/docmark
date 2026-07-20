@@ -3,7 +3,7 @@
  * @module docmark-util-types/tests/unit-d/ContinuableConstruct
  */
 
-import type { Construct } from '@flex-development/docmark-util-types'
+import type { Construct, Exiter } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../continuable-construct.mts'
 
@@ -16,5 +16,9 @@ describe('unit-d:ContinuableConstruct', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('continuation')
       .toEqualTypeOf<Construct>()
+  })
+
+  it('should match [exit: Exiter]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('exit').toEqualTypeOf<Exiter>()
   })
 })

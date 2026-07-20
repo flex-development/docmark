@@ -44,7 +44,7 @@ import typeMetadata from './type-metadata.mts'
  */
 const blockTag: ContinuableConstruct & NamedConstruct = {
   concrete: true,
-  continuation: { partial: true, tokenize: tokenizeBlockTagContinuation },
+  continuation: { tokenize: tokenizeBlockTagContinuation },
   exit: exitBlockTag,
   name: tt.blockTag,
   tokenize: tokenizeBlockTag

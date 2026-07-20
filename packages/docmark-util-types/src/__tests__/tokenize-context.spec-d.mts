@@ -78,6 +78,12 @@ describe('unit-d:TokenizeContext', () => {
       .toEqualTypeOf<boolean | undefined>()
   })
 
+  it('should match [noEmptyTokens?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('noEmptyTokens')
+      .toEqualTypeOf<boolean | undefined>()
+  })
+
   it('should match [now: Now]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('now').toEqualTypeOf<Now>()
   })

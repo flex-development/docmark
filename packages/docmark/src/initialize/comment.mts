@@ -157,7 +157,7 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
   function start(this: void, code: Code): State | undefined {
     if (!stack[0]) return checkNewRegions(code)
 
-    assert(eol(self.previous), 'expected to be at beginning line')
+    assert(eol(self.previous), 'expected to be at beginning of line')
     const [construct, containerState] = stack[0]
 
     self.containerState = containerState
@@ -221,6 +221,9 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
 
     // get ready for new region.
     self.containerState = {}
+
+    // signal concrete content.
+    self.concrete = markdown.concrete
 
     // check for new region.
     return effects.check(region, aNewRegion, beforeMarkdown)(code)
@@ -495,7 +498,7 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
     while (stack.length) {
       const [construct, containerState] = stack.pop()!
       self.containerState = containerState
-      construct.exit?.call(self, effects)
+      construct.exit.call(self, effects)
     }
 
     return void stack

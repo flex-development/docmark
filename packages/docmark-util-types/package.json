@@ -49,7 +49,7 @@
   },
   "types": "./dist/index.d.mts",
   "dependencies": {
-    "@flex-development/mark": "1.0.0-alpha.1",
+    "@flex-development/mark": "1.0.0-alpha.2",
     "micromark-util-types": "2.0.2"
   },
   "sideEffects": false

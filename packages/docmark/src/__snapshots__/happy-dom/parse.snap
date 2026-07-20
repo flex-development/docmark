@@ -15,7 +15,6 @@ exports[`unit:parse > should return parse context 1`] = `
         {
           "concrete": true,
           "continuation": {
-            "partial": true,
             "tokenize": [Function tokenizeBlockTagContinuation],
           },
           "exit": [Function exitBlockTag],
@@ -282,7 +281,19 @@ exports[`unit:parse > should return parse context 1`] = `
         },
       ],
     },
-    "source": {},
+    "source": {
+      "47": [
+        {
+          "continuation": {
+            "tokenize": [Function tokenizeCommentContinuation],
+          },
+          "exit": [Function exitComment],
+          "name": "comment",
+          "previous": [Function previousComment],
+          "tokenize": [Function tokenizeComment],
+        },
+      ],
+    },
     "string": {
       "38": [
         {

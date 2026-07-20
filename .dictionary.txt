@@ -11,8 +11,10 @@ hmarr
 htab
 jchen
 ksort
+mdash
 nvmrc
 shfmt
+unpadded
 unstub
 vates
 vitest

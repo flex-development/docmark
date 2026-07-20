@@ -27,12 +27,13 @@ describe('unit:constructs/tagName', () => {
   beforeEach(() => {
     context = createTokenizer({
       extensions: { [ct.string]: { [codes.atSign]: testSubject } },
-      initialize,
-      noEmptyTokens: true,
-      noPrevious: true
+      initialize
     })
 
     context = context.parser.string()
+
+    context.noEmptyTokens = true
+    context.noPrevious = true
   })
 
   it('should be unnamed partial `Construct`', () => {

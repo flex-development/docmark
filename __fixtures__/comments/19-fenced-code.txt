@@ -1,0 +1,6 @@
+/**
+ * ```markdown
+ * > |* @file Constructs - comment
+ *      ^
+ * ```
+ */

@@ -121,6 +121,15 @@ interface TokenizeContext {
   interrupt?: boolean | undefined
 
   /**
+   * Whether to error on empty tokens.
+   *
+   * > 👉 **Note**: Error only thrown with `development` export condition.
+   *
+   * @see https://github.com/wooorm/devlop#okvalue-message
+   */
+  noEmptyTokens?: boolean | undefined
+
+  /**
    * Get the current place in the content.
    *
    * @see {@linkcode Now}

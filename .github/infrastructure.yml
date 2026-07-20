@@ -210,7 +210,7 @@ repository:
   automated_security_fixes: true
   default_branch: main
   delete_branch_on_merge: true
-  description: a comment parser with support for markdown
+  description: a comment parser ecosystem with support for markdown
   has_issues: true
   has_projects: true
   has_wiki: false

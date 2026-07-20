@@ -1,4 +1,4 @@
-import type {} from '@flex-development/docmark-util-types'
+import type { Construct, State } from '@flex-development/docmark-util-types'
 import type * as mark from '@flex-development/mark/parse'
 
 declare module '@flex-development/docmark-util-types' {
@@ -19,6 +19,16 @@ declare module '@flex-development/docmark-util-types' {
      * @internal
      */
     _gfmTasklistFirstContentOfListItem?: boolean | undefined
+
+    /**
+     * When trying a construct, whether {@linkcode Construct.previous}
+     * should **not** be called.
+     *
+     * If `false`, `previous` should be called via {@linkcode State} function.
+     *
+     * @internal
+     */
+    noPrevious?: boolean | undefined
 
     /**
      * Whether a summary is allowed.

@@ -6,6 +6,7 @@
 import { codes } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
 import blockTag from '../constructs/block-tag.mts'
+import comment from '../constructs/comment.mts'
 import inlineTag from '../constructs/inline-tag.mts'
 import summary from '../constructs/summary.mts'
 
@@ -21,7 +22,9 @@ const docmark: NormalizedExtension = {
     [codes.atSign]: blockTag,
     null: [summary]
   },
-  source: {},
+  source: {
+    [codes.slash]: comment
+  },
   text: {
     [codes.leftCurlyBrace]: inlineTag
   }

@@ -45,7 +45,7 @@ describe('integration:initialize/comment', () => {
     ['03-blanks.txt'],
     ['04.txt'],
     ['05.txt']
-  ])('should parse comment lines (%j,%j)', (path, options) => {
+  ])('should parse comment lines (%j)', (path, options) => {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
     const slice: Chunk[] = preprocess()(file, undefined, true)

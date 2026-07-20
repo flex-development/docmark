@@ -739,9 +739,9 @@ exports[`integration:initialize/comment > should allow all comment constructs to
 ]
 `;
 
-exports[`integration:initialize/comment > should parse comment lines ("01-empty.txt",undefined) 1`] = `[]`;
+exports[`integration:initialize/comment > should parse comment lines ("01-empty.txt") 1`] = `[]`;
 
-exports[`integration:initialize/comment > should parse comment lines ("02-blanks.txt",undefined) 1`] = `
+exports[`integration:initialize/comment > should parse comment lines ("02-blanks.txt") 1`] = `
 [
   [
     "enter",
@@ -838,7 +838,7 @@ exports[`integration:initialize/comment > should parse comment lines ("02-blanks
 ]
 `;
 
-exports[`integration:initialize/comment > should parse comment lines ("03-blanks.txt",undefined) 1`] = `
+exports[`integration:initialize/comment > should parse comment lines ("03-blanks.txt") 1`] = `
 [
   [
     "enter",
@@ -1107,7 +1107,7 @@ exports[`integration:initialize/comment > should parse comment lines ("03-blanks
 ]
 `;
 
-exports[`integration:initialize/comment > should parse comment lines ("04.txt",undefined) 1`] = `
+exports[`integration:initialize/comment > should parse comment lines ("04.txt") 1`] = `
 [
   [
     "enter",
@@ -3012,7 +3012,7 @@ exports[`integration:initialize/comment > should parse comment lines ("04.txt",u
 ]
 `;
 
-exports[`integration:initialize/comment > should parse comment lines ("05.txt",undefined) 1`] = `
+exports[`integration:initialize/comment > should parse comment lines ("05.txt") 1`] = `
 [
   [
     "enter",

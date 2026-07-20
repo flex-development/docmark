@@ -12,21 +12,18 @@ import type {
 } from '@flex-development/docmark-util-types'
 import {
   createTokenizer,
-  initialize as initial,
-  type Options
+  initialize as initial
 } from '@flex-development/mark-parser'
 import { combineExtensions } from '@flex-development/mark-parser/utils'
 import { eol } from '@flex-development/mark-util-character'
-import type {
-  InitialConstruct,
-  InitialConstructs
-} from '@flex-development/mark/parse'
+import type { InitialConstructs } from '@flex-development/mark/parse'
 import docmark from './extensions/docmark.mts'
 import markdown from './extensions/markdown.mts'
 import comment from './initialize/comment.mts'
 import content from './initialize/content.mts'
 import document from './initialize/document.mts'
 import flow from './initialize/flow.mts'
+import source from './initialize/source.mts'
 import { string, text } from './initialize/text.mts'
 
 export default parse
@@ -91,28 +88,23 @@ function parse(
    *
    * @param {TokenizeContext} self
    *  The base tokenization context
-   * @param {InitialConstruct | Partial<InitialConstructs>} initialize
-   *  The initial construct, or the record of initial constructs
-   * @param {Partial<Options>} options
-   *  The options used to create the tokenizer
    * @return {undefined}
    */
-  function finalizeContext(
-    this: void,
-    self: TokenizeContext,
-    initialize: InitialConstruct | Partial<InitialConstructs>,
-    options: Partial<Options>
-  ): undefined {
+  function finalizeContext(this: void, self: TokenizeContext): undefined {
     if (typeof self.parser.defined === 'undefined') self.parser.defined = []
     if (typeof self.parser.lazy === 'undefined') self.parser.lazy = {}
 
-    if (self.contentType) {
-      if (self.contentType !== ct.comment && self.contentType !== ct.source) {
-        options.noEmptyTokens = true
-        options.noPrevious = true
-      } else {
+    switch (self.contentType) {
+      case ct.document:
+      case ct.flow:
+      case ct.content:
+      case ct.text:
+      case ct.string:
+        self.noEmptyTokens = true
+        self.noPrevious = true
+        break
+      default:
         self.previous = codes.bos
-      }
     }
 
     return void void self
@@ -128,7 +120,7 @@ function parse(
    */
   function initialize(this: void): InitialConstructs {
     return {
-      [ct.source]: initial(ct.source),
+      [ct.source]: source,
       [ct.comment]: comment,
       [ct.document]: document,
       [ct.flow]: flow,
