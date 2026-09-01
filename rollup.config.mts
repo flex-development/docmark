@@ -4,6 +4,7 @@
  */
 
 import listWorkspaces from '#utils/list-workspaces'
+import { codecovRollupPlugin as codecov } from '@codecov/rollup-plugin'
 import { EXPORT_AGGREGATE_REGEX } from '@flex-development/export-regex'
 import { STATIC_IMPORT_REGEX } from '@flex-development/import-regex'
 import { readPackageJson } from '@flex-development/mlly'
@@ -11,6 +12,7 @@ import pathe from '@flex-development/pathe'
 import type { PackageJson } from '@flex-development/pkg-types'
 import resolve from '@rollup/plugin-node-resolve'
 import { ok } from 'devlop'
+import ci from 'is-ci'
 import type { Dirent } from 'node:fs'
 import type {
   NormalizedOutputOptions,
@@ -80,7 +82,16 @@ export default listWorkspaces().flatMap((
     const plugins: (Plugin | Plugin[])[] = []
 
     if (input.endsWith('.mjs')) {
-      plugins.push(resolve(), cleanup({ comments: 'none' }))
+      plugins.push(
+        resolve(),
+        cleanup({ comments: 'none' }),
+        codecov({
+          bundleName: manifest.name,
+          debug: true,
+          enableBundleAnalysis: ci,
+          uploadToken: process.env['CODECOV_TOKEN']!
+        })
+      )
     } else {
       plugins.push(resolve({ extensions: ['.d.mts', '.mts'] }), dts(workspace))
     }

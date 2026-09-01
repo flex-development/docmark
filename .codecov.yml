@@ -98,28 +98,16 @@ coverage:
 flags:
   bun-canary:
     carryforward: false
-    paths:
-      - src/
   bun-latest:
     carryforward: false
-    paths:
-      - src/
   node26:
     carryforward: false
-    paths:
-      - src/
   node25:
     carryforward: false
-    paths:
-      - src/
   node24:
     carryforward: false
-    paths:
-      - src/
   node22:
     carryforward: false
-    paths:
-      - src/
 
 github_checks:
   annotations: true
@@ -135,4 +123,7 @@ ignore:
   - 'packages/docmark-util-types/**'
 
 profiling:
-  critical_files_paths: []
+  critical_files_paths:
+    - packages/docmark/src/initialize/*.mts
+    - packages/docmark-util-combine-extensions/src/index.mts
+    - packages/docmark-util-subtokenize/src/subcontent.mts
