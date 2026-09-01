@@ -2,7 +2,7 @@
 
 [![github release](https://img.shields.io/github/v/release/flex-development/docmark.svg?include_prereleases\&sort=semver)](https://github.com/flex-development/docmark/releases/latest)
 [![npm](https://img.shields.io/npm/v/@flex-development/docmark.svg)](https://npmjs.com/package/@flex-development/docmark)
-[![codecov](https://codecov.io/gh/flex-development/docmark/graph/badge.svg?token=xKX0gJpecp)](https://codecov.io/gh/flex-development/docmark)
+[![codecov](https://codecov.io/gh/flex-development/docmark/graph/badge.svg?token=QDeW8VDq8B)](https://codecov.io/gh/flex-development/docmark)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![license](https://img.shields.io/github/license/flex-development/docmark.svg)](LICENSE.md)
 [![conventional commits](https://img.shields.io/badge/-conventional%20commits-fe5196?logo=conventional-commits\&logoColor=ffffff)](https://conventionalcommits.org)
