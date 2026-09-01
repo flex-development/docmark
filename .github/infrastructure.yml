@@ -24,6 +24,8 @@ branches:
           - context: add-to-project
           - context: artifacts (docmark)
           - context: artifacts (docmark-factory-space)
+          - context: artifacts (docmark-grammar)
+          - context: artifacts (docmark-util-combine-extensions)
           - context: artifacts (docmark-util-subtokenize)
           - context: artifacts (docmark-util-symbol)
           - context: artifacts (docmark-util-types)
@@ -33,7 +35,9 @@ branches:
           - context: codecov/patch
           - context: codecov/project
           - context: codecov/project/docmark
+          - context: codecov/project/docmark-grammar
           - context: codecov/project/docmark-factory-space
+          - context: codecov/project/docmark-util-combine-extensions
           - context: codecov/project/docmark-util-subtokenize
           - context: codecov/project/docmark-util-symbol
           - context: commitlint
@@ -41,11 +45,10 @@ branches:
           - context: format
           - context: lint
           - context: spelling
+          - context: test (26)
+          - context: test (25)
           - context: test (24)
-          - context: test (23)
           - context: test (22)
-          - context: test (21)
-          - context: test (20)
           - context: test-bun (canary)
           - context: test-bun (latest)
           - context: typescript

@@ -11,25 +11,14 @@ exports[`unit:parse > should return parse context 1`] = `
       ],
     },
     "comment": {
-      "64": [
-        {
-          "concrete": true,
-          "continuation": {
-            "tokenize": [Function tokenizeBlockTagContinuation],
-          },
-          "exit": [Function exitBlockTag],
-          "name": "blockTag",
-          "tokenize": [Function tokenizeBlockTag],
-        },
-      ],
       "null": [
         {
-          "concrete": true,
           "continuation": {
             "tokenize": [Function tokenizeSummaryContinuation],
           },
           "exit": [Function exitSummary],
           "name": "summary",
+          "previous": [Function previousSummary],
           "tokenize": [Function tokenizeSummary],
         },
       ],
@@ -272,28 +261,14 @@ exports[`unit:parse > should return parse context 1`] = `
     "insideSpan": {
       "null": [
         {
-          "name": "attention",
           "resolveAll": [Function resolveAllAttention],
-          "tokenize": [Function tokenizeAttention],
         },
         {
-          "resolveAll": [Function resolveAll],
+          "resolveAll": [Function resolveAllString],
         },
       ],
     },
-    "source": {
-      "47": [
-        {
-          "continuation": {
-            "tokenize": [Function tokenizeCommentContinuation],
-          },
-          "exit": [Function exitComment],
-          "name": "comment",
-          "previous": [Function previousComment],
-          "tokenize": [Function tokenizeComment],
-        },
-      ],
-    },
+    "source": {},
     "string": {
       "38": [
         {
@@ -325,13 +300,6 @@ exports[`unit:parse > should return parse context 1`] = `
         {
           "name": "lineEnding",
           "tokenize": [Function tokenizeLineEnding],
-        },
-      ],
-      "123": [
-        {
-          "name": "inlineTag",
-          "previous": [Function previousInlineTag],
-          "tokenize": [Function tokenizeInlineTag],
         },
       ],
       "33": [
@@ -405,7 +373,16 @@ exports[`unit:parse > should return parse context 1`] = `
         },
       ],
     },
-    "type": {},
+    "type": {
+      "null": [
+        {
+          "add": "after",
+          "name": "typeExpressionValue",
+          "partial": true,
+          "tokenize": [Function tokenizeTypeExpressionValue],
+        },
+      ],
+    },
   },
   "content": [Function create],
   "defined": [],

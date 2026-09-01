@@ -21,6 +21,7 @@ const constants = {
   characterReferenceHexadecimalSizeMax: 6,
   characterReferenceNamedSizeMax: 31,
   codeFencedSequenceSizeMin: 3,
+  commentPaddingSizeMin: 2,
   contentTypeComment: 'comment',
   contentTypeContent: 'content',
   contentTypeDocument: 'document',

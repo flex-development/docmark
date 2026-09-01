@@ -9,6 +9,9 @@
   "include": ["src/**/**.mts"],
   "references": [
     {
+      "path": "../docmark-util-symbol/tsconfig.build.json"
+    },
+    {
       "path": "../docmark-util-types/tsconfig.build.json"
     }
   ]

@@ -1,1 +1,0 @@
-creation, {@linkcode enter} those values onto the {@linkcode stack}, and

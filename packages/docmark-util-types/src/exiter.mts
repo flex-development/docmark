@@ -21,7 +21,7 @@ import type {
  * @this {TokenizeContext}
  *
  * @param {Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @return {undefined}
  */
 type Exiter = (this: TokenizeContext, effects: Effects) => undefined

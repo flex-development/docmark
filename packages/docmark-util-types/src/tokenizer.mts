@@ -19,7 +19,7 @@ import type {
  * @this {TokenizeContext}
  *
  * @param {Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @param {State} ok
  *  The successful tokenization state
  * @param {State} nok

@@ -16,6 +16,8 @@ import type {
   SliceStream,
   Write
 } from '@flex-development/docmark-util-types'
+import type { ReadonlyKeys } from '@flex-development/tutils'
+import type { Debugger } from 'debug'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../tokenize-context.mts'
 
@@ -29,6 +31,12 @@ describe('unit-d:TokenizeContext', () => {
   it('should match [_gfmTasklistFirstContentOfListItem?: boolean | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('_gfmTasklistFirstContentOfListItem')
+      .toEqualTypeOf<boolean | undefined>()
+  })
+
+  it('should match [check?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('check')
       .toEqualTypeOf<boolean | undefined>()
   })
 
@@ -48,16 +56,28 @@ describe('unit-d:TokenizeContext', () => {
       .toEqualTypeOf<ContainerState | undefined>()
   })
 
-  it('should match [contentType?: ContentType | undefined]', () => {
+  it('should match [readonly contentType: ContentType]', () => {
+    expectTypeOf<ReadonlyKeys<TestSubject>>()
+      .extract<'contentType'>()
+      .not.toBeNever()
     expectTypeOf<TestSubject>()
       .toHaveProperty('contentType')
-      .toEqualTypeOf<ContentType | undefined>()
+      .toEqualTypeOf<ContentType>()
   })
 
   it('should match [currentConstruct?: Construct | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('currentConstruct')
       .toEqualTypeOf<Construct | undefined>()
+  })
+
+  it('should match [readonly debug: Debugger]', () => {
+    expectTypeOf<ReadonlyKeys<TestSubject>>()
+      .extract<'debug'>()
+      .not.toBeNever()
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('debug')
+      .toEqualTypeOf<Debugger>()
   })
 
   it('should match [defineSkip: DefineSkip]', () => {

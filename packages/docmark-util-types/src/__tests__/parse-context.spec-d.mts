@@ -6,12 +6,19 @@
 import type {
   Create,
   FullNormalizedExtension,
-  Line
+  Lazy
 } from '@flex-development/docmark-util-types'
+import type { Nilable } from '@flex-development/tutils'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../parse-context.mts'
 
 describe('unit-d:ParseContext', () => {
+  it('should match [atBlankLine?: boolean | null | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('atBlankLine')
+      .toEqualTypeOf<Nilable<boolean>>()
+  })
+
   it('should match [comment: Create]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('comment')
@@ -46,10 +53,32 @@ describe('unit-d:ParseContext', () => {
     expectTypeOf<TestSubject>().toHaveProperty('flow').toEqualTypeOf<Create>()
   })
 
-  it('should match [lazy: Record<Line, boolean>]', () => {
+  it('should match [freshComment?: boolean | null | undefined]', () => {
     expectTypeOf<TestSubject>()
-      .toHaveProperty('lazy')
-      .toEqualTypeOf<Record<Line, boolean>>()
+      .toHaveProperty('freshComment')
+      .toEqualTypeOf<Nilable<boolean>>()
+  })
+
+  it('should match [freshRegion?: boolean | null | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('freshRegion')
+      .toEqualTypeOf<Nilable<boolean>>()
+  })
+
+  it('should match [lazy: Lazy]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('lazy').toEqualTypeOf<Lazy>()
+  })
+
+  it('should match [previousBlankLine?: boolean | null | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('previousBlankLine')
+      .toEqualTypeOf<Nilable<boolean>>()
+  })
+
+  it('should match [skipSummary?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('skipSummary')
+      .toEqualTypeOf<boolean | undefined>()
   })
 
   it('should match [source: Create]', () => {
@@ -62,5 +91,9 @@ describe('unit-d:ParseContext', () => {
 
   it('should match [text: Create]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('text').toEqualTypeOf<Create>()
+  })
+
+  it('should match [type: Create]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('type').toEqualTypeOf<Create>()
   })
 })

@@ -1,0 +1,316 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`integration:docmark > should parse comments ("source/01.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 46,
+        "line": 5,
+        "offset": 103,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 46,
+        "line": 5,
+        "offset": 103,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 46,
+        "line": 5,
+        "offset": 103,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 46,
+        "line": 5,
+        "offset": 103,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`integration:docmark > should parse comments ("source/02.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 61,
+        "column": 1,
+        "line": 33,
+        "offset": 1074,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 60,
+        "column": 1,
+        "line": 33,
+        "offset": 1074,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 61,
+        "column": 1,
+        "line": 33,
+        "offset": 1074,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 60,
+        "column": 1,
+        "line": 33,
+        "offset": 1074,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`integration:docmark > should parse comments ("source/03.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`integration:docmark > should parse comments ("source/04.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`integration:docmark > should parse comments ("source/05.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 1,
+        "line": 2,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 4,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 1,
+        "line": 2,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 4,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`integration:docmark > should parse comments ("source/06.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 1,
+        "line": 2,
+        "offset": 7,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 7,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 1,
+        "line": 2,
+        "offset": 7,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 7,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`integration:docmark > should parse comments ("source/07.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 50,
+        "column": 1,
+        "line": 27,
+        "offset": 625,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 49,
+        "column": 1,
+        "line": 27,
+        "offset": 625,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 50,
+        "column": 1,
+        "line": 27,
+        "offset": 625,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 49,
+        "column": 1,
+        "line": 27,
+        "offset": 625,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;

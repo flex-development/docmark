@@ -21,11 +21,11 @@ import type * as micromark from 'micromark-util-types'
  * @see {@linkcode micromark.Effects}
  *
  * @param {Effects | micromark.Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @param {State} ok
  *  The successful tokenization state
  * @param {TokenType | null | undefined} [type]
- *  The token type
+ *  The token type to capture whitespace as
  * @param {number | null | undefined} [max]
  *  The maximum number of spaces/tabs to consume (exclusive)
  * @return {State}
@@ -45,13 +45,13 @@ function factorySpace(
   const limit: number = max ? max - 1 : Number.POSITIVE_INFINITY
 
   /**
-   * The number of codes consumed.
+   * The size of the whitespace sequence.
    *
    * @var {number} size
    */
   let size: number = 0
 
-  return space
+  return maybeWhitespace
 
   /**
    * @this {void}
@@ -61,9 +61,9 @@ function factorySpace(
    * @return {State | undefined}
    *  The next state
    */
-  function space(this: void, code: Code): State | undefined {
+  function maybeWhitespace(this: void, code: Code): State | undefined {
     if (!whitespace(code)) return ok(code)
-    return type && effects.enter(type as never), prefix(code)
+    return type && effects.enter(type as never), insideWhitespace(code)
   }
 
   /**
@@ -74,10 +74,10 @@ function factorySpace(
    * @return {State | undefined}
    *  The next state
    */
-  function prefix(this: void, code: Code): State | undefined {
+  function insideWhitespace(this: void, code: Code): State | undefined {
     if (whitespace(code) && size++ < limit) {
       effects.consume(code)
-      return prefix
+      return insideWhitespace
     }
 
     type && effects.exit(type as never)

@@ -5,6 +5,7 @@
  */
 
 import { factorySpace } from '@flex-development/docmark-factory-space'
+import { blankLine } from '@flex-development/docmark-grammar'
 import { tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
@@ -16,7 +17,6 @@ import type {
 import { eol, eos } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
 import * as commonmark from 'micromark-core-commonmark'
-import blankLine from '../constructs/blank-line.mts'
 
 /**
  * The markdown flow construct.
@@ -31,7 +31,7 @@ export default flow
  * @this {TokenizeContext}
  *
  * @param {Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @return {State}
  *  The initial state
  */
@@ -43,31 +43,67 @@ function tokenizeFlow(this: TokenizeContext, effects: Effects): State {
    */
   const self: TokenizeContext = this
 
-  /**
-   * The initial state.
-   *
-   * @const {State} initial
-   */
-  const initial: State = effects.attempt(
-    blankLine, // try to parse a blank line.
-    atBlankEnding,
-    effects.attempt(
-      this.parser.constructs.flowInitial, // try to parse initial flow.
-      afterFlow,
-      factorySpace(
-        effects,
-        effects.attempt(
-          this.parser.constructs.flow,
-          afterFlow,
-          // @ts-expect-error actually a docmark/mark construct (2345).
-          effects.attempt(commonmark.content, afterFlow)
-        ),
-        tt.linePrefix
-      )
-    )
-  )
-
   return initial
+
+  /**
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function initial(this: void, code: Code): State | undefined {
+    return effects.attempt(
+      blankLine, // try to parse a blank line.
+      atBlankEnding,
+      noBlankLine
+    )(code)
+  }
+
+  /**
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function noBlankLine(this: void, code: Code): State | undefined {
+    return effects.attempt(
+      self.parser.constructs.flowInitial, // try to parse initial flow.
+      afterFlow,
+      noFlowInitial
+    )(code)
+  }
+
+  /**
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function noFlowInitial(this: void, code: Code): State | undefined {
+    return factorySpace(
+      effects,
+      effects.attempt(self.parser.constructs.flow, afterFlow, noFlow),
+      tt.linePrefix
+    )(code)
+  }
+
+  /**
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function noFlow(this: void, code: Code): State | undefined {
+    return effects.attempt(commonmark.content, afterFlow)(code)
+  }
 
   /**
    * @this {void}

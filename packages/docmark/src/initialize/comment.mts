@@ -1,102 +1,104 @@
 /**
  * @file Initialize - comment
- *
  * @module docmark/initialize/comment
  */
 
-import { factorySpace } from '@flex-development/docmark-factory-space'
-import { codes, constants, tt } from '@flex-development/docmark-util-symbol'
+import postprocess from '#lib/postprocess'
+import { blankLine, region } from '@flex-development/docmark-grammar'
+import { codes, constants, ev, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Chunk,
   Code,
-  Construct,
   ContainerState,
   ContinuableConstruct,
   Effects,
+  Event,
   InitialConstruct,
+  Place,
   State,
   Token,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { eol, eos } from '@flex-development/mark-util-character'
+import { bos, eol, eos } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
 
 /**
- * The initial comment content construct.
+ * Initialize tokenization of a comment content stream.
  *
- * The initializer coordinates the parsing of comment content.
- * Comment content is expected to be normalized into logical chunks.
- * Physical comment syntax &mdash; such as line prefixes, suffixes, and comment
- * markers (e.g. openers, closers, line markers) &mdash; is expected to be
- * removed so region constructs can operate on normalized content rather than
- * raw source text.
+ * The initializer coordinates comment region discovery with markdown parsing.
+ * Comment regions are parsed by registered `comment` constructs, while markdown
+ * content between regions is delegated to child `document` tokenizers.
  *
- * The initializer is responsible for:
- *
- * - discovering new regions
- * - coordinating transitions between sibling regions
- * - delegating markdown parsing to a child `document` tokenizer
- * - managing region ownership
+ * The input stream is expected to contain normalized comment content.\
+ * Physical comment syntax &mdash; such as comment openers, closers, and line
+ * markers &mdash; is represented by the surrounding tokenizer rather than this
+ * initializer.
  *
  * Comment regions are siblings and cannot be nested.
  * Therefore, at most one region may be active at any point in the stream.
  *
- * Default region constructs are intentionally small.
- * They identify and manage their own boundaries while markdown parsing is
- * delegated to the child tokenizer, ensuring `micromark` continues to own
- * markdown syntax.
- *
  * @const {InitialConstruct} comment
  */
-const comment: InitialConstruct = { tokenize: tokenizeComment }
-
-/**
- * The comment region construct.
- *
- * The construct dispatches constructs registered
- * for the `comment` content type.
- *
- * Centralizing region dispatch allows the initializer to discover, continue,
- * and transition between sibling regions without depending on specific region
- * implementations.
- *
- * @const {Construct} region
- */
-const region: Construct = { tokenize: tokenizeRegion }
+const comment: InitialConstruct = {
+  resolve: resolveComment,
+  tokenize: tokenizeComment
+}
 
 export default comment
 
 /**
- * Tokenize comment content.
+ * Resolve events emitted while tokenizing a comment stream.
  *
- * Comment content is processed one logical line at a time.
+ * Comment content is transparent: it's parsed right now.
  *
- * At the beginning of each line, the active region is first given an
- * opportunity to continue. If continuation fails, the region is closed before
- * a new sibling region is attempted.
+ * That way, line endings, region exits, and trailing whitespace are resolved
+ * when a standalone `comment` content parser is instantiated.\
+ * Transparency also allows definitions to be parsed right now: before text in
+ * paragraphs (specifically, media) are parsed.
  *
- * Region boundaries are also checked while processing markdown content,
- * allowing sibling regions to interrupt non-concrete markdown at valid
- * boundaries.
+ * @this {void}
  *
- * Markdown belonging to the active region is delegated to a child `document`
- * tokenizer. Concrete markdown constructs, such as block HTML or fenced code,
- * retain ownership of their content, preventing comment regions from
- * interrupting markdown syntax.
+ * @param {Event[]} events
+ *  The current list of events
+ * @return {Event[]}
+ *  The list of changed events
+ */
+function resolveComment(this: void, events: Event[]): Event[] {
+  return postprocess(events)
+}
+
+/**
+ * Tokenize a `comment` content stream.
+ *
+ * The initializer coordinates two kinds of content:
+ *
+ * - comment regions, which are discovered through registered `comment`
+ *   constructs and continue across logical lines via `continuation` constructs
+ * - markdown content, which is delegated to child `document` tokenizers
+ *
+ * At most one comment region is active at a time.\
+ * When a region is active, eligible markdown constructs are given precedence
+ * over region continuation. When continuation fails, the region is closed and
+ * region discovery resumes.
+ *
+ * Markdown chunks belonging to a region are linked and written to the same
+ * child `document` tokenizer until that region is closed.
+ * A new region receives a fresh child markdown stream so parser state cannot
+ * leak across region boundaries.
  *
  * @this {TokenizeContext}
  *
  * @param {Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @return {State}
  *  The initial state
  */
 function tokenizeComment(this: TokenizeContext, effects: Effects): State {
   /**
-   * A comment region and its persistent state.
+   * The active comment region and its persistent state.
    *
-   * This is a tuple where the first value is a continuable construct,
-   * and the second value is the current container state.
+   * This is a tuple where the first value is the continuable construct managing
+   * the region and the second value is its persistent container state.
    */
   type Region = [construct: ContinuableConstruct, state: ContainerState]
 
@@ -112,40 +114,67 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    *
    * Comment regions are siblings rather than nested, so the stack always
    * contains at most one region.
-   * A stack is nevertheless maintained because it provides a uniform mechanism
-   * for region lifecycle management.
+   * A stack is nevertheless maintained to keep lifecycle handling consistent
+   * with other container initializers.
    *
    * @const {[Region?]} stack
    */
   const stack: [Region?] = []
 
   /**
-   * The markdown tokenizer.
+   * The event index from which to forward tokens emitted by the current region
+   * construct or continuation.
+   *
+   * Events emitted at or after this index are inspected by {@linkcode forward}
+   * for completed markdown chunk tokens.
+   *
+   * @var {number} continued
+   */
+  let continued: number = 0
+
+  /**
+   * The active child `document` tokenizer.
+   *
+   * The tokenizer is created lazily and reused for the current markdown stream
+   * until the active region is finalized.
    *
    * @var {TokenizeContext | undefined} markdown
    */
   let markdown: TokenizeContext | undefined
 
   /**
-   * The most recently written markdown chunk token.
+   * The most recently written markdown chunk.
    *
-   * Used to link adjacent chunks written to the same child tokenizer.
+   * Used to form the doubly linked sequence of tokens written to the active
+   * child `document` tokenizer.
    *
-   * @var {Token | undefined} markdownToken
+   * @var {Token | undefined} md
    */
   let md: Token | undefined
+
+  /**
+   * The stream position before the current `continuation` attempt.
+   *
+   * The position is compared with the position after a successful continuation
+   * to determine whether the continuation consumed any input.
+   *
+   * @var {Place | undefined} then
+   */
+  let then: Place | undefined
 
   return start
 
   /**
-   * Start processing a comment line.
+   * Process the beginning of a logical or physical line.
    *
-   * When the stack is empty, a new comment region is checked for.\
-   * If a region is open, its `continuation` construct is attempted first.
+   * At the end of the stream, active markdown and region state is finalized.\
+   * Otherwise:
    *
-   * A successful continuation sends the current line directly to the markdown
-   * tokenizer. A failed continuation closes the region and checks whether a new
-   * region can begin at the current position.
+   * - without an active region, attempt to discover a new region
+   * - with an active region at a fresh line, give blank lines and initial flow
+   *   syntax precedence before region continuation
+   * - with an active region on an ordinary line, check for a sibling region,
+   *   then classify the line and attempt region continuation
    *
    * @this {void}
    *
@@ -155,26 +184,32 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function start(this: void, code: Code): State | undefined {
-    if (!stack[0]) return checkNewRegions(code)
+    assert(
+      bos(self.previous) || eol(self.previous) || eos(code),
+      'expected beginning of stream, beginning of line, or end of stream'
+    )
 
-    assert(eol(self.previous), 'expected to be at beginning of line')
-    const [construct, containerState] = stack[0]
+    // initialize container state.
+    restate()
 
-    self.containerState = containerState
-    assert(construct.continuation, 'expected continuable construct')
+    // no region on stack; check for a new one.
+    // first check for a blank line because regions cannot start on them.
+    // otherwise, check for a new region.
+    if (!stack[0]) {
+      return effects.check(blankLine, beforeBlankLine, checkNewRegions)(code)
+    }
 
-    return effects.attempt(
-      construct.continuation,
-      beforeMarkdown,
-      afterFailedContinuation
+    // region on stack.
+    // try continuing the active region.
+    return effects.check(
+      blankLine,
+      continueAtBlankLine,
+      continueAtNoBlankLine
     )(code)
   }
 
   /**
-   * After a failed continuation.
-   *
-   * The active region is closed before checking whether a new region can begin
-   * at the current position.
+   * Record a blank line before delegating it to markdown parsing.
    *
    * @this {void}
    *
@@ -183,21 +218,53 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    * @return {State | undefined}
    *  The next state
    */
-  function afterFailedContinuation(this: void, code: Code): State | undefined {
-    return flush(), checkNewRegions(code)
+  function beforeBlankLine(this: void, code: Code): State | undefined {
+    self.parser.atBlankLine = true // mark blank line.
+    return beforeMarkdown(code) // delegate blank line to markdown.
   }
 
   /**
-   * Check for a new comment region.
+   * Continue an active region on a blank line.
    *
-   * If no markdown child exists yet, a region is attempted directly.
-   * Otherwise, `interrupt` indicates whether markdown has an active construct
-   * that a user-defined comment region may need to account for.
+   * @this {void}
    *
-   * The region check is non-consuming.\
-   * If it succeeds, the current markdown stream is closed before the new region
-   * is entered. If it fails, control passes to the current {@linkcode markdown}
-   * tokenizer at the same position.
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function continueAtBlankLine(this: void, code: Code): State | undefined {
+    assert(stack.length, 'expected region on `stack`')
+    self.parser.atBlankLine = true // mark blank line.
+    return tryContinuation(code) // try continuing the active region.
+  }
+
+  /**
+   * Continue an active region on a non-blank line.
+   *
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function continueAtNoBlankLine(this: void, code: Code): State | undefined {
+    assert(stack.length, 'expected region on `stack`')
+
+    // mark non-blank line.
+    self.parser.atBlankLine = false
+
+    // check for new region before trying to continue the active region.
+    // this line is non-blank, so we can check for a region here.
+    return checkNewRegions(code)
+  }
+
+  /**
+   * Check for a new comment region at the current position.
+   *
+   * When markdown is active, a new region may interrupt it only when the
+   * markdown parser is not currently parsing concrete content.
    *
    * @this {void}
    *
@@ -207,37 +274,50 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function checkNewRegions(this: void, code: Code): State | undefined {
-    assert(stack.length === 0, 'expected empty region stack')
+    assert(!self.parser.atBlankLine, 'expected no blank line')
 
-    // no markdown has been written yet, so attempt a region immediately.
-    if (!markdown) return commentContinued(code)
+    // if there's document or flow content, we're interrupting with a region.
+    self.interrupt = Boolean(markdown?.currentConstruct ?? markdown?.interrupt)
 
-    // if there’s a current construct, we're interrupting with a region.
-    // exposing whether the markdown tokenizer has an active construct
-    // primarily supports user-defined comment constructs that need to
-    // distinguish between ordinary content and an interruption of active
-    // markdown content.
-    self.interrupt = Boolean(markdown.currentConstruct)
+    // region on stack.
+    if (stack.length === 1) {
+      // note: if a region is already on stack at the beginning of stream,
+      // the region's `tokenize` method did not not consume any input.
 
-    // get ready for new region.
-    self.containerState = {}
+      // no markdown child exists yet.
+      // the region has yet to delegate chunk creation to the initializer.
+      if (!markdown) {
+        // fresh region on stack.
+        // no markdown parser means the region's `tokenize` method
+        // parsed the entirety of the previous line.
+        return effects.check(region, aNewRegion, tryContinuation)(code)
+      }
 
-    // signal concrete content.
-    self.concrete = markdown.concrete
+      // if we have concrete subcontent, such as block HTML or fenced code,
+      // we cannot have regions "pierce" into them, so we can immediately
+      // attempt region continuation.
+      if (markdown.concrete) return tryContinuation(code)
 
-    // check for new region.
-    return effects.check(region, aNewRegion, beforeMarkdown)(code)
+      // try to enter a new region.
+      // no need to worry about blank lines because they've already been parsed.
+      return effects.check(region, aNewRegion, tryContinuation)(code)
+    }
+
+    // no region on stack.
+    assert(!stack.length, 'expected no region on `stack`')
+
+    // no markdown child exists yet or parsing markdown outside of a region.
+    // try entering a new region.
+    // if attempt fails, begin or resume parsing markdown outside of region.
+    // no need to worry about blank lines because they've already been parsed.
+    return tryRegion(code)
   }
 
   /**
-   * After a successful new-region check.
+   * Enter a new comment region.
    *
-   * The current markdown stream and active comment region are closed before
-   * the new region is tokenized.
-   *
-   * This state is entered between markdown chunks, after the previous
-   * `chunkMarkdown` token has already been closed and written to the child
-   * tokenizer.
+   * The current markdown stream and active region are finalized before the new
+   * region is entered.
    *
    * @this {void}
    *
@@ -247,16 +327,17 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function aNewRegion(this: void, code: Code): State | undefined {
-    closeMarkdown() // finish markdown chunk.
-    flush() // exit active comment region.
-    return commentContinued(code) // start new comment region.
+    assert(stack.length === 1, 'expected region on `stack`')
+    flush() // close the active region.
+    return tryRegion(code) // try to enter a comment region.
   }
 
   /**
-   * Attempt to enter a new comment region.
+   * Attempt to enter a comment region.
    *
-   * When no region can start, the current {@linkcode markdown} tokenizer takes
-   * over from the current position.
+   * Region discovery resets the transient container state before the attempt.
+   * When no region can start, markdown parsing begins or resumes from the
+   * current position.
    *
    * @this {void}
    *
@@ -265,20 +346,30 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    * @return {State | undefined}
    *  The next state
    */
-  function commentContinued(this: void, code: Code): State | undefined {
-    self.containerState = {}
+  function tryRegion(this: void, code: Code): State | undefined {
+    restate() // reset container state to get ready for new region.
+
+    // capture current number of events before attempting the region.
+    // this is used to determine where to begin forwarding tokens after
+    // successfully entering the region.
+    continued = self.events.length
+
+    // try entering a comment region.
+    // if no region can begin, resume markdown parsing at the same position.
     return effects.attempt(region, addRegion, beforeMarkdown)(code)
   }
 
   /**
    * Register a newly entered comment region.
    *
-   * Comment regions cannot nest, so the region stack must be empty when a new
-   * region is registered.
+   * Events emitted while entering the region are first inspected for completed
+   * markdown chunks. The `currentConstruct` and its persistent container state
+   * are then registered as the sole active region.
    *
-   * After registration, control passes to the current {@linkcode markdown}
-   * tokenizer at the current position. The region's `continuation` construct
-   * determines whether the region remains active on subsequent lines.
+   * A region may request immediate closure through its container state using
+   * the `_closeFlow` flag.
+   * Otherwise, parsing proceeds according to whether the stream is at its
+   * beginning, the beginning of a line, or end of stream.
    *
    * @this {void}
    *
@@ -288,27 +379,60 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function addRegion(this: void, code: Code): State | undefined {
-    assert(self.containerState, 'expected `containerState`')
-    assert(self.currentConstruct, 'expected `currentConstruct`')
+    assert(self.currentConstruct, 'expected a current construct')
     assert(self.currentConstruct.continuation, 'expected continuable construct')
+    assert(self.containerState, 'expected `containerState` when adding region')
 
+    // forward any markdown chunks emitted by `tokenize`.
+    forward()
+
+    // register new region.
     assert(stack.length === 0, 'expected empty region stack')
     stack[0] = [self.currentConstruct, self.containerState] as Region
 
-    // at beginning of new line.
-    if (eol(self.previous)) return afterNewRegion(code)
+    // signal freshly added region.
+    self.parser.freshRegion = true
 
-    // capture inline whitespace so it's not mistaken for a line prefix.
-    return factorySpace(effects, afterNewRegion, tt.whitespace)(code)
+    // summary no longer allowed.
+    self.parser.skipSummary = true
+
+    // region marked as closed before continuation attempt.
+    if (self.containerState._closeFlow) flush()
+
+    // beginning of stream or beginning of new line.
+    if (bos(self.previous) || eol(self.previous)) return start(code)
+
+    // `tokenize` finished before a line ending.
+    // capture line ending so its not mistaken for a blank markdown line.
+    // no need to check for blank lines because regions cannot start on them.
+    if (eol(code)) {
+      effects.enter(tt.lineEnding)
+      effects.consume(code)
+      effects.exit(tt.lineEnding)
+      return start
+    }
+
+    // at end of stream.
+
+    // a region's `tokenize` method is expected to parse the entire first line,
+    // the entirety of the line up until the first line ending, or a prefix.
+    // if only a prefix is consumed, users are expected to finish out the line.
+    //
+    // this is because markdown `document` content comes from the line.
+    // so to mirror an inner markdown document, a chunk cannot start here.
+    //
+    // the remainder of the line can be parsed as a `commentChunk` token so it's
+    // eligible for forwarding, or another type/content of the user's choice.
+
+    assert(eos(code), 'expected end of stream')
+    return start(code)
   }
 
   /**
-   * Prepare a newly entered region for markdown parsing.
+   * Attempt to continue the active comment region.
    *
-   * After a region has been entered, adjacent sibling regions are checked
-   * before markdown begins.
-   * This allows multiple regions to appear consecutively without requiring
-   * intervening markdown content.
+   * The region's persistent state is restored and supplemented with additional
+   * metadata before its `continuation` construct is attempted.
    *
    * @this {void}
    *
@@ -317,20 +441,48 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    * @return {State | undefined}
    *  The next state
    */
-  function afterNewRegion(this: void, code: Code): State | undefined {
-    // get ready for adjacent region check.
-    self.containerState = {}
+  function tryContinuation(this: void, code: Code): State | undefined {
+    assert(self.containerState, 'expected `containerState` when continuing')
+    assert(stack[0], 'expected region on `stack` when continuing')
+    const [construct, containerState] = stack[0]
 
-    // start new region or begin markdown chunk.
-    return effects.check(region, anAdjacentRegion, noAdjacentRegion)(code)
+    // attach region's state before attempting continuation.
+    self.containerState = containerState
+
+    // capture current number of events before attempting continuation.
+    // this is used to determine where to begin forwarding tokens after
+    // a successful continuation.
+    continued = self.events.length
+
+    // capture current place in the content before attempting continuation.
+    // this is used to determine if the region's `continuation` construct
+    // consumed any input.
+    then = self.now()
+
+    // if there's document or flow content,
+    // we're interrupting with a comment region line.
+    self.interrupt = Boolean(markdown?.currentConstruct ?? markdown?.interrupt)
+
+    // try continuing the active comment region.
+    return effects.attempt(
+      construct.continuation,
+      afterContinuation,
+      noContinuation
+    )(code)
   }
 
   /**
-   * Prepare to enter an adjacent sibling region.
+   * Resume after a successful region continuation.
    *
-   * The active region is closed before control returns to {@linkcode start},
-   * allowing the next sibling region to be discovered from the current
-   * position.
+   * Any markdown chunks emitted by the continuation construct are first
+   * forwarded to the active child `document` tokenizer.
+   *
+   * A successful continuation can:
+   *
+   * - request that the region close
+   * - consume no input, in which case markdown begins at the same position
+   * - consume part of a line, in which case remaining content becomes markdown
+   * - consume an entire line, in which case the next logical line is processed
    *
    * @this {void}
    *
@@ -339,16 +491,55 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    * @return {State | undefined}
    *  The next state
    */
-  function anAdjacentRegion(code: Code): State | undefined {
-    assert(markdown === undefined, 'did not expect `markdown` tokenizer')
-    return flush(), start(code)
+  function afterContinuation(this: void, code: Code): State | undefined {
+    assert(self.containerState, 'expected `containerState` after continuing')
+    assert(stack.length === 1, 'expected region on `stack`')
+    assert(then, 'expected `then` after continuing')
+
+    // forward any markdown chunks emitted by continuation.
+    forward()
+
+    // continuation explicitly requested that the active region be closed.
+    if (self.containerState._closeFlow) return noContinuation(code)
+
+    // region no longer considered fresh.
+    self.parser.freshRegion = false
+
+    /**
+     * The current place in the content.
+     *
+     * @const {Place} now
+     */
+    const now: Place = self.now()
+
+    // continuation succeeded without consuming input.
+    // start markdown chunk from unchanged stream position.
+    if (
+      then.line === now.line &&
+      then.column === now.column &&
+      then.offset === now.offset &&
+      then._bufferIndex === now._bufferIndex &&
+      then._index === now._index
+    ) {
+      return beforeMarkdown(code)
+    }
+
+    // continuation construct did not consume entire line.
+    // start markdown chunk from current point in the stream.
+    if (!eol(self.previous)) return beforeMarkdown(code)
+
+    // continuation construct consumed entire line.
+    return start(code)
   }
 
   /**
-   * Resume the active region.
+   * Resume after a failed region continuation.
    *
-   * No adjacent sibling region begins at the current position, so markdown
-   * parsing resumes using the active region's persistent state.
+   * The active region and markdown stream are finalized before region discovery
+   * resumes.
+   *
+   * If continuation fails at a blank line, the line is instead delegated to a
+   * fresh markdown parser after the active region has been finalized.
    *
    * @this {void}
    *
@@ -357,19 +548,24 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    * @return {State | undefined}
    *  The next state
    */
-  function noAdjacentRegion(code: Code): State | undefined {
-    assert(stack[0], 'expected region on `stack`')
-    self.containerState = stack[0][1]
-    return beforeMarkdown(code)
+  function noContinuation(this: void, code: Code): State | undefined {
+    flush() // finalize the active region and current markdown stream.
+
+    // delegate blank line parsing to markdown.
+    // this is done after a call to `flush` so blank lines are parsed with a new
+    // markdown parser outside the former region.
+    if (self.parser.atBlankLine) return beforeMarkdown(code)
+
+    return start(code) // resume region discovery at non-blank line.
   }
 
   /**
    * Prepare to tokenize markdown content.
    *
-   * Markdown is tokenized from normalized comment chunks rather than raw
-   * comment text.
-   * When the end of the stream is reached, any active markdown tokenizer and
-   * comment region are finalized before consuming the end-of-stream marker.
+   * At end of stream, the active {@linkcode markdown} child and comment region
+   * are finalized before the {@linkcode eos} code is consumed.
+   *
+   * Otherwise, a new markdown chunk is started.
    *
    * @this {void}
    *
@@ -379,21 +575,22 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function beforeMarkdown(this: void, code: Code): State | undefined {
-    if (!eos(code)) return markdownStart(code) // start markdown chunk.
+    // end of comment content stream.
+    // finalize the current markdown stream and active region.
+    if (eos(code)) return void end(code)
 
-    if (markdown) closeMarkdown() // finish markdown chunk.
-    flush() // exit active comment region.
-
-    return void effects.consume(code)
+    // start new markdown chunk.
+    return markdownStart(code)
   }
 
   /**
    * Start a markdown chunk.
    *
-   * Markdown chunks are written to a child `document` tokenizer.\
-   * Reusing the same child tokenizer allows markdown constructs to span
-   * multiple normalized comment chunks while remaining part of a single
-   * markdown document.
+   * The child `document` tokenizer is created lazily and attached to the new
+   * chunk token.
+   *
+   * The chunk is linked to {@linkcode md} so markdown content can span multiple
+   * normalized comment chunks.
    *
    * @this {void}
    *
@@ -405,8 +602,10 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
   function markdownStart(this: void, code: Code): State | undefined {
     assert(!eos(code), 'did not expect end of stream')
 
+    // lazily initialize markdown parser.
     markdown ??= self.parser.document(self.now())
 
+    // start markdown chunk.
     effects.enter(tt.chunkMarkdown, {
       _tokenizer: markdown,
       contentType: constants.contentTypeDocument,
@@ -419,21 +618,14 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
   /**
    * Continue a markdown chunk.
    *
-   * Each comment line is written to the current {@linkcode markdown} tokenizer
-   * as a separate linked chunk.
+   * Content is consumed until a line ending or end of stream is reached.
+   * The line ending is included in the current chunk before it is written to
+   * the active child `document` tokenizer.
+   * Otherwise, end-of-content and inline-region constructs are checked before
+   * ordinary content is consumed.
    *
-   * While markdown content is not concrete, the tokenizer checks for sibling
-   * comment regions at each position. A successful region check ends the
-   * current markdown chunk and active region before tokenizing the new region.
-   *
-   * After a line ending, concrete markdown content bypasses region checks.
-   * This is so any markdown content that looks like a comment region (e.g. a
-   * `codeFlowValue` that looks like a block tag inside a fenced code block)
-   * remains markdown content.
-   *
-   * When markdown is not concrete at the end of a line, processing returns to
-   * {@linkcode start} so the active comment region can continue or a new one
-   * can begin.
+   * Concrete markdown owns its content and therefore bypasses region-boundary
+   * checks until the concrete construct is complete.
    *
    * @this {void}
    *
@@ -443,50 +635,94 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function markdownContinue(this: void, code: Code): State | undefined {
+    assert(markdown, 'expected `markdown` when continuing markdown')
+    assert(self.containerState, 'expected `containerState` inside markdown')
+
+    // at end of stream.
+    // write completed markdown chunk, then finalize streams and active region.
     if (eos(code)) {
       write(effects.exit(tt.chunkMarkdown), true)
-      return flush(), void effects.consume(code)
+      return void end(code)
     }
 
+    // at the end of a line.
+    // consume the current line ending and write the completed markdown chunk.
     if (eol(code)) {
-      effects.consume(code)
-      write(effects.exit(tt.chunkMarkdown))
-
-      // concrete markdown constructs own their content.
-      // continue writing markdown so regions cannot pierce markdown content.
-      if (self.concrete) return beforeMarkdown
-
-      // clear interruption state to get ready for the next line.
-      self.interrupt = undefined
-
-      return start
+      effects.consume(code) // consume line ending.
+      write(effects.exit(tt.chunkMarkdown)) // write completed chunk.
+      return start // resume region discovery or continuation.
     }
 
-    return consumeMarkdown(code)
+    // consume as ordinary markdown content.
+    effects.consume(code)
+    return markdownContinue
   }
 
   /**
-   * Consume markdown content.
+   * Finalize and detach the active child `document` tokenizer.
    *
-   * The current character belongs to the active markdown chunk and cannot begin
-   * a sibling comment region.
+   * If the child tokenizer has not reached end of stream, an `eos` code is
+   * written before the tokenizer is detached.
+   *
+   * The next markdown stream receives a fresh child tokenizer and chunk-link
+   * chain.
+   *
+   * @this {void}
+   *
+   * @return {undefined}
+   */
+  function closeMarkdown(this: void): undefined {
+    // finalize the markdown stream.
+    if (markdown && !eos(markdown.code)) markdown.write([codes.eos])
+
+    // get ready for a new markdown stream.
+    // reset child tokenizer reference and clear chunk-link chain.
+    markdown = undefined
+    md = undefined
+
+    return void markdown
+  }
+
+  /**
+   * Finish the comment content stream.
+   *
+   * The active child `document` tokenizer and comment region are finalized
+   * before the `eos` code is consumed. Transient parsing state is also reset.
    *
    * @this {void}
    *
    * @param {Code} code
    *  The current character code
-   * @return {State}
+   * @return {undefined}
    *  The next state
    */
-  function consumeMarkdown(this: void, code: Code): State {
-    return effects.consume(code), markdownContinue
+  function end(this: void, code: Code): undefined {
+    assert(eos(code), 'expected end of stream')
+
+    // finalize active region state before consuming end of content.
+    flush()
+
+    // clear transient parsing state.
+    self.parser.atBlankLine = undefined
+    self.parser.freshRegion = undefined
+    self.parser.previousBlankLine = undefined
+
+    // eat eos code.
+    return void effects.consume(code)
   }
 
   /**
-   * Close the active comment region.
+   * Finalize the active comment region and its child markdown stream.
    *
-   * > 👉 **Note**: The stack contains at most one item, but the loop keeps
-   * > region teardown generic.
+   * The active markdown stream is finalized before the region's persistent
+   * container state is restored and its `exit` hook is called.
+   *
+   * After the active region is finalized, the current construct, concrete
+   * state, and transient container state are reset so the next region starts
+   * with a clean parsing context.
+   *
+   * > 👉 **Note**: Comment regions cannot nest, so the stack contains at most
+   * > one item. The loop keeps teardown consistent with other initializers.
    *
    * @this {void}
    *
@@ -495,28 +731,103 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
   function flush(this: void): undefined {
     assert(stack.length <= 1, 'expected no more than 1 region')
 
+    // finalize markdown stream.
+    closeMarkdown()
+
+    // exit the active region.
+    // 👉 **note**: regions cannot nest, so the stack contains at most one item.
+    // the loop keeps teardown consistent with other container initializers.
     while (stack.length) {
       const [construct, containerState] = stack.pop()!
       self.containerState = containerState
       construct.exit.call(self, effects)
     }
 
-    return void stack
+    // get ready for the next region.
+
+    // reset current construct.
+    self.currentConstruct = undefined
+
+    // clear concrete state.
+    // regions should never close in the middle of concrete content,
+    // so this state can be safely cleared when a region is closed.
+    self.concrete = undefined
+
+    return void restate()
   }
 
   /**
-   * Write a markdown chunk to the child tokenizer.
+   * Forward completed markdown chunk tokens to the child {@linkcode markdown}
+   * tokenizer.
    *
-   * The chunk `token` is linked to the previously written token.
-   * Its source range is then sliced from the parent stream and written to the
-   * {@linkcode markdown} tokenizer.
+   * Region constructs may emit `chunkMarkdown` tokens.\
+   * Completed tokens are located in emission order and written to the active
+   * child tokenizer.
+   *
+   * @this {void}
+   *
+   * @return {undefined}
+   */
+  function forward(this: void): undefined {
+    // inspect events emitted since the last region attempt or continuation.
+    while (continued < self.events.length) {
+      assert(self.events[continued], 'expected `self.events[continued]`')
+      const [event, token] = self.events[continued]!
+
+      // only completed markdown chunks are written to the child stream.
+      if (
+        event === ev.exit &&
+        token.type === tt.chunkMarkdown &&
+        token.contentType === constants.contentTypeDocument
+      ) {
+        write(token)
+      }
+
+      continued++
+    }
+
+    return void self.events
+  }
+
+  /**
+   * Reset container state.
+   *
+   * The current `comment` kind is retained after reset.
+   *
+   * @this {void}
+   *
+   * @return {undefined}
+   */
+  function restate(this: void): undefined {
+    const { comment } = self.containerState ?? {}
+
+    self.containerState = {} // get ready for the next region.
+    self.containerState.comment = comment // re-expose the current comment kind.
+
+    return void self.containerState
+  }
+
+  /**
+   * Write to the child {@linkcode markdown} tokenizer.
+   *
+   * The token is associated with the active child tokenizer, linked to the
+   * previously written markdown chunk, sliced from the comment content stream,
+   * and then written to the child.
+   *
+   * Before writing to the child tokenizer, `defineSkip` is used to correctly
+   * position the child and account for prefixes consumed by registered region
+   * constructs and their continuation.
+   *
+   * The child's `concrete` state is mirrored onto {@linkcode self} so region
+   * dispatch cannot interrupt concrete markdown content.
    *
    * @this {void}
    *
    * @param {Token} token
-   *  The next markdown chunk token
+   *  The markdown chunk to write
    * @param {boolean | undefined} [end]
-   *  Whether to signal the end of the child stream
+   *  Whether to end the child stream.\
+   *  The {@linkcode eos} code will be appended to the child stream
    * @return {undefined}
    */
   function write(
@@ -524,7 +835,14 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
     token: Token,
     end?: boolean | undefined
   ): undefined {
-    assert(markdown, 'expected `markdown` to be defined when writing')
+    assert(self.containerState, 'expected `containerState` during write')
+    assert(token !== md, 'did not expect `token` to match previous token')
+
+    // lazily initialize markdown parser.
+    markdown ??= self.parser.document(token.start)
+
+    // associate child tokenizer with chunk for postprocessing.
+    token._tokenizer ??= markdown
 
     /**
      * The source chunks spanning {@linkcode token}.
@@ -533,73 +851,33 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
      */
     const stream: Chunk[] = self.sliceStream(token)
 
-    // signal end of child stream.
+    // update blank line history after an entire line is consumed.
+    if (eol(stream.at(-1))) {
+      self.parser.previousBlankLine = self.parser.atBlankLine
+      self.parser.atBlankLine = null
+    }
+
+    // signal end of `markdown` stream.
     if (end) stream.push(codes.eos)
 
     // link tokens.
+    // this inserts the chunk represented by `token` into the `markdown` stream.
     token.previous = md
     if (md) md.next = token
     md = token
 
-    // tell the child tokenizer where to start.
-    markdown.defineSkip(token.start)
+    // tell the `markdown` tokenizer where normalized content starts.
+    // regions can "nibble" a prefix from margins.
+    // where a logical markdown line starts is defined here.
+    if (token.previous) markdown.defineSkip(token.start)
 
-    // write chunks to child stream.
+    // write the chunk to the child tokenizer.
     markdown.write(stream)
 
-    // signal concrete content was encountered.
-    // this prevents comments from piericing concrete markdown content.
+    // mirror concrete markdown state onto `self`.
+    // this prevents regions from piercing concrete markdown content.
     self.concrete = markdown.concrete
 
     return void markdown
   }
-
-  /**
-   * Close the child markdown stream.
-   *
-   * Closing the child tokenizer finalizes the current markdown document.
-   * Subsequent markdown content begins a new document tokenizer, preventing
-   * separate markdown regions from sharing parser state.
-   *
-   * @this {void}
-   *
-   * @return {undefined}
-   */
-  function closeMarkdown(this: void): undefined {
-    assert(markdown, 'expected `markdown` when closing it')
-
-    markdown.write([codes.eos])
-    markdown = undefined
-    md = undefined
-
-    return void markdown
-  }
-}
-
-/**
- * Tokenize a comment region.
- *
- * Constructs registered under the `comment` content type are attempted in
- * extension order. Constructs at the `comment` level must be continuable
- * because the initializer may ask them to accept subsequent lines or determine
- * whether they can begin at a region boundary.
- *
- * @this {TokenizeContext}
- *
- * @param {Effects} effects
- *  The context object to transition the state machine
- * @param {State} ok
- *  The successful tokenization state
- * @param {State} nok
- *  The failed tokenization state
- * @return {State}
- *  The initial state
- */
-function tokenizeRegion(
-  this: TokenizeContext,
-  effects: Effects,
-  ok: State,
-  nok: State
-): State {
-  return effects.attempt(this.parser.constructs.comment, ok, nok)
 }

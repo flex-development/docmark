@@ -3,7 +3,7 @@
  * @module docmark-util-types/ConstructRecord
  */
 
-import type { Construct } from '@flex-development/docmark-util-types'
+import type { ConstructPack } from '@flex-development/docmark-util-types'
 import type { Numeric } from '@flex-development/mark/core'
 
 /**
@@ -13,17 +13,17 @@ interface ConstructRecord {
   /**
    * Try tokenizing constructs that start with the specified character code.
    *
-   * @see {@linkcode Construct}
+   * @see {@linkcode ConstructPack}
    * @see {@linkcode Numeric}
    */
-  [code: Numeric | number]: Construct | Construct[] | undefined
+  [code: Numeric | number]: ConstructPack | undefined
 
   /**
    * Try tokenizing constructs that start with any character code.
    *
    * @see {@linkcode ConstructPack}
    */
-  null?: Construct | Construct[] | undefined
+  null?: ConstructPack | undefined
 }
 
 export type { ConstructRecord as default }

@@ -6,7 +6,6 @@
 
 import fldv from '@flex-development/eslint-config'
 import pathe from '@flex-development/pathe'
-import fs from 'node:fs'
 
 /**
  * eslint configuration.
@@ -28,7 +27,7 @@ const config = [
         2,
         {
           allowExperimental: true,
-          version: fs.readFileSync(pathe.resolve('.nvmrc'), 'utf8').trim()
+          version: '>=17.0.0'
         }
       ],
       'unicorn/escape-case': [2, 'lowercase']
@@ -37,7 +36,8 @@ const config = [
   {
     files: [
       '__fixtures__/constructs/*.mts',
-      'packages/docmark/src/constructs/*.mts',
+      'packages/docmark-grammar/**/*.mts',
+      'packages/docmark/**/constructs/*.mts',
       'packages/docmark/src/initialize/*.mts'
     ],
     rules: {

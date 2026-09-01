@@ -14,6 +14,7 @@ ksort
 mdash
 nvmrc
 shfmt
+succ
 unpadded
 unstub
 vates

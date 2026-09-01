@@ -4,6 +4,7 @@
  */
 
 import type {
+  CommentKind,
   ContentType,
   Token,
   TokenizeContext
@@ -48,6 +49,12 @@ describe('unit-d:TokenFields', () => {
       .toEqualTypeOf<boolean | undefined>()
   })
 
+  it('should match [_kind?: CommentKind | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('_kind')
+      .toEqualTypeOf<CommentKind | undefined>()
+  })
+
   it('should match [_loose?: boolean | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('_loose')
@@ -60,10 +67,22 @@ describe('unit-d:TokenFields', () => {
       .toEqualTypeOf<boolean | undefined>()
   })
 
+  it('should match [_region?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('_region')
+      .toEqualTypeOf<boolean | undefined>()
+  })
+
   it('should match [_tokenizer?: TokenizeContext | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('_tokenizer')
       .toEqualTypeOf<TokenizeContext | undefined>()
+  })
+
+  it('should match [_trailing?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('_trailing')
+      .toEqualTypeOf<boolean | undefined>()
   })
 
   it('should match [contentType?: ContentType | undefined]', () => {
@@ -82,11 +101,5 @@ describe('unit-d:TokenFields', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('previous')
       .toEqualTypeOf<Token | undefined>()
-  })
-
-  it('should match [tag?: string | undefined]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('tag')
-      .toEqualTypeOf<string | undefined>()
   })
 })

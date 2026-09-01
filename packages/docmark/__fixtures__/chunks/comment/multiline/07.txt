@@ -1,0 +1,8 @@
+At start of heading (setext) underline.
+
+```markdown@info
+> | ==
+    ^
+```
+
+@type {State}

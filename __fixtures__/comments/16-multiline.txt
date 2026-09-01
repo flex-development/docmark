@@ -1,7 +1,0 @@
-/**
- * A construct that can be continued.
- *
- * @see {@linkcode Construct}
- *
- * @extends {Construct}
- */

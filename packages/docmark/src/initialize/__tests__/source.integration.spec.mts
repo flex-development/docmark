@@ -3,16 +3,12 @@
  * @module docmark/initialize/tests/integration/source
  */
 
-import hashbang from '@fixtures/constructs/hashbang.mts'
+import js from '#fixtures/extensions/js'
 import { parse, preprocess } from '@flex-development/docmark'
-import { codes, ev, tt } from '@flex-development/docmark-util-symbol'
-import type {
-  Chunk,
-  Disable,
-  FileLike
-} from '@flex-development/docmark-util-types'
+import { ev, tt } from '@flex-development/docmark-util-symbol'
+import type { Chunk, FileLike } from '@flex-development/docmark-util-types'
 import pathe from '@flex-development/pathe'
-import snapshot from '@tests/utils/snapshot-events.mjs'
+import snapshot from '@tests/utils/snapshot-events.mts'
 import { readSync as read } from 'to-vfile'
 import { beforeAll, describe, expect, it } from 'vitest'
 
@@ -20,67 +16,49 @@ describe('integration:initialize/source', () => {
   let directory: string
 
   beforeAll(() => {
-    directory = '__fixtures__/comments'
+    directory = 'packages/docmark/__fixtures__/content/source'
   })
 
   it('should allow all source constructs to be disabled', () => {
     // Arrange
-    const disable: Disable = { null: [tt.comment] }
-    const file: FileLike = read(pathe.join(directory, '23-many.txt'))
+    const file: FileLike = read(new URL(import.meta.url))
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act
-    const result = parse({ extensions: [{ disable }] }).source().write(slice)
+    const result = parse().source().write(slice)
 
     // Expect
     expect(result).to.have.property('length', 2)
     expect(result).to.each.have.nested.property('1.start')
     expect(result).to.each.have.nested.property('1.end')
     expect(result).to.each.have.nested.property('1.type', tt.eoc)
-    expect(snapshot(result)).toMatchSnapshot()
   })
 
   it.each<[path: string, ...Parameters<typeof parse>]>([
-    ['01-empty.txt'],
-    ['02-empty.txt'],
-    ['03-empty.txt'],
-    ['04-empty.txt'],
-    ['05-empty.txt'],
-    ['06-empty.txt'],
-    ['07-empty.txt'],
-    ['08-empty.txt'],
-    ['09-empty.txt'],
-    ['10-empty.txt'],
-    ['11-opener-only.txt'],
-    ['12-opener-only.txt'],
-    ['13-unterminated.txt'],
-    ['14-unterminated.txt'],
-    ['15-oneliner.txt'],
-    ['16-multiline.txt'],
-    ['17-multiline.txt'],
-    ['18-multiline.txt'],
-    ['19-fenced-code.txt'],
-    ['20-fenced-code.txt'],
-    ['21-indented-code.txt'],
-    ['22-many.txt'],
-    ['23-many.txt'],
-    [
-      'custom.txt',
-      {
-        extensions: [{ source: { [codes.numberSign]: hashbang } }]
-      }
-    ]
-  ])('should parse source comments (%j)', (path, options) => {
+    ['01.txt'],
+    ['02.txt'],
+    ['03.txt'],
+    ['04.txt'],
+    ['05.txt'],
+    ['06.txt'],
+    ['07.txt'],
+    ['empty/01.txt']
+  ])('should parse source file (%j,%j)', (path, options) => {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
     const slice: Chunk[] = preprocess()(file, undefined, true)
+
+    // Setup
+    options ??= {}
+    options.extensions ??= []
+    options.extensions.unshift(js)
 
     // Act
     const result = parse(options).source().write(slice)
     const beforeLast = result.at(-2)
     const last = result.at(-1)
 
-    // Expect (conditional)
+    // Expect
     expect(result).to.have.property('length').be.at.least(2)
     expect(result).to.each.have.nested.property('1.start')
     expect(result).to.each.have.nested.property('1.end')

@@ -3,31 +3,22 @@
  * @module docmark/extensions/docmark
  */
 
-import { codes } from '@flex-development/docmark-util-symbol'
+import { summary, typeExpressionValue } from '@flex-development/docmark-grammar'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
-import blockTag from '../constructs/block-tag.mts'
-import comment from '../constructs/comment.mts'
-import inlineTag from '../constructs/inline-tag.mts'
-import summary from '../constructs/summary.mts'
 
 /**
  * The `docmark` syntax extension.
  *
  * @see {@linkcode NormalizedExtension}
  *
+ * @internal
+ *
  * @const {NormalizedExtension} docmark
  */
 const docmark: NormalizedExtension = {
-  comment: {
-    [codes.atSign]: blockTag,
-    null: [summary]
-  },
-  source: {
-    [codes.slash]: comment
-  },
-  text: {
-    [codes.leftCurlyBrace]: inlineTag
-  }
+  comment: { null: summary },
+  source: {},
+  type: { null: typeExpressionValue }
 }
 
 export default docmark

@@ -4,17 +4,20 @@
  */
 
 import { codes } from '@flex-development/docmark-util-symbol'
+import type { NormalizedExtension } from '@flex-development/docmark-util-types'
 import * as commonmark from 'micromark-core-commonmark'
-import type { FullNormalizedExtension } from 'micromark-util-types'
+import { string } from '../initialize/text.mts'
 
 /**
  * The markdown syntax extension.
  *
- * @see {@linkcode FullNormalizedExtension}
+ * @see {@linkcode NormalizedExtension}
  *
- * @const {FullNormalizedExtension} markdown
+ * @internal
+ *
+ * @const {NormalizedExtension} markdown
  */
-const markdown: FullNormalizedExtension = {
+const markdown: NormalizedExtension = {
   attentionMarkers: {
     null: [codes.asterisk, codes.underscore]
   },
@@ -56,7 +59,10 @@ const markdown: FullNormalizedExtension = {
     [codes.space]: commonmark.codeIndented
   },
   insideSpan: {
-    null: [commonmark.attention]
+    null: [
+      { resolveAll: commonmark.attention.resolveAll },
+      { resolveAll: string.resolveAll! }
+    ]
   },
   string: {
     [codes.ampersand]: commonmark.characterReference,

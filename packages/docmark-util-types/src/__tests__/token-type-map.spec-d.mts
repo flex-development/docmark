@@ -54,12 +54,6 @@ describe('unit-d:TokenTypeMap', () => {
       .toEqualTypeOf<'commentLineMarker'>()
   })
 
-  it('should match [commentLinePadding: "commentLinePadding"]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('commentLinePadding')
-      .toEqualTypeOf<'commentLinePadding'>()
-  })
-
   it('should match [commentLinePrefix: "commentLinePrefix"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('commentLinePrefix')
@@ -72,14 +66,62 @@ describe('unit-d:TokenTypeMap', () => {
       .toEqualTypeOf<'commentOpener'>()
   })
 
+  it('should match [commentPadding: "commentPadding"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('commentPadding')
+      .toEqualTypeOf<'commentPadding'>()
+  })
+
   it('should match [eoc: "eoc"]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('eoc').toEqualTypeOf<'eoc'>()
+  })
+
+  it('should match [identifier: "identifier"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('identifier')
+      .toEqualTypeOf<'identifier'>()
   })
 
   it('should match [inlineTag: "inlineTag"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('inlineTag')
       .toEqualTypeOf<'inlineTag'>()
+  })
+
+  it('should match [inlineTagMarker: "inlineTagMarker"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('inlineTagMarker')
+      .toEqualTypeOf<'inlineTagMarker'>()
+  })
+
+  it('should match [inlineTagText: "inlineTagText"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('inlineTagText')
+      .toEqualTypeOf<'inlineTagText'>()
+  })
+
+  it('should match [namepath: "namepath"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('namepath')
+      .toEqualTypeOf<'namepath'>()
+  })
+
+  it('should match [namepathConnector: "namepathConnector"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('namepathConnector')
+      .toEqualTypeOf<'namepathConnector'>()
+  })
+
+  it('should match [namepathIdentifier: "namepathIdentifier"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('namepathIdentifier')
+      .toEqualTypeOf<'namepathIdentifier'>()
+  })
+
+  it('should match [namepathMarker: "namepathMarker"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('namepathMarker')
+      .toEqualTypeOf<'namepathMarker'>()
   })
 
   it('should match [null: never]', () => {
@@ -114,6 +156,18 @@ describe('unit-d:TokenTypeMap', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('tagNameMarker')
       .toEqualTypeOf<'tagNameMarker'>()
+  })
+
+  it('should match [typeExpression: "typeExpression"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('typeExpression')
+      .toEqualTypeOf<'typeExpression'>()
+  })
+
+  it('should match [typeExpressionValue: "typeExpressionValue"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('typeExpressionValue')
+      .toEqualTypeOf<'typeExpressionValue'>()
   })
 
   it('should match [typeMetadata: "typeMetadata"]', () => {

@@ -6,10 +6,16 @@
 
 import Notifier from '#tests/reporters/notifier'
 import listWorkspaces from '#utils/list-workspaces'
+import {
+  lookupPackageScope,
+  resolveModule,
+  toUrl
+} from '@flex-development/mlly'
 import pathe from '@flex-development/pathe'
 import { ok } from 'devlop'
 import ci from 'is-ci'
 import type { Dirent } from 'node:fs'
+import type { PluginContext, ResolveIdResult } from 'rolldown'
 import type { LabelColor } from 'vitest'
 import {
   defineConfig,
@@ -48,6 +54,59 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
   const workspaces: readonly Dirent[] = listWorkspaces()
 
   return {
+    plugins: [
+      {
+        enforce: 'pre',
+        name: 'resolve:docmark',
+
+        /**
+         * Resolve the module id of a workspace package.
+         *
+         * @this {PluginContext}
+         *
+         * @param {string} id
+         *  The module id to resolve
+         * @param {string | undefined} parent
+         *  The path to the importing (parent) module
+         * @return {ResolveIdResult}
+         *  The resolution result
+         */
+        resolveId(
+          this: PluginContext,
+          id: string,
+          parent: string | undefined
+        ): ResolveIdResult {
+          if (parent && id.startsWith('@flex-development/docmark')) {
+            /**
+             * The resolved module URL.
+             *
+             * @const {URL} url
+             */
+            const url: URL = resolveModule(id, toUrl(parent), {
+              // @ts-expect-error valid conditions (2322).
+              conditions: tsconfig.compilerOptions.customConditions
+            })
+
+            /**
+             * The URL of the package directory.
+             *
+             * @const {URL | null} scope
+             */
+            const scope: URL | null = lookupPackageScope(url)
+
+            if (scope) {
+              return {
+                external: false,
+                id: url.pathname,
+                packageJsonPath: scope.pathname + 'package.json'
+              }
+            }
+          }
+
+          return void id
+        }
+      }
+    ],
     test: {
       allowOnly: !ci,
       chaiConfig: {

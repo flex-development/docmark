@@ -16,6 +16,12 @@
       "path": "../docmark-factory-space/tsconfig.build.json"
     },
     {
+      "path": "../docmark-grammar/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-util-combine-extensions/tsconfig.build.json"
+    },
+    {
       "path": "../docmark-util-subtokenize/tsconfig.build.json"
     },
     {

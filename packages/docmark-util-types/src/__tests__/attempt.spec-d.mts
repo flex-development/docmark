@@ -3,11 +3,7 @@
  * @module docmark-util-types/tests/unit-d/Attempt
  */
 
-import type {
-  Construct,
-  ConstructRecord,
-  State
-} from '@flex-development/docmark-util-types'
+import type { Constructs, State } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../attempt.mts'
 
@@ -17,13 +13,9 @@ describe('unit-d:Attempt', () => {
   })
 
   describe('parameters', () => {
-    it('should be callable with [Construct | Construct[] | ConstructRecord, State, (State | undefined)?]', () => {
+    it('should be callable with [Constructs, State, (State | undefined)?]', () => {
       // Arrange
-      type Expect = [
-        Construct | Construct[] | ConstructRecord,
-        State,
-        (State | undefined)?
-      ]
+      type Expect = [Constructs, State, (State | undefined)?]
 
       // Expect
       expectTypeOf<TestSubject>().parameters.toEqualTypeOf<Expect>()

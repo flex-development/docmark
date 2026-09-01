@@ -1,8 +1,10 @@
 /**
- * @file Constructs - source
+ * @file Initialize - source
  * @module docmark/initialize/source
  */
 
+import { factorySpace } from '@flex-development/docmark-factory-space'
+import { blankLine } from '@flex-development/docmark-grammar'
 import { codes, constants, ev, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Chunk,
@@ -16,21 +18,28 @@ import type {
   Token,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { eol, eos } from '@flex-development/mark-util-character'
+import {
+  bos,
+  eol,
+  eos,
+  whitespace
+} from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
 
 /**
  * The initial source document construct.
  *
  * The initializer scans a source document for comments.\
- * By default, it tokenizes docblock comments, but extensions can add other
- * comment constructs, such as constructs for hashbang (also known as shebang)
- * or line comments.\
- * Constructs registered for the `source` content type determine where comments
- * begin, while all other source text is treated as opaque input.
+ * Comment syntax is provided by extensions through constructs registered at the
+ * `source` content level.
  *
- * Comments are delegated to a child `comment` tokenizer,
- * allowing comment parsing to remain independent of the surrounding language.
+ * Constructs registered at the `source` content level determine where comments
+ * begin and end.
+ * Source content not consumed by a registered construct is consumed as opaque
+ * input and is not represented in the resulting event stream.
+ *
+ * Each discovered comment delegates its content to a child `comment` tokenizer,
+ * keeping comment parsing independent from the surrounding source language.
  *
  * Comments are siblings and cannot be nested.
  * Therefore, at most one comment may be active at any point in the stream.
@@ -39,41 +48,47 @@ import { ok as assert } from 'devlop'
  */
 const source: InitialConstruct = { tokenize: tokenizeSource }
 
+export default source
+
 /**
  * The source comment construct.
  *
- * The construct acts as a dispatcher and attempts constructs registered
- * for the `source` content type.
+ * The construct attempts constructs registered for the `source` content level
+ * in extension order.
  *
- * Centralizing dispatch allows the initializer to discover and continue
- * comments without depending on specific comment implementations.
+ * Centralizing dispatch allows the initializer to discover comments without
+ * depending on particular comment syntaxes.
  *
- * @const {Construct} comment
+ * @const {Construct} sourceComment
  */
-const comment: Construct = { tokenize: tokenizeComment }
-
-export default source
+const sourceComment: Construct = { tokenize: tokenizeSourceComment }
 
 /**
  * Tokenize a source document.
  *
- * The initializer scans the source stream for comments.
- * Source text outside comments is consumed without interpretation, while
- * comment content is delegated to a child `comment` tokenizer.
+ * The initializer scans the source stream for comments using constructs
+ * registered at the `source` content level.
+ * Source text outside comments is consumed as opaque input and is not
+ * represented in the resulting event stream.
+ *
+ * Each discovered comment is maintained as an active source construct while
+ * its content is delegated to a child `comment` tokenizer.
+ * The active comment kind is propagated to that tokenizer so comment-level
+ * constructs can determine which syntax is currently being parsed.
  *
  * @this {TokenizeContext}
  *
  * @param {Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @return {State}
  *  The initial state
  */
 function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   /**
-   * A comment and its persistent state.
+   * The active comment and its persistent state.
    *
-   * This is a tuple where the first value is a continuable construct,
-   * and the second value is the current container state.
+   * This is a tuple where the first value is the continuable construct managing
+   * the comment and the second value is its persistent container state.
    */
   type Comment = [construct: ContinuableConstruct, state: ContainerState]
 
@@ -85,35 +100,43 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   const self: TokenizeContext = this
 
   /**
-   * The comment stack.
+   * The active comment stack.
    *
-   * > 👉 **Note**: Comments do not nest.\
-   * > The stack always contains at most one comment.
+   * Comments are siblings rather than nested, so the stack always contains at
+   * most one item.
+   * A stack is nevertheless maintained to provide a uniform mechanism for
+   * tracking and finalizing active comment state.
    *
-   * @const {[Region?]} stack
+   * @const {[Comment?]} stack
    */
   const stack: [Comment?] = []
 
   /**
-   * The comment content tokenizer.
+   * The active child `comment` tokenizer.
    *
-   * @var {TokenizeContext | undefined} child
+   * The tokenizer is created lazily and reused for the current comment's
+   * content stream until that comment is finalized.
+   *
+   * @var {TokenizeContext | undefined} comment
    */
-  let child: TokenizeContext | undefined
+  let comment: TokenizeContext | undefined
 
   /**
-   * The most recently written comment chunk token.
+   * The most recently written comment content token.
    *
-   * Used to link adjacent chunks written to the same child tokenizer.
+   * Used to form the doubly linked sequence of tokens written to the active
+   * child `comment` tokenizer.
    *
-   * @var {Token | undefined} markdownToken
+   * @var {Token | undefined} content
    */
-  let childToken: Token | undefined
+  let content: Token | undefined
 
   /**
-   * The index of the first event produced by the current continuation attempt.
+   * The event index from which to forward tokens emitted by the current comment
+   * construct or continuation.
    *
-   * Events emitted after this index are linked to the active {@linkcode child}.
+   * Events emitted at or after this index are inspected by {@linkcode forward}
+   * for completed comment content tokens.
    *
    * @var {number} continued
    */
@@ -122,11 +145,15 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   return start
 
   /**
-   * Start processing the source document.
+   * Start or resume source scanning.
    *
-   * Source text is scanned for comments.
-   * When a comment is already active, its `continuation` construct is given an
-   * opportunity to continue before ordinary source parsing resumes.
+   * When no comment is active, registered source constructs are attempted at
+   * the current position after blank lines are skipped.
+   *
+   * Otherwise, the active comment's `continuation` construct is attempted with
+   * its persistent container state.
+   * A failed continuation finalizes the current comment before ordinary source
+   * scanning resumes.
    *
    * @this {void}
    *
@@ -136,14 +163,63 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function start(this: void, code: Code): State | undefined {
-    if (!stack[0]) return tryComment(code)
+    assert(
+      bos(self.previous) || eol(self.previous),
+      'expected beginning of stream or line'
+    )
+
+    // initialize container state.
+    self.containerState ??= {}
+
+    // no comment on stack.
+    // eat blank lines.
+    // otherwise, try to enter a new comment.
+    if (!stack[0]) return effects.attempt(blankLine, restart, tryComment)(code)
+
+    // comment on stack.
+    // try continuing the active comment.
+    return tryContinuation(code)
+  }
+
+  /**
+   * Continue the active source comment.
+   *
+   * The active comment's `continuation` construct is attempted with its
+   * persistent container state.
+   * Before the attempt, the current event index is recorded so tokens emitted
+   * by a successful continuation can be forwarded to the child `comment`
+   * tokenizer.
+   *
+   * The initializer is deemed as interrupting when the child tokenizer has a
+   * `currentConstruct`, or when the child itself is interrupting.
+   *
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function tryContinuation(this: void, code: Code): State | undefined {
+    assert(self.containerState, 'expected `containerState` when continuing')
+    assert(stack[0], 'expected comment on `stack` when continuing')
     const [construct, containerState] = stack[0]
 
+    assert(
+      self.containerState === containerState,
+      'expected `containerState` to match `stack[0][1]`'
+    )
+
+    // capture current number of events before attempting continuation.
+    // this is used to determine where to begin forwarding tokens after
+    // a successful continuation.
     continued = self.events.length
-    self.containerState = containerState
 
-    assert(construct.continuation, 'expected continuable construct')
+    // if there's a comment region or a region interrupting markdown content,
+    // we're interrupting with a comment line.
+    self.interrupt = Boolean(comment?.currentConstruct ?? comment?.interrupt)
 
+    // try continuing the active comment.
     return effects.attempt(
       construct.continuation,
       afterContinuation,
@@ -154,16 +230,13 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   /**
    * After a successful comment continuation.
    *
-   * Tokens produced by the continuation construct are first linked to the
-   * comment content tokenizer.
+   * Comment content tokens emitted by the `continuation` construct are first
+   * forwarded to the active child tokenizer.
    *
-   * A continuation may finalize the active comment before consuming the entire
-   * physical line. When that happens, the comment is closed and source parsing
-   * resumes from the current position.
-   *
-   * Otherwise, any remaining content on the current line begins a new comment
-   * chunk. If the continuation consumed the entire line, parsing resumes at the
-   * beginning of the next line.
+   * If the continuation closes the comment, scanning resumes after finalizing
+   * the active comment.
+   * Otherwise, same-line content begins a new comment content chunk,
+   * whereas a completely consumed line returns to control to {@linkcode start}.
    *
    * @this {void}
    *
@@ -173,32 +246,31 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function afterContinuation(this: void, code: Code): State | undefined {
+    assert(stack.length === 1, 'expected comment on `stack`')
     assert(self.containerState, 'expected `containerState` after continuing')
 
-    // link any tokens produced by the current continuation construct.
-    link()
+    // forward any comment chunks emitted by continuation.
+    forward()
 
     // close comment container.
     if (self.containerState._closeFlow) return noContinuation(code)
 
-    // continuation construct did not process entire line.
+    // comment no longer considered fresh.
+    self.parser.freshComment = false
+
+    // continuation construct did not consume entire line.
     // start comment chunk from current point in the stream.
-    if (!eol(self.previous)) return chunkStart(code)
+    if (!eol(self.previous)) return beforeChunk(code)
 
-    // get ready for next line.
-    self.interrupt = Boolean(child?.currentConstruct)
-    self.concrete = child?.concrete
-
-    // continuation construct processed an entire line.
-    assert(stack.length === 1, 'expected comment on `stack`')
+    // continuation construct consumed entire line.
     return start(code)
   }
 
   /**
-   * Resume source parsing.
+   * Resume source scanning after a failed comment continuation.
    *
-   * The active comment is finalized before parsing continues from the current
-   * position.
+   * The active comment content stream and source comment are finalized before a
+   * new source-level comment is attempted at the current position.
    *
    * @this {void}
    *
@@ -208,14 +280,23 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function noContinuation(this: void, code: Code): State | undefined {
-    return flush(), tryComment(code)
+    // comment cannot continue.
+    // finalize the comment and content stream before the next comment attempt.
+    flush()
+
+    // attempt a comment directly.
+    // no comment on stack (or comment content stream).
+    return tryComment(code)
   }
 
   /**
-   * Attempt to enter a comment.
+   * Attempt to enter a source-level comment.
    *
-   * Constructs registered for the `source` content type are tried.
-   * If no comment can begin, `code` is consumed as ordinary source text.
+   * The container state is reset before registered constructs are attempted.\
+   * Whitespace is consumed as opaque source content before the attempt.
+   *
+   * If no construct succeeds, the current code is consumed as opaque source
+   * content.
    *
    * @this {void}
    *
@@ -225,37 +306,33 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function tryComment(this: void, code: Code): State | undefined {
+    // reset container state to get ready for new comment.
     self.containerState = {}
-    return effects.attempt(comment, takeComment, restart)(code)
+
+    // capture current number of events before attempting the comment.
+    // this is used to determine where to begin forwarding tokens after
+    // successfully entering the comment.
+    continued = self.events.length
+
+    // eat whitespace before attempting comment.
+    if (whitespace(code)) return factorySpace(effects, tryComment)(code)
+
+    // try entering a comment.
+    return effects.attempt(sourceComment, takeComment, restart)(code)
   }
 
   /**
-   * Resume scanning the source document.
+   * Register a newly entered source comment.
    *
-   * The current character does not begin a comment and is consumed as ordinary
-   * source text.
+   * The successful source comment construct and its persistent container state
+   * are registered as the sole active comment. The comment kind emitted by the
+   * construct is captured from its opening token.
    *
-   * @this {void}
+   * Comment content tokens emitted while entering the comment are forwarded to
+   * a child `comment` tokenizer.
    *
-   * @param {Code} code
-   *  The current character code
-   * @return {State | undefined}
-   *  The next state
-   */
-  function restart(this: void, code: Code): State | undefined {
-    if (eos(code)) return void end(code)
-    return effects.consume(code), start
-  }
-
-  /**
-   * Register a newly discovered comment.
-   *
-   * Comments are siblings rather than nested, so the active comment stack must
-   * be empty before registration.
-   *
-   * If the comment begins in the middle of a physical line, parsing immediately
-   * begins a comment chunk. Otherwise, the comment continuation construct is
-   * given the first opportunity to process the following line.
+   * Continuation begins at a line boundary, whereas same-line content begins
+   * a new comment content chunk immediately.
    *
    * @this {void}
    *
@@ -268,27 +345,101 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     assert(self.containerState, 'expected `containerState`')
     assert(self.currentConstruct, 'expected `currentConstruct`')
     assert(self.currentConstruct.continuation, 'expected continuable construct')
+    assert(self.events[continued], 'expected `self.events[continued]`')
+
+    // capture new comment kind from the opening token.
+    // the first event belonging to the new comment is at `continued`.
+    assert(self.events[continued]![0] === ev.enter, 'expected `enter` event')
+    self.containerState.comment ??= self.events[continued]![1]._kind
+
+    // forward any comment chunks emitted by `tokenize`.
+    forward()
 
     // register new comment.
     assert(stack.length === 0, 'expected empty comment stack')
     stack[0] = [self.currentConstruct, self.containerState] as Comment
 
-    // close comment container before continuation attempt.
+    // signal freshly added comment.
+    self.parser.freshComment = true
+
+    // immediate closure requested; bypass continuation attempt.
     if (self.containerState._closeFlow) return noContinuation(code)
 
     // try to continue comment from beginning of new line.
     if (eol(self.previous)) return start(code)
 
     // start comment chunk from current position.
+    return beforeChunk(code)
+  }
+
+  /**
+   * Continue scanning opaque source content.
+   *
+   * The current code did not begin a registered source comment construct.
+   * It is consumed without producing an event before source scanning resumes.
+   *
+   * At the end of the source stream, comment content and the active source
+   * comment are finalized before the end-of-stream code is processed.
+   *
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function restart(this: void, code: Code): State | undefined {
+    assert(!comment, 'did not expect comment content parser')
+    assert(stack.length === 0, 'expected empty comment stack')
+
+    // end of source stream.
+    if (eos(code)) return beforeChunk(code)
+
+    // consume code as opaque content.
+    effects.consume(code)
+
+    // delegate to `start` at beginning of new line,
+    // or attempt a comment directly from the middle of a line.
+    if (eol(self.previous)) return start
+    return tryComment
+  }
+
+  /**
+   * Prepare to tokenize comment content.
+   *
+   * At the end of the source stream, the active child `comment` tokenizer and
+   * source comment are finalized before the end-of-content token is emitted.
+   *
+   * Otherwise, a new comment content chunk is started.
+   *
+   * @this {void}
+   *
+   * @param {Code} code
+   *  The current character code
+   * @return {State | undefined}
+   *  The next state
+   */
+  function beforeChunk(this: void, code: Code): State | undefined {
+    // end of source stream.
+    // finalize the current comment content stream and active comment.
+    if (eos(code)) return void end(code)
+
+    // start new comment content chunk.
     return chunkStart(code)
   }
 
   /**
-   * Start a comment chunk.
+   * Start a comment content chunk.
    *
-   * Comment chunks are written to a child `comment` tokenizer.
-   * The child tokenizer is created lazily and reused until the active comment
-   * is finalized.
+   * The child `comment` tokenizer is created lazily and associated with the new
+   * `chunkComment` token.
+   *
+   * The chunk is linked to the preceding comment {@linkcode content} token so
+   * normalized comment content can span multiple source tokens while remaining
+   * apart of one logical child stream.
+   *
+   * The active comment kind is propagated to the child tokenizer's container
+   * state before comment content is tokenized.
    *
    * @this {void}
    *
@@ -298,33 +449,40 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function chunkStart(this: void, code: Code): State | undefined {
-    // chunk cannot start on eos code.
-    if (eos(code)) return void end(code)
+    assert(!eos(code), 'did not expect end of stream')
+    assert(self.containerState, 'expected `containerState` inside comment')
+    assert(self.containerState.comment, 'expected comment kind')
+    assert(stack.length === 1, 'expected comment on `stack`')
 
-    // initialize comment content tokenizer.
-    child ??= self.parser.comment(self.now())
+    // lazily initialize comment content parser.
+    comment ??= self.parser.comment(self.now())
 
-    // start new comment chunk.
+    // expose the current comment kind to `comment`-level constructs.
+    comment.containerState ??= {}
+    comment.containerState.comment = self.containerState.comment
+
+    // start new comment content chunk.
     effects.enter(tt.chunkComment, {
-      _tokenizer: child,
+      _tokenizer: comment,
       contentType: constants.contentTypeComment,
-      previous: childToken
+      previous: content
     })
 
-    // consume code as part of chunk.
     return chunkContinue(code)
   }
 
   /**
-   * Continue a comment chunk.
+   * Continue a comment content chunk.
    *
-   * Comment chunks consume ordinary comment content through the current
-   * physical line. When the line ends, the completed chunk is written to the
-   * child `comment` tokenizer before parsing resumes.
+   * Ordinary comment content is consumed through the current physical line.\
+   * The line ending is included in the chunk before the completed token is
+   * written to the child `comment` tokenizer.
    *
-   * The next line begins with another continuation attempt, allowing the active
-   * comment to recognize line prefixes, closing syntax, or other continuation
-   * constructs before another chunk is started.
+   * After consuming a line ending, processing then returns to the active source
+   * comment's `continuation` so it can recognize prefixes, closing syntax, or
+   * other line-boundary specific behavior before another chunk begins.
+   *
+   * At end of stream, the current chunk and child stream are finalized.
    *
    * @this {void}
    *
@@ -334,33 +492,37 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function chunkContinue(this: void, code: Code): State | undefined {
+    assert(comment, 'expected comment content parser')
+
+    // at end of comment stream.
+    // finalize the current comment content stream and active comment.
     if (eos(code)) {
       write(effects.exit(tt.chunkComment), true)
       return void end(code)
     }
 
+    // at the end of a line.
+    // write the completed chunk before continuing the active comment.
     if (eol(code)) {
       effects.consume(code)
       write(effects.exit(tt.chunkComment))
 
-      // clear interruption state to get ready for the next line.
+      // get ready for the next line.
       self.interrupt = undefined
 
       return start
     }
 
+    // consume ordinary comment content.
     effects.consume(code)
     return chunkContinue
   }
 
   /**
-   * Finish the source document.
+   * Finish the source content stream.
    *
-   * Any active comment and child tokenizer are finalized before the end-of-
-   * stream marker is consumed.
-   *
-   * Source content remaining outside comments is intentionally discarded before
-   * the end-of-stream marker is emitted.
+   * The active child `comment` tokenizer and source comment are finalized
+   * before the end-of-content token is emitted.
    *
    * @this {void}
    *
@@ -372,8 +534,14 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   function end(this: void, code: Code): undefined {
     assert(eos(code), 'expected end of stream')
 
+    // finalize active comment state before emitting end of content.
     flush()
 
+    // clear transient parsing state.
+    self.parser.freshComment = undefined
+
+    // emit end of content.
+    // this is the final event and token.
     effects.enter(tt.eoc)
     effects.consume(code)
     effects.exit(tt.eoc)
@@ -382,11 +550,17 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * Finalize the active comment.
+   * Close the current comment parsing context.
    *
-   * Any open comment chunk is closed before the active comment construct exits.
-   * Persistent parser state associated with the comment is then discarded,
-   * allowing source parsing to resume with a clean context.
+   * The active child `comment` tokenizer is finalized and its token-link state
+   * is cleared. The active source comment's persistent container state is then
+   * restored before its `exit` hook is called.
+   *
+   * Later comments create independent child tokenizers and do not inherit
+   * parsing state from the finalized comment.
+   *
+   * > 👉 **Note**: Source comments cannot nest, so the stack contains at most
+   * > one item. The loop keeps teardown generic.
    *
    * @this {void}
    *
@@ -395,8 +569,10 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   function flush(this: void): undefined {
     assert(stack.length <= 1, 'expected no more than 1 comment')
 
-    // finish comment chunk.
-    if (child && !eos(child.code)) closeChunk()
+    // finish comment content stream.
+    if (comment && !eos(comment.code)) comment.write([codes.eos])
+    comment = undefined
+    content = undefined
 
     // exit the active comment.
     while (stack.length) {
@@ -405,32 +581,40 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
       construct.exit.call(self, effects)
     }
 
-    // get ready for new comment.
+    // get ready for the next source comment.
+    self.currentConstruct = undefined
     self.containerState = {}
-
-    // get ready for the next line.
-    self.concrete = undefined
-    self.interrupt = undefined
+    self.parser.skipSummary = undefined
 
     return void stack
   }
 
   /**
-   * Link continuation output to the child `comment` tokenizer.
+   * Forward emitted tokens to the child {@linkcode comment} tokenizer.
    *
-   * Continuation constructs may emit completed comment chunks while deciding
-   * how a comment should continue. Newly emitted chunks are forwarded to the
-   * active child tokenizer in emission order.
+   * Source comment constructs may emit `chunkComment` tokens.\
+   * Completed tokens are located in emission order and written to the active
+   * child tokenizer.
    *
    * @this {void}
    *
    * @return {undefined}
    */
-  function link(this: void): undefined {
+  function forward(this: void): undefined {
+    // inspect events emitted since the last comment attempt or continuation.
     while (continued < self.events.length) {
       assert(self.events[continued], 'expected `self.events[continued]`')
       const [event, token] = self.events[continued]!
-      if (event === ev.exit && token.type === tt.chunkComment) write(token)
+
+      // only completed comment content chunks are written to the child stream.
+      if (
+        event === ev.exit &&
+        token.type === tt.chunkComment &&
+        token.contentType === constants.contentTypeComment
+      ) {
+        write(token)
+      }
+
       continued++
     }
 
@@ -438,17 +622,28 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * Write a comment chunk to the {@linkcode child} tokenizer.
+   * Write a comment content chunk to the child {@linkcode comment} tokenizer.
    *
-   * The chunk token is linked to the previously written chunk before its source
-   * range is sliced from the parent stream and written to the child tokenizer.
+   * The token is linked to the previously written comment content token,
+   * associated with the active child tokenizer, sliced from the source stream,
+   * and written to the child.
+   *
+   * When requested, the {@linkcode eos} code can be appended to the pending
+   * child stream.
+   *
+   * Before writing to the child tokenizer, `defineSkip` is used to correctly
+   * position the child and account for any prefixes consumed by registered
+   * comment constructs and their continuation.
+   *
+   * The child's `concrete` state is mirrored onto {@linkcode self} so comment
+   * dispatch cannot interrupt concrete markdown content.
    *
    * @this {void}
    *
    * @param {Token} token
-   *  The next markdown chunk token
+   *  The comment content to write
    * @param {boolean | undefined} [end]
-   *  Whether to signal the end of the child stream
+   *  Whether to end the child stream after writing `token`
    * @return {undefined}
    */
   function write(
@@ -456,7 +651,14 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     token: Token,
     end?: boolean | undefined
   ): undefined {
-    child ??= self.parser.comment(token.start)
+    assert(self.containerState, 'expected `containerState` during write')
+    assert(token !== content, 'did not expect `token` to match previous token')
+
+    // lazily initialize comment content parser.
+    comment ??= self.parser.comment(token.start)
+
+    // associate child tokenizer with chunk for postprocessing.
+    token._tokenizer ??= comment
 
     /**
      * The source chunks spanning {@linkcode token}.
@@ -465,65 +667,48 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
      */
     const stream: Chunk[] = self.sliceStream(token)
 
-    // signal end of child stream.
+    // signal end of `comment` stream.
     if (end) stream.push(codes.eos)
 
     // link tokens.
-    token.previous = childToken
-    if (childToken) childToken.next = token
-    childToken = token
+    // this inserts the chunk represented by `token` into the `comment` stream.
+    token.previous = content
+    if (content) content.next = token
+    content = token
 
-    // tell the child tokenizer where to start.
-    child.defineSkip(token.start)
+    // tell the `comment` tokenizer where normalized content starts.
+    // comments "nibble" a prefix from margins.
+    // where a logical comment line starts is defined here.
+    if (token.previous) comment.defineSkip(token.start)
 
-    // write chunks to child stream.
-    child.write(stream)
+    // write the chunk to the child tokenizer.
+    comment.write(stream)
 
-    // signal concrete content was encountered.
-    self.concrete = child.concrete
+    // mirror concrete markdown state onto `self`.
+    // this prevents comments from piercing concrete markdown content.
+    self.concrete = comment.concrete
 
-    return void 0
-  }
-
-  /**
-   * Finalize the active child `comment` tokenizer.
-   *
-   * Closing the child tokenizer completes the current comment content steam.
-   * Later comments will create a new tokenizer with independent parser state.
-   *
-   * @this {void}
-   *
-   * @return {undefined}
-   */
-  function closeChunk(this: void): undefined {
-    assert(child, 'expected `child` to be defined when closing it')
-
-    child.write([codes.eos])
-    child = undefined
-    childToken = undefined
-
-    return void child
+    return void token
   }
 }
 
 /**
  * Tokenize a source-level comment.
  *
- * Constructs registered for the `source` content type are attempted
- * in extension order.
+ * Constructs registered at the `source` level are attempted in extension order.
  *
  * @this {TokenizeContext}
  *
  * @param {Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @param {State} ok
  *  The successful tokenization state
  * @param {State} nok
- *  The failed tokenization state
+ *  The unsuccessful tokenization state
  * @return {State}
  *  The initial state
  */
-function tokenizeComment(
+function tokenizeSourceComment(
   this: TokenizeContext,
   effects: Effects,
   ok: State,

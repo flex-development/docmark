@@ -11,6 +11,7 @@ import type {
   ParseContext,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
+import pathe from '@flex-development/pathe'
 import { ksort } from '@flex-development/tutils'
 import { commonmark } from 'commonmark.json'
 import { ok } from 'devlop'
@@ -26,9 +27,12 @@ describe('integration:initialize/markdown', () => {
     options?: mut.ParseOptions | undefined
   ) => mut.Event[]
 
+  let directory: string
   let markdown: Markdown
 
   beforeAll(() => {
+    directory = 'packages/docmark/__fixtures__/content/markdown'
+
     /**
      * Parse markdown.
      *
@@ -84,11 +88,13 @@ describe('integration:initialize/markdown', () => {
     ['link-resource-eol.md'],
     ['link-resource.md'],
     ['list.md'],
+    ['nul.md'],
     ['paragraph.md'],
+    ['replacement-character.md'],
     ['thematic-break.md']
   ])('should parse markdown (%j,%j)', (path, options) => {
     // Arrange
-    const file: FileLike = read('__fixtures__/markdown/' + path, 'utf8')
+    const file: FileLike = read(pathe.join(directory, path))
     const parser: ParseContext = parse(options)
     const context: TokenizeContext = parser.document()
     const slice: Chunk[] = preprocess()(file, undefined, true)
@@ -122,7 +128,7 @@ describe('integration:initialize/markdown', () => {
       expect(token.start).to.eql(bToken.start)
       expect(token.end).to.eql(bToken.end)
 
-      if (!bToken._container) {
+      if (!bToken._container && path !== 'nul.md') {
         expect(self.sliceSerialize(token)).to.eq(bSelf.sliceSerialize(bToken))
       }
     }

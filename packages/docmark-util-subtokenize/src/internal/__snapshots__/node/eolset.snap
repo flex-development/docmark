@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:internal/eolset > should return end offset (-3, 516) 1`] = `518`;
+
+exports[`unit:internal/eolset > should return end offset (-4, 277) 1`] = `278`;
+
+exports[`unit:internal/eolset > should return end offset (-5, 371) 1`] = `372`;

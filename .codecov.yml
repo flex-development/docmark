@@ -32,6 +32,14 @@ component_management:
       name: docmark-factory-space
       paths:
         - packages/docmark-factory-space/**/*.mts
+    - component_id: docmark-grammar
+      name: docmark-grammar
+      paths:
+        - packages/docmark-grammar/**/*.mts
+    - component_id: docmark-util-combine-extensions
+      name: docmark-util-combine-extensions
+      paths:
+        - packages/docmark-util-combine-extensions/**/*.mts
     - component_id: docmark-util-subtokenize
       name: docmark-util-subtokenize
       paths:

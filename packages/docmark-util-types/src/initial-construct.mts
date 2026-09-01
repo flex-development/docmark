@@ -11,7 +11,8 @@ import type {
 /**
  * An initial construct.
  *
- * > 👉 Like a construct, but `tokenize` does not accept `ok` or `nok`.
+ * > 👉 **Note**: Like a construct,
+ * > but `tokenize` does not accept `ok` or `nok`.
  *
  * @see {@linkcode Construct}
  *

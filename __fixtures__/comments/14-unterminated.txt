@@ -1,4 +1,0 @@
-/**
- * The source chunks spanning {@linkcode token}.
- *
- * @const {Chunk[]} stream

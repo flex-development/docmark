@@ -1,0 +1,1 @@
+   @var {TokenizeContext | undefined} child - The comment content tokenizer.    

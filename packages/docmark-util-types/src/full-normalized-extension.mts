@@ -6,8 +6,10 @@
 import type { Extension } from '@flex-development/docmark-util-types'
 
 /**
- * A full, filtered, and normalized extension, where all properties of
- * {@linkcode Extension} are required and defined.
+ * A full, filtered, and normalized extension, where all properties are required
+ * and defined.
+ *
+ * @see {@linkcode Extension}
  */
 type FullNormalizedExtension = {
   [K in keyof Extension]-?: Exclude<Extension[K], null | undefined>

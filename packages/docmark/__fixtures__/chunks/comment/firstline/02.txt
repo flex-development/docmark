@@ -1,0 +1,1 @@
+Object describing how to tokenize a syntax construct. 

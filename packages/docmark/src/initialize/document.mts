@@ -13,7 +13,6 @@ import type {
   ContainerState,
   ContinuableConstruct,
   Effects,
-  Event,
   InitialConstruct,
   Place,
   State,
@@ -23,7 +22,7 @@ import type {
 import { eol, eos } from '@flex-development/mark-util-character'
 import { splice } from '@flex-development/mark-util-chunked'
 import { ok as assert } from 'devlop'
-import { postprocess } from 'micromark'
+import resolveMarkdown from '../resolvers/markdown.mts'
 
 /**
  * The markdown document construct.
@@ -31,9 +30,11 @@ import { postprocess } from 'micromark'
  * @const {InitialConstruct} document
  */
 const document: InitialConstruct = {
-  resolveAll: resolveAllDocument,
+  resolve: resolveMarkdown,
   tokenize: tokenizeDocument
 }
+
+export default document
 
 /**
  * The container construct.
@@ -42,33 +43,13 @@ const document: InitialConstruct = {
  */
 const container: Construct = { tokenize: tokenizeContainer }
 
-export default document
-
-/**
- * Resolve all events when the content is complete, from the start to the end.
- *
- * > 👉 **Note**: Only called if {@linkcode tokenizeDocument} is successful at
- * > least once in the content.
- *
- * @this {void}
- *
- * @param {Event[]} events
- *  The current list of events
- * @return {Event[]}
- *  The list of changed events
- */
-function resolveAllDocument(this: void, events: Event[]): Event[] {
-  // @ts-expect-error only micromark-shaped events at this point (2345).
-  return postprocess(events)
-}
-
 /**
  * Tokenize a markdown document.
  *
  * @this {TokenizeContext}
  *
  * @param {Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @return {State}
  *  The initial state
  */
@@ -183,7 +164,7 @@ function tokenizeDocument(this: TokenizeContext, effects: Effects): State {
 
     if (self.containerState._closeFlow) {
       self.containerState._closeFlow = undefined
-      /* v8 ignore else -- @preserve */ if (childFlow) closeFlow()
+      closeFlow()
 
       /**
        * Where to slice the event list after mutations.
@@ -304,7 +285,7 @@ function tokenizeDocument(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function thereIsANewContainer(this: void, code: Code): State | undefined {
-    /* v8 ignore else -- @preserve */ if (childFlow) closeFlow()
+    closeFlow()
     exitContainers(continued)
     return documentContinued(code)
   }
@@ -365,12 +346,12 @@ function tokenizeDocument(this: TokenizeContext, effects: Effects): State {
    */
   function flowStart(this: void, code: Code): State | undefined {
     if (eos(code)) {
-      childFlow && closeFlow()
+      closeFlow()
       exitContainers(0)
       return void effects.consume(code)
     }
 
-    // initialize flow tokenizer.
+    // lazily initialize flow tokenizer.
     childFlow ??= self.parser.flow(self.now())
 
     // enter new flow chunk.
@@ -440,6 +421,8 @@ function tokenizeDocument(this: TokenizeContext, effects: Effects): State {
     }
 
     stack.length = size
+    if (!stack.length) self.currentConstruct = undefined
+
     return void size
   }
 
@@ -624,12 +607,13 @@ function tokenizeDocument(this: TokenizeContext, effects: Effects): State {
    */
   function closeFlow(this: void): undefined {
     assert(self.containerState, 'expected `containerState` when closing flow')
-    assert(childFlow, 'expected `childFlow` to be defined when closing it')
 
-    childFlow.write([codes.eos])
-    childFlow = undefined
-    childToken = undefined
-    self.containerState._closeFlow = undefined
+    if (childFlow) {
+      childFlow.write([codes.eos])
+      childFlow = undefined
+      childToken = undefined
+      self.containerState._closeFlow = undefined
+    }
 
     return void childFlow
   }
@@ -641,7 +625,7 @@ function tokenizeDocument(this: TokenizeContext, effects: Effects): State {
  * @this {TokenizeContext}
  *
  * @param {Effects} effects
- *  The context object to transition the state machine
+ *  The context object used to transition the state machine
  * @param {State} ok
  *  The successful tokenization state
  * @param {State} nok

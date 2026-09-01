@@ -10,7 +10,7 @@
  * This module contains constants for the ASCII block and the replacement
  * character.
  *
- * A few codes can be handled in a special way, such as line endings (CR, LF,
+ * A few codes are handled in a special way, such as line endings (CR, LF,
  * and CR+LF, commonly known as end-of-line: EOLs), as well as tab (horizontal
  * tab) and its expansion based on what column it’s at (virtual space).
  * As values are preprocessed before handling them, the actual characters LF,

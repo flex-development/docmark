@@ -1,9 +1,9 @@
 /**
- * @file Type Aliases - FileLike
- * @module mark/parse/types/FileLike
+ * @file FileLike
+ * @module docmark-util-types/FileLike
  */
 
-import type { Value } from '@flex-development/mark/parse'
+import type { Value } from '@flex-development/docmark-util-types'
 
 /**
  * A file-like structure.

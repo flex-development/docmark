@@ -1,0 +1,14 @@
+Registry of encodings supported by {@linkcode TextDecoder}.
+
+> 👉 **Note**: Arbitrary encodings can be supported depending on how an
+> engine is built, so any string *could* be valid.
+
+This interface can be augmented to register custom encodings.
+
+```ts
+declare module '@flex-development/docmark-util-types' {
+  interface EncodingMap {
+    custom: 'custom'
+  }
+}
+```

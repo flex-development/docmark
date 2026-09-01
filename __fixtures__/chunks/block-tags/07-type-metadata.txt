@@ -1,2 +1,0 @@
-@param {{interrupt?: boolean | undefined} | undefined} [fields]
-Fields.

@@ -1,0 +1,5 @@
+
+    
+    // no comment on stack.
+    // eat blank lines.
+    // otherwise, try to enter a new comment.

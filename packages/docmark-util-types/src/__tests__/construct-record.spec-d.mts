@@ -3,28 +3,26 @@
  * @module docmark-util-types/tests/unit-d/ConstructRecord
  */
 
-import type { Construct } from '@flex-development/docmark-util-types'
+import type { ConstructPack } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../construct-record.mts'
 
 describe('unit-d:ConstructRecord', () => {
-  type Value = Construct | Construct[] | undefined
-
-  it('should match [[x: Numeric]: Construct | Construct[] | undefined]', () => {
+  it('should match [[x: Numeric]: ConstructPack | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('42')
-      .toEqualTypeOf<Value>()
+      .toEqualTypeOf<ConstructPack | undefined>()
   })
 
-  it('should match [[x: number]: Construct | Construct[] | undefined]', () => {
+  it('should match [[x: number]: ConstructPack | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty(32)
-      .toEqualTypeOf<Value>()
+      .toEqualTypeOf<ConstructPack | undefined>()
   })
 
-  it('should match [null?: Construct | Construct[] | undefined]', () => {
+  it('should match [null?: ConstructPack | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('null')
-      .toEqualTypeOf<Value>()
+      .toEqualTypeOf<ConstructPack | undefined>()
   })
 })

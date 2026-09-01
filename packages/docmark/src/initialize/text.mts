@@ -4,21 +4,32 @@
  * @see https://github.com/micromark/micromark/blob/4.0.2/packages/micromark/dev/lib/initialize/text.js
  */
 
-import { ct, tt } from '@flex-development/docmark-util-symbol'
+import {
+  codes,
+  constants,
+  ct,
+  ev,
+  tt
+} from '@flex-development/docmark-util-symbol'
 import type {
+  Chunk,
   Code,
   Construct,
+  ConstructPack,
   ConstructRecord,
   Effects,
   Event,
   InitialConstruct,
+  Place,
   Resolver,
   State,
-  TokenizeContext
+  Token,
+  TokenizeContext,
+  TokenType
 } from '@flex-development/docmark-util-types'
 import { eos } from '@flex-development/mark-util-character'
+import { splice } from '@flex-development/mark-util-chunked'
 import { ok as assert } from 'devlop'
-import resolveLineSuffixes from '../resolvers/line-suffixes.mts'
 
 /**
  * The markdown string construct.
@@ -73,7 +84,7 @@ function initializeFactory(
    * @this {TokenizeContext}
    *
    * @param {Effects} effects
-   *  The context object to transition the state machine
+   *  The context object used to transition the state machine
    * @return {State}
    *  The initial state
    */
@@ -153,9 +164,9 @@ function initializeFactory(
       /**
        * The constructs to try for {@linkcode code}.
        *
-       * @const {Construct | Construct[] | undefined} pack
+       * @const {ConstructPack | undefined} pack
        */
-      const pack: Construct | Construct[] | undefined = constructs[code]
+      const pack: ConstructPack | undefined = constructs[code]
 
       if (pack) {
         assert(Array.isArray(pack), 'expected list of constructs')
@@ -175,7 +186,7 @@ function initializeFactory(
            *
            * @const {Construct} item
            */
-          const item: Construct = pack[index]!
+          const item: Construct = pack[index]! as Construct
 
           if (!item.previous || item.previous.call(self, self.previous)) {
             return true
@@ -205,7 +216,7 @@ function initializeFactory(
      */
     const name: string = resolveAll.name + capt
 
-    Object.defineProperties(tokenize, { name: { value: name } })
+    Object.defineProperties(resolveAll, { name: { value: name } })
     return resolveAll
 
     /**
@@ -259,4 +270,175 @@ function initializeFactory(
       return extraResolver ? extraResolver(events, context) : events
     }
   }
+}
+
+/**
+ * Resolve line suffixes.
+ *
+ * @this {void}
+ *
+ * @param {Event[]} events
+ *  The current list of events
+ * @return {Event[]}
+ *  The list of changed events
+ */
+function resolveLineSuffixes(this: void, events: Event[]): Event[] {
+  /**
+   * The index of the current event.
+   *
+   * > 👉 **Note**: Starts at `0` to skip the first event.
+   *
+   * @var {number} index
+   */
+  let index: number = 0
+
+  while (++index <= events.length) {
+    if (index === events.length || events[index]![1].type === tt.lineEnding) {
+      if (events[index - 1]![1].type === tt.data) {
+        const [, data, context] = events[index - 1]!
+
+        /**
+         * The chunks spanning {@linkcode data}.
+         *
+         * @const {Chunk[]} chunks
+         */
+        const chunks: Chunk[] = context.sliceStream(data)
+
+        /**
+         * The current buffer index.
+         *
+         * @var {number} bufferIndex
+         */
+        let bufferIndex: number = -1
+
+        /**
+         * The index of the current chunk.
+         *
+         * @var {number} chunkIndex
+         */
+        let chunkIndex: number = chunks.length
+
+        /**
+         * The size of the line suffix.
+         *
+         * @var {number} size
+         */
+        let size: number = 0
+
+        /**
+         * Whether tabs were used.
+         *
+         * @var {boolean | undefined} tabs
+         */
+        let tabs: boolean | undefined = undefined
+
+        while (chunkIndex--) {
+          /**
+           * The current chunk.
+           *
+           * @const {NonNullable<Chunk>} chunk
+           */
+          const chunk: NonNullable<Chunk> = chunks[chunkIndex]!
+
+          if (typeof chunk === 'string') {
+            bufferIndex = chunk.length
+
+            while (chunk.codePointAt(bufferIndex - 1) === codes.space) {
+              size++
+              bufferIndex--
+            }
+
+            if (bufferIndex) break
+            bufferIndex = -1
+          } else if (chunk === codes.horizontalTab) {
+            tabs = true
+            size++
+          } else if (chunk !== codes.virtualSpace) {
+            chunkIndex++ // nul or replacement character, exit.
+            break
+          }
+        }
+
+        if (size) {
+          /**
+           * The position of the new token in a string chunk.
+           *
+           * @const {number} _bufferIndex
+           */
+          const _bufferIndex: number = chunkIndex
+            ? bufferIndex
+            : data.start._bufferIndex + bufferIndex
+
+          /**
+           * Whether a line suffix token should be inserted.
+           *
+           * @const {boolean} lineSuffix
+           */
+          const lineSuffix: boolean = index === events.length ||
+            tabs ||
+            size < constants.hardBreakPrefixSizeMin
+
+          /**
+           * The start point of the new token.
+           *
+           * @const {Place} start
+           */
+          const start: Place = {
+            line: data.end.line,
+            // eslint-disable-next-line sort-keys
+            column: data.end.column - size,
+            offset: data.end.offset - size,
+            // eslint-disable-next-line sort-keys
+            _index: data.start._index + chunkIndex,
+            // eslint-disable-next-line sort-keys
+            _bufferIndex
+          }
+
+          /**
+           * The token type of the new token.
+           *
+           * @const {TokenType} type
+           */
+          const type: TokenType = lineSuffix
+            ? tt.lineSuffix
+            : tt.hardBreakTrailing
+
+          /**
+           * The new token.
+           *
+           * @const {Token} token
+           */
+          const token: Token = context.token(type, {
+            end: structuredClone(data.end),
+            start: (data.end = structuredClone(start), start)
+          })
+
+          if (data.start.offset === data.end.offset) {
+            Object.assign(data, token)
+          } else {
+            /**
+             * The new `enter` event.
+             *
+             * @const {Event} enter
+             */
+            const enter: Event = [ev.enter, token, context]
+
+            /**
+             * The new `exit` event.
+             *
+             * @const {Event} exit
+             */
+            const exit: Event = [ev.exit, token, context]
+
+            splice(events, index, 0, [enter, exit])
+            index += 2
+          }
+        }
+
+        index++
+      }
+    }
+  }
+
+  return events
 }

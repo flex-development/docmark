@@ -1,9 +1,9 @@
 /**
- * @file Type Aliases - Encoding
- * @module mark/parse/types/Encoding
+ * @file Encoding
+ * @module docmark-util-types/Encoding
  */
 
-import type { EncodingMap } from '@flex-development/mark/parse'
+import type { EncodingMap } from '@flex-development/docmark-util-types'
 
 /**
  * Union of encodings supported by {@linkcode TextDecoder}.

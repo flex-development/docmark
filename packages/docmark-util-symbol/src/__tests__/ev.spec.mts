@@ -6,7 +6,7 @@
 import { describe, expect, it } from 'vitest'
 import testSubject from '../ev.mts'
 
-describe('unit:chars', () => {
+describe('unit:ev', () => {
   it('should be event type dictionary', () => {
     expect(testSubject).to.have.keys(['enter', 'exit'])
     expect(testSubject).to.have.property('enter', 'enter')

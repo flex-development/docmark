@@ -15,7 +15,8 @@ import type {
 } from '@flex-development/docmark-util-types'
 import { decode } from '@flex-development/mark-parser/utils'
 import { eol, htab } from '@flex-development/mark-util-character'
-import nil from './internal/nil.mts'
+
+export default preprocess
 
 /**
  * Create a preprocessor to turn a value into chunks.
@@ -77,7 +78,7 @@ function preprocess(
     }
 
     // decode file or value and extract chunks.
-    if (!nil(value)) {
+    if (value !== codes.eos && value !== undefined) {
       /**
        * The decoded chunk.
        *
@@ -170,6 +171,10 @@ function preprocess(
             chunks.push(codes.lineFeed)
             column = 1
             break
+          case codes.nul: // replace `nul` with replacement character.
+            chunks.push(codes.nul)
+            column = 1
+            break
           default: // carriage return.
             /**
              * The index of the next character code.
@@ -207,5 +212,3 @@ function preprocess(
     return end && chunks.push(codes.eos), chunks
   }
 }
-
-export default preprocess

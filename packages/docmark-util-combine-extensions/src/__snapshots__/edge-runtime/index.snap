@@ -1,0 +1,101 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:docmark-util-combine-extensions > should return combined extension (0) 1`] = `{}`;
+
+exports[`unit:docmark-util-combine-extensions > should return combined extension (1) 1`] = `{}`;
+
+exports[`unit:docmark-util-combine-extensions > should return combined extension (2) 1`] = `
+{
+  "disable": {
+    "null": [],
+  },
+}
+`;
+
+exports[`unit:docmark-util-combine-extensions > should return combined extension (3) 1`] = `
+{
+  "disable": {
+    "null": [
+      "fail",
+      "eoc",
+    ],
+  },
+}
+`;
+
+exports[`unit:docmark-util-combine-extensions > should return combined extension (4) 1`] = `
+{
+  "comment": {
+    "null": [
+      {
+        "continuation": {
+          "tokenize": [Function tokenizeSummaryContinuation],
+        },
+        "exit": [Function exitSummary],
+        "name": "summary",
+        "previous": [Function previousSummary],
+        "tokenize": [Function tokenizeSummary],
+      },
+    ],
+  },
+  "type": {
+    "null": [
+      {
+        "add": "after",
+        "name": "typeExpressionValue",
+        "partial": true,
+        "tokenize": [Function tokenizeTypeExpressionValue],
+      },
+    ],
+  },
+}
+`;
+
+exports[`unit:docmark-util-combine-extensions > should return combined extension (5) 1`] = `
+{
+  "document": {
+    "97": [
+      {
+        "tokenize": [Function tokenizeConsumeThenSucc],
+      },
+    ],
+  },
+}
+`;
+
+exports[`unit:docmark-util-combine-extensions > should return combined extension (6) 1`] = `
+{
+  "document": {
+    "98": [
+      {
+        "tokenize": [Function tokenizeConsumeThenSucc],
+      },
+      {
+        "name": "eventsThenSucc",
+        "tokenize": [Function tokenizeEventsThenSucc],
+      },
+    ],
+  },
+}
+`;
+
+exports[`unit:docmark-util-combine-extensions > should return combined extension (7) 1`] = `
+{
+  "type": {
+    "null": [
+      {
+        "tokenize": [Function tokenizeConsumeThenSucc],
+      },
+      {
+        "tokenize": [Function tokenizeConsumeThenFail],
+      },
+      {
+        "add": "after",
+        "name": "typeExpressionValue",
+        "partial": true,
+        "tokenize": [Function tokenizeTypeExpressionValue],
+      },
+    ],
+  },
+}
+`;

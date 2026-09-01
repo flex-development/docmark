@@ -4,6 +4,7 @@
  */
 
 import type {
+  CommentKind,
   ContentType,
   Token,
   TokenizeContext
@@ -37,7 +38,8 @@ interface TokenFields {
   _close?: boolean | undefined
 
   /**
-   * Whether the token is a container token.
+   * Whether the token represents a `document`, `comment`,
+   * or `source`-level container.
    */
   _container?: boolean | undefined
 
@@ -60,6 +62,13 @@ interface TokenFields {
   _isInFirstContentOfListItem?: boolean | undefined
 
   /**
+   * The comment kind.
+   *
+   * @see {@linkcode CommentKind}
+   */
+  _kind?: CommentKind | undefined
+
+  /**
    * When parsing lists, whether a list is loose or not.
    */
   _loose?: boolean | undefined
@@ -73,11 +82,25 @@ interface TokenFields {
   _open?: boolean | undefined
 
   /**
+   * When {@linkcode contentType} is `comment`, whether the token represents a
+   * comment region.
+   */
+  _region?: boolean | undefined
+
+  /**
    * The connected tokenizer, used when dealing with linked tokens.
    *
    * @see {@linkcode TokenizeContext}
    */
   _tokenizer?: TokenizeContext | undefined
+
+  /**
+   * At the `comment` or `source` level, whether a `whitespace` token represents
+   * trailing whitespace.\
+   * Depending on the next logical comment line, trailing whitespaces are
+   * resolved into hard breaks or line suffixes.
+   */
+  _trailing?: boolean | undefined
 
   /**
    * Declare the token as having content of a certain type.
@@ -99,11 +122,6 @@ interface TokenFields {
    * @see {@linkcode Token}
    */
   previous?: Token | undefined
-
-  /**
-   * For type expression chunks, the current tag name identifier.
-   */
-  tag?: string | undefined
 }
 
 export type { TokenFields as default }

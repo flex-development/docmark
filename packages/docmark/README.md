@@ -27,7 +27,9 @@ a comment parser with support for markdown.
 
 ## When should I use this?
 
-**TODO**: when should I use this?
+docmark parses documentation comments, not just docblocks.
+Extensions can register additional comment syntaxes — such as line comments, hash comments, or language-specific
+documentation comments — without changing how the comment content itself is parsed.
 
 ## Install
 

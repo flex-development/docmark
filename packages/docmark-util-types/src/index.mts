@@ -3,6 +3,8 @@
  * @module docmark-util-types
  */
 
+export type { default as AnyConstruct } from './any-construct.mts'
+export type { default as AnyExtension } from './any-extension.mts'
 export type {
   default as Attempt,
   default as Check,
@@ -12,12 +14,16 @@ export type { default as AttentionMarkers } from './attention-markers.mts'
 export type { default as Chunk } from './chunk.mts'
 export type { default as Code } from './code.mts'
 export type { default as Column } from './column.mts'
+export type { default as CommentKindMap } from './comment-kind-map.mts'
+export type { default as CommentKind } from './comment-kind.mts'
+export type { default as ConstructPack } from './construct-pack.mts'
 export type { default as ConstructPosition } from './construct-position.mts'
 export type {
   default as ConstructRecord,
   Numeric
 } from './construct-record.mts'
 export type { default as Construct } from './construct.mts'
+export type { default as Constructs } from './constructs.mts'
 export type { default as Consume } from './consume.mts'
 export type { default as ContainerState } from './container-state.mts'
 export type { default as ContentType } from './content-type.mts'
@@ -37,12 +43,15 @@ export type { default as Exit } from './exit.mts'
 export type { default as Exiter } from './exiter.mts'
 export type { default as Extension } from './extension.mts'
 export type { default as FileLike } from './file-like.mts'
+export type { default as FinalizeContext } from './finalize-context.mts'
 export type {
   default as FullNormalizedExtension
 } from './full-normalized-extension.mts'
 export type { default as InitialConstruct } from './initial-construct.mts'
+export type { default as InitialConstructs } from './initial-constructs.mts'
 export type { default as Initializer } from './initializer.mts'
 export type { default as InsideSpan } from './inside-span.mts'
+export type { default as Lazy } from './lazy.mts'
 export type { default as Line } from './line.mts'
 export type { default as NamedConstruct } from './named-construct.mts'
 export type { default as NormalizedExtension } from './normalized-extension.mts'

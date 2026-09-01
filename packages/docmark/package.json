@@ -65,7 +65,12 @@
     "./package.json": "./package.json"
   },
   "imports": {
-    "#lib/preprocess": "./src/preprocess.mts"
+    "#fixtures/*": "./__fixtures__/*.mts",
+    "#lib/postprocess": {
+      "docmark": "./src/postprocess.mts",
+      "default": "./dist/postprocess.mjs"
+    },
+    "#tests/*": "./__tests__/*.mts"
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
@@ -74,16 +79,19 @@
   },
   "dependencies": {
     "@flex-development/docmark-factory-space": "workspace:*",
+    "@flex-development/docmark-grammar": "workspace:*",
+    "@flex-development/docmark-util-combine-extensions": "workspace:*",
     "@flex-development/docmark-util-subtokenize": "workspace:*",
     "@flex-development/docmark-util-symbol": "workspace:*",
     "@flex-development/docmark-util-types": "workspace:*",
-    "@flex-development/mark": "1.0.0-alpha.2",
-    "@flex-development/mark-parser": "1.0.0-alpha.12",
-    "@flex-development/mark-util-character": "1.0.0",
+    "@flex-development/mark": "1.0.0-alpha.4",
+    "@flex-development/mark-parser": "1.0.0-alpha.19",
+    "@flex-development/mark-util-character": "1.1.0",
     "@flex-development/mark-util-chunked": "1.0.0",
     "devlop": "1.1.0",
     "micromark-core-commonmark": "2.0.3",
-    "micromark-util-subtokenize": "2.1.0"
+    "micromark-util-subtokenize": "2.1.0",
+    "micromark-util-types": "2.0.2"
   },
   "sideEffects": false
 }

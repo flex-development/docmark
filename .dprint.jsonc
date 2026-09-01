@@ -8,10 +8,10 @@
     "**/CHANGELOG.md",
     "**/LICENSE.md",
     "**/RELEASE_NOTES.md",
+    "**/__fixtures__/**/markdown/*.md",
     ".git/",
     ".husky/_/",
     ".yarn/",
-    "__fixtures__/markdown/*.md",
     "node_modules/",
     "yarn.lock"
   ],

@@ -17,9 +17,9 @@ import type {
  */
 interface Construct {
   /**
-   * Whether the construct, when in a {@linkcode ConstructRecord}, takes
-   * precedence over existing constructs for the same character code when
-   * merged.
+   * Whether the construct, when in a {@linkcode ConstructRecord},
+   * takes precedence over existing constructs for the same character code
+   * when merged.
    *
    * @see {@linkcode ConstructPosition}
    */

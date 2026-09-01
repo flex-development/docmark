@@ -1,0 +1,16 @@
+At the start of a block tag.
+
+> 👉 **Note**: `␊` represents
+a line ending.
+
+```markdown
+@internal␊
+^
+```
+
+@this {void}
+
+@param {Code} code
+ The current character code
+@return {State | undefined}
+ The next state

@@ -6,7 +6,7 @@
 import constants from './constants.mts'
 
 /**
- * Registry all content types used by docmark.
+ * Registry of all content types used by docmark.
  *
  * @enum {string}
  */

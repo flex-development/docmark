@@ -1,1 +1,0 @@
-@returns {{from:number;restore:Restore}}

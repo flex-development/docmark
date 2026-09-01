@@ -3,20 +3,20 @@
  * @module docmark/parse
  */
 
-import { codes, ct } from '@flex-development/docmark-util-symbol'
+import {
+  combineExtensions
+} from '@flex-development/docmark-util-combine-extensions'
+import { codes, constants } from '@flex-development/docmark-util-symbol'
 import type {
+  ContentType,
+  InitialConstructs,
   NormalizedExtension,
   ParseContext,
   ParseOptions,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import {
-  createTokenizer,
-  initialize as initial
-} from '@flex-development/mark-parser'
-import { combineExtensions } from '@flex-development/mark-parser/utils'
+import { createTokenizer, type Options } from '@flex-development/mark-parser'
 import { eol } from '@flex-development/mark-util-character'
-import type { InitialConstructs } from '@flex-development/mark/parse'
 import docmark from './extensions/docmark.mts'
 import markdown from './extensions/markdown.mts'
 import comment from './initialize/comment.mts'
@@ -25,6 +25,7 @@ import document from './initialize/document.mts'
 import flow from './initialize/flow.mts'
 import source from './initialize/source.mts'
 import { string, text } from './initialize/text.mts'
+import typeExpression from './initialize/type.mts'
 
 export default parse
 
@@ -56,9 +57,9 @@ function parse(
   const context: TokenizeContext = createTokenizer({
     debug: 'docmark',
     eol,
-    extensions,
+    extensions: extensions as Options['extensions'],
     finalizeContext,
-    initialize
+    initialize: initialize as Options['initialize']
   })
 
   return context.parser
@@ -72,13 +73,7 @@ function parse(
    *  The normalized syntax extension
    */
   function extensions(this: void): NormalizedExtension {
-    return combineExtensions(
-      docmark,
-      { insideSpan: { null: [{ resolveAll: string.resolveAll }] } },
-      // @ts-expect-error looks like a mark extension (2345).
-      markdown,
-      options?.extensions
-    )
+    return combineExtensions(docmark, markdown, options?.extensions)
   }
 
   /**
@@ -95,19 +90,31 @@ function parse(
     if (typeof self.parser.lazy === 'undefined') self.parser.lazy = {}
 
     switch (self.contentType) {
-      case ct.document:
-      case ct.flow:
-      case ct.content:
-      case ct.text:
-      case ct.string:
+      case constants.contentTypeDocument:
+      case constants.contentTypeFlow:
+      case constants.contentTypeContent:
+      case constants.contentTypeText:
+      case constants.contentTypeString:
+        self.code = codes.eos
+        self.previous = codes.eos
         self.noEmptyTokens = true
         self.noPrevious = true
         break
-      default:
+      case constants.contentTypeSource:
+      case constants.contentTypeComment:
+      case constants.contentTypeType:
+        self.code = codes.bos
         self.previous = codes.bos
+        break
+      default:
+        break
     }
 
-    return void void self
+    if (self.contentType as ContentType | undefined) {
+      options?.finalizeContext?.(self)
+    }
+
+    return void self
   }
 
   /**
@@ -120,14 +127,15 @@ function parse(
    */
   function initialize(this: void): InitialConstructs {
     return {
-      [ct.source]: source,
-      [ct.comment]: comment,
-      [ct.document]: document,
-      [ct.flow]: flow,
-      [ct.content]: content,
-      [ct.string]: string,
-      [ct.text]: text,
-      [ct.type]: initial(ct.type)
+      [constants.contentTypeSource]: source,
+      [constants.contentTypeComment]: comment,
+      [constants.contentTypeType]: typeExpression,
+      [constants.contentTypeDocument]: document,
+      [constants.contentTypeFlow]: flow,
+      [constants.contentTypeContent]: content,
+      [constants.contentTypeText]: text,
+      [constants.contentTypeString]: string,
+      ...options?.initializers
     }
   }
 }

@@ -3,6 +3,7 @@
 exports[`e2e:docmark > should expose public api 1`] = `
 [
   "parse",
+  "postprocess",
   "preprocess",
 ]
 `;

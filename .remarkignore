@@ -6,4 +6,4 @@
 **/RELEASE_NOTES.md
 **/*scratch.md
 **/.remarkignore
-__fixtures__/markdown/*.md
+**/__fixtures__/**/markdown/*.md

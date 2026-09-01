@@ -6,7 +6,7 @@
 import type {
   Create,
   FullNormalizedExtension,
-  Line
+  Lazy
 } from '@flex-development/docmark-util-types'
 
 /**
@@ -23,7 +23,12 @@ import type {
  */
 interface ParseContext {
   /**
-   * Create a comment line parser.
+   * Whether the current line is blank.
+   */
+  atBlankLine?: boolean | null | undefined
+
+  /**
+   * Create a comment content parser.
    *
    * @see {@linkcode Create}
    */
@@ -63,8 +68,19 @@ interface ParseContext {
   flow: Create
 
   /**
-   * Record, where each key is a line number, and each value is a boolean
-   * indicating if the line is lazy (as opposed to the line before it).
+   * Whether a comment was just added.
+   */
+  freshComment?: boolean | null | undefined
+
+  /**
+   * Whether a comment region was just added.
+   */
+  freshRegion?: boolean | null | undefined
+
+  /**
+   * At the `document` level, a record where each key is a line number, and each
+   * value is a boolean indicating if the line is lazy (as opposed to the line
+   * before it).
    *
    * For example:
    *
@@ -75,9 +91,19 @@ interface ParseContext {
    *
    * L1 is not lazy, but L2 is.
    *
-   * @see {@linkcode Line}
+   * @see {@linkcode Lazy}
    */
-  lazy: Record<Line, boolean>
+  lazy: Lazy
+
+  /**
+   * Whether the previous line is blank.
+   */
+  previousBlankLine?: boolean | null | undefined
+
+  /**
+   * Whether a comment summary is not allowed.
+   */
+  skipSummary?: boolean | undefined
 
   /**
    * Create a source document parser.
@@ -99,6 +125,13 @@ interface ParseContext {
    * @see {@linkcode Create}
    */
   text: Create
+
+  /**
+   * Create a type expression parser.
+   *
+   * @see {@linkcode Create}
+   */
+  type: Create
 }
 
 export type { ParseContext as default }

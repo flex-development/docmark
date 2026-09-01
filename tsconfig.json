@@ -16,13 +16,11 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "paths": {
-      "@fixtures/*": ["./__fixtures__/*"],
       "@tests/*": ["./__tests__/*"]
     },
     "resolveJsonModule": true,
     "sourceMap": true,
     "target": "esnext",
-    "types": ["node"],
     "verbatimModuleSyntax": true
   },
   "exclude": ["**/dist", "**/node_modules", "coverage"],

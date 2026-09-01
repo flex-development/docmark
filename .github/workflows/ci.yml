@@ -460,6 +460,8 @@ jobs:
         package:
           - docmark
           - docmark-factory-space
+          - docmark-grammar
+          - docmark-util-combine-extensions
           - docmark-util-subtokenize
           - docmark-util-symbol
           - docmark-util-types

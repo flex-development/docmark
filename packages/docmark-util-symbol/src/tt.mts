@@ -4,7 +4,9 @@
  */
 
 /**
- * Registry all token types exposed by docmark.
+ * Registry of all token types exposed by docmark.
+ *
+ * @todo remove extension-specific types
  *
  * @enum {string}
  */
@@ -50,9 +52,9 @@ const tt = {
   comment: 'comment',
   commentCloser: 'commentCloser',
   commentLineMarker: 'commentLineMarker',
-  commentLinePadding: 'commentLinePadding',
   commentLinePrefix: 'commentLinePrefix',
   commentOpener: 'commentOpener',
+  commentPadding: 'commentPadding',
   content: 'content',
   data: 'data',
   definition: 'definition',
@@ -79,8 +81,11 @@ const tt = {
   htmlFlowData: 'htmlFlowData',
   htmlText: 'htmlText',
   htmlTextData: 'htmlTextData',
+  identifier: 'identifier',
   image: 'image',
   inlineTag: 'inlineTag',
+  inlineTagMarker: 'inlineTagMarker',
+  inlineTagText: 'inlineTagText',
   label: 'label',
   labelEnd: 'labelEnd',
   labelImage: 'labelImage',
@@ -100,6 +105,10 @@ const tt = {
   listItemValue: 'listItemValue',
   listOrdered: 'listOrdered',
   listUnordered: 'listUnordered',
+  namepath: 'namepath',
+  namepathConnector: 'namepathConnector',
+  namepathIdentifier: 'namepathIdentifier',
+  namepathMarker: 'namepathMarker',
   paragraph: 'paragraph',
   reference: 'reference',
   referenceMarker: 'referenceMarker',
@@ -128,6 +137,8 @@ const tt = {
   tagNameMarker: 'tagNameMarker',
   thematicBreak: 'thematicBreak',
   thematicBreakSequence: 'thematicBreakSequence',
+  typeExpression: 'typeExpression',
+  typeExpressionValue: 'typeExpressionValue',
   typeMetadata: 'typeMetadata',
   typeMetadataMarker: 'typeMetadataMarker',
   whitespace: 'whitespace'

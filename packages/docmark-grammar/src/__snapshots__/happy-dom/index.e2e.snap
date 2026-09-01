@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`e2e:docmark-grammar > should expose public api 1`] = `
+[
+  "blankLine",
+  "eoc",
+  "region",
+  "summary",
+  "trailingWhitespace",
+  "typeExpressionValue",
+]
+`;

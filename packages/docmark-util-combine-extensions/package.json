@@ -1,0 +1,62 @@
+{
+  "name": "@flex-development/docmark-util-combine-extensions",
+  "description": "docmark utility to combine extensions",
+  "version": "0.0.0",
+  "keywords": [
+    "docmark",
+    "extension",
+    "tokenize",
+    "typescript",
+    "util",
+    "utility"
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/flex-development/docmark-util-types/tree/main/packages/flex-development/docmark-util-combine-extensions",
+  "repository": {
+    "directory": "packages/docmark-util-combine-extensions",
+    "type": "git",
+    "url": "git+https://github.com/flex-development/docmark.git"
+  },
+  "bugs": "https://github.com/flex-development/docmark/issues",
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "diff-dst-prefix": "docmark-util-combine-extensions",
+    "diff-src-prefix": "docmark-util-combine-extensions",
+    "directory": "./",
+    "executableFiles": [],
+    "node-options": null,
+    "pack-destination": ".",
+    "parseable": true,
+    "prefer-dedupe": true,
+    "provenance": true,
+    "tag-version-prefix": "docmark-util-combine-extensions"
+  },
+  "type": "module",
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "docmark": "./src/index.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "imports": {
+    "#fixtures/*": "./__fixtures__/*.mts"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "dependencies": {
+    "@flex-development/docmark-util-types": "workspace:*",
+    "@flex-development/mark-util-chunked": "1.0.0",
+    "devlop": "1.1.0"
+  },
+  "sideEffects": false
+}

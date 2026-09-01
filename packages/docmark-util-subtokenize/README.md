@@ -29,7 +29,7 @@ This package is useful when extending docmark.
 
 This package is [ESM only][esm].
 
-In Node.js (version 20+) with [yarn][]:
+In Node.js with [yarn][]:
 
 ```sh
 yarn add @flex-development/docmark-util-subtokenize
@@ -45,14 +45,14 @@ yarn add @flex-development/docmark-util-subtokenize
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { subtokenize } from 'https://esm.sh/@flex-development/docmark-util-subtokenize'
+import { subcontent, subtokenize } from 'https://esm.sh/@flex-development/docmark-util-subtokenize'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { subtokenize } from 'https://esm.sh/@flex-development/docmark-util-subtokenize'
+  import { subcontent, subtokenize } from 'https://esm.sh/@flex-development/docmark-util-subtokenize'
 </script>
 ```
 

@@ -4,6 +4,7 @@
  */
 
 import type {
+  AnyExtension,
   ConstructRecord,
   ContentType,
   Extension,
@@ -14,8 +15,8 @@ import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../full-normalized-extension.mts'
 
 describe('unit-d:FullNormalizedExtension', () => {
-  it('should extend `Extension`', () => {
-    expectTypeOf<TestSubject>().toExtend<Extension>()
+  it('should extend `AnyExtension`', () => {
+    expectTypeOf<TestSubject>().toExtend<AnyExtension>()
   })
 
   it('should extend `NormalizedExtension`', () => {

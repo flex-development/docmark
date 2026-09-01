@@ -3,6 +3,7 @@
  * @module docmark-util-types/tests/unit-d/ContainerState
  */
 
+import type { CommentKind } from '@flex-development/docmark-util-types'
 import type * as micromark from 'micromark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../container-state.mts'
@@ -12,9 +13,9 @@ describe('unit-d:ContainerState', () => {
     expectTypeOf<TestSubject>().toExtend<micromark.ContainerState>()
   })
 
-  it('should match [tag?: string | undefined]', () => {
+  it('should match [comment?: CommentKind | undefined]', () => {
     expectTypeOf<TestSubject>()
-      .toHaveProperty('tag')
-      .toEqualTypeOf<string | undefined>()
+      .toHaveProperty('comment')
+      .toEqualTypeOf<CommentKind | undefined>()
   })
 })

@@ -2,6 +2,43 @@ import type { Construct, State } from '@flex-development/docmark-util-types'
 import type * as mark from '@flex-development/mark/parse'
 
 declare module '@flex-development/docmark-util-types' {
+  interface CommentKindMap {
+    hashbang?: 'hashbang'
+  }
+
+  interface ContainerState {
+    /**
+     * At the `source`-level, whether markdown indentation was detected.
+     *
+     * This is used by some comment constructs to protect indentation that
+     * should be parsed as markdown, i.e. line prefixes inside indented code.
+     *
+     * @internal
+     */
+    markdownIndent?: boolean | undefined
+
+    /**
+     * For block tag containers and type expressions,
+     * the current tag name identifier.
+     *
+     * @internal
+     */
+    tag?: string | undefined
+  }
+
+  interface TokenFields {
+    /**
+     * For type expression chunks, the current tag name identifier.
+     *
+     * @internal
+     */
+    tag?: string | undefined
+  }
+
+  interface TokenTypeMap {
+    interpreterPath: 'interpreterPath'
+  }
+
   interface TokenizeContext {
     /**
      * Internal boolean shared with `micromark-extension-gfm-table` indicating
@@ -29,16 +66,6 @@ declare module '@flex-development/docmark-util-types' {
      * @internal
      */
     noPrevious?: boolean | undefined
-
-    /**
-     * Whether a summary is allowed.
-     *
-     * The documentation content up until the first block tag is considered the
-     * comment summary.
-     *
-     * @internal
-     */
-    summaryAllowed?: boolean | null | undefined
 
     /**
      * The token factory.

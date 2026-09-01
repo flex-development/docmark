@@ -4,6 +4,7 @@
  */
 
 import type {
+  Check,
   Code,
   Construct,
   ContainerState,
@@ -16,6 +17,7 @@ import type {
   SliceStream,
   Write
 } from '@flex-development/docmark-util-types'
+import type { Debugger } from 'debug'
 
 /**
  * Context object to assist with tokenizing syntax constructs.
@@ -46,6 +48,13 @@ interface TokenizeContext {
   _gfmTasklistFirstContentOfListItem?: boolean | undefined
 
   /**
+   * Whether a speculative check is being ran.
+   *
+   * @see {@linkcode Check}
+   */
+  check?: boolean | undefined
+
+  /**
    * The current character code.
    *
    * @see {@linkcode Code}
@@ -53,14 +62,16 @@ interface TokenizeContext {
   code: Code
 
   /**
-   * Whether concrete content is being parsed.
+   * Whether concrete markdown was detected.
+   *
+   * Concrete constructs cannot be interrupted by other constructs.
    */
   concrete?: boolean | undefined
 
   /**
-   * Shared state set when parsing comment regions and markdown containers.
+   * Shared state set when parsing containers.
    *
-   * Regions and containers are parsed in separate phases:
+   * Containers are parsed in separate phases:
    * their first line (`tokenize`), continued lines (`continuation.tokenize`),
    * and finally `exit`.
    * This record can be used to store information between these hooks.
@@ -73,8 +84,10 @@ interface TokenizeContext {
    * The content type the tokenizer deals with.
    *
    * @see {@linkcode ContentType}
+   *
+   * @readonly
    */
-  contentType?: ContentType | undefined
+  readonly contentType: ContentType
 
   /**
    * The current construct.
@@ -84,6 +97,15 @@ interface TokenizeContext {
    * @see {@linkcode Construct}
    */
   currentConstruct?: Construct | undefined
+
+  /**
+   * The debug logger.
+   *
+   * @see {@linkcode Debugger}
+   *
+   * @readonly
+   */
+  readonly debug: Debugger
 
   /**
    * Define a skip.
@@ -170,7 +192,7 @@ interface TokenizeContext {
   /**
    * Write a slice of chunks.
    *
-   * The eof code (`null`) can be used to signal the end of the stream.
+   * The eos code (`null`) can be used to signal the end of the stream.
    *
    * @see {@linkcode Write}
    */

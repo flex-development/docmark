@@ -1,8 +1,0 @@
-Union of construct positions.
-
-Positions determine whether a construct,
-when in a {@linkcode ConstructRecord}, takes precedence over existing
-constructs for the same character code when merged.
-
-
-

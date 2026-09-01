@@ -33,11 +33,18 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   comment: 'comment'
   commentCloser: 'commentCloser'
   commentLineMarker: 'commentLineMarker'
-  commentLinePadding: 'commentLinePadding'
   commentLinePrefix: 'commentLinePrefix'
   commentOpener: 'commentOpener'
+  commentPadding: 'commentPadding'
   eoc: 'eoc'
+  identifier: 'identifier'
   inlineTag: 'inlineTag'
+  inlineTagMarker: 'inlineTagMarker'
+  inlineTagText: 'inlineTagText'
+  namepath: 'namepath'
+  namepathConnector: 'namepathConnector'
+  namepathIdentifier: 'namepathIdentifier'
+  namepathMarker: 'namepathMarker'
 
   /**
    * Forbidden token type.
@@ -51,6 +58,8 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   tagName: 'tagName'
   tagNameIdentifier: 'tagNameIdentifier'
   tagNameMarker: 'tagNameMarker'
+  typeExpression: 'typeExpression'
+  typeExpressionValue: 'typeExpressionValue'
   typeMetadata: 'typeMetadata'
   typeMetadataMarker: 'typeMetadataMarker'
 }
