@@ -324,6 +324,7 @@ jobs:
           flags: ${{ format('node{0}', matrix.node-version) }}
           name: ${{ format('{0}.node{1}', env.SHA, matrix.node-version) }}
           verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}
       - id: coverage-failure
         if: fromJson(steps.coverage.outputs.result) != 400
         name: Coverage threshold failure (${{ steps.coverage.outputs.result }})
@@ -406,6 +407,7 @@ jobs:
           flags: ${{ format('bun-{0}', matrix.bun-version) }}
           name: ${{ format('{0}.bun-{1}', env.SHA, matrix.bun-version) }}
           verbose: true
+          token: ${{ secrets.CODECOV_TOKEN }}
       - id: coverage-failure
         if: fromJson(steps.coverage.outputs.result) != 400
         name: Coverage threshold failure (${{ steps.coverage.outputs.result }})
