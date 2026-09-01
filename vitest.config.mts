@@ -133,7 +133,7 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
         reportOnFailure: !ci,
         reporter: env.mode === 'reports'
           ? ['text']
-          : ['html', 'json-summary', 'lcovonly', 'text'],
+          : ['html', 'json-summary', 'lcov', 'text'],
         reportsDirectory: './coverage',
         skipFull: false,
         thresholds: { 100: true, perFile: true }

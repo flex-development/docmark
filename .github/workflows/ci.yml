@@ -294,6 +294,12 @@ jobs:
         with:
           name: ${{ format('{0}.node{1}.coverage.json', env.SHA, matrix.node-version) }}
           path: ${{ env.COVERAGE_SUMMARY }}
+      - id: coverage-lcov
+        name: Upload lcov.info
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ${{ format('{0}.node{1}.lcov.info', env.SHA, matrix.node-version) }}
+          path: ./coverage/lcov.info
       - id: codecov-results
         if: ${{ !cancelled() }}
         name: Upload test results to Codecov
@@ -305,21 +311,18 @@ jobs:
           files: ./__tests__/reports/test.junit.xml
           flags: ${{ format('node{0}', matrix.node-version) }}
           name: ${{ format('{0}.node{1}', env.SHA, matrix.node-version) }}
-          override_branch: ${{ env.REF_NAME }}
           report_type: test_results
           verbose: true
       - id: codecov-coverage
         name: Upload coverage report to Codecov
         uses: codecov/codecov-action@v7.0.0
         with:
-          disable_file_fixes: true
           disable_search: true
           env_vars: GITHUB_JOB,GITHUB_REF_TYPE
           fail_ci_if_error: true
           files: ./coverage/lcov.info
           flags: ${{ format('node{0}', matrix.node-version) }}
           name: ${{ format('{0}.node{1}', env.SHA, matrix.node-version) }}
-          override_branch: ${{ env.REF_NAME }}
           verbose: true
       - id: coverage-failure
         if: fromJson(steps.coverage.outputs.result) != 400
@@ -373,6 +376,12 @@ jobs:
         with:
           name: ${{ format('{0}.bun-{1}.coverage.json', env.SHA, matrix.bun-version) }}
           path: ${{ env.COVERAGE_SUMMARY }}
+      - id: coverage-lcov
+        name: Upload lcov.info
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: ${{ format('{0}.bun-{1}.lcov.info', env.SHA, matrix.bun-version) }}
+          path: ./coverage/lcov.info
       - id: codecov-results
         if: ${{ !cancelled() }}
         name: Upload test results to Codecov
@@ -384,21 +393,18 @@ jobs:
           files: ./__tests__/reports/test.junit.xml
           flags: ${{ format('bun-{0}', matrix.bun-version) }}
           name: ${{ format('{0}.bun-{1}', env.SHA, matrix.bun-version) }}
-          override_branch: ${{ env.REF_NAME }}
           report_type: test_results
           verbose: true
       - id: codecov-coverage
         name: Upload coverage report to Codecov
         uses: codecov/codecov-action@v7.0.0
         with:
-          disable_file_fixes: true
           disable_search: true
           env_vars: GITHUB_JOB,GITHUB_REF_TYPE
           fail_ci_if_error: true
           files: ./coverage/lcov.info
           flags: ${{ format('bun-{0}', matrix.bun-version) }}
           name: ${{ format('{0}.bun-{1}', env.SHA, matrix.bun-version) }}
-          override_branch: ${{ env.REF_NAME }}
           verbose: true
       - id: coverage-failure
         if: fromJson(steps.coverage.outputs.result) != 400
