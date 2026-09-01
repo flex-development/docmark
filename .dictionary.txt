@@ -10,12 +10,12 @@ gpgsign
 hmarr
 htab
 jchen
+kaisugi
 ksort
 mdash
 nvmrc
 shfmt
 succ
-unpadded
 unstub
 vates
 vitest
