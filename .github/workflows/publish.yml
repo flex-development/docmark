@@ -56,16 +56,16 @@ jobs:
         with:
           flags: u
           regex: ${{ vars.RELEASE_REGEX }}
-          text: ${{ github.event.release.name }}
+          text: ${{ format('release:{0}', github.event.release.name) }}
       - id: fail-release-name
         if: steps.version.outputs.match == ''
         name: Fail on invalid release name
         run: |
           ERR='**Invalid release name**
           ```sh
-          ${{ github.event.release.name }}
+          release:${{ github.event.release.name }}
           ```
-          Name must match [`${{ vars.RELEASE_REGEX }}`](https://regex101.com/r/3gxjZI)'
+          Formatted name must match [`${{ vars.RELEASE_REGEX }}`](https://regex101.com/r/3gxjZI)'
           echo "$ERR" >>$GITHUB_STEP_SUMMARY
           exit 1
       - id: tag-prefix
