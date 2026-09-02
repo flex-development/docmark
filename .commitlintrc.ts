@@ -21,7 +21,9 @@ const config: UserConfig = {
     'scope-enum': [Severity.Error, 'always', scopes([
       'chore',
       'docmark',
+      'combine-extensions',
       'factory-space',
+      'grammar',
       'subtokenize',
       'symbol'
     ])],
