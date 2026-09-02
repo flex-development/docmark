@@ -54,6 +54,7 @@
     "minify:build": "esbuild packages/*/dist/**/*.mjs --allow-overwrite --minify --keep-names --outdir=packages --entry-names=\"[dir]/[name]\" --format=esm --out-extension:.js=.mjs --log-level=warning",
     "postinstall": "[ -f ./.git ] && [ -f ./node_modules/.bin/husky ] && chmod +x .husky/_/* && husky || exit 0",
     "prepack": "yarn build",
+    "release": "bash ./scripts/release.sh",
     "remark": "remark .",
     "test": "yarn clean:build; vitest run",
     "test:cov": "yarn test --coverage",
