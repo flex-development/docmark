@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-util-types",
   "description": "docmark utility types",
-  "version": "0.0.0",
+  "version": "1.0.0-dev.1",
   "keywords": [
     "docmark",
     "types",
