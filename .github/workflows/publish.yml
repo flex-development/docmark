@@ -73,7 +73,7 @@ jobs:
         uses: flex-development/jq-action@1.0.0
         with:
           data: packages/${{ steps.version.outputs.group1 }}/grease.config.json
-          filter: .tag.prefix
+          filter: .tagprefix
       - id: artifact
         name: Get release artifact download url
         uses: flex-development/gh-release-url-action@2.1.0
