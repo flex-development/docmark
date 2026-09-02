@@ -96,18 +96,12 @@ coverage:
         threshold: 0%
 
 flags:
-  bun-canary:
-    carryforward: false
-  bun-latest:
-    carryforward: false
-  node26:
-    carryforward: false
-  node25:
-    carryforward: false
-  node24:
-    carryforward: false
-  node22:
-    carryforward: false
+  bun-canary: {}
+  bun-latest: {}
+  node26: {}
+  node25: {}
+  node24: {}
+  node22: {}
 
 github_checks:
   annotations: true
@@ -116,10 +110,8 @@ ignore:
   - '**/*.d.mts'
   - '**/__mocks__/**'
   - '**/__tests__/**'
-  - '**/index.mts'
   - '**/interfaces/**'
   - '**/types/**'
-  - '!packages/*/src/index.mts'
   - 'packages/docmark-util-types/**'
 
 profiling:
