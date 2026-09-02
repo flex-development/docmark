@@ -161,6 +161,7 @@ jobs:
       - id: tag
         name: Create annotated tag
         run: 'grease tag -ps -m "release: {tag}" ${{ needs.preflight.outputs.tag }}'
+        working-directory: ${{ needs.preflight.outputs.workspace-directory }}
       - id: publish
         name: Publish release
         run: |
