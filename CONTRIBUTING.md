@@ -59,7 +59,7 @@ Follow the steps below to setup your local development environment:
 
 7. [ZSH][ohmyzsh] setup
 
-8. Update `$ZDOTDIR/.zprofile`:
+8. Update `$ZDOTDIR/.zprofile` (or your shell equivalent):
 
    ```sh
    # PATH
@@ -122,7 +122,7 @@ See [`.github/.gitconfig`](.github/.gitconfig) for an exhaustive list.
 
 ## Contributing Code
 
-[Husky][] is used to locally enforce coding and commit message standards, as well as run tests pre-push.
+[Husky][] is used to locally enforce coding and commit message standards.
 
 Any code merged into the [trunk](#branching-model) must confront the following criteria:
 
@@ -133,8 +133,8 @@ Any code merged into the [trunk](#branching-model) must confront the following c
 
 ### Branching Model
 
-This project follows a [Trunk Based Development][tbd] workflow, specifically the [short-lived branch
-style][tbd-short-lived-feature-branches].
+This project follows a [Trunk Based Development][tbd] workflow,
+specifically the [short-lived branch style][tbd-short-lived-feature-branches].
 
 - Trunk Branch: `main`
 - Short-Lived Branches: `feat/*`, `hotfix/*`, `release/*`
@@ -226,8 +226,6 @@ Before making a pull request, be sure your code is well documented, as it will b
 
 This project uses [Vitest][] to run tests.
 
-[Husky](#contributing-code) is configured to run tests against changed files.
-
 Be sure to use [`it.skip`][vitest-test-skip] or [`it.todo`][vitest-test-todo] where appropriate.
 
 #### Running Tests
@@ -263,14 +261,14 @@ To manually upload coverage reports:
 
 ### Getting Help
 
-If you need help, make note of any issues in their respective files in the form of a [JSDoc comment][jsdoc]. If you need
-help with a test, don't forget to use [`it.skip`][vitest-test-skip] and/or [`it.todo`][vitest-test-todo]. Afterwards,
-[start a discussion in the Q\&A category][qa].
+If you need help, make note of any issues in their respective files in the form of a [JSDoc comment][jsdoc].
+If you need help with a test, don't forget to use [`it.skip`][vitest-test-skip] and/or [`it.todo`][vitest-test-todo].
+Afterwards, [start a discussion in the Q\&A category][qa].
 
 ## Labels
 
-This project uses a well-defined list of labels to organize issues and pull requests. Most labels are scoped (i.e:
-`status:`).
+This project uses a well-defined list of labels to organize issues and pull requests.
+Most labels are scoped (i.e: `status:`).
 
 A list of labels can be found in [`.github/infrastructure.yml`](.github/infrastructure.yml).
 
@@ -316,8 +314,8 @@ Every PR you open should:
 
 ### Pull Request Titles
 
-To keep in line with [commit message standards](#commit-messages) after PRs are merged, PR titles are expected to adhere
-to the same rules.
+To keep in line with [commit message standards](#commit-messages) after PRs are merged,
+PR titles are expected to adhere to the same rules.
 
 ## Merge Strategies
 
@@ -349,38 +347,39 @@ e.g:
 - `refactor: project architecture #21`
 - `release: 1.0.0 #13`
 
-## Deployment
+## Release Lifecycle
 
-> Note: Package and release publication is executed via GitHub workflow.\
+> 👉 **Note**: Release publication is executed via GitHub workflow.\
 > This is so invalid or malicious versions cannot be published without merging those changes into `main` first.
 
-1. Get a version bump recommendation
-   - `grease bump --recommend`
-2. Create release chore commit
-   - `yarn release <new-version>`
-   - `yarn release major`
-   - `yarn release minor`
-   - `yarn release patch`
-   - `yarn release premajor --preid <dist-tag>`
-   - `yarn release preminor --preid <dist-tag>`
-   - `yarn release prepatch --preid <dist-tag>`
-   - `yarn release prerelease --preid <dist-tag>`
-3. Push release chore commit
-
-<!--
-4. Monitor workflows
+1. Check which packages need a bump
+   - [`yarn version check`][yarn-version-check]
+2. [Create or update version manifest][yarn-version]
+   - `yarn version`
+   - `yarn workspace <workspace> version <version>`
+3. Create release chore commit
+   - `yarn release 1.0.0-alpha.1` (ecosystem release)
+   - `yarn release docmark-util-types@1.0.0-dev.2` (workspace release)
+4. Push release chore commit
+5. Monitor workflows
    1. [`release-chore`](.github/workflows/release-chore.yml)
       - create release branch
-      - bump manifest versions
-      - add changelog entries for each new release
+      - [apply deferred version records][yarn-version-apply]
+      - update changelogs
       - create release pr
    2. [`release`](.github/workflows/release.yml)
       - create and push new tags
       - create and publish github releases
-   3. [`publish`](.github/workflows/publish.yml)
-      - publish package to [github package registry][gpr]
-      - publish packages to [npm][]
--->
+
+## Deployment
+
+> 👉 **Note**: Package publication is executed via GitHub workflow.\
+> This is so invalid or malicious versions cannot be published without merging those changes into `main` first.
+
+After a release is published, the [`publish`](.github/workflows/publish.yml) workflow will:
+
+- publish packages to [github package registry][gpr]
+- publish packages to [npm][]
 
 [codecov-uploader]: https://docs.codecov.com/docs/codecov-uploader
 
@@ -398,7 +397,7 @@ e.g:
 
 [gpg-commit-signature-verification]: https://docs.github.com/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification
 
-<!-- [gpr]: https://github.com/features/packages -->
+[gpr]: https://github.com/features/packages
 
 [homebrew]: https://brew.sh
 
@@ -408,7 +407,7 @@ e.g:
 
 [mre]: https://stackoverflow.com/help/minimal-reproducible-example
 
-<!-- [npm]: https://npmjs.com -->
+[npm]: https://npmjs.com
 
 [ohmyzsh]: https://github.com/ohmyzsh/ohmyzsh
 
@@ -425,3 +424,9 @@ e.g:
 [vitest]: https://vitest.dev
 
 [yarn]: https://yarnpkg.com/getting-started
+
+[yarn-version]: https://yarnpkg.com/cli/version
+
+[yarn-version-apply]: https://yarnpkg.com/cli/version/apply
+
+[yarn-version-check]: https://yarnpkg.com/cli/version/check

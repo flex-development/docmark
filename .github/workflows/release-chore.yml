@@ -19,10 +19,10 @@
 # - https://github.com/flex-development/gh-commit
 # - https://github.com/flex-development/gh-release-url-action
 # - https://github.com/flex-development/grease
-# - https://github.com/flex-development/jq-action
 # - https://github.com/hmarr/debug-action
 # - https://github.com/kaisugi/action-regex-match
 # - https://regex101.com/r/OwpOr2
+# - https://yarnpkg.com/cli/version/apply
 
 ---
 name: release-chore
@@ -41,9 +41,8 @@ jobs:
       branch: ${{ steps.branch.outputs.result }}
       message: ${{ steps.message.outputs.result }}
       tag: ${{ steps.environment.outputs.tag }}
-      workspace: ${{ format('@{0}/{1}', github.repository_owner, steps.version.outputs.group1) }}
-      workspace-directory: packages/${{ steps.version.outputs.group1 }}
-      version: ${{ steps.version.outputs.group2 }}
+      tag-prefix: ${{ steps.metadata.outputs.group1 }}
+      version: ${{ steps.metadata.outputs.group2 }}
     steps:
       - id: debug
         name: Print environment variables and event payload
@@ -73,16 +72,16 @@ jobs:
           ```'
           echo "$ERR" >>$GITHUB_STEP_SUMMARY
           exit 1
-      - id: version
-        name: Get release version
+      - id: metadata
+        name: Extract release metadata
         uses: kaisugi/action-regex-match@v1.0.2
         with:
           flags: u
           regex: ${{ vars.RELEASE_CHORE_REGEX }}
           text: ${{ github.event.head_commit.message }}
-      - id: fail-version
-        if: steps.version.outputs.match == ''
-        name: Fail on invalid release version
+      - id: fail-metadata
+        if: steps.metadata.outputs.match == ''
+        name: Fail on invalid commit message
         run: |
           ERR='**Invalid release chore commit message**
           ```sh
@@ -91,25 +90,27 @@ jobs:
           Message must match [`${{ vars.RELEASE_CHORE_REGEX }}`](https://regex101.com/r/OwpOr2)'
           echo "$ERR" >>$GITHUB_STEP_SUMMARY
           exit 1
-      - id: tag-prefix
-        name: Get release tag prefix
-        uses: flex-development/jq-action@1.0.0
-        with:
-          data: packages/${{ steps.version.outputs.group1 }}/grease.config.json
-          filter: .tagprefix
       - id: environment
         name: Get release tag
         uses: flex-development/gh-release-url-action@2.1.0
         with:
-          tag-prefix: ${{ steps.tag-prefix.outputs.result }}
-          version: ${{ steps.version.outputs.group2 }}
+          tag-prefix: ${{ steps.metadata.outputs.group1 }}
+          version: ${{ steps.metadata.outputs.group2 }}
       - id: message
         name: Get release message
         run: 'echo "result=release: ${{ steps.environment.outputs.tag }}" >>$GITHUB_OUTPUT'
       - id: branch
         name: Get release branch name
         run: |
-          echo "result=release/${{ steps.version.outputs.group1 }}/${{ steps.version.outputs.group2 }}" >>$GITHUB_OUTPUT
+          result=release
+
+          # add package name to release branch name.
+          if [[ -n "${{ steps.metadata.outputs.group1 }}" ]]; then
+            result=$result/${{ steps.metadata.outputs.group1 }}
+          fi
+
+          # add release version to branch name and output final branch name.
+          echo "result=$result/${{ steps.metadata.outputs.group2 }}" >>$GITHUB_OUTPUT
   branch:
     needs: preflight
     runs-on: ubuntu-latest
@@ -136,6 +137,8 @@ jobs:
       - branch
       - preflight
     runs-on: ubuntu-latest
+    env:
+      VERSION_MANIFEST: ./versions/${{ needs.preflight.outputs.tag }}.json
     steps:
       - id: bot-token
         name: Get bot token
@@ -162,21 +165,58 @@ jobs:
         name: Install dependencies
         env:
           HUSKY: 0
-        run: yarn && echo "$GITHUB_WORKSPACE/node_modules/.bin" >>$GITHUB_PATH
-      - id: bump-manifest
-        name: |
-          Bump ${{ needs.preflight.outputs.workspace }} to ${{ needs.preflight.outputs.version }}
+        run: yarn && echo "${{ github.workspace }}/node_modules/.bin" >>$GITHUB_PATH
+      - id: versions
+        name: Copy version manifest
         run: |
-          yarn workspace ${{ needs.preflight.outputs.workspace }} \
-          version ${{ needs.preflight.outputs.version }}
+          mkdir -p ./versions
+          yq .releases .yarn/versions/*.yml -o=json > ${{ env.VERSION_MANIFEST }}
+      - id: bump
+        name: Bump packages
+        run: yarn version apply --all --force
       - id: changelog
-        name: Add CHANGELOG entry for ${{ needs.preflight.outputs.tag }}
+        name: Add CHANGELOG entries
         env:
           TZ: ${{ vars.TZ }}
         run: |
-          echo "$(grease changelog)" >>$GITHUB_STEP_SUMMARY
-          grease changelog -sw
-        working-directory: ${{ needs.preflight.outputs.workspace-directory }}
+          set -e
+
+          echo Generating changelog entries for packages in ${{ env.VERSION_MANIFEST }}
+          echo ''
+          echo ---
+
+          while IFS=$'\t' read -r workspace release; do
+            directory=
+            package=${workspace#@*/}
+
+            echo "workspace: $workspace"
+
+            # get workspace directory.
+            if [[ $workspace != $package ]]; then
+              directory=packages/$package
+            else
+              echo "skipping root workspace."
+              continue
+            fi
+
+            # print package name and release type.
+            echo "package: $package"
+            echo "release: $release"
+            echo ''
+
+            # switch to package directory.
+            cd $directory
+
+            # print changelog entry.
+            echo "$(grease changelog)" >>$GITHUB_STEP_SUMMARY
+            echo ---
+
+            # write changelog entry.
+            grease changelog -sw
+
+            # go back to root directory.
+            cd ../..
+          done < <(jq -r 'to_entries|.[]|[.key,.value]|@tsv' $VERSION_MANIFEST)
       - id: commit
         name: Commit and push release preparation
         uses: flex-development/gh-commit@1.0.0
@@ -209,8 +249,56 @@ jobs:
           persist-credentials: false
           ref: ${{ needs.preflight.outputs.branch }}
           token: ${{ steps.bot-token.outputs.token }}
-      - id: pr
-        name: Create pull request
+      - id: ecosystem
+        if: ${{ needs.preflight.outputs.tag-prefix == '' }}
+        name: Create pull request (ecosystem release)
+        env:
+          GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
+        run: |
+          gh pr create --title='${{ needs.preflight.outputs.message }}' --label=scope:release --assignee=${{ github.actor }} --reviewer=${{ github.actor }} --body='## Description
+
+          <!-- A clear and concise description of your changes. -->
+
+          - bumped manifest versions
+          - added `CHANGELOG` entries
+
+          ## Linked issues
+
+          <!--
+          A list of linked issues and/or pull requests.
+
+          - <closes|fixes|resolves> #<issue-number>
+          - <prereleases|releases> #<pr-number>
+          -->
+
+          N/A
+
+          ## Related documents
+
+          <!-- A list of related documents (e.g. docs, proposals, specs, etc), if any. -->
+
+          N/A
+
+          ## Additional context
+
+          <!--
+          Include additional details here. Be sure to note if any tolerable vulnerabilities or warnings have been introduced.
+          -->
+
+          N/A
+
+          ## Submission checklist
+
+          - [x] self-review performed
+          - [x] tests added and/or updated
+          - [x] documentation added or updated
+          - [x] new, **tolerable** vulnerabilities and/or warnings documented, if any
+          - [x] [pr naming conventions][pr-naming]
+
+          [pr-naming]: ${{ github.server_url }}/${{ github.repository }}/blob/main/CONTRIBUTING.md#pull-request-titles'
+      - id: workspace
+        if: ${{ needs.preflight.outputs.tag-prefix != '' }}
+        name: Create pull request (workspace release)
         env:
           GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
         run: |
@@ -254,4 +342,4 @@ jobs:
           - [x] new, **tolerable** vulnerabilities and/or warnings documented, if any
           - [x] [pr naming conventions][pr-naming]
 
-          [pr-naming]: https://github.com/${{ github.repository }}/blob/main/CONTRIBUTING.md#pull-request-titles'
+          [pr-naming]: ${{ github.server_url }}/${{ github.repository }}/blob/main/CONTRIBUTING.md#pull-request-titles'

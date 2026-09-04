@@ -1,6 +1,6 @@
 # Release
 #
-# Publish a GitHub release on release branch merge.
+# Publish GitHub releases on release branch merge.
 #
 # References:
 #
@@ -25,6 +25,7 @@
 # - https://github.com/shaneapowell/github-tweak-the-json
 # - https://regex101.com/r/3gxjZI
 # - https://yarnpkg.com/cli/pack
+# - https://yarnpkg.com/cli/workspace
 
 ---
 name: release
@@ -35,6 +36,10 @@ on:
     types:
       - closed
 env:
+  CACHE_PATH_DEPS: |
+    node_modules
+    packages/*/node_modules
+  CACHE_PATH_BUILD: packages/*/dist
   ref_name: ${{ format('{0}@{1}', github.base_ref, github.event.pull_request.merge_commit_sha) }}
 jobs:
   preflight:
@@ -43,11 +48,9 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
     outputs:
-      prerelease: ${{ steps.dist.outputs.prerelease }}
-      tag: ${{ steps.environment.outputs.tag }}
-      url: ${{ steps.environment.outputs.url }}
-      version: ${{ steps.version.outputs.group2 }}
-      workspace-directory: packages/${{ steps.version.outputs.group1 }}
+      cache-build: ${{ steps.cache-key-build.outputs.result }}
+      cache-deps: ${{ steps.cache-key-deps.outputs.result }}
+      workspaces: ${{ steps.workspaces.outputs.result }}
     steps:
       - id: debug
         name: Print environment variables and event payload
@@ -57,15 +60,15 @@ jobs:
         uses: actions/checkout@v7.0.1
         with:
           ref: ${{ github.event.pull_request.merge_commit_sha }}
-      - id: version
-        name: Get release version
+      - id: metadata
+        name: Extract release metadata
         uses: kaisugi/action-regex-match@v1.0.2
         with:
           flags: u
           regex: ${{ vars.RELEASE_REGEX }}
           text: ${{ github.event.pull_request.title }}
-      - id: fail-pr-title
-        if: steps.version.outputs.match == ''
+      - id: fail-metadata
+        if: steps.metadata.outputs.match == ''
         name: Fail on invalid pull request title
         run: |
           ERR='**Invalid pull request title**
@@ -75,29 +78,45 @@ jobs:
           Title must match [`${{ vars.RELEASE_REGEX }}`](https://regex101.com/r/3gxjZI)'
           echo "$ERR" >>$GITHUB_STEP_SUMMARY
           exit 1
-      - id: tag-prefix
-        name: Get release tag prefix
+      - id: dependencies
+        name: Install dependencies
+        run: yarn --no-immutable && echo "$GITHUB_WORKSPACE/node_modules/.bin" >>$GITHUB_PATH
+      - id: build
+        name: Build workspaces
+        run: yarn build
+      - id: cache-key-deps
+        name: Get dependencies cache key
+        run: echo "result=${{ hashFiles('yarn.lock') }}" >>$GITHUB_OUTPUT
+      - id: cache-key-build
+        name: Get build cache key
+        run: echo "result=${{ hashFiles(env.CACHE_PATH_BUILD) }}" >>$GITHUB_OUTPUT
+      - id: cache-deps
+        name: Cache dependencies
+        uses: actions/cache@v6.1.0
+        with:
+          key: ${{ steps.cache-key-deps.outputs.result }}
+          path: ${{ env.CACHE_PATH_DEPS }}
+      - id: cache-build
+        name: Cache build
+        uses: actions/cache@v6.1.0
+        with:
+          key: ${{ steps.cache-key-build.outputs.result }}
+          path: ${{ env.CACHE_PATH_BUILD }}
+      - id: workspaces
+        name: Get workspace matrix
         uses: flex-development/jq-action@1.0.0
         with:
-          data: packages/${{ steps.version.outputs.group1 }}/grease.config.json
-          filter: .tagprefix
-      - id: environment
-        name: Get release url
-        uses: flex-development/gh-release-url-action@2.1.0
-        with:
-          tag-prefix: ${{ steps.tag-prefix.outputs.result }}
-          version: ${{ steps.version.outputs.group2 }}
-      - id: dist
-        name: Get dist tag
-        uses: flex-development/dist-tag-action@1.1.2
-        with:
-          target: ${{ steps.version.outputs.group2 }}
+          data: ./versions/${{ steps.metadata.outputs.match }}.json
+          filter: keys
   publish:
     needs: preflight
     runs-on: ubuntu-latest
     environment:
       name: release
-      url: ${{ needs.preflight.outputs.url }}
+      url: ${{ steps.environment.outputs.url }}
+    strategy:
+      matrix:
+        workspace: ${{ fromJson(needs.preflight.outputs.workspaces) }}
     env:
       GITHUB_TOKEN: ${{ secrets.GH_REPO_TOKEN }}
       HUSKY: 0
@@ -129,42 +148,88 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
           node-version-file: .nvmrc
-      - id: yarn
-        name: Install dependencies
-        run: yarn --no-immutable && echo "$GITHUB_WORKSPACE/node_modules/.bin" >>$GITHUB_PATH
-      - id: build
-        name: Build workspaces
-        run: yarn build
+      - id: restore-dep-cache
+        name: Restore dependencies cache
+        uses: actions/cache@v6.1.0
+        with:
+          key: ${{ needs.preflight.outputs.cache-deps }}
+          path: ${{ env.CACHE_PATH_DEPS }}
+      - id: restore-build-cache
+        name: Restore build cache
+        uses: actions/cache@v6.1.0
+        with:
+          key: ${{ needs.preflight.outputs.cache-build }}
+          path: ${{ env.CACHE_PATH_BUILD }}
+      - id: package
+        name: Get unscoped package name
+        run: |
+          workspace=${{ matrix.workspace }}
+          echo "result=${workspace#@*/}" >>$GITHUB_OUTPUT
+      - id: directory
+        name: Get workspace directory
+        run: |
+          directory=.
+
+          # get package directory for non-root workspace.
+          if [[ ${{ matrix.workspace }} != ${{ steps.package.outputs.result }} ]]; then
+            directory=packages/${{ steps.package.outputs.result }}
+          fi
+
+          echo "result=$directory" >>$GITHUB_OUTPUT
       - id: build-metadata
+        if: matrix.workspace != steps.package.outputs.result
         name: Add build metadata to manifest
         uses: shaneapowell/github-tweak-the-json@v1
         with:
           action: write
-          filename: ${{ needs.preflight.outputs.workspace-directory }}/package.json
+          filename: ${{ steps.directory.outputs.result }}/package.json
           field: build
           value: ${{ github.event.pull_request.merge_commit_sha }}
+      - id: version
+        name: Get release version
+        uses: flex-development/jq-action@1.0.0
+        with:
+          data: ${{ steps.directory.outputs.result }}/package.json
+          filter: version
+      - id: dist
+        if: matrix.workspace != steps.package.outputs.result
+        name: Get dist tag
+        uses: flex-development/dist-tag-action@1.1.2
+        with:
+          target: ${{ steps.version.outputs.result }}
+      - id: environment
+        if: matrix.workspace != steps.package.outputs.result
+        name: Get release url
+        uses: flex-development/gh-release-url-action@2.1.0
+        with:
+          tag-prefix: ${{ steps.package.outputs.result }}
+          version: ${{ steps.version.outputs.result }}
       - id: pack
+        if: matrix.workspace != steps.package.outputs.result
         name: Pack project
         run: |
           mv CHANGELOG.md _CHANGELOG.md
-          yarn pack --out ../../%s-%v.tgz
+          yarn workspace ${{ matrix.workspace }} pack --out %s-%v.tgz
           mv _CHANGELOG.md CHANGELOG.md
-        working-directory: ${{ needs.preflight.outputs.workspace-directory }}
+        working-directory: ${{ steps.directory.outputs.result }}
       - id: release-notes
+        if: matrix.workspace != steps.package.outputs.result
         name: Generate release notes
         env:
           TZ: ${{ vars.TZ }}
         run: |
           grease changelog -wo $NOTES_FILE
           echo "$(cat $NOTES_FILE)" >>$GITHUB_STEP_SUMMARY
-        working-directory: ${{ needs.preflight.outputs.workspace-directory }}
+        working-directory: ${{ steps.directory.outputs.result }}
       - id: tag
         name: Create annotated tag
-        run: 'grease tag -ps -m "release: {tag}" ${{ needs.preflight.outputs.version }}'
-        working-directory: ${{ needs.preflight.outputs.workspace-directory }}
+        run: 'grease tag -ps -m "release: {tag}" ${{ steps.version.outputs.result }}'
+        working-directory: ${{ steps.directory.outputs.result }}
       - id: publish
+        if: matrix.workspace != steps.package.outputs.result
         name: Publish release
         env:
-          NOTES: ${{ needs.preflight.outputs.workspace-directory }}/${{ env.NOTES_FILE }}
+          NOTES: ${{ steps.directory.outputs.result }}/${{ env.NOTES_FILE }}
         run: |
-          gh release create ${{ needs.preflight.outputs.tag }} *.tgz --title=${{ needs.preflight.outputs.tag }} --notes-file=$NOTES --verify-tag --prerelease=${{ needs.preflight.outputs.prerelease }} --discussion-category=releases
+          gh release create ${{ steps.environment.outputs.tag }} *.tgz --title=${{ steps.environment.outputs.tag }} --notes-file=$NOTES --verify-tag --prerelease=${{ steps.dist.outputs.prerelease }} --discussion-category=releases
+        working-directory: ${{ steps.directory.outputs.result }}
