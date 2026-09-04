@@ -13,11 +13,14 @@ if [[ -z $* ]]; then
   exit 1
 fi
 
-if compgen -G .yarn/versions/*.yml >/dev/null; then
+VERSION_MANIFEST=.yarn/versions/*.yml
+
+if compgen -G $VERSION_MANIFEST >/dev/null; then
   echo "[READY] version manifest found."
 else
   echo "[ERROR] missing version manifest."
   exit 1
 fi
 
+git add $VERSION_MANIFEST
 git commit -S -s -m "release(chore): $@"
