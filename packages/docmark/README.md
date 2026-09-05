@@ -1,14 +1,18 @@
 # docmark
 
+[![github release](https://img.shields.io/github/v/release/flex-development/docmark.svg?include_prereleases\&sort=date\&filter=docmark%40*)](https://github.com/flex-development/docmark/releases/latest)
 [![npm](https://img.shields.io/npm/v/@flex-development/docmark.svg)](https://npmjs.com/package/@flex-development/docmark)
 [![npm downloads](https://img.shields.io/npm/dm/@flex-development/docmark.svg)](https://www.npmcharts.com/compare/@flex-development/docmark?interval=30)
+[![minified bundle size](https://badgen.net/bundlephobia/min/@flex-development/docmark?cache)](https://bundlephobia.com/package/@flex-development/docmark)
 [![install size](https://packagephobia.now.sh/badge?p=@flex-development/docmark)](https://packagephobia.now.sh/result?p=@flex-development/docmark)
+[![tree shaking suppport](https://badgen.net/bundlephobia/tree-shaking/@flex-development/docmark)](https://bundlephobia.com/package/@flex-development/docmark)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
+[![license](https://img.shields.io/github/license/flex-development/docmark)](LICENSE.md)
 
 a comment parser with support for markdown.
 
-> **Note**: This is the `docmark` package from the docmark monorepo.
-> See the [monorepo readme][docmark] for more on the project.
+> **Note**: This is the `docmark` package from the docmark monorepo.\
+> See the [monorepo readme][docmark] for more on the project.\
 > See this readme for how to use it.
 
 ## Contents

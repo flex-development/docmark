@@ -1,9 +1,13 @@
 # docmark-grammar
 
-[![npm](https://img.shields.io/npm/v/@flex-development/docmark.svg)](https://npmjs.com/package/@flex-development/docmark-grammar)
-[![npm downloads](https://img.shields.io/npm/dm/@flex-development/docmark.svg)](https://www.npmcharts.com/compare/@flex-development/docmark-grammar?interval=30)
-[![install size](https://packagephobia.now.sh/badge?p=@flex-development/docmark)](https://packagephobia.now.sh/result?p=@flex-development/docmark-grammar)
+[![github release](https://img.shields.io/github/v/release/flex-development/docmark.svg?include_prereleases\&sort=date\&filter=docmark-grammar%40*)](https://github.com/flex-development/docmark/releases/latest)
+[![npm](https://img.shields.io/npm/v/@flex-development/docmark-grammar.svg)](https://npmjs.com/package/@flex-development/docmark-grammar)
+[![npm downloads](https://img.shields.io/npm/dm/@flex-development/docmark-grammar.svg)](https://www.npmcharts.com/compare/@flex-development/docmark-grammar?interval=30)
+[![minified bundle size](https://badgen.net/bundlephobia/min/@flex-development/docmark-grammar?cache)](https://bundlephobia.com/package/@flex-development/docmark-grammar)
+[![install size](https://packagephobia.now.sh/badge?p=@flex-development/docmark-grammar)](https://packagephobia.now.sh/result?p=@flex-development/docmark-grammar)
+[![tree shaking suppport](https://badgen.net/bundlephobia/tree-shaking/@flex-development/docmark-grammar)](https://bundlephobia.com/package/@flex-development/docmark-grammar)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
+[![license](https://img.shields.io/github/license/flex-development/docmark)](LICENSE.md)
 
 core [docmark][] constructs and utilities.
 

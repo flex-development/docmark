@@ -1,14 +1,13 @@
 # docmark-factory-space
 
+[![github release](https://img.shields.io/github/v/release/flex-development/docmark.svg?include_prereleases\&sort=date\&filter=docmark-factory-space%40*)](https://github.com/flex-development/docmark/releases/latest)
 [![npm](https://img.shields.io/npm/v/@flex-development/docmark-factory-space.svg)](https://npmjs.com/package/@flex-development/docmark-factory-space)
 [![npm downloads](https://img.shields.io/npm/dm/@flex-development/docmark-factory-space.svg)](https://www.npmcharts.com/compare/@flex-development/docmark-factory-space?interval=30)
-[![install size](https://packagephobia.now.sh/badge?p=@flex-development/docmark-factory-space)](https://packagephobia.now.sh/result?p=@flex-development/docmark-factory-space)
 [![minified bundle size](https://badgen.net/bundlephobia/min/@flex-development/docmark-factory-space?cache)](https://bundlephobia.com/package/@flex-development/docmark-factory-space)
+[![install size](https://packagephobia.now.sh/badge?p=@flex-development/docmark-factory-space)](https://packagephobia.now.sh/result?p=@flex-development/docmark-factory-space)
 [![tree shaking suppport](https://badgen.net/bundlephobia/tree-shaking/@flex-development/docmark-factory-space)](https://bundlephobia.com/package/@flex-development/docmark-factory-space)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
-[![license](https://img.shields.io/github/license/flex-development/docmark-factory-space.svg)](LICENSE.md)
-[![typescript](https://img.shields.io/badge/-typescript-3178c6?logo=typescript\&logoColor=ffffff)](https://typescriptlang.org)
-[![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat\&logo=yarn\&logoColor=ffffff)](https://yarnpkg.com)
+[![license](https://img.shields.io/github/license/flex-development/docmark)](LICENSE.md)
 
 [docmark][] factory to parse [docdown space][ws].
 
