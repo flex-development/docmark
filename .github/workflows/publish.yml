@@ -78,7 +78,7 @@ jobs:
         with:
           artifact: |
             ${{ format('@{0}-{1}-{2}.tgz', github.repository_owner, steps.metadata.outputs.group1, steps.metadata.outputs.group2) }}
-          tag-prefix: ${{ steps.metadata.outputs.group1 }}
+          tag-prefix: ${{ format('{0}@', steps.metadata.outputs.group1) }}
           version: ${{ steps.metadata.outputs.group2 }}
       - id: command
         name: Get publish command
