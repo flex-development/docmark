@@ -231,8 +231,6 @@ jobs:
       - id: publish
         if: matrix.workspace != steps.package.outputs.result
         name: Publish release
-        env:
-          NOTES: ${{ steps.directory.outputs.result }}/${{ env.NOTES_FILE }}
         run: |
-          gh release create ${{ steps.environment.outputs.tag }} *.tgz --title=${{ steps.environment.outputs.tag }} --notes-file=$NOTES --verify-tag --prerelease=${{ steps.dist.outputs.prerelease }} --discussion-category=releases
+          gh release create ${{ steps.environment.outputs.tag }} *.tgz --title=${{ steps.environment.outputs.tag }} --notes-file=${{ env.NOTES_FILE }} --prerelease=${{ steps.dist.outputs.prerelease }} --verify-tag --discussion-category=releases
         working-directory: ${{ steps.directory.outputs.result }}
