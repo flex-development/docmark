@@ -77,17 +77,14 @@ labels:
   - name: package:docmark
     description: '@flex-development/docmark'
     color: c6cde1
-  - name: package:docmark-core
-    description: '@flex-development/docmark-core'
-    color: c6cde1
-  - name: package:docmark-core-commonmark
-    description: '@flex-development/docmark-core-commonmark'
+  - name: package:docmark-grammar
+    description: '@flex-development/docmark-grammar'
     color: c6cde1
   - name: package:docmark-factory-space
     description: '@flex-development/docmark-factory-space'
     color: c6cde1
-  - name: package:docmark-factory-whitespace
-    description: '@flex-development/docmark-factory-whitespace'
+  - name: package:docmark-util-combine-extensions
+    description: '@flex-development/docmark-util-combine-extensions'
     color: c6cde1
   - name: package:docmark-util-subtokenize
     description: '@flex-development/docmark-util-subtokenize'
