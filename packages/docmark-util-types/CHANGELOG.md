@@ -1,3 +1,9 @@
+## [docmark-util-types@1.0.0-dev.3](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-dev.2...docmark-util-types@1.0.0-dev.3) (2026-09-04)
+
+### :robot: Continuous Integration
+
+- [[`f5692e2`](https://github.com/flex-development/docmark/commit/f5692e23bc93e6912285511c817fcfca3f9fb493)] **workflows:** [`publish`] fix release tag prefix
+
 ## [docmark-util-types@1.0.0-dev.2](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-dev.1...docmark-util-types@1.0.0-dev.2) (2026-09-04)
 
 ### :package: Build
@@ -85,6 +91,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
