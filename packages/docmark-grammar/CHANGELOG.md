@@ -1,3 +1,10 @@
+## [docmark-grammar@1.0.0-dev.5](https://github.com/flex-development/docmark/compare/docmark-grammar@1.0.0-dev.3...docmark-grammar@1.0.0-dev.5) (2026-09-05)
+
+### :robot: Continuous Integration
+
+- [[`b4211c2`](https://github.com/flex-development/docmark/commit/b4211c29765c8015430f3105019e131d4c92d20a)] **workflows:** [`release`] fix release tag prefix
+- [[`0697551`](https://github.com/flex-development/docmark/commit/0697551f33e71b7588c682e5b0624d54f296a68e)] **workflows:** [`release`] set environment url for root workspace
+
 ## [docmark-grammar@1.0.0-dev.4](https://github.com/flex-development/docmark/compare/docmark-grammar@1.0.0-dev.3...docmark-grammar@1.0.0-dev.4) (2026-09-04)
 
 ### :robot: Continuous Integration
@@ -86,6 +93,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
