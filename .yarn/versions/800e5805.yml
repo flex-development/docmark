@@ -1,0 +1,9 @@
+releases:
+  "@flex-development/docmark": 1.0.0-dev.4
+  "@flex-development/docmark-factory-space": 1.0.0-dev.4
+  "@flex-development/docmark-grammar": 1.0.0-dev.4
+  "@flex-development/docmark-util-combine-extensions": 1.0.0-dev.4
+  "@flex-development/docmark-util-subtokenize": 1.0.0-dev.4
+  "@flex-development/docmark-util-symbol": 1.0.0-dev.4
+  "@flex-development/docmark-util-types": 1.0.0-dev.4
+  docmark: 1.0.0-dev.4
