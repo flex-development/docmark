@@ -1,32 +1,3 @@
-## [docmark-util-symbol@1.0.0-dev.2](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-dev.1...docmark-util-symbol@1.0.0-dev.2) (2026-09-04)
-
-### :package: Build
-
-- [[`ec0d798`](https://github.com/flex-development/docmark/commit/ec0d7988aa9fc3e481db31226970bbe464aad737)] **deps:** Bump @humanfs/node from 0.16.7 to 0.16.8 ([#49](https://github.com/flex-development/docmark/issues/49))
-
-### :robot: Continuous Integration
-
-- [[`05498dc`](https://github.com/flex-development/docmark/commit/05498dc187b5e30cde40baced57ee9b33e636e77)] **deps:** Bump actions/add-to-project from 1.0.2 to 2.0.0 ([#47](https://github.com/flex-development/docmark/issues/47))
-- [[`2e03110`](https://github.com/flex-development/docmark/commit/2e0311023d7f1c8c2d1c809679134b9ba50511cb)] **deps:** Bump actions/create-github-app-token from 2.2.1 to 3.2.0 ([#48](https://github.com/flex-development/docmark/issues/48))
-- [[`35e34e9`](https://github.com/flex-development/docmark/commit/35e34e93614aabbf3fffcf4aa10a550ba7dcce2d)] **workflows:** [`release-chore`] [`jobs.pr`] get `package:*` labels
-- [[`f5af552`](https://github.com/flex-development/docmark/commit/f5af5522a09ac7221b23cfddc6532810ceb0549c)] **workflows:** [`release-chore`] ecosystem releases only
-- [[`c2cc056`](https://github.com/flex-development/docmark/commit/c2cc056878f5ca14c1a52ea12213504e766a27f7)] **workflows:** [`release-chore`] fix changelog updates
-- [[`fcb7c9e`](https://github.com/flex-development/docmark/commit/fcb7c9ea0bb8eab90e48900bdd207d2669283396)] **workflows:** [`release`] fix `grease: command not found`
-- [[`bb15121`](https://github.com/flex-development/docmark/commit/bb15121ab3fd64d41d841059501dfa5b20137479)] **workflows:** [`release`] fix tagging
-- [[`9002253`](https://github.com/flex-development/docmark/commit/9002253c3a9a0cf2c4e69dc0b1b0361aaf40023f)] **workflows:** [`release`] fix workspace directory
-- [[`aaa302f`](https://github.com/flex-development/docmark/commit/aaa302fe035fc11ee3dcc9697ce77f514edcaa27)] **workflows:** add release lifecycle and deployment workflows
-
-### :house_with_garden: Housekeeping
-
-- [[`73b5363`](https://github.com/flex-development/docmark/commit/73b5363b72f75f1a8fc4709d04f24d0d2b5aacc4)] **github:** fix `package:*` labels
-
-### :wastebasket: Reverts
-
-- [[`576f8d3`](https://github.com/flex-development/docmark/commit/576f8d3e049851aad25c952b68dfb9c806cb783a)] release: 1.0.0-dev.1 ([#50](https://github.com/flex-development/docmark/issues/50))
-- [[`039d686`](https://github.com/flex-development/docmark/commit/039d686eaada1be65d910dd4598012362f4ce49f)] release: 1.0.0-dev.1 ([#51](https://github.com/flex-development/docmark/issues/51))
-- [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
-- [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
-
 ## docmark-util-symbol@1.0.0-dev.1 (2026-09-01)
 
 ### :package: Build
