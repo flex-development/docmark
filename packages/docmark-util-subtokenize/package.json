@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-util-subtokenize",
   "description": "docmark utility to tokenize subtokens",
-  "version": "0.0.0",
+  "version": "1.0.0-dev.2",
   "keywords": [
     "docmark",
     "tokenize",
