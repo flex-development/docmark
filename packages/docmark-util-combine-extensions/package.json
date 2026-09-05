@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-util-combine-extensions",
   "description": "docmark utility to combine extensions",
-  "version": "1.0.0-dev.1",
+  "version": "0.0.0",
   "keywords": [
     "docmark",
     "extension",
