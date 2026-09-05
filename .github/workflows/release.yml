@@ -160,6 +160,9 @@ jobs:
         with:
           key: ${{ needs.preflight.outputs.cache-build }}
           path: ${{ env.CACHE_PATH_BUILD }}
+      - id: local-binaries
+        name: Add local binaries to $PATH
+        run: echo "$GITHUB_WORKSPACE/node_modules/.bin" >> $GITHUB_PATH
       - id: package
         name: Get unscoped package name
         run: |
