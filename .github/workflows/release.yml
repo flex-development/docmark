@@ -171,7 +171,7 @@ jobs:
       - id: directory
         name: Get workspace directory
         run: |
-          directory=.
+          directory=${{ github.workspace }}
 
           # get package directory for non-root workspace.
           if [[ ${{ matrix.workspace }} != ${{ steps.package.outputs.result }} ]]; then
