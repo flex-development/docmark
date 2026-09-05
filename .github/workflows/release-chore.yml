@@ -272,9 +272,8 @@ jobs:
 
           # output final set of labels.
           echo "result=$result" >>$GITHUB_OUTPUT
-      - id: ecosystem
-        if: ${{ needs.preflight.outputs.tag-prefix == '' }}
-        name: Create pull request (ecosystem release)
+      - id: pr
+        name: Create pull request
         env:
           GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
         run: |
@@ -284,53 +283,6 @@ jobs:
 
           - bumped manifest versions
           - added `CHANGELOG` entries
-
-          ## Linked issues
-
-          <!--
-          A list of linked issues and/or pull requests.
-
-          - <closes|fixes|resolves> #<issue-number>
-          - <prereleases|releases> #<pr-number>
-          -->
-
-          N/A
-
-          ## Related documents
-
-          <!-- A list of related documents (e.g. docs, proposals, specs, etc), if any. -->
-
-          N/A
-
-          ## Additional context
-
-          <!--
-          Include additional details here. Be sure to note if any tolerable vulnerabilities or warnings have been introduced.
-          -->
-
-          N/A
-
-          ## Submission checklist
-
-          - [x] self-review performed
-          - [x] tests added and/or updated
-          - [x] documentation added or updated
-          - [x] new, **tolerable** vulnerabilities and/or warnings documented, if any
-          - [x] [pr naming conventions][pr-naming]
-
-          [pr-naming]: ${{ github.server_url }}/${{ github.repository }}/blob/main/CONTRIBUTING.md#pull-request-titles'
-      - id: workspace
-        if: ${{ needs.preflight.outputs.tag-prefix != '' }}
-        name: Create pull request (workspace release)
-        env:
-          GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
-        run: |
-          gh pr create --title='${{ needs.preflight.outputs.message }}' ${{ steps.labels.outputs.result }} --assignee=${{ github.actor }} --reviewer=${{ github.actor }} --body='## Description
-
-          <!-- A clear and concise description of your changes. -->
-
-          - bumped manifest version to `${{ needs.preflight.outputs.version }}`
-          - added `CHANGELOG` entry for `${{ needs.preflight.outputs.tag }}`
 
           ## Linked issues
 
