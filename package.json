@@ -1,7 +1,7 @@
 {
   "name": "docmark",
   "description": "a comment parser ecosystem with support for markdown",
-  "version": "1.0.0-dev.6",
+  "version": "1.0.0-dev.7",
   "keywords": [],
   "license": "BSD-3-Clause",
   "homepage": "https://github.com/flex-development/docmark",
