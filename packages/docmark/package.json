@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark",
   "description": "commonmark compliant documentation parser with positional info and concrete tokens",
-  "version": "1.0.0-dev.5",
+  "version": "1.0.0-dev.6",
   "keywords": [
     "comment",
     "commonmark",

@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-factory-space",
   "description": "docmark factory to parse docmark space",
-  "version": "1.0.0-dev.5",
+  "version": "1.0.0-dev.6",
   "keywords": [
     "docmark",
     "factory",
