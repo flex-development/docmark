@@ -1,3 +1,12 @@
+## [docmark-util-types@1.0.0-alpha.1](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-dev.7...docmark-util-types@1.0.0-alpha.1) (2026-09-05)
+
+### :package: Build
+
+- [[`efe945f`](https://github.com/flex-development/docmark/commit/efe945fac6a2b53a47483b4ad91b0f630e99ef8c)] **deps:** Bump brace-expansion from 1.1.12 to 1.1.18 ([#29](https://github.com/flex-development/docmark/issues/29))
+- [[`de374b4`](https://github.com/flex-development/docmark/commit/de374b4063f99590e51103c27ecd55be61ef0c72)] **deps:** Bump lodash from 4.17.23 to 4.18.1 ([#24](https://github.com/flex-development/docmark/issues/24))
+- [[`5178acb`](https://github.com/flex-development/docmark/commit/5178acb1db09304d20ad1b8c4918dfd9b029f2ac)] **deps:** Bump picomatch from 2.3.1 to 2.3.2 ([#19](https://github.com/flex-development/docmark/issues/19))
+- [[`3af303c`](https://github.com/flex-development/docmark/commit/3af303c446c1958d355c36e75470f82e1e041e2b)] **deps:** Bump tar from 7.5.7 to 7.5.22 ([#31](https://github.com/flex-development/docmark/issues/31))
+
 ## [docmark-util-types@1.0.0-dev.7](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-dev.6...docmark-util-types@1.0.0-dev.7) (2026-09-05)
 
 ### :robot: Continuous Integration
@@ -116,6 +125,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 

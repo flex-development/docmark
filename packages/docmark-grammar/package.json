@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-grammar",
   "description": "core docmark constructs and utilities",
-  "version": "1.0.0-dev.7",
+  "version": "1.0.0-alpha.1",
   "keywords": [
     "commonmark",
     "docdown",
