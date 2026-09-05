@@ -43,6 +43,7 @@ jobs:
       tag: ${{ steps.environment.outputs.tag }}
       tag-prefix: ${{ steps.metadata.outputs.group1 }}
       version: ${{ steps.metadata.outputs.group2 }}
+      version-manifest: ./versions/${{ steps.environment.outputs.tag }}.json
     steps:
       - id: debug
         name: Print environment variables and event payload
@@ -137,8 +138,6 @@ jobs:
       - branch
       - preflight
     runs-on: ubuntu-latest
-    env:
-      VERSION_MANIFEST: ./versions/${{ needs.preflight.outputs.tag }}.json
     steps:
       - id: bot-token
         name: Get bot token
@@ -170,7 +169,8 @@ jobs:
         name: Copy version manifest
         run: |
           mkdir -p ./versions
-          yq .releases .yarn/versions/*.yml -o=json > ${{ env.VERSION_MANIFEST }}
+          yq .releases .yarn/versions/*.yml -o=json\
+          > ${{ needs.preflight.outputs.version-manifest }}
       - id: bump
         name: Bump packages
         run: yarn version apply --all --force
@@ -181,7 +181,7 @@ jobs:
         run: |
           set -e
 
-          echo Generating changelog entries for packages in ${{ env.VERSION_MANIFEST }}
+          echo Updating changelogs for packages in ${{ needs.preflight.outputs.version-manifest }}
           echo ''
           echo ---
 
@@ -249,13 +249,35 @@ jobs:
           persist-credentials: false
           ref: ${{ needs.preflight.outputs.branch }}
           token: ${{ steps.bot-token.outputs.token }}
+      - id: labels
+        name: Get `package:*` labels
+        run: |
+          set -e
+
+          # aggregate labels into one string.
+          while IFS=$'\t' read -r workspace release; do
+            package=${workspace#@*/}
+
+            # add package labels.
+            if [[ $workspace != $package ]]; then
+              result=$(echo "$result --label=package:$package" | xargs)
+            else
+              continue
+            fi
+          done < <(jq -r 'to_entries|.[]|[.key,.value]|@tsv' $VERSION_MANIFEST)
+
+          # output final set of labels.
+          echo "result=$result" >>$GITHUB_OUTPUT
       - id: ecosystem
         if: ${{ needs.preflight.outputs.tag-prefix == '' }}
         name: Create pull request (ecosystem release)
         env:
           GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
         run: |
-          gh pr create --title='${{ needs.preflight.outputs.message }}' --label=scope:release --assignee=${{ github.actor }} --reviewer=${{ github.actor }} --body='## Description
+          gh pr create --title='${{ needs.preflight.outputs.message }}'\
+          --label=scope:release ${{ steps.labels.outputs.result }}\
+          --assignee=${{ github.actor }} --reviewer=${{ github.actor }}\
+          --body='## Description
 
           <!-- A clear and concise description of your changes. -->
 
@@ -302,7 +324,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
         run: |
-          gh pr create --title='${{ needs.preflight.outputs.message }}' --label=scope:release --assignee=${{ github.actor }} --reviewer=${{ github.actor }} --body='## Description
+          gh pr create --title='${{ needs.preflight.outputs.message }}'\
+          --label=scope:release ${{ steps.labels.outputs.result }}\
+          --assignee=${{ github.actor }} --reviewer=${{ github.actor }}\
+          --body='## Description
 
           <!-- A clear and concise description of your changes. -->
 
