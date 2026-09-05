@@ -218,7 +218,7 @@ jobs:
 
             # go back to root directory.
             cd ../..
-          done < <(jq -r '${{ env.VER_FILTER }}' $VERSION_MANIFEST)
+          done < <(jq -r '${{ env.VER_FILTER }}' ${{ needs.preflight.outputs.version-manifest }})
       - id: commit
         name: Commit and push release preparation
         uses: flex-development/gh-commit@1.0.0
