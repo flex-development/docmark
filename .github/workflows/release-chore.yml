@@ -273,6 +273,39 @@ jobs:
 
           # output final set of labels.
           echo "result=$result" >>$GITHUB_OUTPUT
+      - id: description
+        name: Generate description
+        run: |
+          set -e
+
+          result='- bumped manifest versions'
+
+          while IFS=$'\t' read -r workspace release; do
+            result="$result
+             - bumped $workspace to \`$release\`"
+          done < <(jq -r '${{ env.VER_FILTER }}' '${{ needs.preflight.outputs.version-manifest }}')
+
+          result="$result
+          - added \`CHANGELOG\` entries"
+
+          while IFS=$'\t' read -r workspace release; do
+            package=${workspace#@*/}
+
+            # skip the root workspace.
+            if [[ $workspace == $package ]]; then
+              continue
+            fi
+
+            result="$result
+             - $workspace"
+          done < <(jq -r '${{ env.VER_FILTER }}' '${{ needs.preflight.outputs.version-manifest }}')
+
+          # output pr description.
+          {
+            echo 'result<<EOF'
+            echo "$result"
+            echo EOF
+          } >>$GITHUB_OUTPUT
       - id: pr
         name: Create pull request
         env:
@@ -282,8 +315,7 @@ jobs:
 
           <!-- A clear and concise description of your changes. -->
 
-          - bumped manifest versions
-          - added `CHANGELOG` entries
+          ${{ steps.description.outputs.result }}
 
           ## Linked issues
 
