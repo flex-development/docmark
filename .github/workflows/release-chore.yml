@@ -97,7 +97,7 @@ jobs:
         name: Get release tag
         uses: flex-development/gh-release-url-action@2.1.0
         with:
-          tag-prefix: ${{ steps.metadata.outputs.group1 }}
+          tag-prefix: ${{ format('{0}@', steps.metadata.outputs.group1) }}
           version: ${{ steps.metadata.outputs.group2 }}
       - id: message
         name: Get release message
