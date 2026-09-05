@@ -1,3 +1,9 @@
+## [docmark-util-symbol@1.0.0-dev.7](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-dev.6...docmark-util-symbol@1.0.0-dev.7) (2026-09-05)
+
+### :robot: Continuous Integration
+
+- [[`f984c28`](https://github.com/flex-development/docmark/commit/f984c2841dba3434ffbbed26c11ca6b526c5f341)] **workflows:** [`release-chore`] [`jobs.pr`] update description formatting
+
 ## [docmark-util-symbol@1.0.0-dev.6](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-dev.5...docmark-util-symbol@1.0.0-dev.6) (2026-09-05)
 
 ### :robot: Continuous Integration
@@ -110,6 +116,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
