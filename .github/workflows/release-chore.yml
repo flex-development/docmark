@@ -30,6 +30,8 @@ on:
   push:
     branches:
       - main
+env:
+  VER_FILTER: to_entries|.[]|[.key,.value]|@tsv
 concurrency:
   cancel-in-progress: true
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -216,7 +218,7 @@ jobs:
 
             # go back to root directory.
             cd ../..
-          done < <(jq -r 'to_entries|.[]|[.key,.value]|@tsv' $VERSION_MANIFEST)
+          done < <(jq -r '${{ env.VER_FILTER }}' $VERSION_MANIFEST)
       - id: commit
         name: Commit and push release preparation
         uses: flex-development/gh-commit@1.0.0
@@ -254,6 +256,8 @@ jobs:
         run: |
           set -e
 
+          result='--label=scope:release'
+
           # aggregate labels into one string.
           while IFS=$'\t' read -r workspace release; do
             package=${workspace#@*/}
@@ -264,7 +268,7 @@ jobs:
             else
               continue
             fi
-          done < <(jq -r 'to_entries|.[]|[.key,.value]|@tsv' $VERSION_MANIFEST)
+          done < <(jq -r '${{ env.VER_FILTER }}' ${{ needs.preflight.outputs.version-manifest }})
 
           # output final set of labels.
           echo "result=$result" >>$GITHUB_OUTPUT
@@ -274,10 +278,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
         run: |
-          gh pr create --title='${{ needs.preflight.outputs.message }}'\
-          --label=scope:release ${{ steps.labels.outputs.result }}\
-          --assignee=${{ github.actor }} --reviewer=${{ github.actor }}\
-          --body='## Description
+          gh pr create --title='${{ needs.preflight.outputs.message }}' ${{ steps.labels.outputs.result }} --assignee=${{ github.actor }} --reviewer=${{ github.actor }} --body='## Description
 
           <!-- A clear and concise description of your changes. -->
 
@@ -324,10 +325,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.bot-token.outputs.token }}
         run: |
-          gh pr create --title='${{ needs.preflight.outputs.message }}'\
-          --label=scope:release ${{ steps.labels.outputs.result }}\
-          --assignee=${{ github.actor }} --reviewer=${{ github.actor }}\
-          --body='## Description
+          gh pr create --title='${{ needs.preflight.outputs.message }}' ${{ steps.labels.outputs.result }} --assignee=${{ github.actor }} --reviewer=${{ github.actor }} --body='## Description
 
           <!-- A clear and concise description of your changes. -->
 

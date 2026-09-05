@@ -23,4 +23,4 @@ else
 fi
 
 git add $VERSION_MANIFEST
-git commit -S -s -m "release(chore): $@"
+git commit --allow-empty -S -s -m "release(chore): $@"
