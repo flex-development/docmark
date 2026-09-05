@@ -1,3 +1,9 @@
+## [docmark-util-types@1.0.0-dev.4](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-dev.3...docmark-util-types@1.0.0-dev.4) (2026-09-04)
+
+### :robot: Continuous Integration
+
+- [[`0697551`](https://github.com/flex-development/docmark/commit/0697551f33e71b7588c682e5b0624d54f296a68e)] **workflows:** [`release`] set environment url for root workspace
+
 ## [docmark-util-types@1.0.0-dev.3](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-dev.2...docmark-util-types@1.0.0-dev.3) (2026-09-04)
 
 ### :robot: Continuous Integration
@@ -91,6 +97,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
