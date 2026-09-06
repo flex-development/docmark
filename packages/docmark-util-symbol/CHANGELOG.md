@@ -1,3 +1,21 @@
+## [docmark-util-symbol@1.1.0-alpha.1](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.1...docmark-util-symbol@1.1.0-alpha.1) (2026-09-05)
+
+### :robot: Continuous Integration
+
+- [[`3f016f3`](https://github.com/flex-development/docmark/commit/3f016f3e742052e49b2bd750e962139b9c09b343)] **workflows:** `dependabot-dedupe` -> `dependabot-packages`
+
+### :pencil: Documentation
+
+- [[`8af0139`](https://github.com/flex-development/docmark/commit/8af0139fc738ecc8565e6b02a6ea564ef14f375a)] update badges
+
+### :sparkles: Features
+
+- [[`47e2165`](https://github.com/flex-development/docmark/commit/47e216514b0f75eb3f8333206366887a0179a301)] comment kind `hash`
+
+### :house_with_garden: Housekeeping
+
+- [[`bebdfa3`](https://github.com/flex-development/docmark/commit/bebdfa3fe475ab0b0661527f59ce5e1d1b5afc37)] **pkg:** fix `tag-version-prefix`
+
 ## [docmark-util-symbol@1.0.0-alpha.1](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-dev.7...docmark-util-symbol@1.0.0-alpha.1) (2026-09-05)
 
 ### :package: Build
@@ -125,6 +143,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
