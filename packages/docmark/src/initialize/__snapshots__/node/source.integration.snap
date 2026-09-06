@@ -6,7 +6,7 @@ exports[`integration:initialize/source > should parse source file ("01.txt",unde
     "enter",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": -1,
         "_index": 8,
@@ -746,7 +746,7 @@ exports[`integration:initialize/source > should parse source file ("01.txt",unde
     "exit",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": -1,
         "_index": 8,
@@ -4163,7 +4163,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
     "enter",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": -1,
         "_index": 39,
@@ -4397,7 +4397,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
     "exit",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": -1,
         "_index": 39,
@@ -4419,7 +4419,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
     "enter",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": 0,
         "_index": 46,
@@ -5161,7 +5161,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
     "exit",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": 0,
         "_index": 46,
@@ -5183,7 +5183,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
     "enter",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": 0,
         "_index": 51,
@@ -5417,7 +5417,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
     "exit",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": 0,
         "_index": 51,
@@ -5439,7 +5439,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
     "enter",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": 0,
         "_index": 56,
@@ -5673,7 +5673,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
     "exit",
     {
       "_container": true,
-      "_kind": "line",
+      "_kind": "slash",
       "end": {
         "_bufferIndex": 0,
         "_index": 56,

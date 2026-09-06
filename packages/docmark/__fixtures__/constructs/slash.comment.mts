@@ -1,6 +1,6 @@
 /**
- * @file Constructs - lineComment
- * @module fixtures/constructs/lineComment
+ * @file Fixtures - slashComment
+ * @module docmark/fixtures/constructs/slashComment
  */
 
 import { factorySpace } from '@flex-development/docmark-factory-space'
@@ -18,27 +18,23 @@ import type {
   State,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { eol } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
 
 /**
- * The line comment construct.
- *
- * The construct recognizes a line comment and maintains its container state
- * across lines.
+ * The slash comment construct.
  *
  * This construct is expected to run at the `source` content level.
  *
- * @const {ContinuableConstruct & NamedConstruct} lineComment
+ * @const {ContinuableConstruct & NamedConstruct} slashComment
  */
-const lineComment: ContinuableConstruct & NamedConstruct = {
-  continuation: { tokenize: tokenizeLineCommentContinuation },
-  exit: exitLineComment,
-  name: `${tt.comment}:${kind.line}`,
-  tokenize: tokenizeLineComment
+const slashComment: ContinuableConstruct & NamedConstruct = {
+  continuation: { tokenize: tokenizeSlashCommentContinuation },
+  exit: exitSlashComment,
+  name: `${tt.comment}:${kind.slash}`,
+  tokenize: tokenizeSlashComment
 }
 
-export default lineComment
+export default slashComment
 
 /**
  * Exit the comment container.
@@ -49,12 +45,16 @@ export default lineComment
  *  The context object used to transition the state machine
  * @return {undefined}
  */
-function exitLineComment(this: TokenizeContext, effects: Effects): undefined {
+function exitSlashComment(this: TokenizeContext, effects: Effects): undefined {
   return void effects.exit(tt.comment)
 }
 
 /**
- * Tokenize the first line of a line comment or a continued line.
+ * Tokenize the first line of a slash comment or a continued line.
+ *
+ * The first line opens the comment container before capturing the comment line
+ * prefix.\
+ * Continued lines reuse this tokenizer through the continuation construct.
  *
  * @this {TokenizeContext}
  *
@@ -67,7 +67,7 @@ function exitLineComment(this: TokenizeContext, effects: Effects): undefined {
  * @return {State}
  *  The initial state
  */
-function tokenizeLineComment(
+function tokenizeSlashComment(
   this: TokenizeContext,
   effects: Effects,
   ok: State,
@@ -83,8 +83,10 @@ function tokenizeLineComment(
   return startComment
 
   /**
-   * Attempt to begin a line comment,
-   * or try continuing a line comment if the container is already open.
+   * Attempt to begin or continue a slash comment.
+   *
+   * The comment container is opened when it is not already open.
+   * Continued lines reuse this state through the continuation construct.
    *
    * > 👉 **Note**: `␊` represents a line ending.
    *
@@ -112,13 +114,13 @@ function tokenizeLineComment(
    *  The next state
    */
   function startComment(this: void, code: Code): State | undefined {
-    // cannot start a line comment.
+    // cannot start a slash comment.
     if (code !== codes.slash) return nok(code)
     assert(self.containerState, 'expected `containerState` inside comment')
 
     // open the comment container if not already open.
     if (!self.containerState.open) {
-      effects.enter(tt.comment, { _container: true, _kind: kind.line })
+      effects.enter(tt.comment, { _container: true, _kind: kind.slash })
       self.containerState.open = true
     }
 
@@ -127,7 +129,7 @@ function tokenizeLineComment(
   }
 
   /**
-   * After first comment line marker.
+   * At first comment line marker.
    *
    * > 👉 **Note**: `␊` represents a line ending.
    *
@@ -145,8 +147,10 @@ function tokenizeLineComment(
    *  The next state
    */
   function atFirstMarker(this: void, code: Code): State | undefined {
+    // begin comment line prefix.
     effects.enter(tt.commentLinePrefix)
 
+    // capture first comment line marker.
     effects.enter(tt.commentLineMarker)
     effects.consume(code)
     effects.exit(tt.commentLineMarker)
@@ -155,14 +159,23 @@ function tokenizeLineComment(
   }
 
   /**
-   * After last comment line marker.
+   * After first comment line marker.
    *
    * > 👉 **Note**: `␊` represents a line ending.
    *
    * @example
    *  ```markdown
-   *  > |// continuation construct did not consume entire line.␊
+   *  > |//cannot be a line comment.␊
    *      ^
+   *  > |if (code !== self.previous) return nok(code)
+   *  ```
+   *
+   * @example
+   *  ```markdown
+   *  > |// continuation construct did not consume entire line.␊
+   *  > |// start markdown chunk from current point in the stream.␊
+   *      ^
+   *  > |if (!eol(self.previous)) return beforeMarkdown(code)␊
    *  ```
    *
    * @this {void}
@@ -173,12 +186,15 @@ function tokenizeLineComment(
    *  The next state
    */
   function afterFirstMarker(this: void, code: Code): State | undefined {
+    // cannot be a slash comment.
     if (code !== self.previous) return nok(code)
 
+    // capture second comment line marker.
     effects.enter(tt.commentLineMarker)
     effects.consume(code)
     effects.exit(tt.commentLineMarker)
 
+    // capture optional padding.
     return factorySpace(
       effects,
       afterMarkers,
@@ -190,12 +206,23 @@ function tokenizeLineComment(
   /**
    * After comment line markers and optional padding.
    *
+   * The comment line prefix ends immediately before comment content.
+   *
    * > 👉 **Note**: `␊` represents a line ending.
    *
    * @example
    *  ```markdown
+   *  > |//cannot be a line comment.␊
+   *       ^
+   *  > |if (code !== self.previous) return nok(code)
+   *  ```
+   *
+   * @example
+   *  ```markdown
    *  > |// continuation construct did not consume entire line.␊
+   *  > |// start markdown chunk from current point in the stream.␊
    *        ^
+   *  > |if (!eol(self.previous)) return beforeMarkdown(code)␊
    *  ```
    *
    * @this {void}
@@ -212,7 +239,12 @@ function tokenizeLineComment(
 }
 
 /**
- * Continue tokenizing a line comment.
+ * Continue tokenizing a slash comment.
+ *
+ * A continuation line may contain optional padding before
+ * a comment line prefix.\
+ * The comment container remains open while the {@linkcode slashComment}
+ * construct is attempted again.
  *
  * @this {TokenizeContext}
  *
@@ -225,19 +257,12 @@ function tokenizeLineComment(
  * @return {State}
  *  The initial state
  */
-function tokenizeLineCommentContinuation(
+function tokenizeSlashCommentContinuation(
   this: TokenizeContext,
   effects: Effects,
   ok: State,
   nok: State
 ): State {
-  /**
-   * The tokenization context.
-   *
-   * @const {TokenizeContext} self
-   */
-  const self: TokenizeContext = this
-
   return lineStart
 
   /**
@@ -248,8 +273,9 @@ function tokenizeLineCommentContinuation(
    * @example
    *  ```markdown
    *  > |// continuation construct did not consume entire line.␊
-   *  > |// start comment chunk from current point in the stream.␊
+   *  > |// start markdown chunk from current point in the stream.␊
    *     ^
+   *  > |if (!eol(self.previous)) return beforeMarkdown(code)␊
    *  ```
    *
    * @this {void}
@@ -260,20 +286,23 @@ function tokenizeLineCommentContinuation(
    *  The next state
    */
   function lineStart(this: void, code: Code): State | undefined {
-    assert(eol(self.previous), 'expected to be at beginning of line')
     return factorySpace(effects, afterLineStart, tt.commentPadding)(code)
   }
 
   /**
-   * Try capturing comment markers.
+   * Attempt to tokenize comment line markers.
+   *
+   * The {@linkcode lineComment} construct is attempted from the current point
+   * after optional padding.
    *
    * > 👉 **Note**: `␊` represents a line ending.
    *
    * @example
    *  ```markdown
-   *  > |// continuation construct did not consume entire line.␊
-   *  > |// start comment chunk from current point in the stream.␊
-   *     ^
+   *  > |   // continuation construct did not consume entire line.␊
+   *  > |   // start comment chunk from current point in the stream.␊
+   *        ^
+   *  > |   if (!eol(self.previous)) return beforeMarkdown(code)␊
    *  ```
    *
    * @this {void}
@@ -284,6 +313,6 @@ function tokenizeLineCommentContinuation(
    *  The next state
    */
   function afterLineStart(this: void, code: Code): State | undefined {
-    return effects.attempt(lineComment, ok, nok)(code)
+    return effects.attempt(slashComment, ok, nok)(code)
   }
 }

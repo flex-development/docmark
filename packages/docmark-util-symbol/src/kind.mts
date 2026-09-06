@@ -13,7 +13,7 @@ const kind = {
   docblock: 'docblock',
   hash: 'hash',
   hashbang: 'hashbang',
-  line: 'line'
+  slash: 'slash'
 } as const
 
 export default kind

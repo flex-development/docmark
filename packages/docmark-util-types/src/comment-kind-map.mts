@@ -21,7 +21,7 @@ interface CommentKindMap {
   docblock: 'docblock'
   hash: 'hash'
   hashbang: 'hashbang'
-  line: 'line'
+  slash: 'slash'
 }
 
 export type { CommentKindMap as default }

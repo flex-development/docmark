@@ -7,7 +7,7 @@ import blockTag from '#fixtures/constructs/block-tag'
 import docblock from '#fixtures/constructs/docblock.comment'
 import hashbang from '#fixtures/constructs/hashbang.comment'
 import inlineTag from '#fixtures/constructs/inline-tag'
-import lineComment from '#fixtures/constructs/line.comment'
+import slashComment from '#fixtures/constructs/slash.comment'
 import { codes } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
 
@@ -24,7 +24,7 @@ const js: NormalizedExtension = {
   },
   source: {
     [codes.numberSign]: hashbang,
-    [codes.slash]: [docblock, lineComment]
+    [codes.slash]: [docblock, slashComment]
   },
   text: {
     [codes.leftCurlyBrace]: inlineTag

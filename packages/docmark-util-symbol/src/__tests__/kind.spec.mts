@@ -10,7 +10,7 @@ describe('unit:kind', () => {
   let keys: string[]
 
   beforeAll(() => {
-    keys = ['block', 'docblock', 'hash', 'hashbang', 'line']
+    keys = ['block', 'docblock', 'hash', 'hashbang', 'slash']
   })
 
   it('should be comment kind dictionary', () => {
@@ -19,6 +19,6 @@ describe('unit:kind', () => {
     expect(testSubject).to.have.property('docblock', 'docblock')
     expect(testSubject).to.have.property('hash', 'hash')
     expect(testSubject).to.have.property('hashbang', 'hashbang')
-    expect(testSubject).to.have.property('line', 'line')
+    expect(testSubject).to.have.property('slash', 'slash')
   })
 })
