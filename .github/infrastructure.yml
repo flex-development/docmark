@@ -41,7 +41,8 @@ branches:
           - context: codecov/project/docmark-util-subtokenize
           - context: codecov/project/docmark-util-symbol
           - context: commitlint
-          - context: dependabot-dedupe
+          - context: dedupe
+          - context: dprint
           - context: format
           - context: lint
           - context: spelling
