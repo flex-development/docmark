@@ -19,6 +19,7 @@
 interface CommentKindMap {
   block: 'block'
   docblock: 'docblock'
+  hash: 'hash'
   line: 'line'
 }
 

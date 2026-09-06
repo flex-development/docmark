@@ -11,6 +11,7 @@
 const kind = {
   block: 'block',
   docblock: 'docblock',
+  hash: 'hash',
   line: 'line'
 } as const
 

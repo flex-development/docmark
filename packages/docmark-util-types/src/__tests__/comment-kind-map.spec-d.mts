@@ -19,6 +19,10 @@ describe('unit-d:CommentKindMap', () => {
       .toEqualTypeOf<'docblock'>()
   })
 
+  it('should match [hash: "hash"]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('hash').toEqualTypeOf<'hash'>()
+  })
+
   it('should match [line: "line"]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('line').toEqualTypeOf<'line'>()
   })
