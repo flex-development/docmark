@@ -33,7 +33,7 @@
     "parseable": true,
     "prefer-dedupe": true,
     "provenance": true,
-    "tag-version-prefix": "docmark-util-combine-extensions"
+    "tag-version-prefix": "docmark-util-combine-extensions@"
   },
   "type": "module",
   "files": [

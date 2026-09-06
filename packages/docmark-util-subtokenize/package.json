@@ -32,7 +32,7 @@
     "parseable": true,
     "prefer-dedupe": true,
     "provenance": true,
-    "tag-version-prefix": "docmark-util-subtokenize"
+    "tag-version-prefix": "docmark-util-subtokenize@"
   },
   "type": "module",
   "files": [

@@ -40,7 +40,7 @@
     "parseable": true,
     "prefer-dedupe": true,
     "provenance": true,
-    "tag-version-prefix": "docmark-grammar"
+    "tag-version-prefix": "docmark-grammar@"
   },
   "type": "module",
   "files": [

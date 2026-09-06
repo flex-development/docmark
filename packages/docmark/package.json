@@ -49,7 +49,7 @@
     "parseable": true,
     "prefer-dedupe": true,
     "provenance": true,
-    "tag-version-prefix": "docmark"
+    "tag-version-prefix": "docmark@"
   },
   "type": "module",
   "files": [

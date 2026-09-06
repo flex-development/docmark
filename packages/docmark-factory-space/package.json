@@ -31,7 +31,7 @@
     "parseable": true,
     "prefer-dedupe": true,
     "provenance": true,
-    "tag-version-prefix": "docmark-factory-space"
+    "tag-version-prefix": "docmark-factory-space@"
   },
   "type": "module",
   "files": [
