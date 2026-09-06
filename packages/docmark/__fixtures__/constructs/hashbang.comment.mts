@@ -4,7 +4,7 @@
  */
 
 import { factorySpace } from '@flex-development/docmark-factory-space'
-import { codes, tt } from '@flex-development/docmark-util-symbol'
+import { codes, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
   ContinuableConstruct,
@@ -25,7 +25,7 @@ const hashbang: ContinuableConstruct & NamedConstruct = {
   add: 'after',
   continuation: { tokenize: tokenizeHashbangContinuation },
   exit: exitHashbang,
-  name: tt.comment + ':hashbang',
+  name: `${tt.comment}:${kind.hashbang}`,
   previous: previousHashbang,
   tokenize: tokenizeHashbang
 }
@@ -104,7 +104,7 @@ function tokenizeHashbang(
   function startHashbang(this: void, code: Code): State | undefined {
     assert(code === codes.numberSign, 'expected `codes.numberSign`')
 
-    effects.enter(tt.comment, { _container: true, _kind: 'hashbang' })
+    effects.enter(tt.comment, { _container: true, _kind: kind.hashbang })
 
     effects.enter(tt.commentLinePrefix)
 
@@ -159,7 +159,7 @@ function tokenizeHashbang(
     assert(!eol(code), 'did not expect line ending')
     assert(!eos(code), 'did not expect end of stream')
 
-    effects.enter('interpreterPath')
+    effects.enter(tt.interpreterPath)
     return insidePath(code)
   }
 
@@ -177,13 +177,13 @@ function tokenizeHashbang(
     // interpreter path and comment terminated by end of stream.
     // the `source` initializer will handle closing the comment.
     if (eos(code)) {
-      effects.exit('interpreterPath')
+      effects.exit(tt.interpreterPath)
       return ok(code)
     }
 
     // finish interpreter path before line ending.
     if (eol(code)) {
-      effects.exit('interpreterPath')
+      effects.exit(tt.interpreterPath)
       effects.enter(tt.lineEnding)
       effects.consume(code)
       effects.exit(tt.lineEnding)

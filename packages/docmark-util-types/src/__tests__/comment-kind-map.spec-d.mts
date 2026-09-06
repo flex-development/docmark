@@ -23,6 +23,12 @@ describe('unit-d:CommentKindMap', () => {
     expectTypeOf<TestSubject>().toHaveProperty('hash').toEqualTypeOf<'hash'>()
   })
 
+  it('should match [hashbang: "hashbang"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('hashbang')
+      .toEqualTypeOf<'hashbang'>()
+  })
+
   it('should match [line: "line"]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('line').toEqualTypeOf<'line'>()
   })

@@ -2,10 +2,6 @@ import type { Construct, State } from '@flex-development/docmark-util-types'
 import type * as mark from '@flex-development/mark/parse'
 
 declare module '@flex-development/docmark-util-types' {
-  interface CommentKindMap {
-    hashbang?: 'hashbang'
-  }
-
   interface ContainerState {
     /**
      * At the `source`-level, whether markdown indentation was detected.
@@ -33,10 +29,6 @@ declare module '@flex-development/docmark-util-types' {
      * @internal
      */
     tag?: string | undefined
-  }
-
-  interface TokenTypeMap {
-    interpreterPath: 'interpreterPath'
   }
 
   interface TokenizeContext {

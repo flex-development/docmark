@@ -12,7 +12,7 @@
  * @example
  *  declare module '@flex-development/docmark-util-types' {
  *    interface CommentKindMap {
- *      hashbang: 'hashbang'
+ *      rust: 'rust'
  *    }
  *  }
  */
@@ -20,6 +20,7 @@ interface CommentKindMap {
   block: 'block'
   docblock: 'docblock'
   hash: 'hash'
+  hashbang: 'hashbang'
   line: 'line'
 }
 

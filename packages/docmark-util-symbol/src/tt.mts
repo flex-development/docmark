@@ -86,6 +86,7 @@ const tt = {
   inlineTag: 'inlineTag',
   inlineTagMarker: 'inlineTagMarker',
   inlineTagText: 'inlineTagText',
+  interpreterPath: 'interpreterPath',
   label: 'label',
   labelEnd: 'labelEnd',
   labelImage: 'labelImage',
