@@ -1,3 +1,30 @@
+## [docmark-util-types@1.0.0-alpha.2](https://github.com/flex-development/docmark/compare/docmark-util-types@1.1.0-alpha.1...docmark-util-types@1.0.0-alpha.2) (2026-09-07)
+
+### ⚠ BREAKING CHANGES
+
+- comment kind `slash`
+
+### :robot: Continuous Integration
+
+- [[`85bb3c4`](https://github.com/flex-development/docmark/commit/85bb3c4ed2c7ee20532a9529a44e18bcba2b1387)] **deps:** Bump streetsidesoftware/cspell-action from 9.0.1 to 9.1.0 ([#108](https://github.com/flex-development/docmark/issues/108))
+- [[`6ff5dc6`](https://github.com/flex-development/docmark/commit/6ff5dc69ae2966d8a03abb5c1b8289d2b295d11c)] **workflows:** [`release-chore`] update `changesetBaseRefs` in `.yarnrc.yml`
+- [[`d49dfd7`](https://github.com/flex-development/docmark/commit/d49dfd764640d98cdd4a3bb88278b053476d7400)] **workflows:** [`release`] [`jobs.preflight`] immutable installs
+- [[`b7d986a`](https://github.com/flex-development/docmark/commit/b7d986ae5944944a7ddeb87cc6be289bab1f0b97)] **workflows:** [`release`] fix workspace directory
+- [[`88d7524`](https://github.com/flex-development/docmark/commit/88d7524ea6030ce475cf455ad6055e689d88a758)] **workflows:** [`release`] use `yarn workspace`
+
+### :sparkles: Features
+
+- [[`2e3445c`](https://github.com/flex-development/docmark/commit/2e3445cbc8dacea6e130b9d35747f4d0de7d8e05)] comment kind `hashbang`
+- [[`f2582b5`](https://github.com/flex-development/docmark/commit/f2582b5b1b1e6563d4ee21917be61d37fd155c45)] documentation-specific comment kinds
+
+### :mechanical_arm: Refactors
+
+- [[`bd2e632`](https://github.com/flex-development/docmark/commit/bd2e6325d4f6a049e51a23a6577c945060541ccf)] comment kind `slash`
+
+### :wastebasket: Reverts
+
+- [[`68d97ba`](https://github.com/flex-development/docmark/commit/68d97ba30e50ec2d536e62fd632f62703bc298b6)] release: 1.0.0-alpha.2 ([#114](https://github.com/flex-development/docmark/issues/114))
+
 ## [docmark-util-types@1.1.0-alpha.1](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.1...docmark-util-types@1.1.0-alpha.1) (2026-09-05)
 
 ### :robot: Continuous Integration
@@ -143,6 +170,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
