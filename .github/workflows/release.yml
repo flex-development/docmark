@@ -167,16 +167,14 @@ jobs:
         run: |
           workspace=${{ matrix.workspace }}
           echo "result=${workspace#@*/}" >>$GITHUB_OUTPUT
-      - id: directory
+      - id: workspace-directory
         name: Get workspace directory
-        run: |
-          directory=$(yarn workspace ${{ matrix.workspace }} exec echo $INIT_CWD)
-          echo "result=$directory" >>$GITHUB_OUTPUT
+        run: echo "result=$(yarn workspace ${{ matrix.workspace }} exec pwd)" >>$GITHUB_OUTPUT
       - id: version
         name: Get release version
         uses: flex-development/jq-action@1.0.0
         with:
-          data: ${{ steps.directory.outputs.result }}/package.json
+          data: ${{ steps.workspace-directory.outputs.result }}/package.json
           filter: .version
       - id: dist
         if: matrix.workspace != steps.package.outputs.result
