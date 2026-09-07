@@ -52,6 +52,12 @@ jobs:
       - id: debug
         name: Print environment variables and event payload
         uses: hmarr/debug-action@v3.0.0
+      - id: fail-actor
+        if: contains(vars.MAINTAINERS, github.actor) == false
+        name: Fail on unauthorized actor
+        run: |
+          echo '**Unauthorized actor: ${{ github.actor }}**' >>$GITHUB_STEP_SUMMARY
+          exit 1
       - id: checkout
         name: Checkout ${{ github.ref_name }}
         uses: actions/checkout@v7.0.1
