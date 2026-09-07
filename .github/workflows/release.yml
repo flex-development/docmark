@@ -79,7 +79,7 @@ jobs:
           exit 1
       - id: dependencies
         name: Install dependencies
-        run: yarn --no-immutable && echo "$GITHUB_WORKSPACE/node_modules/.bin" >>$GITHUB_PATH
+        run: yarn --immutable
       - id: build
         name: Build workspaces
         run: yarn build
