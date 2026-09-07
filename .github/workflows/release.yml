@@ -177,10 +177,6 @@ jobs:
         with:
           data: ${{ steps.workspace-directory.outputs.result || github.workspace }}/package.json
           filter: .version
-      - id: tag
-        name: Create annotated tag
-        run: 'grease tag -ps -m="release: {tag}" ${{ steps.version.outputs.result }}'
-        working-directory: ${{ steps.workspace-directory.outputs.result }}
       - id: dist
         if: matrix.workspace != steps.package.outputs.result
         name: Get dist tag
@@ -214,6 +210,10 @@ jobs:
         run: |
           grease changelog -wo $NOTES_FILE
           echo "$(cat $NOTES_FILE)" >>$GITHUB_STEP_SUMMARY
+        working-directory: ${{ steps.workspace-directory.outputs.result }}
+      - id: tag
+        name: Create annotated tag
+        run: 'grease tag -ps -m="release: {tag}" ${{ steps.version.outputs.result }}'
         working-directory: ${{ steps.workspace-directory.outputs.result }}
       - id: publish
         if: matrix.workspace != steps.package.outputs.result
