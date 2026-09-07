@@ -103,7 +103,7 @@ jobs:
         name: Get workspace matrix
         uses: flex-development/jq-action@1.0.0
         with:
-          data: ./versions/${{ steps.metadata.outputs.match }}.json
+          data: ./versions/${{ steps.metadata.outputs.group2 }}.json
           filter: keys
   publish:
     needs: preflight
