@@ -177,6 +177,11 @@ jobs:
       - id: bump
         name: Bump packages
         run: yarn version apply --all --force
+      - id: changeset-base-refs
+        name: Update `changesetBaseRefs` in .yarnrc.yml
+        run: |
+          set -e
+          yq '.changesetBaseRefs="${{ needs.preflight.outputs.version }}"' -i .yarnrc.yml
       - id: changelog
         name: Add CHANGELOG entries
         env:
