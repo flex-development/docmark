@@ -1,3 +1,10 @@
+## [docmark-util-symbol@1.0.0-alpha.3](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.2...docmark-util-symbol@1.0.0-alpha.3) (2026-09-07)
+
+### :robot: Continuous Integration
+
+- [[`d4e0676`](https://github.com/flex-development/docmark/commit/d4e0676bdb0658ac1d5b7ce3bd408077cd0264cb)] **workflows:** [`release`] [`job.publish`] tag after generating release notes
+- [[`e1ea970`](https://github.com/flex-development/docmark/commit/e1ea970213e53b7890650bf0daea6bf12da2a63e)] **workflows:** [`release`] fail on unauthorized actor
+
 ## [docmark-util-symbol@1.0.0-alpha.2](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.1.0-alpha.1...docmark-util-symbol@1.0.0-alpha.2) (2026-09-07)
 
 ### ⚠ BREAKING CHANGES
@@ -163,6 +170,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 

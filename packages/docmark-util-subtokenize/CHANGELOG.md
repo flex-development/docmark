@@ -1,3 +1,10 @@
+## [docmark-util-subtokenize@1.0.0-alpha.3](https://github.com/flex-development/docmark/compare/docmark-util-subtokenize@1.0.0-alpha.2...docmark-util-subtokenize@1.0.0-alpha.3) (2026-09-07)
+
+### :robot: Continuous Integration
+
+- [[`d4e0676`](https://github.com/flex-development/docmark/commit/d4e0676bdb0658ac1d5b7ce3bd408077cd0264cb)] **workflows:** [`release`] [`job.publish`] tag after generating release notes
+- [[`e1ea970`](https://github.com/flex-development/docmark/commit/e1ea970213e53b7890650bf0daea6bf12da2a63e)] **workflows:** [`release`] fail on unauthorized actor
+
 ## [docmark-util-subtokenize@1.0.0-alpha.2](https://github.com/flex-development/docmark/compare/docmark-util-subtokenize@1.0.0-alpha.1...docmark-util-subtokenize@1.0.0-alpha.2) (2026-09-07)
 
 ### ⚠ BREAKING CHANGES
@@ -162,6 +169,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
