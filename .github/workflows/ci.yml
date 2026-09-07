@@ -507,8 +507,8 @@ jobs:
           key: ${{ needs.build.outputs.cache-key }}
           path: ${{ env.CACHE_PATH_BUILD }}
       - id: local-binaries
-        name: Add local binaries to $PATH
-        run: echo "$GITHUB_WORKSPACE/node_modules/.bin" >> $GITHUB_PATH
+        name: Add local binaries to path
+        run: echo "${{ github.workspace }}/node_modules/.bin" >> ${{ github.path }}
       - id: directory
         name: Get package directory
         run: echo "result=packages/${{ matrix.package }}" >>$GITHUB_OUTPUT

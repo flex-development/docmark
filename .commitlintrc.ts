@@ -18,6 +18,7 @@ import { scopes } from '@flex-development/commitlint-config'
 const config: UserConfig = {
   extends: ['@flex-development'],
   rules: {
+    'header-max-length': [Severity.Error, 'always', 105],
     'scope-enum': [Severity.Error, 'always', scopes([
       'chore',
       'docmark',
