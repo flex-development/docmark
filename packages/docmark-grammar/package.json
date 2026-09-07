@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-grammar",
   "description": "core docmark constructs and utilities",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "keywords": [
     "commonmark",
     "docdown",
@@ -61,9 +61,9 @@
     "attw": "tsc --build tsconfig.build.json --clean --dry && tsc --build tsconfig.build.json --clean && tsc --build tsconfig.build.json --verbose"
   },
   "dependencies": {
-    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.2",
-    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.2",
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.2",
+    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.3",
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.3",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.3",
     "@flex-development/mark-util-character": "1.1.0",
     "devlop": "1.1.0"
   },
