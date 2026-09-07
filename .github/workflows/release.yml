@@ -169,8 +169,15 @@ jobs:
           workspace=${{ matrix.workspace }}
           echo "result=${workspace#@*/}" >>$GITHUB_OUTPUT
       - id: workspace-directory
-        name: Get workspace directory
-        run: echo "result=$(yarn workspace ${{ matrix.workspace }} exec pwd)" >>$GITHUB_OUTPUT
+        run: |
+          directory=.
+
+          # get package directory for non-root workspace.
+          if [[ ${{ matrix.workspace }} != ${{ steps.package.outputs.result }} ]]; then
+            directory=packages/${{ steps.package.outputs.result }}
+          fi
+
+          echo "result=$directory" >>$GITHUB_OUTPUT
       - id: version
         name: Get release version
         uses: flex-development/jq-action@1.0.0
