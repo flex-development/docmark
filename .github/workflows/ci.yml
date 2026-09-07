@@ -117,6 +117,7 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-key }}
           path: ${{ env.CACHE_PATH }}
       - id: lint
@@ -144,6 +145,7 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-key }}
           path: ${{ env.CACHE_PATH }}
       - id: version
@@ -180,6 +182,7 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-key }}
           path: ${{ env.CACHE_PATH }}
       - id: remark
@@ -230,6 +233,7 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-key }}
           path: ${{ env.CACHE_PATH }}
       - id: typecheck
@@ -271,6 +275,7 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-key }}
           path: ${{ env.CACHE_PATH }}
       - id: test
@@ -356,6 +361,7 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-key }}
           path: ${{ env.CACHE_PATH }}
       - id: test
@@ -440,6 +446,7 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-key }}
           path: ${{ env.CACHE_PATH }}
       - id: build
@@ -498,12 +505,14 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-key }}
           path: ${{ env.CACHE_PATH }}
       - id: restore-build-cache
         name: Restore build cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.build.outputs.cache-key }}
           path: ${{ env.CACHE_PATH_BUILD }}
       - id: local-binaries

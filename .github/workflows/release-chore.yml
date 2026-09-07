@@ -84,7 +84,7 @@ jobs:
           text: ${{ github.event.head_commit.message }}
       - id: fail-metadata
         if: steps.metadata.outputs.match == ''
-        name: Fail on invalid commit message
+        name: Fail on invalid head commit message
         run: |
           ERR='**Invalid release chore commit message**
           ```sh

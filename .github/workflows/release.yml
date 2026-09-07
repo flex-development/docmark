@@ -1,6 +1,6 @@
 # Release
 #
-# Publish GitHub releases on release branch merge.
+# Publish GitHub releases after a release is merged.
 #
 # References:
 #
@@ -8,10 +8,10 @@
 # - https://docs.github.com/actions/learn-github-actions/contexts
 # - https://docs.github.com/actions/learn-github-actions/expressions
 # - https://docs.github.com/actions/reference/workflows-and-actions/workflow-commands
-# - https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#pull_request
+# - https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#push
 # - https://docs.github.com/actions/using-workflows/using-github-cli-in-workflows
 # - https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions
-# - https://docs.github.com/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request
+# - https://docs.github.com/webhooks-and-events/webhooks/webhook-events-and-payloads#push
 # - https://git-scm.com/book/en/v2/Git-Basics-Tagging
 # - https://github.com/actions/checkout
 # - https://github.com/crazy-max/ghaction-import-gpg
@@ -22,65 +22,62 @@
 # - https://github.com/flex-development/manver-action
 # - https://github.com/hmarr/debug-action
 # - https://github.com/kaisugi/action-regex-match
-# - https://regex101.com/r/3gxjZI
+# - https://regex101.com/r/wu576x
 # - https://yarnpkg.com/cli/pack
 # - https://yarnpkg.com/cli/workspace
 
 ---
 name: release
 on:
-  pull_request:
+  push:
     branches:
       - main
-    types:
-      - closed
 env:
   CACHE_PATH_DEPS: |
     node_modules
     packages/*/node_modules
   CACHE_PATH_BUILD: packages/*/dist
-  ref_name: ${{ format('{0}@{1}', github.base_ref, github.event.pull_request.merge_commit_sha) }}
 jobs:
   preflight:
-    if: ${{ startsWith(github.head_ref, 'release/') && github.event.pull_request.merged }}
+    if: ${{ startsWith(github.event.head_commit.message, 'release:') }}
     permissions:
-      actions: write
       contents: read
     runs-on: ubuntu-latest
     outputs:
       cache-build: ${{ steps.cache-key-build.outputs.result }}
       cache-deps: ${{ steps.cache-key-deps.outputs.result }}
+      pr: ${{ steps.metadata.outputs.group8 }}
       workspaces: ${{ steps.workspaces.outputs.result }}
     steps:
       - id: debug
         name: Print environment variables and event payload
         uses: hmarr/debug-action@v3.0.0
       - id: checkout
-        name: Checkout ${{ env.ref_name }}
+        name: Checkout ${{ github.ref_name }}
         uses: actions/checkout@v7.0.1
         with:
-          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          ref: ${{ github.sha }}
       - id: metadata
         name: Extract release metadata
         uses: kaisugi/action-regex-match@v1.0.2
         with:
           flags: u
-          regex: ${{ vars.RELEASE_REGEX }}
-          text: ${{ github.event.pull_request.title }}
+          regex: ${{ vars.RELEASE_MERGED_REGEX }}
+          text: ${{ github.event.head_commit.message }}
       - id: fail-metadata
         if: steps.metadata.outputs.match == ''
-        name: Fail on invalid pull request title
+        name: Fail on invalid head commit message
         run: |
-          ERR='**Invalid pull request title**
+          err='**Invalid release merge message**
           ```sh
-          ${{ github.event.pull_request.title }}
+          ${{ github.event.head_commit.message }}
           ```
-          Title must match [`${{ vars.RELEASE_REGEX }}`](https://regex101.com/r/3gxjZI)'
-          echo "$ERR" >>$GITHUB_STEP_SUMMARY
+          Message must match [`${{ vars.RELEASE_MERGED_REGEX }}`](https://regex101.com/r/wu576x)'
+          echo "$err" >>$GITHUB_STEP_SUMMARY
           exit 1
       - id: dependencies
         name: Install dependencies
-        run: yarn --no-immutable
+        run: yarn --immutable
       - id: build
         name: Build workspaces
         run: yarn build
@@ -123,12 +120,12 @@ jobs:
       NOTES_FILE: RELEASE_NOTES.md
     steps:
       - id: checkout
-        name: Checkout ${{ env.ref_name }}
+        name: Checkout ${{ github.ref_name }}
         uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: true
-          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          ref: ${{ github.sha }}
           token: ${{ env.GITHUB_TOKEN }}
       - id: gpg-import
         name: Import GPG key
@@ -152,12 +149,14 @@ jobs:
         name: Restore dependencies cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-deps }}
           path: ${{ env.CACHE_PATH_DEPS }}
       - id: restore-build-cache
         name: Restore build cache
         uses: actions/cache@v6.1.0
         with:
+          fail-on-cache-miss: true
           key: ${{ needs.preflight.outputs.cache-build }}
           path: ${{ env.CACHE_PATH_BUILD }}
       - id: local-binaries
@@ -197,7 +196,7 @@ jobs:
       - id: build-metadata
         if: matrix.workspace != steps.package.outputs.result
         name: Add build metadata to manifest
-        run: yq '.build="${{ github.event.pull_request.merge_commit_sha }}"' -i package.json
+        run: yq '.build="${{ github.sha }}"' -i package.json
         working-directory: ${{ steps.workspace-directory.outputs.result }}
       - id: pack
         if: matrix.workspace != steps.package.outputs.result
