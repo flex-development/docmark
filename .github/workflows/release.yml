@@ -80,7 +80,7 @@ jobs:
           exit 1
       - id: dependencies
         name: Install dependencies
-        run: yarn --immutable
+        run: yarn --no-immutable
       - id: build
         name: Build workspaces
         run: yarn build
