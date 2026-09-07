@@ -169,21 +169,19 @@ jobs:
           workspace=${{ matrix.workspace }}
           echo "result=${workspace#@*/}" >>$GITHUB_OUTPUT
       - id: workspace-directory
-        run: |
-          directory=.
-
-          # get package directory for non-root workspace.
-          if [[ ${{ matrix.workspace }} != ${{ steps.package.outputs.result }} ]]; then
-            directory=packages/${{ steps.package.outputs.result }}
-          fi
-
-          echo "result=$directory" >>$GITHUB_OUTPUT
+        if: matrix.workspace != steps.package.outputs.result
+        name: Get workspace directory
+        run: echo "result=$(yarn workspace ${{ matrix.workspace }} exec pwd)" >>$GITHUB_OUTPUT
       - id: version
         name: Get release version
         uses: flex-development/jq-action@1.0.0
         with:
-          data: ${{ steps.workspace-directory.outputs.result }}/package.json
+          data: ${{ steps.workspace-directory.outputs.result || github.workspace }}/package.json
           filter: .version
+      - id: tag
+        name: Create annotated tag
+        run: 'grease tag -ps -m="release: {tag}" ${{ steps.version.outputs.result }}'
+        working-directory: ${{ steps.workspace-directory.outputs.result }}
       - id: dist
         if: matrix.workspace != steps.package.outputs.result
         name: Get dist tag
@@ -199,32 +197,28 @@ jobs:
       - id: build-metadata
         if: matrix.workspace != steps.package.outputs.result
         name: Add build metadata to manifest
-        run: |
-          yarn workspace ${{ matrix.workspace }} exec \
-          yq '.build="${{ github.event.pull_request.merge_commit_sha }}"' -i package.json
+        run: yq '.build="${{ github.event.pull_request.merge_commit_sha }}"' -i package.json
+        working-directory: ${{ steps.workspace-directory.outputs.result }}
       - id: pack
         if: matrix.workspace != steps.package.outputs.result
         name: Pack project
         run: |
-          yarn workspace ${{ matrix.workspace }} exec mv CHANGELOG.md _CHANGELOG.md
-          yarn workspace ${{ matrix.workspace }} pack --out %s-%v.tgz
-          yarn workspace ${{ matrix.workspace }} exec mv _CHANGELOG.md CHANGELOG.md
-      - id: release-notes
+          mv CHANGELOG.md _CHANGELOG.md
+          yarn pack --out %s-%v.tgz
+          mv _CHANGELOG.md CHANGELOG.md
+        working-directory: ${{ steps.workspace-directory.outputs.result }}
+      - id: notes
         if: matrix.workspace != steps.package.outputs.result
         name: Generate release notes
         env:
           TZ: ${{ vars.TZ }}
         run: |
-          yarn workspace ${{ matrix.workspace }} exec grease changelog -wo $NOTES_FILE
+          grease changelog -wo $NOTES_FILE
           echo "$(cat $NOTES_FILE)" >>$GITHUB_STEP_SUMMARY
-      - id: tag
-        name: Create annotated tag
-        run: |
-          yarn workspace ${{ matrix.workspace }} exec \
-          grease tag -ps -m="release: {tag}" ${{ steps.version.outputs.result }}
+        working-directory: ${{ steps.workspace-directory.outputs.result }}
       - id: publish
         if: matrix.workspace != steps.package.outputs.result
         name: Publish release
         run: |
-          yarn workspace ${{ matrix.workspace }} exec \
           gh release create ${{ steps.environment.outputs.tag }} *.tgz --title=${{ steps.environment.outputs.tag }} --notes-file=${{ env.NOTES_FILE }} --prerelease=${{ steps.dist.outputs.prerelease }} --verify-tag --discussion-category=releases
+        working-directory: ${{ steps.workspace-directory.outputs.result }}
