@@ -3,8 +3,6 @@
  * @module tests/plugins/chai/each
  */
 
-import type { List } from '@flex-development/mark/core'
-
 export default plugin
 
 /**
@@ -29,7 +27,7 @@ function plugin(chai: Chai.ChaiStatic, utils: Chai.ChaiUtils): undefined {
    */
   function each(this: Chai.AssertionStatic): undefined {
     /**
-     * Subject of assertion.
+     * The subject of the assertion.
      *
      * @const {unknown} object
      */
@@ -59,10 +57,18 @@ function plugin(chai: Chai.ChaiStatic, utils: Chai.ChaiUtils): undefined {
    *
    * @param {unknown} thing
    *  The value to check
-   * @return {List}
+   * @return {thing is List}
    *  `true` if `thing` is an array or set
    */
   function list(this: void, thing: unknown): thing is List {
     return Array.isArray(thing) || thing instanceof Set
   }
+
+  /**
+   * A list.
+   *
+   * @template {any} [T=unknown]
+   *  The list item type
+   */
+  type List<T = unknown> = ReadonlySet<T> | Set<T> | T[] | readonly T[]
 }

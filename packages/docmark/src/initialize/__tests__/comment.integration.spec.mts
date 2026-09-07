@@ -4,6 +4,7 @@
  */
 
 import js from '#fixtures/extensions/js'
+import snapshot from '#tests/utils/snapshot-events'
 import { parse, preprocess } from '@flex-development/docmark'
 import { tt } from '@flex-development/docmark-util-symbol'
 import type {
@@ -12,7 +13,6 @@ import type {
   FileLike
 } from '@flex-development/docmark-util-types'
 import pathe from '@flex-development/pathe'
-import snapshot from '@tests/utils/snapshot-events.mts'
 import { readSync as read } from 'to-vfile'
 import { beforeAll, describe, expect, it } from 'vitest'
 

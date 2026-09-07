@@ -1,6 +1,6 @@
 /**
- * @file Constructs - docblock
- * @module docmark/fixtures/docblock
+ * @file Constructs - blockComment
+ * @module docmark/fixtures/blockComment
  */
 
 import { factorySpace } from '@flex-development/docmark-factory-space'
@@ -30,23 +30,23 @@ import { eol, eos, whitespace } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
 
 /**
- * The docblock comment construct.
+ * The block comment construct.
  *
- * @const {ContinuableConstruct & NamedConstruct} docblock
+ * @const {ContinuableConstruct & NamedConstruct} blockComment
  */
-const docblock: ContinuableConstruct & NamedConstruct = {
-  continuation: { tokenize: tokenizeDocBlockContinuation },
-  exit: exitComment,
-  name: `${tt.comment}:${kind.docblock}`,
-  tokenize: tokenizeDocBlock
+const blockComment: ContinuableConstruct & NamedConstruct = {
+  continuation: { tokenize: tokenizeBlockCommentContinuation },
+  exit: exitBlockComment,
+  name: `${tt.comment}:${kind.block}`,
+  tokenize: tokenizeBlockComment
 }
 
-export default docblock
+export default blockComment
 
 /**
  * The comment opener construct.
  *
- * A comment opener begins a docblock comment.
+ * A comment opener begins a block comment.
  * The opener consists of a forward slash (`/`)
  * followed by two asterisks (`**`).
  *
@@ -63,7 +63,7 @@ const commentOpener: PartialConstruct = {
 /**
  * The comment closer construct.
  *
- * A comment closer terminates a docblock comment.
+ * A comment closer terminates a block comment.
  * The closing marker consists of an asterisk (`*`) immediately followed by a
  * forward slash (`/`).
  *
@@ -114,12 +114,12 @@ const commentLinePrefix: PartialConstruct = {
  *  The context object used to transition the state machine
  * @return {undefined}
  */
-function exitComment(this: TokenizeContext, effects: Effects): undefined {
+function exitBlockComment(this: TokenizeContext, effects: Effects): undefined {
   return void effects.exit(tt.comment)
 }
 
 /**
- * Tokenize the first line of a docblock comment.
+ * Tokenize the first line of a block comment.
  *
  * @this {TokenizeContext}
  *
@@ -132,7 +132,7 @@ function exitComment(this: TokenizeContext, effects: Effects): undefined {
  * @return {State}
  *  The initial state
  */
-function tokenizeDocBlock(
+function tokenizeBlockComment(
   this: TokenizeContext,
   effects: Effects,
   ok: State,
@@ -148,7 +148,7 @@ function tokenizeDocBlock(
   return startComment
 
   /**
-   * Attempt to begin a docblock comment.
+   * Attempt to begin a block comment.
    *
    * The comment container is entered before the opener is attempted.
    * If the opener fails, the construct fails.
@@ -365,7 +365,7 @@ function tokenizeDocBlock(
    * to the chunk.
    *
    * At a line ending, the chunk is closed.
-   * Later lines are handled by {@linkcode tokenizeDocBlockContinuation}.
+   * Later lines are handled by {@linkcode tokenizeBlockCommentContinuation}.
    *
    * > 👉 **Note**: `␊` represents a line ending and `␠` represents a space.
    *
@@ -536,7 +536,7 @@ function tokenizeDocBlock(
  * @return {State}
  *  The initial state
  */
-function tokenizeDocBlockContinuation(
+function tokenizeBlockCommentContinuation(
   this: TokenizeContext,
   effects: Effects,
   ok: State,

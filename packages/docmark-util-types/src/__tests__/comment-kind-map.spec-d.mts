@@ -13,10 +13,16 @@ describe('unit-d:CommentKindMap', () => {
       .toEqualTypeOf<'block'>()
   })
 
-  it('should match [docblock: "docblock"]', () => {
+  it('should match [docblock: "block:doc"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('docblock')
-      .toEqualTypeOf<'docblock'>()
+      .toEqualTypeOf<'block:doc'>()
+  })
+
+  it('should match [docslash: "slash:doc"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('docslash')
+      .toEqualTypeOf<'slash:doc'>()
   })
 
   it('should match [hash: "hash"]', () => {

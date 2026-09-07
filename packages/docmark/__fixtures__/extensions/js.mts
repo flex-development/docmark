@@ -4,7 +4,7 @@
  */
 
 import blockTag from '#fixtures/constructs/block-tag'
-import docblock from '#fixtures/constructs/docblock.comment'
+import blockComment from '#fixtures/constructs/block.comment'
 import hashbang from '#fixtures/constructs/hashbang.comment'
 import inlineTag from '#fixtures/constructs/inline-tag'
 import slashComment from '#fixtures/constructs/slash.comment'
@@ -24,7 +24,7 @@ const js: NormalizedExtension = {
   },
   source: {
     [codes.numberSign]: hashbang,
-    [codes.slash]: [docblock, slashComment]
+    [codes.slash]: [blockComment, slashComment]
   },
   text: {
     [codes.leftCurlyBrace]: inlineTag

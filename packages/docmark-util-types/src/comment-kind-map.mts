@@ -18,7 +18,8 @@
  */
 interface CommentKindMap {
   block: 'block'
-  docblock: 'docblock'
+  docblock: 'block:doc'
+  docslash: 'slash:doc'
   hash: 'hash'
   hashbang: 'hashbang'
   slash: 'slash'

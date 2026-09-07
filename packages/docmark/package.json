@@ -78,12 +78,12 @@
     "attw": "tsc --build tsconfig.build.json --clean --dry && tsc --build tsconfig.build.json --clean && tsc --build tsconfig.build.json --verbose"
   },
   "dependencies": {
-    "@flex-development/docmark-factory-space": "workspace:*",
-    "@flex-development/docmark-grammar": "workspace:*",
-    "@flex-development/docmark-util-combine-extensions": "workspace:*",
-    "@flex-development/docmark-util-subtokenize": "workspace:*",
-    "@flex-development/docmark-util-symbol": "workspace:*",
-    "@flex-development/docmark-util-types": "workspace:*",
+    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.1",
+    "@flex-development/docmark-grammar": "workspace:1.0.0-alpha.1",
+    "@flex-development/docmark-util-combine-extensions": "workspace:1.0.0-alpha.1",
+    "@flex-development/docmark-util-subtokenize": "workspace:1.0.0-alpha.1",
+    "@flex-development/docmark-util-symbol": "workspace:1.1.0-alpha.1",
+    "@flex-development/docmark-util-types": "workspace:1.1.0-alpha.1",
     "@flex-development/mark": "1.0.0-alpha.4",
     "@flex-development/mark-parser": "1.0.0-alpha.19",
     "@flex-development/mark-util-character": "1.1.0",

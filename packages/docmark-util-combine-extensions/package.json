@@ -54,9 +54,13 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "dependencies": {
-    "@flex-development/docmark-util-types": "workspace:*",
+    "@flex-development/docmark-util-types": "workspace:1.1.0-alpha.1",
     "@flex-development/mark-util-chunked": "1.0.0",
     "devlop": "1.1.0"
+  },
+  "devDependencies": {
+    "@flex-development/docmark-grammar": "workspace:*",
+    "@flex-development/docmark-util-symbol": "workspace:*"
   },
   "sideEffects": false
 }

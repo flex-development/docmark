@@ -1,6 +1,6 @@
 /**
  * @file Test Utilities - snapshotEvents
- * @module tests/utils/snapshotEvents
+ * @module docmark/tests/utils/snapshotEvents
  */
 
 import { ev, tt } from '@flex-development/docmark-util-symbol'
