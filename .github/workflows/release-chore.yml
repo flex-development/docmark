@@ -167,7 +167,7 @@ jobs:
         name: Install dependencies
         env:
           HUSKY: 0
-        run: yarn
+        run: yarn --immutable
       - id: local-binaries
         name: Add local binaries to path
         run: echo "${{ github.workspace }}/node_modules/.bin" >> ${{ github.path }}
