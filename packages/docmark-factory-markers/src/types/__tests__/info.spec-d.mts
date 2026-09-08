@@ -20,7 +20,9 @@ describe('unit-d:types/Info', () => {
       .toEqualTypeOf<TokenType | undefined>()
   })
 
-  it('should match [length: 1 | 2]', () => {
-    expectTypeOf<TestSubject>().toHaveProperty('length').toEqualTypeOf<1 | 2>()
+  it('should match [length: 1 | 2 | 3]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('length')
+      .toEqualTypeOf<1 | 2 | 3>()
   })
 })

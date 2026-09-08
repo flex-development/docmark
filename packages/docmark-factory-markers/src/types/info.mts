@@ -3,19 +3,29 @@
  * @module docmark-factory-markers/types/Info
  */
 
-import type { Marker, TokenType } from '@flex-development/docmark-util-types'
+import type {
+  Marker,
+  TokenFields,
+  TokenType
+} from '@flex-development/docmark-util-types'
 
 /**
  * Info about how to tokenize a comment marker.
  *
  * The first item is the character code to consume.\
- * The second, and last, item is the token type to emit for that character.
+ * The second item is the token type to emit for that character.\
+ * The third, and last, item are the fields to attach to the emitted token.
  *
  * If `type` is omitted, `tt.commentMarker` is used.
  *
  * @see {@linkcode Marker}
+ * @see {@linkcode TokenFields}
  * @see {@linkcode TokenType}
  */
-type Info = [marker: Marker, type?: TokenType | undefined]
+type Info = [
+  marker: Marker,
+  type?: TokenType | undefined,
+  fields?: TokenFields | undefined
+]
 
 export type { Info as default }

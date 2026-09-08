@@ -51,9 +51,9 @@ function factoryMarkers(
   /**
    * The normalized marker sequence.
    *
-   * @const {Info[]} sequence
+   * @const {Info[]} seq
    */
-  const sequence: Info[] = [...marks].map(m => typeof m === 'number' ? [m] : m)
+  const seq: Info[] = [...marks].map(m => typeof m === 'number' ? [m] : m)
 
   /**
    * The index of the current marker.
@@ -63,8 +63,7 @@ function factoryMarkers(
   let index: number = 0
 
   // try capturing the marker sequence.
-  assert(sequence.length, 'expected non-empty marker sequence')
-  return maybeMarker
+  return assert(seq.length, 'expected non-empty marker sequence'), maybeMarker
 
   /**
    * Attempt to tokenize the next marker in the sequence.
@@ -77,14 +76,14 @@ function factoryMarkers(
    *  The next state
    */
   function maybeMarker(this: void, code: Code): State | undefined {
-    if (index === sequence.length) return ok(code) // sequence complete.
-    const [marker, type = tt.commentMarker] = sequence[index++]! // unwrap info.
+    if (index === seq.length) return ok(code) // sequence complete.
+    const [marker, type = tt.commentMarker, fields] = seq[index++]! // unwrap.
 
     // unexpected code.
     if (code !== marker) return nok(code)
 
     // capture the current marker.
-    effects.enter(type)
+    effects.enter(type, fields)
     effects.consume(code)
     effects.exit(type)
 
