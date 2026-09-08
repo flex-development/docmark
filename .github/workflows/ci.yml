@@ -27,7 +27,9 @@
 # - https://github.com/hmarr/debug-action
 # - https://github.com/shaneapowell/github-tweak-the-json
 # - https://github.com/streetsidesoftware/cspell-action
+# - https://jqlang.org/manual
 # - https://yarnpkg.com/cli/pack
+# - https://yarnpkg.com/cli/workspaces/list
 
 ---
 name: ci
@@ -64,6 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       cache-key: ${{ steps.cache-key.outputs.result }}
+      packages: ${{ steps.packages.outputs.result }}
     steps:
       - id: debug
         name: Print environment variables and event payload
@@ -95,6 +98,10 @@ jobs:
         with:
           key: ${{ steps.cache-key.outputs.result }}
           path: ${{ env.CACHE_PATH }}
+      - id: packages
+        name: Get package matrix
+        run: |
+          echo "result=$(yarn workspaces list --json | jq -rcs 'map(select(.location != "."))')" >>$GITHUB_OUTPUT
   commitlint:
     needs: preflight
     runs-on: ubuntu-latest
@@ -476,16 +483,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package:
-          - docmark
-          - docmark-factory-space
-          - docmark-grammar
-          - docmark-util-combine-extensions
-          - docmark-util-subtokenize
-          - docmark-util-symbol
-          - docmark-util-types
-    env:
-      PACKAGE_DIRECTORY: packages/${{ matrix.package }}
+        package: ${{ fromJson(needs.preflight.outputs.packages) }}
+    name: artifacts (${{ matrix.package.name }})
     steps:
       - id: checkout
         name: Checkout ${{ env.REF_NAME }}
@@ -518,12 +517,9 @@ jobs:
       - id: local-binaries
         name: Add local binaries to path
         run: echo "${{ github.workspace }}/node_modules/.bin" >> ${{ github.path }}
-      - id: directory
-        name: Get package directory
-        run: echo "result=packages/${{ matrix.package }}" >>$GITHUB_OUTPUT
       - id: manifest
         name: Get package manifest path
-        run: echo "result=${{ steps.directory.outputs.result }}/package.json" >>$GITHUB_OUTPUT
+        run: echo "result=${{ matrix.package.location }}/package.json" >>$GITHUB_OUTPUT
       - id: version
         name: Extract version metadata
         uses: flex-development/manver-action@1.1.0
@@ -540,11 +536,12 @@ jobs:
       - id: tarball
         name: Get tarball path
         run: |
-          echo "result=${{ format('@{0}-{1}-{2}.tgz', github.repository_owner, matrix.package, steps.version.outputs.build) }}" >>$GITHUB_OUTPUT
+          tarball=${{ format('{0}-{1}', matrix.package.name, steps.version.outputs.build) }}
+          echo "result=${tarball////-}.tgz" >>$GITHUB_OUTPUT
       - id: pack
         name: Pack project
         run: yarn pack --out ../../${{ steps.tarball.outputs.result }}
-        working-directory: ${{ steps.directory.outputs.result }}
+        working-directory: ${{ matrix.package.location }}
       - id: attw
         name: Analyze types distribution
         run: attw ${{ steps.tarball.outputs.result }}
@@ -553,7 +550,7 @@ jobs:
         env:
           TZ: ${{ vars.TZ }}
         run: echo "$(grease changelog)" >>$GITHUB_STEP_SUMMARY
-        working-directory: ${{ steps.directory.outputs.result }}
+        working-directory: ${{ matrix.package.location }}
       - id: archive
         name: Archive production artifact
         uses: actions/upload-artifact@v7.0.1

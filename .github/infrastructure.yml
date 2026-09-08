@@ -22,13 +22,13 @@ branches:
       required_status_checks:
         checks:
           - context: add-to-project
-          - context: artifacts (docmark)
-          - context: artifacts (docmark-factory-space)
-          - context: artifacts (docmark-grammar)
-          - context: artifacts (docmark-util-combine-extensions)
-          - context: artifacts (docmark-util-subtokenize)
-          - context: artifacts (docmark-util-symbol)
-          - context: artifacts (docmark-util-types)
+          - context: artifacts (@flex-development/docmark)
+          - context: artifacts (@flex-development/docmark-factory-space)
+          - context: artifacts (@flex-development/docmark-grammar)
+          - context: artifacts (@flex-development/docmark-util-combine-extensions)
+          - context: artifacts (@flex-development/docmark-util-subtokenize)
+          - context: artifacts (@flex-development/docmark-util-symbol)
+          - context: artifacts (@flex-development/docmark-util-types)
           - context: auto-merge
           - context: auto-review
           - context: codecov/changes
