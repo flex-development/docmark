@@ -1,3 +1,13 @@
+## [docmark-factory-markers@1.0.0-alpha.2](https://github.com/flex-development/docmark/compare/docmark-factory-markers@1.0.0-alpha.1...docmark-factory-markers@1.0.0-alpha.2) (2026-09-08)
+
+### :robot: Continuous Integration
+
+- [[`ed4c0a3`](https://github.com/flex-development/docmark/commit/ed4c0a387eaf8b8690ed520f971b41c4c17a0960)] **workflows:** [`release-chore`] fix code text in pr template
+
+### :sparkles: Features
+
+- [[`212dc66`](https://github.com/flex-development/docmark/commit/212dc6630f76ecbcfa5e26a7e4598ce1bfd21b0a)] **factory-markers:** attach token fields
+
 ## docmark-factory-markers@1.0.0-alpha.1 (2026-09-08)
 
 ### ⚠ BREAKING CHANGES
@@ -125,5 +135,6 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
