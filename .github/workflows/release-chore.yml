@@ -286,7 +286,7 @@ jobs:
         run: |
           set -e
 
-          result='- bumped \`changesetBaseRefs\` to \`${{ needs.preflight.outputs.version }}\`
+          result='- bumped `changesetBaseRefs` to `${{ needs.preflight.outputs.version }}`
           - bumped manifest versions'
 
           while IFS=$'\t' read -r workspace release; do
