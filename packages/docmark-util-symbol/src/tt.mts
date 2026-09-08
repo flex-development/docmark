@@ -53,6 +53,7 @@ const tt = {
   commentCloser: 'commentCloser',
   commentLineMarker: 'commentLineMarker',
   commentLinePrefix: 'commentLinePrefix',
+  commentMarker: 'commentMarker',
   commentOpener: 'commentOpener',
   commentPadding: 'commentPadding',
   content: 'content',

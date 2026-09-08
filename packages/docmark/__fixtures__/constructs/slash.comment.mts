@@ -3,6 +3,10 @@
  * @module docmark/fixtures/constructs/slashComment
  */
 
+import {
+  factoryMarkers,
+  type Info
+} from '@flex-development/docmark-factory-markers'
 import { factorySpace } from '@flex-development/docmark-factory-space'
 import {
   codes,
@@ -147,60 +151,30 @@ function tokenizeSlashComment(
    *  The next state
    */
   function atFirstMarker(this: void, code: Code): State | undefined {
-    // begin comment line prefix.
-    effects.enter(tt.commentLinePrefix)
+    /**
+     * The comment marker info.
+     *
+     * @const {Info} marker
+     */
+    const marker: Info = [codes.slash, tt.commentLineMarker]
 
-    // capture first comment line marker.
-    effects.enter(tt.commentLineMarker)
-    effects.consume(code)
-    effects.exit(tt.commentLineMarker)
-
-    return afterFirstMarker
-  }
-
-  /**
-   * After first comment line marker.
-   *
-   * > 👉 **Note**: `␊` represents a line ending.
-   *
-   * @example
-   *  ```markdown
-   *  > |//cannot be a line comment.␊
-   *      ^
-   *  > |if (code !== self.previous) return nok(code)
-   *  ```
-   *
-   * @example
-   *  ```markdown
-   *  > |// continuation construct did not consume entire line.␊
-   *  > |// start markdown chunk from current point in the stream.␊
-   *      ^
-   *  > |if (!eol(self.previous)) return beforeMarkdown(code)␊
-   *  ```
-   *
-   * @this {void}
-   *
-   * @param {Code} code
-   *  The current character code
-   * @return {State | undefined}
-   *  The next state
-   */
-  function afterFirstMarker(this: void, code: Code): State | undefined {
-    // cannot be a slash comment.
-    if (code !== self.previous) return nok(code)
-
-    // capture second comment line marker.
-    effects.enter(tt.commentLineMarker)
-    effects.consume(code)
-    effects.exit(tt.commentLineMarker)
-
-    // capture optional padding.
-    return factorySpace(
+    /**
+     * The after markers state.
+     *
+     * @const {State} succ
+     */
+    const succ: State = factorySpace(
       effects,
-      afterMarkers,
+      endPrefix,
       tt.commentPadding,
       constants.commentPaddingSizeMin
     )
+
+    // begin comment line prefix.
+    effects.enter(tt.commentLinePrefix)
+
+    // try capturing comment markers.
+    return factoryMarkers(effects, [marker, marker], succ, nok)(code)
   }
 
   /**
@@ -232,7 +206,7 @@ function tokenizeSlashComment(
    * @return {State | undefined}
    *  The next state
    */
-  function afterMarkers(this: void, code: Code): State | undefined {
+  function endPrefix(this: void, code: Code): State | undefined {
     effects.exit(tt.commentLinePrefix)
     return ok(code)
   }

@@ -34,6 +34,7 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   commentCloser: 'commentCloser'
   commentLineMarker: 'commentLineMarker'
   commentLinePrefix: 'commentLinePrefix'
+  commentMarker: 'commentMarker'
   commentOpener: 'commentOpener'
   commentPadding: 'commentPadding'
   eoc: 'eoc'

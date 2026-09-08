@@ -1693,6 +1693,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@flex-development/docmark-factory-markers@workspace:*, @flex-development/docmark-factory-markers@workspace:packages/docmark-factory-markers":
+  version: 0.0.0-use.local
+  resolution: "@flex-development/docmark-factory-markers@workspace:packages/docmark-factory-markers"
+  dependencies:
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.3"
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.3"
+    devlop: "npm:1.1.0"
+  languageName: unknown
+  linkType: soft
+
 "@flex-development/docmark-factory-space@workspace:1.0.0-alpha.3, @flex-development/docmark-factory-space@workspace:packages/docmark-factory-space":
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-factory-space@workspace:packages/docmark-factory-space"
@@ -1760,6 +1770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark@workspace:packages/docmark"
   dependencies:
+    "@flex-development/docmark-factory-markers": "workspace:*"
     "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.3"
     "@flex-development/docmark-grammar": "workspace:1.0.0-alpha.3"
     "@flex-development/docmark-util-combine-extensions": "workspace:1.0.0-alpha.3"

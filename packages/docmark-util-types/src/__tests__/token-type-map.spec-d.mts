@@ -60,6 +60,12 @@ describe('unit-d:TokenTypeMap', () => {
       .toEqualTypeOf<'commentLinePrefix'>()
   })
 
+  it('should match [commentMarker: "commentMarker"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('commentMarker')
+      .toEqualTypeOf<'commentMarker'>()
+  })
+
   it('should match [commentOpener: "commentOpener"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('commentOpener')

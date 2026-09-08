@@ -3,6 +3,7 @@
  * @module fixtures/constructs/hashbang
  */
 
+import { factoryMarkers } from '@flex-development/docmark-factory-markers'
 import { factorySpace } from '@flex-development/docmark-factory-space'
 import { codes, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
@@ -105,14 +106,14 @@ function tokenizeHashbang(
     assert(code === codes.numberSign, 'expected `codes.numberSign`')
 
     effects.enter(tt.comment, { _container: true, _kind: kind.hashbang })
-
     effects.enter(tt.commentLinePrefix)
 
-    effects.enter(tt.commentLineMarker)
-    effects.consume(code)
-    effects.exit(tt.commentLineMarker)
-
-    return afterFirstMarker
+    return factoryMarkers(
+      effects,
+      codes.numberSign,
+      afterFirstMarker,
+      nok
+    )(code)
   }
 
   /**
@@ -136,9 +137,9 @@ function tokenizeHashbang(
   function afterFirstMarker(this: void, code: Code): State | undefined {
     if (code !== codes.exclamationMark) return nok(code)
 
-    effects.enter(tt.commentLineMarker)
+    effects.enter(tt.commentMarker)
     effects.consume(code)
-    effects.exit(tt.commentLineMarker)
+    effects.exit(tt.commentMarker)
 
     effects.exit(tt.commentLinePrefix)
 

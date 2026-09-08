@@ -3,7 +3,7 @@
  * @module docmark-util-types/AttentionMarkers
  */
 
-import type { Code } from '@flex-development/docmark-util-types'
+import type { Marker } from '@flex-development/docmark-util-types'
 
 /**
  * Attention marker settings.
@@ -12,9 +12,9 @@ interface AttentionMarkers {
   /**
    * The list of character codes representing attention markers.
    *
-   * @see {@linkcode Code}
+   * @see {@linkcode Marker}
    */
-  null?: Code[] | undefined
+  null?: Marker[] | undefined
 }
 
 export type { AttentionMarkers as default }

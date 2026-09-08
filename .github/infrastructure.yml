@@ -23,6 +23,7 @@ branches:
         checks:
           - context: add-to-project
           - context: artifacts (@flex-development/docmark)
+          - context: artifacts (@flex-development/docmark-factory-markers)
           - context: artifacts (@flex-development/docmark-factory-space)
           - context: artifacts (@flex-development/docmark-grammar)
           - context: artifacts (@flex-development/docmark-util-combine-extensions)
@@ -36,6 +37,7 @@ branches:
           - context: codecov/project
           - context: codecov/project/docmark
           - context: codecov/project/docmark-grammar
+          - context: codecov/project/docmark-factory-markers
           - context: codecov/project/docmark-factory-space
           - context: codecov/project/docmark-util-combine-extensions
           - context: codecov/project/docmark-util-subtokenize
@@ -80,6 +82,9 @@ labels:
     color: c6cde1
   - name: package:docmark-grammar
     description: '@flex-development/docmark-grammar'
+    color: c6cde1
+  - name: package:docmark-factory-markers
+    description: '@flex-development/docmark-factory-markers'
     color: c6cde1
   - name: package:docmark-factory-space
     description: '@flex-development/docmark-factory-space'

@@ -1,5 +1,5 @@
 /**
- * @file Package Entry Point
+ * @file Entry Point - Package
  * @module docmark-util-types
  */
 
@@ -53,6 +53,7 @@ export type { default as Initializer } from './initializer.mts'
 export type { default as InsideSpan } from './inside-span.mts'
 export type { default as Lazy } from './lazy.mts'
 export type { default as Line } from './line.mts'
+export type { default as Marker } from './marker.mts'
 export type { default as NamedConstruct } from './named-construct.mts'
 export type { default as NormalizedExtension } from './normalized-extension.mts'
 export type { default as Now } from './now.mts'
