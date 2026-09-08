@@ -1,3 +1,25 @@
+## [docmark-util-subtokenize@1.0.0-alpha.4](https://github.com/flex-development/docmark/compare/docmark-util-subtokenize@1.0.0-alpha.3...docmark-util-subtokenize@1.0.0-alpha.4) (2026-09-08)
+
+### :package: Build
+
+- [[`e1975ae`](https://github.com/flex-development/docmark/commit/e1975ae89e28379a0b24dd0205af00b33bebb149)] **deps-dev:** Bump @arethetypeswrong/cli from 0.18.4 to 0.18.5 ([#138](https://github.com/flex-development/docmark/issues/138))
+- [[`eb9ab96`](https://github.com/flex-development/docmark/commit/eb9ab963dd366ab9e1e1234aee95179a17707e79)] **deps-dev:** Bump cspell from 10.0.1 to 10.2.2 ([#136](https://github.com/flex-development/docmark/issues/136))
+- [[`1ebcdc7`](https://github.com/flex-development/docmark/commit/1ebcdc78188e3a46a94002d7f2579c6c7ea41ce1)] **deps-dev:** Bump dprint from 0.54.0 to 0.57.1 ([#137](https://github.com/flex-development/docmark/issues/137))
+- [[`493be58`](https://github.com/flex-development/docmark/commit/493be58794a5a5f3093b35650b9a7e5112bc19e3)] **deps-dev:** bump dprint from 0.57.1 to 0.57.4
+- [[`e6703b0`](https://github.com/flex-development/docmark/commit/e6703b05e4cd0d7d934579f594d7692f0885b29e)] **deps-dev:** Bump esbuild from 0.28.1 to 0.28.2 ([#110](https://github.com/flex-development/docmark/issues/110))
+- [[`1144035`](https://github.com/flex-development/docmark/commit/1144035f0f7cbc36b219df9c622d8db0a6bbe864)] **deps-dev:** Bump happy-dom from 20.12.0 to 20.14.0 ([#113](https://github.com/flex-development/docmark/issues/113))
+- [[`7e21678`](https://github.com/flex-development/docmark/commit/7e2167815bfe3b572f586e1cae043026ed337fff)] **deps-dev:** bump the vitest group across 1 directory with 4 updates
+
+### :robot: Continuous Integration
+
+- [[`321d58f`](https://github.com/flex-development/docmark/commit/321d58ff12db0edeb0a51aa1c4aca94c7c394a0c)] **workflows:** [`ci`] [`jobs.preflight`] generate `package` matrix for `jobs.artifacts`
+- [[`b24c03b`](https://github.com/flex-development/docmark/commit/b24c03bdaada8a7f5a7becacccadfcca918da4af)] **workflows:** [`release-chore`] add `changesetBaseRefs` note to pr description
+- [[`b68c19f`](https://github.com/flex-development/docmark/commit/b68c19f9bc59a0ea68204e013130a16811eb4c9a)] **workflows:** set `client-id` when creating bot token
+
+### :sparkles: Features
+
+- [[`bddec79`](https://github.com/flex-development/docmark/commit/bddec7922add1e059ea8887fa1a58998b3a4011e)] `factoryMarkers`
+
 ## [docmark-util-subtokenize@1.0.0-alpha.3](https://github.com/flex-development/docmark/compare/docmark-util-subtokenize@1.0.0-alpha.2...docmark-util-subtokenize@1.0.0-alpha.3) (2026-09-07)
 
 ### :robot: Continuous Integration
@@ -169,6 +191,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
