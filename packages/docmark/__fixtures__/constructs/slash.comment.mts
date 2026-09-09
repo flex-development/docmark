@@ -174,7 +174,7 @@ function tokenizeSlashComment(
     effects.enter(tt.commentLinePrefix)
 
     // try capturing comment markers.
-    return factoryMarkers(effects, [marker, marker], succ, nok)(code)
+    return factoryMarkers(effects, succ, nok, [marker, marker])(code)
   }
 
   /**

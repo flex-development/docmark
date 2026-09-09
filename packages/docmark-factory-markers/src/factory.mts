@@ -28,22 +28,25 @@ import { ok as assert } from 'devlop'
  * @see {@linkcode Sequence}
  * @see {@linkcode State}
  *
+ * @this {void}
+ *
  * @param {Effects} effects
  *  The context object used to transition the state machine
- * @param {Marker | Sequence} marks
- *  The comment marker code or sequence
  * @param {State} ok
  *  The successful tokenization state
  * @param {State} nok
  *  The failed tokenization state
+ * @param {Marker | Sequence} marks
+ *  The comment marker code or sequence
  * @return {State}
  *  The initial state
  */
 function factoryMarkers(
+  this: void,
   effects: Effects,
-  marks: Marker | Sequence,
   ok: State,
-  nok: State
+  nok: State,
+  marks: Marker | Sequence
 ): State {
   // normalize initial sequence.
   if (!Array.isArray(marks)) marks = [marks]

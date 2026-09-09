@@ -20,6 +20,8 @@ import type * as micromark from 'micromark-util-types'
  * @see {@linkcode TokenType}
  * @see {@linkcode micromark.Effects}
  *
+ * @this {void}
+ *
  * @param {Effects | micromark.Effects} effects
  *  The context object used to transition the state machine
  * @param {State} ok
@@ -32,6 +34,7 @@ import type * as micromark from 'micromark-util-types'
  *  The initial state
  */
 function factorySpace(
+  this: void,
   effects: Effects | micromark.Effects,
   ok: State,
   type?: TokenType | null | undefined,

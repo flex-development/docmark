@@ -110,9 +110,9 @@ function tokenizeHashbang(
 
     return factoryMarkers(
       effects,
-      codes.numberSign,
       afterFirstMarker,
-      nok
+      nok,
+      codes.numberSign
     )(code)
   }
 
