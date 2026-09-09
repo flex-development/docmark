@@ -12,6 +12,7 @@ import type {
   State
 } from '@flex-development/docmark-util-types'
 import { ok as assert } from 'devlop'
+import terminate from './internal/terminate.mts'
 
 /**
  * Create a state that tokenizes a sequence of comment markers.
@@ -80,10 +81,10 @@ function factoryMarkers(
    */
   function maybeMarker(this: void, code: Code): State | undefined {
     if (index === seq.length) return ok(code) // sequence complete.
-    const [marker, type = tt.commentMarker, fields] = seq[index++]! // unwrap.
+    const [marker, type = tt.commentMarker, fields, mandatory] = seq[index++]!
 
     // unexpected code.
-    if (code !== marker) return nok(code)
+    if (code !== marker) return terminate(mandatory, ok, nok)(code)
 
     // capture the current marker.
     effects.enter(type, fields)
