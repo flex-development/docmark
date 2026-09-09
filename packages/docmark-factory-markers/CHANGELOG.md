@@ -1,3 +1,17 @@
+## [docmark-factory-markers@1.0.0-alpha.3](https://github.com/flex-development/docmark/compare/docmark-factory-markers@1.0.0-alpha.2...docmark-factory-markers@1.0.0-alpha.3) (2026-09-08)
+
+### ⚠ BREAKING CHANGES
+
+- **factory-markers:** factory signature
+
+### :sparkles: Features
+
+- [[`53c2759`](https://github.com/flex-development/docmark/commit/53c2759cfe58f6e4e0b8f3a98f6ad9b83594a3aa)] **factory-markers:** optional markers
+
+### :mechanical_arm: Refactors
+
+- [[`a3324cd`](https://github.com/flex-development/docmark/commit/a3324cd9c87e6b92bcb79f9c06aa2b7a78b76a96)] **factory-markers:** factory signature
+
 ## [docmark-factory-markers@1.0.0-alpha.2](https://github.com/flex-development/docmark/compare/docmark-factory-markers@1.0.0-alpha.1...docmark-factory-markers@1.0.0-alpha.2) (2026-09-08)
 
 ### :robot: Continuous Integration
@@ -135,6 +149,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
