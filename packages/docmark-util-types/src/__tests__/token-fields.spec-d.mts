@@ -6,6 +6,7 @@
 import type {
   CommentKind,
   ContentType,
+  Language,
   Token,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
@@ -95,6 +96,12 @@ describe('unit-d:TokenFields', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('contentType')
       .toEqualTypeOf<ContentType | undefined>()
+  })
+
+  it('should match [lang?: Language | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('lang')
+      .toEqualTypeOf<Language | undefined>()
   })
 
   it('should match [next?: Token | undefined]', () => {

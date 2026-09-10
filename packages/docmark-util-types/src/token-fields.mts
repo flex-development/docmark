@@ -6,6 +6,7 @@
 import type {
   CommentKind,
   ContentType,
+  Language,
   Token,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
@@ -113,6 +114,13 @@ interface TokenFields {
    * @see {@linkcode ContentType}
    */
   contentType?: ContentType | undefined
+
+  /**
+   * For comments, the source language.
+   *
+   * @see {@linkcode Language}
+   */
+  lang?: Language | undefined
 
   /**
    * The next token in a list of linked tokens.
