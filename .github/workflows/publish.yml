@@ -121,6 +121,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ${{ needs.preflight.outputs.command }}
+      - id: latest
+        name: Set latest version
+        run: |
+          release=${{ needs.preflight.outputs.workspace }}@${{ needs.preflight.outputs.version}}
+          npm dist-tag add $release latest
+
   npm:
     needs: preflight
     permissions:
@@ -131,6 +137,8 @@ jobs:
     environment:
       name: npm
       url: ${{ steps.environment.outputs.url }}
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - id: environment
         name: Get environment url
@@ -157,6 +165,9 @@ jobs:
         run: cat $NPM_CONFIG_USERCONFIG
       - id: publish
         name: Publish package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: ${{ needs.preflight.outputs.command }}
+      - id: latest
+        name: Set latest version
+        run: |
+          release=${{ needs.preflight.outputs.workspace }}@${{ needs.preflight.outputs.version}}
+          npm dist-tag add $release latest
