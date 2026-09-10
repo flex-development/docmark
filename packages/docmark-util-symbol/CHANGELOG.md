@@ -1,3 +1,25 @@
+## [docmark-util-symbol@1.0.0-alpha.5](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.4...docmark-util-symbol@1.0.0-alpha.5) (2026-09-10)
+
+### ⚠ BREAKING CHANGES
+
+- source languages
+- **factory-markers:** factory signature
+
+### :robot: Continuous Integration
+
+- [[`779e195`](https://github.com/flex-development/docmark/commit/779e1957b9471932e3c9cd2d05abef6d8fed2dbf)] **deps:** Bump dprint/check from 2.3 to 2.4 ([#152](https://github.com/flex-development/docmark/issues/152))
+- [[`ed4c0a3`](https://github.com/flex-development/docmark/commit/ed4c0a387eaf8b8690ed520f971b41c4c17a0960)] **workflows:** [`release-chore`] fix code text in pr template
+
+### :sparkles: Features
+
+- [[`db8a203`](https://github.com/flex-development/docmark/commit/db8a203f7884579a5c0008d3028592c996d473af)] source languages
+- [[`212dc66`](https://github.com/flex-development/docmark/commit/212dc6630f76ecbcfa5e26a7e4598ce1bfd21b0a)] **factory-markers:** attach token fields
+- [[`53c2759`](https://github.com/flex-development/docmark/commit/53c2759cfe58f6e4e0b8f3a98f6ad9b83594a3aa)] **factory-markers:** optional markers
+
+### :mechanical_arm: Refactors
+
+- [[`a3324cd`](https://github.com/flex-development/docmark/commit/a3324cd9c87e6b92bcb79f9c06aa2b7a78b76a96)] **factory-markers:** factory signature
+
 ## [docmark-util-symbol@1.0.0-alpha.4](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.3...docmark-util-symbol@1.0.0-alpha.4) (2026-09-08)
 
 ### :package: Build
@@ -192,6 +214,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 

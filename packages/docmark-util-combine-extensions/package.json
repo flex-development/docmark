@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-util-combine-extensions",
   "description": "docmark utility to combine extensions",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "keywords": [
     "docmark",
     "extension",
@@ -54,7 +54,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "dependencies": {
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.4",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.5",
     "@flex-development/mark-util-chunked": "1.0.0",
     "devlop": "1.1.0"
   },

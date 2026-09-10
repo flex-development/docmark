@@ -1697,58 +1697,58 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-factory-markers@workspace:packages/docmark-factory-markers"
   dependencies:
-    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.4"
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.5"
     devlop: "npm:1.1.0"
   languageName: unknown
   linkType: soft
 
-"@flex-development/docmark-factory-space@workspace:1.0.0-alpha.4, @flex-development/docmark-factory-space@workspace:packages/docmark-factory-space":
+"@flex-development/docmark-factory-space@workspace:1.0.0-alpha.5, @flex-development/docmark-factory-space@workspace:packages/docmark-factory-space":
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-factory-space@workspace:packages/docmark-factory-space"
   dependencies:
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.4"
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.5"
     "@flex-development/mark-util-character": "npm:1.1.0"
     micromark-util-types: "npm:2.0.2"
   languageName: unknown
   linkType: soft
 
-"@flex-development/docmark-grammar@workspace:*, @flex-development/docmark-grammar@workspace:1.0.0-alpha.4, @flex-development/docmark-grammar@workspace:packages/docmark-grammar":
+"@flex-development/docmark-grammar@workspace:*, @flex-development/docmark-grammar@workspace:1.0.0-alpha.5, @flex-development/docmark-grammar@workspace:packages/docmark-grammar":
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-grammar@workspace:packages/docmark-grammar"
   dependencies:
-    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.4"
+    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.5"
     "@flex-development/mark-util-character": "npm:1.1.0"
     devlop: "npm:1.1.0"
   languageName: unknown
   linkType: soft
 
-"@flex-development/docmark-util-combine-extensions@workspace:1.0.0-alpha.4, @flex-development/docmark-util-combine-extensions@workspace:packages/docmark-util-combine-extensions":
+"@flex-development/docmark-util-combine-extensions@workspace:1.0.0-alpha.5, @flex-development/docmark-util-combine-extensions@workspace:packages/docmark-util-combine-extensions":
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-util-combine-extensions@workspace:packages/docmark-util-combine-extensions"
   dependencies:
     "@flex-development/docmark-grammar": "workspace:*"
     "@flex-development/docmark-util-symbol": "workspace:*"
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.4"
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.5"
     "@flex-development/mark-util-chunked": "npm:1.0.0"
     devlop: "npm:1.1.0"
   languageName: unknown
   linkType: soft
 
-"@flex-development/docmark-util-subtokenize@workspace:1.0.0-alpha.4, @flex-development/docmark-util-subtokenize@workspace:packages/docmark-util-subtokenize":
+"@flex-development/docmark-util-subtokenize@workspace:1.0.0-alpha.5, @flex-development/docmark-util-subtokenize@workspace:packages/docmark-util-subtokenize":
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-util-subtokenize@workspace:packages/docmark-util-subtokenize"
   dependencies:
-    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.4"
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.5"
     "@flex-development/mark-util-chunked": "npm:1.0.0"
     devlop: "npm:1.1.0"
   languageName: unknown
   linkType: soft
 
-"@flex-development/docmark-util-symbol@workspace:*, @flex-development/docmark-util-symbol@workspace:1.0.0-alpha.4, @flex-development/docmark-util-symbol@workspace:packages/docmark-util-symbol":
+"@flex-development/docmark-util-symbol@workspace:*, @flex-development/docmark-util-symbol@workspace:1.0.0-alpha.5, @flex-development/docmark-util-symbol@workspace:packages/docmark-util-symbol":
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-util-symbol@workspace:packages/docmark-util-symbol"
   dependencies:
@@ -1756,7 +1756,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@flex-development/docmark-util-types@workspace:1.0.0-alpha.4, @flex-development/docmark-util-types@workspace:packages/docmark-util-types":
+"@flex-development/docmark-util-types@workspace:1.0.0-alpha.5, @flex-development/docmark-util-types@workspace:packages/docmark-util-types":
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark-util-types@workspace:packages/docmark-util-types"
   dependencies:
@@ -1771,12 +1771,12 @@ __metadata:
   resolution: "@flex-development/docmark@workspace:packages/docmark"
   dependencies:
     "@flex-development/docmark-factory-markers": "workspace:*"
-    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-grammar": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-util-combine-extensions": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-util-subtokenize": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.4"
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.4"
+    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-grammar": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-util-combine-extensions": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-util-subtokenize": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.5"
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.5"
     "@flex-development/mark": "npm:1.0.0-alpha.4"
     "@flex-development/mark-parser": "npm:1.0.0-alpha.19"
     "@flex-development/mark-util-character": "npm:1.1.0"
