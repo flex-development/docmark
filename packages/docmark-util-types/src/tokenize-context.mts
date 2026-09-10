@@ -11,6 +11,7 @@ import type {
   ContentType,
   DefineSkip,
   Event,
+  Language,
   Now,
   ParseContext,
   SliceSerialize,
@@ -141,6 +142,13 @@ interface TokenizeContext {
    * At `2:1`, we’re "interrupting".
    */
   interrupt?: boolean | undefined
+
+  /**
+   * The current source language.
+   *
+   * @see {@linkcode Language}
+   */
+  lang?: Language | undefined
 
   /**
    * Whether to error on empty tokens.

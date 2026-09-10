@@ -350,7 +350,8 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     // capture new comment kind from the opening token.
     // the first event belonging to the new comment is at `continued`.
     assert(self.events[continued]![0] === ev.enter, 'expected `enter` event')
-    self.containerState.comment ??= self.events[continued]![1]._kind
+    self.containerState.comment = self.events[continued]![1]._kind
+    self.containerState.documentation = self.events[continued]![1]._info
 
     // forward any comment chunks emitted by `tokenize`.
     forward()
@@ -457,9 +458,11 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     // lazily initialize comment content parser.
     comment ??= self.parser.comment(self.now())
 
-    // expose the current comment kind to `comment`-level constructs.
+    // expose the current comment kind and documentation comment state
+    // to `comment`-level constructs.
     comment.containerState ??= {}
     comment.containerState.comment = self.containerState.comment
+    comment.containerState.documentation = self.containerState.documentation
 
     // start new comment content chunk.
     effects.enter(tt.chunkComment, {

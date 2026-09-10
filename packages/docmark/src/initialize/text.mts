@@ -7,7 +7,6 @@
 import {
   codes,
   constants,
-  ct,
   ev,
   tt
 } from '@flex-development/docmark-util-symbol'
@@ -36,14 +35,14 @@ import { ok as assert } from 'devlop'
  *
  * @const {InitialConstruct} string
  */
-const string: InitialConstruct = initializeFactory(ct.string)
+const string: InitialConstruct = initializeFactory(constants.contentTypeString)
 
 /**
  * The markdown text construct.
  *
  * @const {InitialConstruct} text
  */
-const text: InitialConstruct = initializeFactory(ct.text)
+const text: InitialConstruct = initializeFactory(constants.contentTypeText)
 
 export { string, text }
 

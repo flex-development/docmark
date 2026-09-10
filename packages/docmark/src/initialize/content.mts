@@ -5,7 +5,7 @@
  */
 
 import { factorySpace } from '@flex-development/docmark-factory-space'
-import { ct, tt } from '@flex-development/docmark-util-symbol'
+import { constants, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
   Effects,
@@ -107,7 +107,7 @@ function tokenizeContent(this: TokenizeContext, effects: Effects): State {
      * @const {Token} token
      */
     const token: Token = effects.enter(tt.chunkText, {
-      contentType: ct.text,
+      contentType: constants.contentTypeText,
       previous
     })
 

@@ -3,10 +3,7 @@
  * @module docmark-util-types/ContainerState
  */
 
-import type {
-  CommentKind,
-  TokenFields
-} from '@flex-development/docmark-util-types'
+import type { TokenFields } from '@flex-development/docmark-util-types'
 import type * as micromark from 'micromark-util-types'
 
 /**
@@ -33,10 +30,18 @@ interface ContainerState extends micromark.ContainerState {
    * been entered.\
    * The kind ({@linkcode TokenFields._kind}) is extracted from the first event
    * produced by the current comment construct.
-   *
-   * @see {@linkcode CommentKind}
    */
-  comment?: CommentKind | undefined
+  comment?: TokenFields['_kind'] | undefined
+
+  /**
+   * Whether the current comment is a docblock or docline comment.
+   *
+   * The documentation comment state is captured at the `source` level after a
+   * comment has just been entered.\
+   * The state ({@linkcode TokenFields._info}) is extracted from the first event
+   * produced by the current comment construct.
+   */
+  documentation?: TokenFields['_info'] | undefined
 }
 
 export type { ContainerState as default }

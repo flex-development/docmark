@@ -6,15 +6,12 @@
 /**
  * Registry of all comment kinds exposed by docmark.
  *
- * @enum {string}
+ * @enum {Lowercase<string>}
  */
 const kind = {
   block: 'block',
-  docblock: 'block:doc',
-  docslash: 'slash:doc',
-  hash: 'hash',
   hashbang: 'hashbang',
-  slash: 'slash'
+  line: 'line'
 } as const
 
 export default kind

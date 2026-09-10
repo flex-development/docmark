@@ -43,6 +43,12 @@ describe('unit-d:TokenFields', () => {
       .toEqualTypeOf<boolean | undefined>()
   })
 
+  it('should match [_info?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('_info')
+      .toEqualTypeOf<boolean | undefined>()
+  })
+
   it('should match [_isInFirstContentOfListItem?: boolean | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('_isInFirstContentOfListItem')

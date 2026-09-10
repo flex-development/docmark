@@ -56,13 +56,18 @@ interface TokenFields {
   _inactive?: boolean | undefined
 
   /**
+   * For comments, whether the comment is a docblock or docline comment.
+   */
+  _info?: boolean | undefined
+
+  /**
    * When parsing GFM task lists, whether a token is in the first content of a
    * list item construct.
    */
   _isInFirstContentOfListItem?: boolean | undefined
 
   /**
-   * The comment kind.
+   * For comments, the current comment kind.
    *
    * @see {@linkcode CommentKind}
    */

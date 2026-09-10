@@ -792,17 +792,22 @@ function tokenizeComment(this: TokenizeContext, effects: Effects): State {
   /**
    * Reset container state.
    *
-   * The current `comment` kind is retained after reset.
+   * The current `comment` kind and `documentation` comment state are retained
+   * after reset.
    *
    * @this {void}
    *
    * @return {undefined}
    */
   function restate(this: void): undefined {
-    const { comment } = self.containerState ?? {}
+    const { comment, documentation } = self.containerState ?? {}
 
-    self.containerState = {} // get ready for the next region.
-    self.containerState.comment = comment // re-expose the current comment kind.
+    // get ready for the next region.
+    self.containerState = {}
+
+    // re-expose the current comment kind and documentation comment state.
+    self.containerState.comment = comment
+    self.containerState.documentation = documentation
 
     return void self.containerState
   }

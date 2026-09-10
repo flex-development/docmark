@@ -209,7 +209,7 @@ function tokenizeBlockComment(
     assert(code === codes.slash, 'expected `codes.slash`')
 
     // start new comment.
-    effects.enter(tt.comment, { _container: true, _kind: kind.docblock })
+    effects.enter(tt.comment, { _info: true, _kind: kind.block })
 
     // capture opener and any trailing whitespace or padding following it.
     return effects.attempt(commentOpener, afterOpener, nok)(code)

@@ -10,6 +10,7 @@ import type {
   ContentType,
   DefineSkip,
   Event,
+  Language,
   Now,
   ParseContext,
   SliceSerialize,
@@ -96,6 +97,12 @@ describe('unit-d:TokenizeContext', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('interrupt')
       .toEqualTypeOf<boolean | undefined>()
+  })
+
+  it('should match [lang?: Language | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('lang')
+      .toEqualTypeOf<Language | undefined>()
   })
 
   it('should match [noEmptyTokens?: boolean | undefined]', () => {
