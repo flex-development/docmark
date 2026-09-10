@@ -1,3 +1,17 @@
+## [docmark-factory-markers@1.0.0-alpha.4](https://github.com/flex-development/docmark/compare/docmark-factory-markers@1.0.0-alpha.3...docmark-factory-markers@1.0.0-alpha.4) (2026-09-10)
+
+### ⚠ BREAKING CHANGES
+
+- source languages
+
+### :robot: Continuous Integration
+
+- [[`779e195`](https://github.com/flex-development/docmark/commit/779e1957b9471932e3c9cd2d05abef6d8fed2dbf)] **deps:** Bump dprint/check from 2.3 to 2.4 ([#152](https://github.com/flex-development/docmark/issues/152))
+
+### :sparkles: Features
+
+- [[`db8a203`](https://github.com/flex-development/docmark/commit/db8a203f7884579a5c0008d3028592c996d473af)] source languages
+
 ## [docmark-factory-markers@1.0.0-alpha.3](https://github.com/flex-development/docmark/compare/docmark-factory-markers@1.0.0-alpha.2...docmark-factory-markers@1.0.0-alpha.3) (2026-09-08)
 
 ### ⚠ BREAKING CHANGES
@@ -149,6 +163,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
