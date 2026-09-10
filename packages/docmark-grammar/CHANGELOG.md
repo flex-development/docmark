@@ -1,3 +1,14 @@
+## [docmark-grammar@1.0.0-alpha.6](https://github.com/flex-development/docmark/compare/docmark-grammar@1.0.0-alpha.5...docmark-grammar@1.0.0-alpha.6) (2026-09-10)
+
+### :package: Build
+
+- [[`9efbcae`](https://github.com/flex-development/docmark/commit/9efbcaedc4bde55f1ca071ed96fc79f4630f9319)] **deps-dev:** Bump rolldown from 1.2.6 to 1.2.7 ([#153](https://github.com/flex-development/docmark/issues/153))
+- [[`3e253a6`](https://github.com/flex-development/docmark/commit/3e253a64b07ee1116b95a423c16f19e931d9ef1b)] **deps-dev:** Bump sh-syntax from 0.5.8 to 0.6.0 ([#154](https://github.com/flex-development/docmark/issues/154))
+
+### :sparkles: Features
+
+- [[`c628222`](https://github.com/flex-development/docmark/commit/c6282226967117549d0493864c6b8035b9f79d54)] **types:** `TokenFields#lang`
+
 ## [docmark-grammar@1.0.0-alpha.5](https://github.com/flex-development/docmark/compare/docmark-grammar@1.0.0-alpha.4...docmark-grammar@1.0.0-alpha.5) (2026-09-10)
 
 ### ⚠ BREAKING CHANGES
@@ -213,6 +224,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
