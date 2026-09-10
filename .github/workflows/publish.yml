@@ -94,6 +94,8 @@ jobs:
     environment:
       name: gpr
       url: ${{ steps.environment.outputs.url }}
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - id: environment
         name: Get environment url
@@ -118,8 +120,6 @@ jobs:
         run: cat $NPM_CONFIG_USERCONFIG
       - id: publish
         name: Publish package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ${{ needs.preflight.outputs.command }}
       - id: latest
         name: Set latest version
