@@ -42,6 +42,7 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   inlineTag: 'inlineTag'
   inlineTagMarker: 'inlineTagMarker'
   inlineTagText: 'inlineTagText'
+  interpreterArgument: 'interpreterArgument'
   interpreterPath: 'interpreterPath'
   namepath: 'namepath'
   namepathConnector: 'namepathConnector'

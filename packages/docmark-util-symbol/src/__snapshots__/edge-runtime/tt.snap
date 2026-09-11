@@ -78,6 +78,7 @@ exports[`unit:tt > should be token type dictionary 1`] = `
   "inlineTag": "inlineTag",
   "inlineTagMarker": "inlineTagMarker",
   "inlineTagText": "inlineTagText",
+  "interpreterArgument": "interpreterArgument",
   "interpreterPath": "interpreterPath",
   "label": "label",
   "labelEnd": "labelEnd",

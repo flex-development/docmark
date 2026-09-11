@@ -106,6 +106,12 @@ describe('unit-d:TokenTypeMap', () => {
       .toEqualTypeOf<'inlineTagText'>()
   })
 
+  it('should match [interpreterArgument: "interpreterArgument"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('interpreterArgument')
+      .toEqualTypeOf<'interpreterArgument'>()
+  })
+
   it('should match [interpreterPath: "interpreterPath"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('interpreterPath')
