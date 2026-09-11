@@ -138,6 +138,7 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
         skipFull: false,
         thresholds: { 100: true, perFile: true }
       },
+      fsModuleCache: true,
       globalSetup: [],
       include: ['**/__tests__/*.spec.mts'],
       mockReset: true,
