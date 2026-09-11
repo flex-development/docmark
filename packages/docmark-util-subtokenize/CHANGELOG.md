@@ -1,3 +1,14 @@
+## [docmark-util-subtokenize@1.0.0-alpha.8](https://github.com/flex-development/docmark/compare/docmark-util-subtokenize@1.0.0-alpha.7...docmark-util-subtokenize@1.0.0-alpha.8) (2026-09-11)
+
+### :package: Build
+
+- [[`2022ce5`](https://github.com/flex-development/docmark/commit/2022ce57ef60fa8f1a6dad75af829ff54be599e2)] **deps-dev:** Bump cspell from 10.2.2 to 10.3.0 ([#181](https://github.com/flex-development/docmark/issues/181))
+
+### :sparkles: Features
+
+- [[`2424b66`](https://github.com/flex-development/docmark/commit/2424b665ee3074421d75b14cf275f731c4e94049)] source language `sass`
+- [[`67c407c`](https://github.com/flex-development/docmark/commit/67c407cb88f611d2c251fad9c73db4bb6dd86cd4)] token type `interpreterArgument`
+
 ## [docmark-util-subtokenize@1.0.0-alpha.7](https://github.com/flex-development/docmark/compare/docmark-util-subtokenize@1.0.0-alpha.6...docmark-util-subtokenize@1.0.0-alpha.7) (2026-09-10)
 
 ### ⚠ BREAKING CHANGES
@@ -239,6 +250,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
