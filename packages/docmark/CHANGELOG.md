@@ -1,3 +1,18 @@
+## [docmark@1.0.0-alpha.7](https://github.com/flex-development/docmark/compare/docmark@1.0.0-alpha.6...docmark@1.0.0-alpha.7) (2026-09-10)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** `TokenizeContext#lang` -> `ParseContext#lang`
+
+### :robot: Continuous Integration
+
+- [[`752741d`](https://github.com/flex-development/docmark/commit/752741d1cc5b6fbab0718b86fc1a136259c6c19c)] **deps:** Bump dprint/check from 2.4 to 2.5 ([#155](https://github.com/flex-development/docmark/issues/155))
+- [[`44b4730`](https://github.com/flex-development/docmark/commit/44b47306563b4de6dbdd2b51de181b4100503347)] **workflows:** [`publish`] [`jobs.gpr`] fix auth
+
+### :mechanical_arm: Refactors
+
+- [[`ea4db29`](https://github.com/flex-development/docmark/commit/ea4db2902dfe7deb6c01786af065e802415e81c1)] **types:** `TokenizeContext#lang` -> `ParseContext#lang`
+
 ## [docmark@1.0.0-alpha.6](https://github.com/flex-development/docmark/compare/docmark@1.0.0-alpha.5...docmark@1.0.0-alpha.6) (2026-09-10)
 
 ### :package: Build
@@ -224,6 +239,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
