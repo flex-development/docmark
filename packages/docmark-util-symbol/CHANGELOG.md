@@ -1,3 +1,30 @@
+## [docmark-util-symbol@1.0.0-alpha.6](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.5...docmark-util-symbol@1.0.0-alpha.6) (2026-09-11)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** `TokenizeContext#lang` -> `ParseContext#lang`
+
+### :package: Build
+
+- [[`2022ce5`](https://github.com/flex-development/docmark/commit/2022ce57ef60fa8f1a6dad75af829ff54be599e2)] **deps-dev:** Bump cspell from 10.2.2 to 10.3.0 ([#181](https://github.com/flex-development/docmark/issues/181))
+- [[`9efbcae`](https://github.com/flex-development/docmark/commit/9efbcaedc4bde55f1ca071ed96fc79f4630f9319)] **deps-dev:** Bump rolldown from 1.2.6 to 1.2.7 ([#153](https://github.com/flex-development/docmark/issues/153))
+- [[`3e253a6`](https://github.com/flex-development/docmark/commit/3e253a64b07ee1116b95a423c16f19e931d9ef1b)] **deps-dev:** Bump sh-syntax from 0.5.8 to 0.6.0 ([#154](https://github.com/flex-development/docmark/issues/154))
+
+### :robot: Continuous Integration
+
+- [[`752741d`](https://github.com/flex-development/docmark/commit/752741d1cc5b6fbab0718b86fc1a136259c6c19c)] **deps:** Bump dprint/check from 2.4 to 2.5 ([#155](https://github.com/flex-development/docmark/issues/155))
+- [[`44b4730`](https://github.com/flex-development/docmark/commit/44b47306563b4de6dbdd2b51de181b4100503347)] **workflows:** [`publish`] [`jobs.gpr`] fix auth
+
+### :sparkles: Features
+
+- [[`2424b66`](https://github.com/flex-development/docmark/commit/2424b665ee3074421d75b14cf275f731c4e94049)] source language `sass`
+- [[`67c407c`](https://github.com/flex-development/docmark/commit/67c407cb88f611d2c251fad9c73db4bb6dd86cd4)] token type `interpreterArgument`
+- [[`c628222`](https://github.com/flex-development/docmark/commit/c6282226967117549d0493864c6b8035b9f79d54)] **types:** `TokenFields#lang`
+
+### :mechanical_arm: Refactors
+
+- [[`ea4db29`](https://github.com/flex-development/docmark/commit/ea4db2902dfe7deb6c01786af065e802415e81c1)] **types:** `TokenizeContext#lang` -> `ParseContext#lang`
+
 ## [docmark-util-symbol@1.0.0-alpha.5](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.4...docmark-util-symbol@1.0.0-alpha.5) (2026-09-10)
 
 ### ⚠ BREAKING CHANGES
@@ -214,6 +241,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 

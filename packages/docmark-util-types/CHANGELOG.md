@@ -1,3 +1,14 @@
+## [docmark-util-types@1.0.0-alpha.8](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.7...docmark-util-types@1.0.0-alpha.8) (2026-09-11)
+
+### :package: Build
+
+- [[`2022ce5`](https://github.com/flex-development/docmark/commit/2022ce57ef60fa8f1a6dad75af829ff54be599e2)] **deps-dev:** Bump cspell from 10.2.2 to 10.3.0 ([#181](https://github.com/flex-development/docmark/issues/181))
+
+### :sparkles: Features
+
+- [[`2424b66`](https://github.com/flex-development/docmark/commit/2424b665ee3074421d75b14cf275f731c4e94049)] source language `sass`
+- [[`67c407c`](https://github.com/flex-development/docmark/commit/67c407cb88f611d2c251fad9c73db4bb6dd86cd4)] token type `interpreterArgument`
+
 ## [docmark-util-types@1.0.0-alpha.7](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.6...docmark-util-types@1.0.0-alpha.7) (2026-09-10)
 
 ### ⚠ BREAKING CHANGES
@@ -258,6 +269,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
