@@ -124,9 +124,8 @@ jobs:
       - id: latest
         name: Set latest version
         run: |
-          release=${{ needs.preflight.outputs.workspace }}@${{ needs.preflight.outputs.version}}
+          release=${{ needs.preflight.outputs.workspace }}@${{ needs.preflight.outputs.version }}
           npm dist-tag add $release latest
-
   npm:
     needs: preflight
     permissions:
@@ -169,5 +168,5 @@ jobs:
       - id: latest
         name: Set latest version
         run: |
-          release=${{ needs.preflight.outputs.workspace }}@${{ needs.preflight.outputs.version}}
+          release=${{ needs.preflight.outputs.workspace }}@${{ needs.preflight.outputs.version }}
           npm dist-tag add $release latest
