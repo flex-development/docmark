@@ -1,3 +1,18 @@
+## [docmark-util-types@1.0.0-alpha.7](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.6...docmark-util-types@1.0.0-alpha.7) (2026-09-10)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** `TokenizeContext#lang` -> `ParseContext#lang`
+
+### :robot: Continuous Integration
+
+- [[`752741d`](https://github.com/flex-development/docmark/commit/752741d1cc5b6fbab0718b86fc1a136259c6c19c)] **deps:** Bump dprint/check from 2.4 to 2.5 ([#155](https://github.com/flex-development/docmark/issues/155))
+- [[`44b4730`](https://github.com/flex-development/docmark/commit/44b47306563b4de6dbdd2b51de181b4100503347)] **workflows:** [`publish`] [`jobs.gpr`] fix auth
+
+### :mechanical_arm: Refactors
+
+- [[`ea4db29`](https://github.com/flex-development/docmark/commit/ea4db2902dfe7deb6c01786af065e802415e81c1)] **types:** `TokenizeContext#lang` -> `ParseContext#lang`
+
 ## [docmark-util-types@1.0.0-alpha.6](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.5...docmark-util-types@1.0.0-alpha.6) (2026-09-10)
 
 ### :package: Build
@@ -243,6 +258,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
