@@ -358,8 +358,7 @@ e.g:
    - `yarn version`
    - `yarn workspace <workspace> version <version>`
 3. Create release chore commit
-   - `yarn release 1.0.0-alpha.1` (ecosystem release)
-   - `yarn release docmark-util-types@1.0.0-dev.2` (workspace release)
+   - `yarn release`
 4. Push release chore commit
 5. Monitor workflows
    1. [`release-chore`](.github/workflows/release-chore.yml)
