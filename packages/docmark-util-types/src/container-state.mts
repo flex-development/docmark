@@ -28,20 +28,20 @@ interface ContainerState extends micromark.ContainerState {
    *
    * The comment kind is captured at the `source` level after a comment has just
    * been entered.\
-   * The kind ({@linkcode TokenFields._kind}) is extracted from the first event
+   * The kind ({@linkcode TokenFields.kind}) is extracted from the first event
    * produced by the current comment construct.
    */
-  comment?: TokenFields['_kind'] | undefined
+  comment?: TokenFields['kind'] | undefined
 
   /**
    * Whether the current comment is a docblock or docline comment.
    *
    * The documentation comment state is captured at the `source` level after a
    * comment has just been entered.\
-   * The state ({@linkcode TokenFields._info}) is extracted from the first event
+   * The state ({@linkcode TokenFields.info}) is extracted from the first event
    * produced by the current comment construct.
    */
-  documentation?: TokenFields['_info'] | undefined
+  documentation?: TokenFields['info'] | undefined
 }
 
 export type { ContainerState as default }

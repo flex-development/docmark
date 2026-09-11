@@ -105,7 +105,7 @@ function tokenizeHashbang(
   function startHashbang(this: void, code: Code): State | undefined {
     assert(code === codes.numberSign, 'expected `codes.numberSign`')
 
-    effects.enter(tt.comment, { _kind: kind.hashbang })
+    effects.enter(tt.comment, { kind: kind.hashbang })
     effects.enter(tt.commentLinePrefix)
 
     return factoryMarkers(

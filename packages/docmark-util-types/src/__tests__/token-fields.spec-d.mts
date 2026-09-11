@@ -44,22 +44,10 @@ describe('unit-d:TokenFields', () => {
       .toEqualTypeOf<boolean | undefined>()
   })
 
-  it('should match [_info?: boolean | undefined]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('_info')
-      .toEqualTypeOf<boolean | undefined>()
-  })
-
   it('should match [_isInFirstContentOfListItem?: boolean | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('_isInFirstContentOfListItem')
       .toEqualTypeOf<boolean | undefined>()
-  })
-
-  it('should match [_kind?: CommentKind | undefined]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('_kind')
-      .toEqualTypeOf<CommentKind | undefined>()
   })
 
   it('should match [_loose?: boolean | undefined]', () => {
@@ -96,6 +84,18 @@ describe('unit-d:TokenFields', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('contentType')
       .toEqualTypeOf<ContentType | undefined>()
+  })
+
+  it('should match [info?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('info')
+      .toEqualTypeOf<boolean | undefined>()
+  })
+
+  it('should match [kind?: CommentKind | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('kind')
+      .toEqualTypeOf<CommentKind | undefined>()
   })
 
   it('should match [lang?: Language | undefined]', () => {

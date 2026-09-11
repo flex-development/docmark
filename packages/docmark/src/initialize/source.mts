@@ -350,8 +350,8 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     // capture new comment kind from the opening token.
     // the first event belonging to the new comment is at `continued`.
     assert(self.events[continued]![0] === ev.enter, 'expected `enter` event')
-    self.containerState.comment = self.events[continued]![1]._kind
-    self.containerState.documentation = self.events[continued]![1]._info
+    self.containerState.comment = self.events[continued]![1].kind
+    self.containerState.documentation = self.events[continued]![1].info
 
     // forward any comment chunks emitted by `tokenize`.
     forward()

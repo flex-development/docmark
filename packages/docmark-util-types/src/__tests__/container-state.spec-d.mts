@@ -13,15 +13,15 @@ describe('unit-d:ContainerState', () => {
     expectTypeOf<TestSubject>().toExtend<micromark.ContainerState>()
   })
 
-  it('should match [comment?: TokenFields["_kind"] | undefined]', () => {
+  it('should match [comment?: TokenFields["kind"] | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('comment')
-      .toEqualTypeOf<TokenFields['_kind'] | undefined>()
+      .toEqualTypeOf<TokenFields['kind'] | undefined>()
   })
 
-  it('should match [documentation?: TokenFields["_info"] | undefined]', () => {
+  it('should match [documentation?: TokenFields["_nfo"] | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('documentation')
-      .toEqualTypeOf<TokenFields['_info'] | undefined>()
+      .toEqualTypeOf<TokenFields['info'] | undefined>()
   })
 })

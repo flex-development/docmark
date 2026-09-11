@@ -5,7 +5,6 @@ exports[`integration:initialize/source > should parse source file ("01.txt",unde
   [
     "enter",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": -1,
         "_index": 8,
@@ -13,6 +12,7 @@ exports[`integration:initialize/source > should parse source file ("01.txt",unde
         "line": 5,
         "offset": 103,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 4,
         "_index": 3,
@@ -744,7 +744,6 @@ exports[`integration:initialize/source > should parse source file ("01.txt",unde
   [
     "exit",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": -1,
         "_index": 8,
@@ -752,6 +751,7 @@ exports[`integration:initialize/source > should parse source file ("01.txt",unde
         "line": 5,
         "offset": 103,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 4,
         "_index": 3,
@@ -810,7 +810,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "enter",
     {
-      "_kind": "hashbang",
       "end": {
         "_bufferIndex": -1,
         "_index": 2,
@@ -818,6 +817,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 2,
         "offset": 24,
       },
+      "kind": "hashbang",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -1041,7 +1041,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "exit",
     {
-      "_kind": "hashbang",
       "end": {
         "_bufferIndex": -1,
         "_index": 2,
@@ -1049,6 +1048,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 2,
         "offset": 24,
       },
+      "kind": "hashbang",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -1062,8 +1062,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "enter",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 34,
@@ -1071,6 +1069,8 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 18,
         "offset": 487,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 2,
         "_index": 3,
@@ -4136,8 +4136,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "exit",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 34,
@@ -4145,6 +4143,8 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 18,
         "offset": 487,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 2,
         "_index": 3,
@@ -4158,7 +4158,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "enter",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": -1,
         "_index": 39,
@@ -4166,6 +4165,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 21,
         "offset": 624,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 14,
         "_index": 37,
@@ -4391,7 +4391,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "exit",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": -1,
         "_index": 39,
@@ -4399,6 +4398,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 21,
         "offset": 624,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 14,
         "_index": 37,
@@ -4412,7 +4412,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "enter",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": 0,
         "_index": 46,
@@ -4420,6 +4419,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 25,
         "offset": 810,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 4,
         "_index": 40,
@@ -5153,7 +5153,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "exit",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": 0,
         "_index": 46,
@@ -5161,6 +5160,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 25,
         "offset": 810,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 4,
         "_index": 40,
@@ -5174,7 +5174,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "enter",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": 0,
         "_index": 51,
@@ -5182,6 +5181,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 28,
         "offset": 895,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 4,
         "_index": 49,
@@ -5407,7 +5407,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "exit",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": 0,
         "_index": 51,
@@ -5415,6 +5414,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 28,
         "offset": 895,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 4,
         "_index": 49,
@@ -5428,7 +5428,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "enter",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": 0,
         "_index": 56,
@@ -5436,6 +5435,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 31,
         "offset": 1000,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 4,
         "_index": 54,
@@ -5661,7 +5661,6 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
   [
     "exit",
     {
-      "_kind": "line",
       "end": {
         "_bufferIndex": 0,
         "_index": 56,
@@ -5669,6 +5668,7 @@ exports[`integration:initialize/source > should parse source file ("02.txt",unde
         "line": 31,
         "offset": 1000,
       },
+      "kind": "line",
       "start": {
         "_bufferIndex": 4,
         "_index": 54,
@@ -5727,8 +5727,6 @@ exports[`integration:initialize/source > should parse source file ("03.txt",unde
   [
     "enter",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 1,
@@ -5736,6 +5734,8 @@ exports[`integration:initialize/source > should parse source file ("03.txt",unde
         "line": 1,
         "offset": 3,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -5791,8 +5791,6 @@ exports[`integration:initialize/source > should parse source file ("03.txt",unde
   [
     "exit",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 1,
@@ -5800,6 +5798,8 @@ exports[`integration:initialize/source > should parse source file ("03.txt",unde
         "line": 1,
         "offset": 3,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -5858,8 +5858,6 @@ exports[`integration:initialize/source > should parse source file ("04.txt",unde
   [
     "enter",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": 3,
         "_index": 0,
@@ -5867,6 +5865,8 @@ exports[`integration:initialize/source > should parse source file ("04.txt",unde
         "line": 1,
         "offset": 3,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -5922,8 +5922,6 @@ exports[`integration:initialize/source > should parse source file ("04.txt",unde
   [
     "exit",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": 3,
         "_index": 0,
@@ -5931,6 +5929,8 @@ exports[`integration:initialize/source > should parse source file ("04.txt",unde
         "line": 1,
         "offset": 3,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -5989,8 +5989,6 @@ exports[`integration:initialize/source > should parse source file ("05.txt",unde
   [
     "enter",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 1,
@@ -5998,6 +5996,8 @@ exports[`integration:initialize/source > should parse source file ("05.txt",unde
         "line": 1,
         "offset": 3,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -6053,8 +6053,6 @@ exports[`integration:initialize/source > should parse source file ("05.txt",unde
   [
     "exit",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 1,
@@ -6062,6 +6060,8 @@ exports[`integration:initialize/source > should parse source file ("05.txt",unde
         "line": 1,
         "offset": 3,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -6120,8 +6120,6 @@ exports[`integration:initialize/source > should parse source file ("06.txt",unde
   [
     "enter",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": 3,
         "_index": 0,
@@ -6129,6 +6127,8 @@ exports[`integration:initialize/source > should parse source file ("06.txt",unde
         "line": 1,
         "offset": 3,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -6184,8 +6184,6 @@ exports[`integration:initialize/source > should parse source file ("06.txt",unde
   [
     "exit",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": 3,
         "_index": 0,
@@ -6193,6 +6191,8 @@ exports[`integration:initialize/source > should parse source file ("06.txt",unde
         "line": 1,
         "offset": 3,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -6251,8 +6251,6 @@ exports[`integration:initialize/source > should parse source file ("07.txt",unde
   [
     "enter",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 7,
@@ -6260,6 +6258,8 @@ exports[`integration:initialize/source > should parse source file ("07.txt",unde
         "line": 4,
         "offset": 61,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -6951,8 +6951,6 @@ exports[`integration:initialize/source > should parse source file ("07.txt",unde
   [
     "exit",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 7,
@@ -6960,6 +6958,8 @@ exports[`integration:initialize/source > should parse source file ("07.txt",unde
         "line": 4,
         "offset": 61,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -6973,8 +6973,6 @@ exports[`integration:initialize/source > should parse source file ("07.txt",unde
   [
     "enter",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 43,
@@ -6982,6 +6980,8 @@ exports[`integration:initialize/source > should parse source file ("07.txt",unde
         "line": 23,
         "offset": 531,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 12,
@@ -10005,8 +10005,6 @@ exports[`integration:initialize/source > should parse source file ("07.txt",unde
   [
     "exit",
     {
-      "_info": true,
-      "_kind": "block",
       "end": {
         "_bufferIndex": -1,
         "_index": 43,
@@ -10014,6 +10012,8 @@ exports[`integration:initialize/source > should parse source file ("07.txt",unde
         "line": 23,
         "offset": 531,
       },
+      "info": true,
+      "kind": "block",
       "start": {
         "_bufferIndex": 0,
         "_index": 12,

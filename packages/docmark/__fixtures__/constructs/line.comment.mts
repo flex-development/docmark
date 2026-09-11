@@ -124,7 +124,7 @@ function tokenizeLineComment(
 
     // open the comment container if not already open.
     if (!self.containerState.open) {
-      effects.enter(tt.comment, { _kind: kind.line })
+      effects.enter(tt.comment, { kind: kind.line })
       self.containerState.open = true
     }
 
