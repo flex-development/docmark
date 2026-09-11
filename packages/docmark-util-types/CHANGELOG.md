@@ -1,3 +1,17 @@
+## [docmark-util-types@1.0.0-alpha.9](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.8...docmark-util-types@1.0.0-alpha.9) (2026-09-11)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** `TokenFields`
+
+### :house_with_garden: Housekeeping
+
+- [[`65074e8`](https://github.com/flex-development/docmark/commit/65074e838c790eeb3fc86d760d7da1c0aece025c)] **tests:** cache between reruns
+
+### :mechanical_arm: Refactors
+
+- [[`abb12f2`](https://github.com/flex-development/docmark/commit/abb12f245964c8a099296d743c8c626e93d09a7e)] **types:** `TokenFields`
+
 ## [docmark-util-types@1.0.0-alpha.8](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.7...docmark-util-types@1.0.0-alpha.8) (2026-09-11)
 
 ### :package: Build
@@ -269,6 +283,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 

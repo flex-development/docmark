@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-util-subtokenize",
   "description": "docmark utility to tokenize subtokens",
-  "version": "1.0.0-alpha.8",
+  "version": "1.0.0-alpha.9",
   "keywords": [
     "docmark",
     "tokenize",
@@ -51,7 +51,7 @@
   "types": "./dist/index.d.mts",
   "dependencies": {
     "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.6",
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.8",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.9",
     "@flex-development/mark-util-chunked": "1.0.0",
     "devlop": "1.1.0"
   },
