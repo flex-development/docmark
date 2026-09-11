@@ -15,6 +15,7 @@ const lang = {
   markdown: 'md',
   mdx: 'mdx',
   null: null,
+  sass: 'sass',
   shell: 'shell',
   typescript: 'ts',
   yaml: 'yaml'

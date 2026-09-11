@@ -33,6 +33,10 @@ describe('unit-d:LanguageMap', () => {
     expectTypeOf<TestSubject>().toHaveProperty('null').toEqualTypeOf<never>()
   })
 
+  it('should match [sass: "sass"]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('sass').toEqualTypeOf<'sass'>()
+  })
+
   it('should match [shell: "shell"]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('shell').toEqualTypeOf<'shell'>()
   })

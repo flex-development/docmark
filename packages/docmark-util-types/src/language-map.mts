@@ -29,6 +29,7 @@ interface LanguageMap {
    */
   null: never
 
+  sass: 'sass'
   shell: 'shell'
   typescript: 'ts'
   yaml: 'yaml'

@@ -8,6 +8,7 @@ exports[`unit:lang > should be source language dictionary 1`] = `
   "markdown": "md",
   "mdx": "mdx",
   "null": null,
+  "sass": "sass",
   "shell": "shell",
   "typescript": "ts",
   "yaml": "yaml",
