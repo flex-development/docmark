@@ -1,3 +1,17 @@
+## [docmark-factory-markers@1.0.0-alpha.8](https://github.com/flex-development/docmark/compare/docmark-factory-markers@1.0.0-alpha.7...docmark-factory-markers@1.0.0-alpha.8) (2026-09-11)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** `TokenFields`
+
+### :house_with_garden: Housekeeping
+
+- [[`65074e8`](https://github.com/flex-development/docmark/commit/65074e838c790eeb3fc86d760d7da1c0aece025c)] **tests:** cache between reruns
+
+### :mechanical_arm: Refactors
+
+- [[`abb12f2`](https://github.com/flex-development/docmark/commit/abb12f245964c8a099296d743c8c626e93d09a7e)] **types:** `TokenFields`
+
 ## [docmark-factory-markers@1.0.0-alpha.7](https://github.com/flex-development/docmark/compare/docmark-factory-markers@1.0.0-alpha.6...docmark-factory-markers@1.0.0-alpha.7) (2026-09-11)
 
 ### :package: Build
@@ -200,6 +214,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
