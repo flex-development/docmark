@@ -1,7 +1,0 @@
-releases:
-  "@flex-development/docmark-factory-identifier": 1.0.0-alpha.1
-  docmark: 1.0.0-alpha.12
-
-declined:
-  - "@flex-development/docmark"
-  - "@flex-development/docmark-factory-space"
