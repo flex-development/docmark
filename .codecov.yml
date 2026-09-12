@@ -28,6 +28,10 @@ component_management:
       name: docmark
       paths:
         - packages/docmark/**/*.mts
+    - component_id: docmark-factory-identifier
+      name: docmark-factory-identifier
+      paths:
+        - packages/docmark-factory-identifier/**/*.mts
     - component_id: docmark-factory-markers
       name: docmark-factory-markers
       paths:

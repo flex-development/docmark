@@ -3,7 +3,7 @@
  * @module docmark/constructs/tagName
  */
 
-import factoryIdentifier from '#tests/utils/factory-identifier'
+import { factoryIdentifier } from '@flex-development/docmark-factory-identifier'
 import { codes, ev, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,

@@ -94,6 +94,7 @@
     "micromark-util-types": "2.0.2"
   },
   "devDependencies": {
+    "@flex-development/docmark-factory-identifier": "workspace:*",
     "@flex-development/docmark-factory-markers": "workspace:*"
   },
   "sideEffects": false

@@ -3,7 +3,7 @@
  * @module docmark/constructs/namepath
  */
 
-import factoryIdentifier from '#tests/utils/factory-identifier'
+import { factoryIdentifier } from '@flex-development/docmark-factory-identifier'
 import { trailingWhitespace } from '@flex-development/docmark-grammar'
 import { codes, tt } from '@flex-development/docmark-util-symbol'
 import type {

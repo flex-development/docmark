@@ -23,6 +23,7 @@ const config: UserConfig = {
       'chore',
       'docmark',
       'combine-extensions',
+      'factory-identifier',
       'factory-markers',
       'factory-space',
       'grammar',

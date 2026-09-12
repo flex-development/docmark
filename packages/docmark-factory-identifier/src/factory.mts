@@ -1,6 +1,6 @@
 /**
- * @file Test Utilities - factoryIdentifier
- * @module tests/utils/factoryIdentifier
+ * @file factoryIdentifier
+ * @module docmark-factory-identifier/factory
  */
 
 import { tt } from '@flex-development/docmark-util-symbol'
@@ -26,7 +26,8 @@ import { idContinue, idStart } from '@flex-development/mark-util-character'
  * @param {State} nok
  *  The failed tokenization state
  * @param {TokenType | null | undefined} [type]
- *  The token type
+ *  The token type to capture the identifier as.
+ *  If omitted, defaults to {@linkcode tt.identifier}
  * @return {State}
  *  The initial state
  */
