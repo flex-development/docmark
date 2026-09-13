@@ -21,9 +21,10 @@ const config: UserConfig = {
     'header-max-length': [Severity.Error, 'always', 105],
     'scope-enum': [Severity.Error, 'always', scopes([
       'chore',
-      'docmark',
       'combine-extensions',
+      'docmark',
       'factory-identifier',
+      'factory-line',
       'factory-markers',
       'factory-space',
       'grammar',

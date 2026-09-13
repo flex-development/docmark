@@ -19,6 +19,8 @@ import { idContinue, idStart } from '@flex-development/mark-util-character'
  * @see {@linkcode State}
  * @see {@linkcode TokenType}
  *
+ * @this {void}
+ *
  * @param {Effects} effects
  *  The context object used to transition the state machine
  * @param {State} ok
@@ -32,6 +34,7 @@ import { idContinue, idStart } from '@flex-development/mark-util-character'
  *  The initial state
  */
 function factoryIdentifier(
+  this: void,
   effects: Effects,
   ok: State,
   nok: State,

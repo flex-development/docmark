@@ -3,10 +3,15 @@
  * @module docmark/tests/integration/api
  */
 
+import js from '#fixtures/extensions/js'
 import snapshot from '#tests/utils/snapshot-events'
 import { parse, postprocess, preprocess } from '@flex-development/docmark'
 import { ev, tt } from '@flex-development/docmark-util-symbol'
-import type { Chunk, FileLike } from '@flex-development/docmark-util-types'
+import type {
+  Chunk,
+  FileLike,
+  ParseOptions
+} from '@flex-development/docmark-util-types'
 import pathe from '@flex-development/pathe'
 import { readSync as read } from 'to-vfile'
 import { beforeAll, describe, expect, it } from 'vitest'
@@ -25,14 +30,16 @@ describe('integration:docmark', () => {
     ['source/04.txt'],
     ['source/05.txt'],
     ['source/06.txt'],
-    ['source/07.txt']
+    ['source/07.txt'],
+    ['source/08.txt']
   ])('should parse comments (%j)', path => {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
+    const options: ParseOptions = { extensions: [js] }
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act
-    const result = postprocess(parse().source().write(slice))
+    const result = postprocess(parse(options).source().write(slice))
     const beforeLast = result.at(-2)
     const last = result.at(-1)
 

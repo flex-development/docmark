@@ -6,18 +6,8 @@
     "rootDir": "src"
   },
   "extends": "../../tsconfig.build.json",
-  "files": [
-    "typings/@flex-development/docmark-util-types/index.d.mts",
-    "typings/@flex-development/mark/parse/index.d.mts"
-  ],
   "include": ["src/**/**.mts"],
   "references": [
-    {
-      "path": "../docmark-factory-identifier/tsconfig.build.json"
-    },
-    {
-      "path": "../docmark-factory-line/tsconfig.build.json"
-    },
     {
       "path": "../docmark-factory-markers/tsconfig.build.json"
     },
@@ -26,12 +16,6 @@
     },
     {
       "path": "../docmark-grammar/tsconfig.build.json"
-    },
-    {
-      "path": "../docmark-util-combine-extensions/tsconfig.build.json"
-    },
-    {
-      "path": "../docmark-util-subtokenize/tsconfig.build.json"
     },
     {
       "path": "../docmark-util-symbol/tsconfig.build.json"

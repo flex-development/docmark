@@ -35,7 +35,7 @@ const config = [
   },
   {
     files: [
-      '__fixtures__/constructs/*.mts',
+      'packages/docmark-factory-line/src/factory.mts',
       'packages/docmark-grammar/**/*.mts',
       'packages/docmark/**/constructs/*.mts',
       'packages/docmark/src/initialize/*.mts'

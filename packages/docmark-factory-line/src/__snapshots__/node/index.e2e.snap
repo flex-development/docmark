@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`e2e:docmark-factory-line > should expose public api 1`] = `
+[
+  "default",
+  "factoryLineComment",
+]
+`;

@@ -85,8 +85,8 @@ function tokenizeTrailingWhitespace(
    *  The next state
    */
   function whitespaceTrail(this: void, code: Code): State | undefined {
+    if (!whitespace(code)) return nok(code)
     assert(!self.parser.atBlankLine, 'did not expect blank line')
-    assert(whitespace(code), 'expected whitespace')
     return factorySpace(effects, afterWhitespaceTrail, tt.whitespace)(code)
   }
 
