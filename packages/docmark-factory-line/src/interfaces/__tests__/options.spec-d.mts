@@ -3,7 +3,7 @@
  * @module docmark-factory-line/interfaces/tests/unit-d/Options
  */
 
-import type { Sequence } from '@flex-development/docmark-factory-markers'
+import type { Info, Sequence } from '@flex-development/docmark-factory-markers'
 import type {
   Construct,
   Marker,
@@ -35,10 +35,10 @@ describe('unit-d:interfaces/Options', () => {
       .toEqualTypeOf<Nilable<Partial<TokenFields>>>()
   })
 
-  it('should match [markers: Marker | Sequence]', () => {
+  it('should match [markers: Info | Marker | Sequence]', () => {
     expectTypeOf<Required>().extract<'markers'>().not.toBeNever()
     expectTypeOf<TestSubject>()
       .toHaveProperty('markers')
-      .toEqualTypeOf<Marker | Sequence>()
+      .toEqualTypeOf<Info | Marker | Sequence>()
   })
 })

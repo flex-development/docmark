@@ -10,11 +10,7 @@ import type {
 import { factoryMarkers } from '@flex-development/docmark-factory-markers'
 import { factorySpace } from '@flex-development/docmark-factory-space'
 import { trailingWhitespace } from '@flex-development/docmark-grammar'
-import {
-  constants,
-  kind,
-  tt
-} from '@flex-development/docmark-util-symbol'
+import { constants, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
   ContinuableConstruct,

@@ -12,6 +12,7 @@ import type {
   State
 } from '@flex-development/docmark-util-types'
 import { ok as assert } from 'devlop'
+import normalize from './internal/normalize.mts'
 import terminate from './internal/terminate.mts'
 
 /**
@@ -37,8 +38,8 @@ import terminate from './internal/terminate.mts'
  *  The successful tokenization state
  * @param {State} nok
  *  The failed tokenization state
- * @param {Marker | Sequence} marks
- *  The comment marker code or sequence
+ * @param {Info | Marker | Sequence} marks
+ *  The comment marker code, info, or sequence
  * @return {State}
  *  The initial state
  */
@@ -47,7 +48,7 @@ function factoryMarkers(
   effects: Effects,
   ok: State,
   nok: State,
-  marks: Marker | Sequence
+  marks: Info | Marker | Sequence
 ): State {
   // normalize initial sequence.
   if (!Array.isArray(marks)) marks = [marks]
@@ -57,7 +58,7 @@ function factoryMarkers(
    *
    * @const {Info[]} seq
    */
-  const seq: Info[] = [...marks].map(m => typeof m === 'number' ? [m] : m)
+  const seq: Info[] = [...marks].map(normalize)
 
   /**
    * The index of the current marker.
@@ -81,15 +82,24 @@ function factoryMarkers(
    */
   function maybeMarker(this: void, code: Code): State | undefined {
     if (index === seq.length) return ok(code) // sequence complete.
-    const [marker, type = tt.commentMarker, fields, mandatory] = seq[index++]!
+
+    /**
+     * The comment marker info.
+     *
+     * @const {Info} info
+     */
+    const info: Info = Object.assign({}, seq[index++])
+
+    // normalize the token type.
+    if (info.type === undefined) info.type = tt.commentMarker
 
     // unexpected code.
-    if (code !== marker) return terminate(mandatory, ok, nok)(code)
+    if (code !== info.code) return terminate(info.optional, ok, nok)(code)
 
     // capture the current marker.
-    effects.enter(type, fields)
+    info.type && effects.enter(info.type, { ...info.fields })
     effects.consume(code)
-    effects.exit(type)
+    info.type && effects.exit(info.type)
 
     // try capturing the next marker.
     return maybeMarker

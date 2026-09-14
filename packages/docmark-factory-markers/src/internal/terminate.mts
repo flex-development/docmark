@@ -12,7 +12,7 @@ import type { State } from '@flex-development/docmark-util-types'
  *
  * @this {void}
  *
- * @param {null | undefined} mandatory
+ * @param {boolean | undefined} optional
  *  Whether an unexpected marker should successfully terminate a sequence
  * @param {State} ok
  *  The successful tokenization state
@@ -23,12 +23,11 @@ import type { State } from '@flex-development/docmark-util-types'
  */
 function terminate(
   this: void,
-  mandatory: null | undefined,
+  optional: boolean | undefined,
   ok: State,
   nok: State
 ): State {
-  if (mandatory === null) return ok
-  return nok
+  return optional ? ok : nok
 }
 
 export default terminate

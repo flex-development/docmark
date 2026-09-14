@@ -108,12 +108,10 @@ function tokenizeHashbang(
     effects.enter(tt.comment, { kind: kind.hashbang })
     effects.enter(tt.commentLinePrefix)
 
-    return factoryMarkers(
-      effects,
-      afterFirstMarker,
-      nok,
-      codes.numberSign
-    )(code)
+    return factoryMarkers(effects, afterFirstMarker, nok, {
+      code,
+      type: null
+    })(code)
   }
 
   /**
@@ -137,10 +135,7 @@ function tokenizeHashbang(
   function afterFirstMarker(this: void, code: Code): State | undefined {
     if (code !== codes.exclamationMark) return nok(code)
 
-    effects.enter(tt.commentMarker)
     effects.consume(code)
-    effects.exit(tt.commentMarker)
-
     effects.exit(tt.commentLinePrefix)
 
     return factorySpace(effects, startPath, tt.commentPadding)

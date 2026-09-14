@@ -4,11 +4,7 @@
  */
 
 import factory from '@flex-development/docmark-factory-line'
-import {
-  codes,
-  kind,
-  tt
-} from '@flex-development/docmark-util-symbol'
+import { codes, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
   NamedConstruct
@@ -23,7 +19,7 @@ import type {
  */
 const lineComment: ContinuableConstruct & NamedConstruct = factory({
   construct: { name: `${tt.comment}:${kind.line}` },
-  markers: [[codes.slash], [codes.slash]]
+  markers: [codes.slash, codes.slash]
 })
 
 export default lineComment

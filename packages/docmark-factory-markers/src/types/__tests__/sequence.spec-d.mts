@@ -5,7 +5,7 @@
 
 import type { Marker } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
-import type Info from '../info.mts'
+import type Info from '../../interfaces/info.mts'
 import type TestSubject from '../sequence.mts'
 
 describe('unit-d:types/Sequence', () => {

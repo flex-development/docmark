@@ -3,7 +3,7 @@
  * @module docmark-factory-line/interfaces/Options
  */
 
-import type { Sequence } from '@flex-development/docmark-factory-markers'
+import type { Info, Sequence } from '@flex-development/docmark-factory-markers'
 import type {
   Construct,
   Marker,
@@ -34,12 +34,13 @@ interface Options {
   fields?: TokenFields | null | undefined
 
   /**
-   * The comment line marker or marker sequence.
+   * The comment line marker code, info, or sequence.
    *
+   * @see {@linkcode Info}
    * @see {@linkcode Marker}
    * @see {@linkcode Sequence}
    */
-  markers: Marker | Sequence
+  markers: Info | Marker | Sequence
 }
 
 export type { Options as default }
