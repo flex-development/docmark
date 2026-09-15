@@ -9,7 +9,6 @@ import type {
 } from '@flex-development/docmark-factory-line'
 import { factoryMarkers } from '@flex-development/docmark-factory-markers'
 import { factorySpace } from '@flex-development/docmark-factory-space'
-import { trailingWhitespace } from '@flex-development/docmark-grammar'
 import { constants, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
@@ -200,27 +199,19 @@ function factoryLineComment<T extends ContinuableConstruct>(
       effects.enter(tt.commentLinePrefix)
 
       /**
-       * Check for a blank line.
+       * Capture optional comment padding.
        *
-       * > 👉 **Note**: The {@linkcode trailingWhitespace} construct is used for
-       * > instead of the `blankLine` construct because the latter expects the
-       * > previous code to be the beginning of code or a line ending.
-       *
-       * @const {State} checkBlankLine
+       * @const {State} paddingAfter
        */
-      const checkBlankLine: State = effects.check(
-        trailingWhitespace,
+      const paddingAfter: State = factorySpace(
+        effects,
         endPrefix,
-        factorySpace(
-          effects,
-          endPrefix,
-          tt.commentPadding,
-          constants.commentPaddingSizeMin
-        )
+        tt.commentPadding,
+        constants.commentPaddingSizeMin
       )
 
       // try capturing comment markers.
-      return factoryMarkers(effects, checkBlankLine, nok, options.markers)(code)
+      return factoryMarkers(effects, paddingAfter, nok, options.markers)(code)
     }
 
     /**

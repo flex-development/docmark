@@ -146251,11 +146251,11 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     "enter",
     {
       "end": {
-        "_bufferIndex": 2,
-        "_index": 2,
-        "column": 3,
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 4,
         "line": 2,
-        "offset": 5,
+        "offset": 6,
       },
       "start": {
         "_bufferIndex": 0,
@@ -146349,26 +146349,6 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
       },
       "type": "commentMarker",
       "value": "/",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 2,
-        "_index": 2,
-        "column": 3,
-        "line": 2,
-        "offset": 5,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 2,
-        "column": 1,
-        "line": 2,
-        "offset": 3,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -146376,19 +146356,19 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 2,
+        "_index": 3,
         "column": 4,
         "line": 2,
         "offset": 6,
       },
       "start": {
-        "_bufferIndex": 0,
-        "_index": 1,
+        "_bufferIndex": 2,
+        "_index": 2,
         "column": 3,
         "line": 2,
         "offset": 5,
       },
-      "type": "linePrefix",
+      "type": "commentPadding",
       "value": " ",
     },
   ],
@@ -146397,35 +146377,55 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 2,
+        "_index": 3,
         "column": 4,
         "line": 2,
         "offset": 6,
       },
       "start": {
-        "_bufferIndex": 0,
-        "_index": 1,
+        "_bufferIndex": 2,
+        "_index": 2,
         "column": 3,
         "line": 2,
         "offset": 5,
       },
-      "type": "linePrefix",
+      "type": "commentPadding",
       "value": " ",
     },
   ],
   [
-    "enter",
+    "exit",
     {
       "end": {
         "_bufferIndex": -1,
         "_index": 3,
+        "column": 4,
+        "line": 2,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 3,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
         "column": 1,
         "line": 3,
         "offset": 7,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 2,
+        "_index": 1,
         "column": 4,
         "line": 2,
         "offset": 6,
@@ -146440,14 +146440,14 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 3,
+        "_index": 2,
         "column": 1,
         "line": 3,
         "offset": 7,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 2,
+        "_index": 1,
         "column": 4,
         "line": 2,
         "offset": 6,
@@ -146461,11 +146461,11 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     "enter",
     {
       "end": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 4,
-        "column": 3,
+        "column": 4,
         "line": 3,
-        "offset": 9,
+        "offset": 10,
       },
       "start": {
         "_bufferIndex": 0,
@@ -146562,14 +146562,56 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     },
   ],
   [
-    "exit",
+    "enter",
     {
       "end": {
+        "_bufferIndex": 3,
+        "_index": 4,
+        "column": 4,
+        "line": 3,
+        "offset": 10,
+      },
+      "start": {
         "_bufferIndex": 2,
         "_index": 4,
         "column": 3,
         "line": 3,
         "offset": 9,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 4,
+        "column": 4,
+        "line": 3,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 4,
+        "column": 3,
+        "line": 3,
+        "offset": 9,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 4,
+        "column": 4,
+        "line": 3,
+        "offset": 10,
       },
       "start": {
         "_bufferIndex": 0,
@@ -146586,20 +146628,20 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 4,
+        "_index": 3,
         "column": 6,
         "line": 3,
         "offset": 12,
       },
       "start": {
         "_bufferIndex": 0,
-        "_index": 3,
-        "column": 3,
+        "_index": 2,
+        "column": 4,
         "line": 3,
-        "offset": 9,
+        "offset": 10,
       },
       "type": "linePrefix",
-      "value": "   ",
+      "value": "  ",
     },
   ],
   [
@@ -146607,20 +146649,20 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 4,
+        "_index": 3,
         "column": 6,
         "line": 3,
         "offset": 12,
       },
       "start": {
         "_bufferIndex": 0,
-        "_index": 3,
-        "column": 3,
+        "_index": 2,
+        "column": 4,
         "line": 3,
-        "offset": 9,
+        "offset": 10,
       },
       "type": "linePrefix",
-      "value": "   ",
+      "value": "  ",
     },
   ],
   [
@@ -146628,14 +146670,14 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 5,
+        "_index": 4,
         "column": 1,
         "line": 4,
         "offset": 13,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 4,
+        "_index": 3,
         "column": 6,
         "line": 3,
         "offset": 12,
@@ -146650,14 +146692,14 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
     {
       "end": {
         "_bufferIndex": -1,
-        "_index": 5,
+        "_index": 4,
         "column": 1,
         "line": 4,
         "offset": 13,
       },
       "start": {
         "_bufferIndex": -1,
-        "_index": 4,
+        "_index": 3,
         "column": 6,
         "line": 3,
         "offset": 12,
@@ -149155,11 +149197,11 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
     "enter",
     {
       "end": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "start": {
         "_bufferIndex": 0,
@@ -149256,14 +149298,56 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
     },
   ],
   [
-    "exit",
+    "enter",
     {
       "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
         "_bufferIndex": 2,
         "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
       },
       "start": {
         "_bufferIndex": 0,
@@ -149288,12 +149372,12 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "type": "linePrefix",
-      "value": "   ",
+      "value": "  ",
     },
   ],
   [
@@ -149309,12 +149393,12 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "type": "linePrefix",
-      "value": "   ",
+      "value": "  ",
     },
   ],
   [
@@ -149410,11 +149494,11 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
     "enter",
     {
       "end": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "start": {
         "_bufferIndex": 0,
@@ -149511,14 +149595,56 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
     },
   ],
   [
-    "exit",
+    "enter",
     {
       "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
         "_bufferIndex": 2,
         "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
       },
       "start": {
         "_bufferIndex": 0,
@@ -149543,12 +149669,12 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "type": "linePrefix",
-      "value": "   ",
+      "value": "  ",
     },
   ],
   [
@@ -149564,12 +149690,12 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "type": "linePrefix",
-      "value": "   ",
+      "value": "  ",
     },
   ],
   [

@@ -14552,11 +14552,11 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
     "enter",
     {
       "end": {
-        "_bufferIndex": 2,
-        "_index": 2,
-        "column": 3,
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 4,
         "line": 2,
-        "offset": 5,
+        "offset": 6,
       },
       "start": {
         "_bufferIndex": 0,
@@ -14653,14 +14653,56 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
     },
   ],
   [
-    "exit",
+    "enter",
     {
       "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 4,
+        "line": 2,
+        "offset": 6,
+      },
+      "start": {
         "_bufferIndex": 2,
         "_index": 2,
         "column": 3,
         "line": 2,
         "offset": 5,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 4,
+        "line": 2,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 5,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 4,
+        "line": 2,
+        "offset": 6,
       },
       "start": {
         "_bufferIndex": 0,
@@ -14684,14 +14726,14 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "offset": 7,
       },
       "start": {
-        "_bufferIndex": 2,
-        "_index": 2,
-        "column": 3,
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 4,
         "line": 2,
-        "offset": 5,
+        "offset": 6,
       },
       "type": "chunkComment",
-      "value": " 
+      "value": "
 ",
     },
   ],
@@ -14707,14 +14749,14 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "offset": 7,
       },
       "start": {
-        "_bufferIndex": 2,
-        "_index": 2,
-        "column": 3,
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 4,
         "line": 2,
-        "offset": 5,
+        "offset": 6,
       },
       "type": "chunkComment",
-      "value": " 
+      "value": "
 ",
     },
   ],
@@ -14722,11 +14764,11 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
     "enter",
     {
       "end": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 4,
-        "column": 3,
+        "column": 4,
         "line": 3,
-        "offset": 9,
+        "offset": 10,
       },
       "start": {
         "_bufferIndex": 0,
@@ -14823,14 +14865,56 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
     },
   ],
   [
-    "exit",
+    "enter",
     {
       "end": {
+        "_bufferIndex": 3,
+        "_index": 4,
+        "column": 4,
+        "line": 3,
+        "offset": 10,
+      },
+      "start": {
         "_bufferIndex": 2,
         "_index": 4,
         "column": 3,
         "line": 3,
         "offset": 9,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 4,
+        "column": 4,
+        "line": 3,
+        "offset": 10,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 4,
+        "column": 3,
+        "line": 3,
+        "offset": 9,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 4,
+        "column": 4,
+        "line": 3,
+        "offset": 10,
       },
       "start": {
         "_bufferIndex": 0,
@@ -14854,14 +14938,14 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "offset": 13,
       },
       "start": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 4,
-        "column": 3,
+        "column": 4,
         "line": 3,
-        "offset": 9,
+        "offset": 10,
       },
       "type": "chunkComment",
-      "value": "   
+      "value": "  
 ",
     },
   ],
@@ -14877,14 +14961,14 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "offset": 13,
       },
       "start": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 4,
-        "column": 3,
+        "column": 4,
         "line": 3,
-        "offset": 9,
+        "offset": 10,
       },
       "type": "chunkComment",
-      "value": "   
+      "value": "  
 ",
     },
   ],
@@ -17094,11 +17178,11 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
     "enter",
     {
       "end": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "start": {
         "_bufferIndex": 0,
@@ -17195,14 +17279,56 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
     },
   ],
   [
-    "exit",
+    "enter",
     {
       "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
         "_bufferIndex": 2,
         "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
       },
       "start": {
         "_bufferIndex": 0,
@@ -17226,14 +17352,14 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 5,
       },
       "start": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "type": "chunkComment",
-      "value": "   ",
+      "value": "  ",
     },
   ],
   [
@@ -17248,14 +17374,14 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 5,
       },
       "start": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "type": "chunkComment",
-      "value": "   ",
+      "value": "  ",
     },
   ],
   [
@@ -17351,11 +17477,11 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
     "enter",
     {
       "end": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "start": {
         "_bufferIndex": 0,
@@ -17452,14 +17578,56 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
     },
   ],
   [
-    "exit",
+    "enter",
     {
       "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
         "_bufferIndex": 2,
         "_index": 0,
         "column": 3,
         "line": 1,
         "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
       },
       "start": {
         "_bufferIndex": 0,
@@ -17483,14 +17651,14 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 6,
       },
       "start": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "type": "chunkComment",
-      "value": "   
+      "value": "  
 ",
     },
   ],
@@ -17506,14 +17674,14 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 6,
       },
       "start": {
-        "_bufferIndex": 2,
+        "_bufferIndex": 3,
         "_index": 0,
-        "column": 3,
+        "column": 4,
         "line": 1,
-        "offset": 2,
+        "offset": 3,
       },
       "type": "chunkComment",
-      "value": "   
+      "value": "  
 ",
     },
   ],
