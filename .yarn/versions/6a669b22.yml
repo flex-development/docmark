@@ -1,0 +1,6 @@
+releases:
+  "@flex-development/docmark-factory-line": 1.0.0-alpha.2
+  docmark: 1.0.0-alpha.14
+
+declined:
+  - "@flex-development/docmark"
