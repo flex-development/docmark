@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-factory-line",
   "description": "docmark factory to parse line comments",
-  "version": "0.0.0",
+  "version": "1.0.0-alpha.1",
   "keywords": [
     "docmark",
     "factory",
@@ -54,11 +54,11 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "dependencies": {
-    "@flex-development/docmark-factory-markers": "workspace:1.0.0-alpha.8",
-    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.9",
-    "@flex-development/docmark-grammar": "workspace:1.0.0-alpha.9",
+    "@flex-development/docmark-factory-markers": "workspace:1.0.0-alpha.9",
+    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.10",
+    "@flex-development/docmark-grammar": "workspace:1.0.0-alpha.10",
     "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.6",
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.9",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.10",
     "@flex-development/mark-util-character": "1.1.0",
     "devlop": "1.1.0"
   },

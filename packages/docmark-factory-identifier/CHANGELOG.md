@@ -1,3 +1,27 @@
+## [docmark-factory-identifier@1.0.0-alpha.2](https://github.com/flex-development/docmark/compare/docmark-factory-identifier@1.0.0-alpha.1...docmark-factory-identifier@1.0.0-alpha.2) (2026-09-15)
+
+### ⚠ BREAKING CHANGES
+
+- **factory-block:** `factoryBlockComment`
+- **factory-markers:** convert `Info` from tuple to object
+
+### :package: Build
+
+- [[`ad4666e`](https://github.com/flex-development/docmark/commit/ad4666ec408b2161a9d3dae76a3c4d800551a780)] **deps-dev:** Bump happy-dom from 20.14.0 to 20.14.3 ([#201](https://github.com/flex-development/docmark/issues/201))
+- [[`0279f2d`](https://github.com/flex-development/docmark/commit/0279f2d4c2a4d8be929f11ddeb2d8cc3dacf1726)] **deps-dev:** Bump happy-dom from 20.14.3 to 20.14.5 ([#204](https://github.com/flex-development/docmark/issues/204))
+- [[`644809a`](https://github.com/flex-development/docmark/commit/644809af7baabb276b4f0f187918ee56f3ec3edd)] **deps-dev:** Bump rolldown from 1.2.7 to 1.2.8 ([#202](https://github.com/flex-development/docmark/issues/202))
+- [[`5847517`](https://github.com/flex-development/docmark/commit/5847517b7ba6995d1ce2ed7fc5e22cf27dc36a4d)] **deps-dev:** Bump rollup from 4.63.1 to 4.63.2 ([#205](https://github.com/flex-development/docmark/issues/205))
+- [[`617825f`](https://github.com/flex-development/docmark/commit/617825f7787fd956886acdaaadf040ff198facb2)] **deps-dev:** Bump vite from 8.2.2 to 8.3.0 ([#203](https://github.com/flex-development/docmark/issues/203))
+
+### :sparkles: Features
+
+- [[`3564cfc`](https://github.com/flex-development/docmark/commit/3564cfc76713445a1195afd329faf6c202dd6240)] **factory-block:** `factoryBlockComment`
+- [[`e53fdbb`](https://github.com/flex-development/docmark/commit/e53fdbbea0dd4b52b5c285103096e80a8af33bac)] **factory-line:** `factoryLineComment`
+
+### :mechanical_arm: Refactors
+
+- [[`b22b522`](https://github.com/flex-development/docmark/commit/b22b522ef5f18c7ee6f0e1a4133c20d0a0c586d9)] **factory-markers:** convert `Info` from tuple to object
+
 ## docmark-factory-identifier@1.0.0-alpha.1 (2026-09-11)
 
 ### ⚠ BREAKING CHANGES
@@ -147,5 +171,6 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
