@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "extends": "../../tsconfig.build.json",
+  "files": ["typings/@flex-development/docmark-util-types/index.d.mts"],
+  "include": ["src/**/**.mts"],
+  "references": [
+    {
+      "path": "../docmark-factory-markers/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-factory-space/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-grammar/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-util-symbol/tsconfig.build.json"
+    },
+    {
+      "path": "../docmark-util-types/tsconfig.build.json"
+    }
+  ]
+}

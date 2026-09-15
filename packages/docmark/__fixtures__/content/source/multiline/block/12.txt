@@ -1,0 +1,12 @@
+    /**
+     * > 👉 **Note**: `␊` represents a line ending.
+     *
+     * @example
+     *  ```markdown
+     *  > |/**␊
+     *  > | * The tokenization context.␊
+     *  > | *␊
+     *  > | * @const {TokenizeContext} self␊
+     *  > | */
+     *  ```
+     */

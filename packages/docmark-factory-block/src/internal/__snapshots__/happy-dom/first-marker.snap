@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:internal/firstMarker > should return first marker in \`sequence\` (0) 1`] = `35`;
+
+exports[`unit:internal/firstMarker > should return first marker in \`sequence\` (1) 1`] = `60`;
+
+exports[`unit:internal/firstMarker > should return first marker in \`sequence\` (2) 1`] = `47`;

@@ -4,16 +4,6 @@ import type * as mark from '@flex-development/mark/parse'
 declare module '@flex-development/docmark-util-types' {
   interface ContainerState {
     /**
-     * At the `source`-level, whether markdown indentation was detected.
-     *
-     * This is used by some comment constructs to protect indentation that
-     * should be parsed as markdown, i.e. line prefixes inside indented code.
-     *
-     * @internal
-     */
-    markdownIndent?: boolean | undefined
-
-    /**
      * For block tag containers and type expressions,
      * the current tag name identifier.
      *

@@ -1,0 +1,3 @@
+/**
+ * A column in the source content (`1`-indexed integer).
+ * */

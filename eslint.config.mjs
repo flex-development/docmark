@@ -35,6 +35,7 @@ const config = [
   },
   {
     files: [
+      'packages/docmark-factory-block/src/factory.mts',
       'packages/docmark-factory-line/src/factory.mts',
       'packages/docmark-grammar/**/*.mts',
       'packages/docmark/**/constructs/*.mts',

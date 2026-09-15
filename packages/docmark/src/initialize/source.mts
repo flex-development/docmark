@@ -14,6 +14,7 @@ import type {
   ContinuableConstruct,
   Effects,
   InitialConstruct,
+  Place,
   State,
   Token,
   TokenizeContext
@@ -142,6 +143,16 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    */
   let continued: number = 0
 
+  /**
+   * The stream position before the current `continuation` attempt.
+   *
+   * The position is compared with the position after a successful continuation
+   * to determine whether the continuation consumed any input.
+   *
+   * @var {Place | undefined} then
+   */
+  let then: Place | undefined
+
   return start
 
   /**
@@ -215,6 +226,11 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     // a successful continuation.
     continued = self.events.length
 
+    // capture current place in the content before attempting continuation.
+    // this is used to determine if the comment's `continuation` construct
+    // consumed any input.
+    then = self.now()
+
     // if there's a comment region or a region interrupting markdown content,
     // we're interrupting with a comment line.
     self.interrupt = Boolean(comment?.currentConstruct ?? comment?.interrupt)
@@ -228,15 +244,17 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * After a successful comment continuation.
+   * Resume after a successful comment continuation.
    *
-   * Comment content tokens emitted by the `continuation` construct are first
-   * forwarded to the active child tokenizer.
+   * Any `comment` content chunks emitted by the `continuation` construct are
+   * first forwarded to the active child {@linkcode comment} tokenizer.
    *
-   * If the continuation closes the comment, scanning resumes after finalizing
-   * the active comment.
-   * Otherwise, same-line content begins a new comment content chunk,
-   * whereas a completely consumed line returns to control to {@linkcode start}.
+   * A successful continuation can:
+   *
+   * - request that the comment close
+   * - consume no input, in which case a new chunk begins at the same position
+   * - consume part of a line, in which case remaining content becomes a chunk
+   * - consume an entire line, in which case the next line is processed
    *
    * @this {void}
    *
@@ -248,6 +266,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   function afterContinuation(this: void, code: Code): State | undefined {
     assert(stack.length === 1, 'expected comment on `stack`')
     assert(self.containerState, 'expected `containerState` after continuing')
+    assert(then, 'expected `then` after continuing')
 
     // forward any comment chunks emitted by continuation.
     forward()
@@ -257,6 +276,25 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
 
     // comment no longer considered fresh.
     self.parser.freshComment = false
+
+    /**
+     * The current place in the content.
+     *
+     * @const {Place} now
+     */
+    const now: Place = self.now()
+
+    // continuation succeeded without consuming input.
+    // start comment chunk from unchanged stream position.
+    if (
+      then.line === now.line &&
+      then.column === now.column &&
+      then.offset === now.offset &&
+      then._bufferIndex === now._bufferIndex &&
+      then._index === now._index
+    ) {
+      return beforeChunk(code)
+    }
 
     // continuation construct did not consume entire line.
     // start comment chunk from current point in the stream.

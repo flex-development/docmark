@@ -1,0 +1,7 @@
+/**
+ * @example
+ *     > | * Tokenize a blank line.␊
+ *     > | *␊
+ *          ^
+ *     > | * @this {TokenizeContext} */
+ */

@@ -3,7 +3,7 @@
  * @module docmark-util-types/ContainerState
  */
 
-import type { TokenFields } from '@flex-development/docmark-util-types'
+import type { Token, TokenFields } from '@flex-development/docmark-util-types'
 import type * as micromark from 'micromark-util-types'
 
 /**
@@ -42,6 +42,13 @@ interface ContainerState extends micromark.ContainerState {
    * produced by the current comment construct.
    */
   documentation?: TokenFields['info'] | undefined
+
+  /**
+   * For block comments, the token representing the comment opener.
+   *
+   * @see {@linkcode Token}
+   */
+  opener?: Token | undefined
 }
 
 export type { ContainerState as default }

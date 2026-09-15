@@ -3,7 +3,6 @@
 exports[`e2e:docmark-grammar > should expose public api 1`] = `
 [
   "blankLine",
-  "eoc",
   "region",
   "summary",
   "trailingWhitespace",

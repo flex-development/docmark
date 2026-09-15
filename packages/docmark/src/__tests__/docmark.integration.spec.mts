@@ -20,18 +20,51 @@ describe('integration:docmark', () => {
   let directory: string
 
   beforeAll(() => {
-    directory = 'packages/docmark/__fixtures__/content'
+    directory = 'packages/docmark/__fixtures__/content/source'
   })
 
   it.each<[path: string]>([
-    ['source/01.txt'],
-    ['source/02.txt'],
-    ['source/03.txt'],
-    ['source/04.txt'],
-    ['source/05.txt'],
-    ['source/06.txt'],
-    ['source/07.txt'],
-    ['source/08.txt']
+    ['empty/01.txt'],
+    ['opener-only/block/01.txt'],
+    ['opener-only/block/02.txt'],
+    ['opener-only/block/03.txt'],
+    ['opener-only/block/04.txt'],
+    ['opener-only/line/01.txt'],
+    ['opener-only/line/02.txt'],
+    ['opener-only/line/03.txt'],
+    ['opener-only/line/04.txt'],
+    ['sameline/block/01.txt'],
+    ['sameline/block/02.txt'],
+    ['sameline/block/03.txt'],
+    ['sameline/block/04.txt'],
+    ['sameline/block/05.txt'],
+    ['sameline/block/06.txt'],
+    ['sameline/block/07.txt'],
+    ['sameline/block/08.txt'],
+    ['sameline/block/09.txt'],
+    ['sameline/block/10.txt'],
+    ['sameline/line/01.txt'],
+    ['sameline/line/02.txt'],
+    ['multiline/block/01.txt'],
+    ['multiline/block/02.txt'],
+    ['multiline/block/03.txt'],
+    ['multiline/block/04.txt'],
+    ['multiline/block/05.txt'],
+    ['multiline/block/06.txt'],
+    ['multiline/block/07.txt'],
+    ['multiline/block/08.txt'],
+    ['multiline/block/09.txt'],
+    ['multiline/block/10.txt'],
+    ['multiline/block/11.txt'],
+    ['multiline/block/12.txt'],
+    ['multiline/block/13.txt'],
+    ['multiline/block/14.txt'],
+    ['multiline/block/15.txt'],
+    ['multiline/line/01.txt'],
+    ['multiline/line/02.txt'],
+    ['modules/01.txt'],
+    ['modules/02.txt'],
+    ['modules/03.txt']
   ])('should parse comments (%j)', path => {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))

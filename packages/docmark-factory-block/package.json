@@ -1,0 +1,64 @@
+{
+  "name": "@flex-development/docmark-factory-block",
+  "description": "docmark factory to parse block comments",
+  "version": "0.0.0",
+  "keywords": [
+    "block-comment",
+    "docmark",
+    "factory",
+    "js",
+    "json5",
+    "jsonc",
+    "ts"
+  ],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/flex-development/docmark-util-types/tree/main/packages/flex-development/docmark-factory-block",
+  "repository": {
+    "directory": "packages/docmark-factory-block",
+    "type": "git",
+    "url": "git+https://github.com/flex-development/docmark.git"
+  },
+  "bugs": "https://github.com/flex-development/docmark/issues",
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "diff-dst-prefix": "docmark-factory-block",
+    "diff-src-prefix": "docmark-factory-block",
+    "directory": "./",
+    "executableFiles": [],
+    "node-options": null,
+    "pack-destination": ".",
+    "parseable": true,
+    "prefer-dedupe": true,
+    "provenance": true,
+    "tag-version-prefix": "docmark-factory-block@"
+  },
+  "type": "module",
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "docmark": "./src/index.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "dependencies": {
+    "@flex-development/docmark-factory-markers": "workspace:1.0.0-alpha.8",
+    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.9",
+    "@flex-development/docmark-grammar": "workspace:1.0.0-alpha.9",
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.6",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.9",
+    "@flex-development/mark-util-character": "1.1.0",
+    "devlop": "1.1.0"
+  },
+  "sideEffects": false
+}

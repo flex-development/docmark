@@ -4,10 +4,11 @@
  */
 
 import { factorySpace } from '@flex-development/docmark-factory-space'
-import { constants, tt } from '@flex-development/docmark-util-symbol'
+import { constants, ev, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
   Effects,
+  Event,
   PartialConstruct,
   State,
   TokenizeContext,
@@ -47,7 +48,8 @@ export default blankLine
 /**
  * Check whether a blank line may begin after `code`.
  *
- * A blank line may start at the beginning of stream or after a new line.
+ * A blank line may start at the beginning of stream, after a new line,
+ * or after a `commentLinePrefix` `exit` event.
  *
  * @this {TokenizeContext}
  *
@@ -57,7 +59,17 @@ export default blankLine
  *  Whether a blank line may begin after `code`
  */
 function previousBlankLine(this: TokenizeContext, code: Code): boolean {
-  return bos(code) || eol(code)
+  if (bos(code) || eol(code)) return true // beginning of stream or line.
+
+  /**
+   * The last emitted event.
+   *
+   * @const {Event | undefined} tail
+   */
+  const tail: Event | undefined = this.events[this.events.length - 1]
+
+  // closed comment line prefix.
+  return !!tail && tail[0] === ev.exit && tail[1].type === tt.commentLinePrefix
 }
 
 /**

@@ -1,0 +1,5 @@
+/** 
+   The point where an active markdown indent starts.
+      
+   @var {Place | undefined} then
+ */

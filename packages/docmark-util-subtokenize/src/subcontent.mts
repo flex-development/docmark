@@ -184,15 +184,15 @@ function subcontent(
 
       // entering or exiting a token that starts and ends on the same line.
       if (token.start.line === token.end.line) {
-        ok(
-          token.start.offset >= linked.start.offset,
-          'expected same line token to start after or at linked chunk start'
-        )
-
-        ok(
-          token.end.offset <= linked.end.offset,
-          'expected same line token to end before or at linked chunk end'
-        )
+        // child token belongs to a different bucket.
+        // token was produced from a chunk without a line ending.
+        // this can happen when block comments split an indented code line into
+        // two chunks: one chunk for the line prefix, and another chunk for the
+        // rest of the line.
+        if (token.start.offset < linked.start.offset) {
+          childIndex = j
+          break
+        }
 
         // add child event to bucket and mark token as seen.
         bucket.unshift([event, token, self])
