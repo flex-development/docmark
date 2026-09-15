@@ -86,9 +86,6 @@ labels:
   - name: package:docmark
     description: '@flex-development/docmark'
     color: c6cde1
-  - name: package:docmark-grammar
-    description: '@flex-development/docmark-grammar'
-    color: c6cde1
   - name: package:docmark-factory-block
     description: '@flex-development/docmark-factory-block'
     color: c6cde1
@@ -103,6 +100,9 @@ labels:
     color: c6cde1
   - name: package:docmark-factory-space
     description: '@flex-development/docmark-factory-space'
+    color: c6cde1
+  - name: package:docmark-grammar
+    description: '@flex-development/docmark-grammar'
     color: c6cde1
   - name: package:docmark-util-combine-extensions
     description: '@flex-development/docmark-util-combine-extensions'
