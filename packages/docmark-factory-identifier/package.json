@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-factory-identifier",
   "description": "docmark factory to parse identifiers",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "keywords": [
     "docmark",
     "factory",
@@ -49,8 +49,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "dependencies": {
-    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.6",
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.10",
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.7",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.11",
     "@flex-development/mark-util-character": "1.1.0"
   },
   "sideEffects": false
