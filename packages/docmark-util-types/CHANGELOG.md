@@ -1,3 +1,18 @@
+## [docmark-util-types@1.0.0-alpha.11](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.10...docmark-util-types@1.0.0-alpha.11) (2026-09-17)
+
+### :robot: Continuous Integration
+
+- [[`ec75abd`](https://github.com/flex-development/docmark/commit/ec75abd4e827651bb83e3009a24902a8373123bd)] **deps:** Bump codecov/codecov-action from 7.0.0 to 7.1.0 ([#223](https://github.com/flex-development/docmark/issues/223))
+
+### :sparkles: Features
+
+- [[`b956d42`](https://github.com/flex-development/docmark/commit/b956d42e542cc01863998a259a04a0f386d50a64)] add source languages `html` and `xml`
+- [[`fb52fbb`](https://github.com/flex-development/docmark/commit/fb52fbb8bf2461a4eddd9aa9b4e60923a2f05adf)] **factory-block:** overlapping closer support
+
+### :bug: Fixes
+
+- [[`474f8e9`](https://github.com/flex-development/docmark/commit/474f8e922beb36eab7e36f4af44fbcae15757cdc)] **factory-line:** padding after markers
+
 ## [docmark-util-types@1.0.0-alpha.10](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.9...docmark-util-types@1.0.0-alpha.10) (2026-09-15)
 
 ### ⚠ BREAKING CHANGES
@@ -308,6 +323,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
