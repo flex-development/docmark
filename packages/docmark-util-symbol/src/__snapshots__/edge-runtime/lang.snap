@@ -3,6 +3,7 @@
 exports[`unit:lang > should be source language dictionary 1`] = `
 {
   "css": "css",
+  "html": "html",
   "javascript": "js",
   "jsonc": "jsonc",
   "markdown": "md",
@@ -11,6 +12,7 @@ exports[`unit:lang > should be source language dictionary 1`] = `
   "sass": "sass",
   "shell": "shell",
   "typescript": "ts",
+  "xml": "xml",
   "yaml": "yaml",
 }
 `;

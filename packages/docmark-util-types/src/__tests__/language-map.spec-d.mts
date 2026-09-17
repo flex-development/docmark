@@ -11,6 +11,10 @@ describe('unit-d:LanguageMap', () => {
     expectTypeOf<TestSubject>().toHaveProperty('css').toEqualTypeOf<'css'>()
   })
 
+  it('should match [html: "html"]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('html').toEqualTypeOf<'html'>()
+  })
+
   it('should match [javascript: "js"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('javascript')
@@ -45,6 +49,10 @@ describe('unit-d:LanguageMap', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('typescript')
       .toEqualTypeOf<'ts'>()
+  })
+
+  it('should match [xml: "xml"]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('xml').toEqualTypeOf<'xml'>()
   })
 
   it('should match [yaml: "yaml"]', () => {

@@ -17,6 +17,7 @@
  */
 interface LanguageMap {
   css: 'css'
+  html: 'html'
   javascript: 'js'
   jsonc: 'jsonc'
   markdown: 'md'
@@ -32,6 +33,7 @@ interface LanguageMap {
   sass: 'sass'
   shell: 'shell'
   typescript: 'ts'
+  xml: 'xml'
   yaml: 'yaml'
 }
 

@@ -10,6 +10,7 @@
  */
 const lang = {
   css: 'css',
+  html: 'html',
   javascript: 'js',
   jsonc: 'jsonc',
   markdown: 'md',
@@ -18,6 +19,7 @@ const lang = {
   sass: 'sass',
   shell: 'shell',
   typescript: 'ts',
+  xml: 'xml',
   yaml: 'yaml'
 } as const
 
