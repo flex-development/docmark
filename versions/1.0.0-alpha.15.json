@@ -1,0 +1,6 @@
+{
+  "@flex-development/docmark-factory-block": "1.0.0-alpha.2",
+  "@flex-development/docmark-factory-line": "1.0.0-alpha.3",
+  "@flex-development/docmark-factory-markers": "1.0.0-alpha.10",
+  "docmark": "1.0.0-alpha.15"
+}

@@ -1,3 +1,9 @@
+## [docmark-factory-line@1.0.0-alpha.3](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.2...docmark-factory-line@1.0.0-alpha.3) (2026-09-16)
+
+### :sparkles: Features
+
+- [[`fb52fbb`](https://github.com/flex-development/docmark/commit/fb52fbb8bf2461a4eddd9aa9b4e60923a2f05adf)] **factory-block:** overlapping closer support
+
 ## [docmark-factory-line@1.0.0-alpha.2](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.1...docmark-factory-line@1.0.0-alpha.2) (2026-09-15)
 
 ### :bug: Fixes
@@ -163,6 +169,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
