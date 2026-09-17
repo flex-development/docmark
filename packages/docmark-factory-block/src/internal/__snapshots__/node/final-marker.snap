@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:internal/finalMarker > should return last marker in \`sequence\` (0) 1`] = `
+{
+  "code": 35,
+}
+`;
+
+exports[`unit:internal/finalMarker > should return last marker in \`sequence\` (1) 1`] = `
+{
+  "code": 45,
+}
+`;
+
+exports[`unit:internal/finalMarker > should return last marker in \`sequence\` (2) 1`] = `
+{
+  "code": 42,
+  "optional": true,
+}
+`;

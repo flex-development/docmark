@@ -3,8 +3,8 @@
  * @module docmark-factory-markers/types/Sequence
  */
 
+import type { Info } from '@flex-development/docmark-factory-markers'
 import type { Marker } from '@flex-development/docmark-util-types'
-import type Info from '../interfaces/info.mts'
 
 /**
  * A comment marker info list.

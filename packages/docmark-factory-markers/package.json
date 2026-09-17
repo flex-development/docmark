@@ -45,7 +45,11 @@
       "docmark": "./src/index.mts",
       "default": "./dist/index.mjs"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./utils": {
+      "docmark": "./src/utils/index.mts",
+      "default": "./dist/utils/index.mjs"
+    }
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",

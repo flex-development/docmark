@@ -1,13 +1,13 @@
 /**
- * @file Internal - firstMarker
- * @module docmark-factory-block/internal/firstMarker
+ * @file Internal - finalMarker
+ * @module docmark-factory-block/internal/finalMarker
  */
 
 import type { Info, Sequence } from '@flex-development/docmark-factory-markers'
 import type { Marker } from '@flex-development/docmark-util-types'
 
 /**
- * Get the first marker in a marker sequence.
+ * Get the last marker in a marker sequence.
  *
  * @internal
  *
@@ -16,11 +16,11 @@ import type { Marker } from '@flex-development/docmark-util-types'
  * @param {Info | Marker | Sequence} sequence
  *  The marker sequence to evaluate
  * @return {Info}
- *  The info representing the first marker in `sequence`
+ *  The info representing the last marker in `sequence`
  */
-function firstMarker(this: void, sequence: Info | Marker | Sequence): Info {
-  if (Array.isArray(sequence)) return firstMarker(sequence[0])
+function finalMarker(this: void, sequence: Info | Marker | Sequence): Info {
+  if (Array.isArray(sequence)) return finalMarker(sequence.at(-1)!)
   return typeof sequence === 'number' ? { code: sequence } : sequence
 }
 
-export default firstMarker
+export default finalMarker

@@ -3,7 +3,7 @@
  * @module docmark/tests/integration/api
  */
 
-import js from '#fixtures/extensions/js'
+import extension from '#fixtures/extension'
 import snapshot from '#tests/utils/snapshot-events'
 import { parse, postprocess, preprocess } from '@flex-development/docmark'
 import { ev, tt } from '@flex-development/docmark-util-symbol'
@@ -43,6 +43,7 @@ describe('integration:docmark', () => {
     ['sameline/block/08.txt'],
     ['sameline/block/09.txt'],
     ['sameline/block/10.txt'],
+    ['sameline/block/11.txt'],
     ['sameline/line/01.txt'],
     ['sameline/line/02.txt'],
     ['multiline/block/01.txt'],
@@ -68,7 +69,7 @@ describe('integration:docmark', () => {
   ])('should parse comments (%j)', path => {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
-    const options: ParseOptions = { extensions: [js] }
+    const options: ParseOptions = { extensions: [extension] }
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act

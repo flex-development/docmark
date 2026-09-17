@@ -25,7 +25,7 @@ interface Markers {
    * @see {@linkcode Info}
    * @see {@linkcode Marker}
    */
-  line: Info | Marker
+  line?: Info | Marker | undefined
 
   /**
    * The comment opener marker code, info, or sequence.

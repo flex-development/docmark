@@ -1,34 +1,36 @@
 /**
- * @file Extensions - js
- * @module fixtures/extensions/js
+ * @file Fixtures - extension
+ * @module fixtures/extension
  */
 
 import blockTag from '#fixtures/constructs/block-tag'
-import blockComment from '#fixtures/constructs/block.comment'
 import hashbang from '#fixtures/constructs/hashbang.comment'
+import htmlComment from '#fixtures/constructs/html.comment'
 import inlineTag from '#fixtures/constructs/inline-tag'
-import lineComment from '#fixtures/constructs/line.comment'
+import jsBlockComment from '#fixtures/constructs/js-block.comment'
+import jsLineComment from '#fixtures/constructs/line.comment'
 import { codes } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
 
 /**
- * The JavaScript syntax extension.
+ * A syntax extension.
  *
  * @see {@linkcode NormalizedExtension}
  *
- * @const {NormalizedExtension} js
+ * @const {NormalizedExtension} extension
  */
-const js: NormalizedExtension = {
+const extension: NormalizedExtension = {
   comment: {
     [codes.atSign]: blockTag
   },
   source: {
     [codes.numberSign]: hashbang,
-    [codes.slash]: [blockComment, lineComment]
+    [codes.slash]: [jsBlockComment, jsLineComment],
+    [codes.lessThan]: htmlComment
   },
   text: {
     [codes.leftCurlyBrace]: inlineTag
   }
 }
 
-export default js
+export default extension

@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:utils/normalize > should return new comment marker info object 1`] = `
+{
+  "code": 42,
+}
+`;

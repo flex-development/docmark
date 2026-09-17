@@ -3,7 +3,7 @@
  * @module docmark/initialize/tests/integration/source
  */
 
-import js from '#fixtures/extensions/js'
+import extension from '#fixtures/extension'
 import snapshot from '#tests/utils/snapshot-events'
 import { parse, preprocess } from '@flex-development/docmark'
 import { ev, tt } from '@flex-development/docmark-util-symbol'
@@ -54,6 +54,8 @@ describe('integration:initialize/source', () => {
     ['sameline/block/08.txt'],
     ['sameline/block/09.txt'],
     ['sameline/block/10.txt'],
+    ['sameline/block/11.txt'],
+    ['sameline/block/12.txt'],
     ['sameline/line/01.txt'],
     ['sameline/line/02.txt'],
     ['multiline/block/01.txt'],
@@ -81,7 +83,7 @@ describe('integration:initialize/source', () => {
     // Setup
     options ??= {}
     options.extensions ??= []
-    options.extensions.unshift(js)
+    options.extensions.unshift(extension)
 
     // Act
     const result = parse(options).source().write(slice)

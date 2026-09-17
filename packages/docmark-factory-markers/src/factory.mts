@@ -4,6 +4,7 @@
  */
 
 import type { Info, Sequence } from '@flex-development/docmark-factory-markers'
+import { normalize } from '@flex-development/docmark-factory-markers/utils'
 import { tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
@@ -12,7 +13,6 @@ import type {
   State
 } from '@flex-development/docmark-util-types'
 import { ok as assert } from 'devlop'
-import normalize from './internal/normalize.mts'
 import terminate from './internal/terminate.mts'
 
 /**

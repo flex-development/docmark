@@ -8,7 +8,12 @@ import type {
   NamedOptions,
   Options
 } from '@flex-development/docmark-factory-block'
-import { factoryMarkers } from '@flex-development/docmark-factory-markers'
+import {
+  factoryMarkers,
+  type Info,
+  type Sequence
+} from '@flex-development/docmark-factory-markers'
+import { normalize } from '@flex-development/docmark-factory-markers/utils'
 import { factorySpace } from '@flex-development/docmark-factory-space'
 import {
   blankLine,
@@ -30,6 +35,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 import { eol, eos, whitespace } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
+import finalMarker from './internal/final-marker.mts'
 import firstMarker from './internal/first-marker.mts'
 
 export default factoryBlockComment
@@ -99,12 +105,12 @@ function factoryBlockComment<T extends ContinuableConstruct>(
   options: NamedOptions | Options
 ): T {
   /**
-   * Record where each key is a marker type
-   * and each value is the first marker in a registered marker sequence.
+   * Record where each key is a marker type and each value is an info object
+   * representing the first marker in a registered marker sequence.
    *
-   * @const {Record<keyof Omit<Markers, 'line'>, Marker>} fm
+   * @const {Record<keyof Omit<Markers, 'line'>, Info>} fm
    */
-  const fm: Record<keyof Omit<Markers, 'line'>, Marker> = {
+  const fm: Record<keyof Omit<Markers, 'line'>, Info> = {
     closer: firstMarker(options.markers.closer),
     opener: firstMarker(options.markers.opener)
   }
@@ -273,7 +279,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function startComment(this: void, code: Code): State | undefined {
-      assert(code === fm.opener, `expected \`fm.opener\` (\`${fm.opener}\`)`)
+      assert(code === fm.opener.code, `expected \`${fm.opener.code}\``)
       effects.enter(tt.comment, { kind: kind.block, ...options.fields, lang })
       return effects.attempt(commentOpener, afterOpener, nok)(code)
     }
@@ -395,12 +401,8 @@ function factoryBlockComment<T extends ContinuableConstruct>(
       }
 
       // check for comment closer before starting first chunk.
-      if (code === fm.closer) {
-        return effects.attempt(commentCloser, closeComment, startChunk)(code)
-      }
-
-      // first chunk starts on the same line as opener.
-      return startChunk(code)
+      // if closer cannot start, the chunk starts on the same line as opener.
+      return effects.attempt(commentCloser, closeComment, startChunk)(code)
     }
 
     /**
@@ -486,14 +488,9 @@ function factoryBlockComment<T extends ContinuableConstruct>(
         return ok
       }
 
-      // check for comment closer sequence
-      // before adding `fm.closer` or whitespace to chunk.
-      if (code === fm.closer || whitespace(code)) {
-        return effects.check(commentCloser, beforeCloser, addToChunk)(code)
-      }
-
-      // consume code and move onto the next.
-      return addToChunk(code)
+      // try capturing comment closer before adding to chunk.
+      // otherwise, consume code and move onto the next.
+      return effects.check(commentCloser, beforeCloser, addToChunk)(code)
     }
 
     /**
@@ -984,6 +981,13 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
+    /**
+     * The info representing the last marker in the configured marker sequence.
+     *
+     * @var {Info} lastMarker
+     */
+    let lastMarker: Info = finalMarker(options.markers.opener)
+
     return startOpener
 
     /**
@@ -1003,8 +1007,99 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function startOpener(this: void, code: Code): State | undefined {
+      /**
+       * The opening marker sequence.
+       *
+       * @var {Info | Marker | Sequence}
+       */
+      let markers: Info | Marker | Sequence = options.markers.opener
+
+      /**
+       * The next state.
+       *
+       * @var {State} next
+       */
+      let next: State = afterMarkers
+
+      // the comment closer is able to overlap the opener.
+      if (
+        Array.isArray(options.markers.opener) &&
+        options.markers.opener.length > 1 &&
+        typeof lastMarker === 'object' &&
+        lastMarker.code === fm.closer.code &&
+        lastMarker.optional &&
+        !fm.closer.optional
+      ) {
+        // remove the optional marker from the current sequence.
+        markers = options.markers.opener.slice(0, -1) as Sequence
+        next = maybeMarker
+
+        // ensure no other markers are considered optional.
+        for (const [i, marker] of markers.map(normalize).entries()) {
+          markers[i] = { ...marker, optional: false }
+        }
+      }
+
+      // start the comment opener and try capturing configured markers.
       effects.enter(tt.commentOpener)
-      return factoryMarkers(effects, after, nok, options.markers.opener)(code)
+      return factoryMarkers(effects, next, nok, markers)(code)
+    }
+
+    /**
+     * Check for overlap between the last comment marker and a comment closer.
+     *
+     * The comment closer is considered to be overlapping when the last marker
+     * code in {@linkcode options.markers.opener} is optional and equal to the
+     * first configured marker code in {@linkcode options.markers.closer}.
+     *
+     * @example
+     *  ```markdown
+     *  > |/**\/
+     *       ^
+     *  ```
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function maybeMarker(this: void, code: Code): State | undefined {
+      // cannot start an overlapping comment closer.
+      // finish the comment opener normally.
+      if (code !== fm.closer.code) return afterMarkers(code)
+
+      // check for an overlapping comment closer.
+      // if found, finish the opener without consuming the optional marker.
+      // otherwise capture the optional comment marker.
+      return effects.check(
+        commentCloser,
+        beforeCloserOverlap,
+        factoryMarkers(effects, afterMarkers, nok, lastMarker)
+      )(code)
+    }
+
+    /**
+     * Before a confirmed overlapping comment closer.
+     *
+     * @example
+     *  ```markdown
+     *  > |/**\/
+     *       ^
+     *  ```
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function beforeCloserOverlap(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+      self.containerState.opener = effects.exit(tt.commentOpener)
+      return ok(code)
     }
 
     /**
@@ -1049,7 +1144,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      * @return {State | undefined}
      *  The next state
      */
-    function after(this: void, code: Code): State | undefined {
+    function afterMarkers(this: void, code: Code): State | undefined {
       assert(self.containerState, 'expected `containerState` inside comment')
 
       // finish the comment opener.
@@ -1279,7 +1374,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
 
       // try starting the comment line prefix.
       // the current `code` cannot begin a comment closer.
-      if (code !== fm.closer) return prefixStart(code)
+      if (code !== fm.closer.code) return prefixStart(code)
 
       // succeed without consuming any input or producing any events
       // if a comment closer can begin at the current position.
@@ -1327,8 +1422,14 @@ function factoryBlockComment<T extends ContinuableConstruct>(
         // same as their comment line marker (e.g. js/ts block comments).
         effects.check(
           commentCloser,
-          endPrefixBeforeCloser, // try capturing the comment line marker.
-          factoryMarkers(effects, paddingAfter, nok, options.markers.line)
+          endPrefixBeforeCloser,
+          // try capturing the comment line marker.
+          factoryMarkers(
+            effects,
+            paddingAfter,
+            nok,
+            options.markers.line ?? Number.NEGATIVE_INFINITY
+          )
         ),
         tt.commentPadding
       )(code)

@@ -1,6 +1,6 @@
 /**
  * @file Unit Tests - normalize
- * @module docmark-factory-markers/internal/tests/unit/normalize
+ * @module docmark-factory-markers/utils/tests/unit/normalize
  */
 
 import type { Info } from '@flex-development/docmark-factory-markers'
@@ -9,7 +9,7 @@ import type { Marker } from '@flex-development/docmark-util-types'
 import { beforeAll, describe, expect, it } from 'vitest'
 import testSubject from '../normalize.mts'
 
-describe('unit:internal/normalize', () => {
+describe('unit:utils/normalize', () => {
   let code: Marker
 
   beforeAll(() => {
