@@ -59,7 +59,6 @@ exports[`integration:docmark > should parse comments ("modules/01.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -1296,7 +1295,6 @@ exports[`integration:docmark > should parse comments ("modules/01.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -1319,7 +1317,6 @@ exports[`integration:docmark > should parse comments ("modules/01.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 12,
@@ -7228,7 +7225,6 @@ exports[`integration:docmark > should parse comments ("modules/01.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 12,
@@ -7464,7 +7460,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 3,
@@ -12963,7 +12958,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 3,
@@ -15459,7 +15453,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -17072,7 +17065,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -17095,7 +17087,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 50,
@@ -18664,7 +18655,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 50,
@@ -18687,7 +18677,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 72,
@@ -20256,7 +20245,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 72,
@@ -20279,7 +20267,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 85,
@@ -24020,7 +24007,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 85,
@@ -24043,7 +24029,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 107,
@@ -24944,7 +24929,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 107,
@@ -24967,7 +24951,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 118,
@@ -26536,7 +26519,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 118,
@@ -26559,7 +26541,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 131,
@@ -28128,7 +28109,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 131,
@@ -28151,7 +28131,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 144,
@@ -29720,7 +29699,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 144,
@@ -29743,7 +29721,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 157,
@@ -31312,7 +31289,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 157,
@@ -31335,7 +31311,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 170,
@@ -32904,7 +32879,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 170,
@@ -32927,7 +32901,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 183,
@@ -34496,7 +34469,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 183,
@@ -34519,7 +34491,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 199,
@@ -40976,7 +40947,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 199,
@@ -40999,7 +40969,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 276,
@@ -44156,7 +44125,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 276,
@@ -45435,7 +45403,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 314,
@@ -47004,7 +46971,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 314,
@@ -47027,7 +46993,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 327,
@@ -48596,7 +48561,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 327,
@@ -48619,7 +48583,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 340,
@@ -50188,7 +50151,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 340,
@@ -50671,7 +50633,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 378,
@@ -52240,7 +52201,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 378,
@@ -53643,7 +53603,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 432,
@@ -56800,7 +56759,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 432,
@@ -56822,7 +56780,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 6256,
       },
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 450,
@@ -58934,7 +58891,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 6256,
       },
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 450,
@@ -58956,7 +58912,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 6523,
       },
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 471,
@@ -59856,7 +59811,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 6523,
       },
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 471,
@@ -59878,7 +59832,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 6768,
       },
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 482,
@@ -60778,7 +60731,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 6768,
       },
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 482,
@@ -61261,7 +61213,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 517,
@@ -64418,7 +64369,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 517,
@@ -64441,7 +64391,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 544,
@@ -67598,7 +67547,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 544,
@@ -67621,7 +67569,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 571,
@@ -70778,7 +70725,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 571,
@@ -70801,7 +70747,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 596,
@@ -73958,7 +73903,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 596,
@@ -73981,7 +73925,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 631,
@@ -77138,7 +77081,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 631,
@@ -78081,7 +78023,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 683,
@@ -81238,7 +81179,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 683,
@@ -81721,7 +81661,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 738,
@@ -85088,7 +85027,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 738,
@@ -85111,7 +85049,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 758,
@@ -86680,7 +86617,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 758,
@@ -87163,7 +87099,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 798,
@@ -91744,7 +91679,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 798,
@@ -91767,7 +91701,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 833,
@@ -93748,7 +93681,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 833,
@@ -106707,7 +106639,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 945,
@@ -108276,7 +108207,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 945,
@@ -111395,7 +111325,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 995,
@@ -112964,7 +112893,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 995,
@@ -112987,7 +112915,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1008,
@@ -114556,7 +114483,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1008,
@@ -114579,7 +114505,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1021,
@@ -116148,7 +116073,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1021,
@@ -116171,7 +116095,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1034,
@@ -117740,7 +117663,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1034,
@@ -119603,7 +119525,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 1119,
@@ -121844,7 +121765,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 2,
         "_index": 1119,
@@ -121867,7 +121787,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 1158,
@@ -127860,7 +127779,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 1158,
@@ -127928,7 +127846,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/01.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -128245,7 +128162,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/01.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -128313,7 +128229,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/02.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -128674,7 +128589,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/02.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -128742,7 +128656,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/03.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -129773,7 +129686,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/03.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -129841,7 +129753,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/04.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -130538,7 +130449,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/04.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -130606,7 +130516,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/05.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -131555,7 +131464,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/05.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -131623,7 +131531,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/06.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -133192,7 +133099,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/06.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -133260,7 +133166,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/07.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -136417,7 +136322,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/07.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -136485,7 +136389,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/08.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -137930,7 +137833,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/08.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -137998,7 +137900,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/09.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -138943,7 +138844,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/09.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -139011,7 +138911,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/10.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -140208,7 +140107,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/10.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -140276,7 +140174,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/11.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -142101,7 +141998,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/11.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -142169,7 +142065,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/12.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 0,
@@ -146244,7 +146139,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/12.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 0,
@@ -146312,7 +146206,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/13.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -147253,7 +147146,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/13.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -147321,7 +147213,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/14.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -148098,7 +147989,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/14.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -148166,7 +148056,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/15.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -149979,7 +149868,6 @@ exports[`integration:docmark > should parse comments ("multiline/block/15.txt") 
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -151983,7 +151871,6 @@ exports[`integration:docmark > should parse comments ("opener-only/block/01.txt"
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152048,7 +151935,6 @@ exports[`integration:docmark > should parse comments ("opener-only/block/01.txt"
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152116,7 +152002,6 @@ exports[`integration:docmark > should parse comments ("opener-only/block/02.txt"
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152225,7 +152110,6 @@ exports[`integration:docmark > should parse comments ("opener-only/block/02.txt"
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152293,7 +152177,6 @@ exports[`integration:docmark > should parse comments ("opener-only/block/03.txt"
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152402,7 +152285,6 @@ exports[`integration:docmark > should parse comments ("opener-only/block/03.txt"
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152470,7 +152352,6 @@ exports[`integration:docmark > should parse comments ("opener-only/block/04.txt"
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152623,7 +152504,6 @@ exports[`integration:docmark > should parse comments ("opener-only/block/04.txt"
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -153799,7 +153679,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/01.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -153906,7 +153785,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/01.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -153974,7 +153852,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/02.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -154123,7 +154000,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/02.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -154191,7 +154067,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/03.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -154382,7 +154257,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/03.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -154450,7 +154324,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/04.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -154683,7 +154556,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/04.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -154751,7 +154623,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/05.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -155320,7 +155191,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/05.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -155388,7 +155258,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/06.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -156115,7 +155984,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/06.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -156183,7 +156051,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/07.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -156662,7 +156529,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/07.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -156730,7 +156596,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/08.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -157333,7 +157198,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/08.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -157401,7 +157265,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/09.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -157674,7 +157537,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/09.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -157742,7 +157604,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/10.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -158059,7 +157920,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/10.txt") 1
       },
       "info": true,
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -158126,7 +157986,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/11.txt") 1
         "offset": 4,
       },
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -158232,7 +158091,6 @@ exports[`integration:docmark > should parse comments ("sameline/block/11.txt") 1
         "offset": 4,
       },
       "kind": "block",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,

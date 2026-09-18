@@ -24,7 +24,6 @@ import type {
   Code,
   ContinuableConstruct,
   Effects,
-  Language,
   Marker,
   NamedConstruct,
   PartialConstruct,
@@ -249,13 +248,6 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
-    /**
-     * The current source language.
-     *
-     * @const {Language | undefined}
-     */
-    const lang: Language | undefined = options.fields?.lang ?? self.parser.lang
-
     return startComment
 
     /**
@@ -280,7 +272,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     function startComment(this: void, code: Code): State | undefined {
       assert(code === fm.opener.code, `expected \`${fm.opener.code}\``)
-      effects.enter(tt.comment, { kind: kind.block, ...options.fields, lang })
+      effects.enter(tt.comment, { kind: kind.block, ...options.fields })
       return effects.attempt(commentOpener, afterOpener, nok)(code)
     }
 
