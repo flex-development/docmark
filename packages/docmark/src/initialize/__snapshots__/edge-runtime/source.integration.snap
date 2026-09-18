@@ -14337,7 +14337,6 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "offset": 15,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -15077,7 +15076,6 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "offset": 15,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -15144,7 +15142,6 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "offset": 98,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 0,
@@ -15886,7 +15883,6 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "offset": 98,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 0,
@@ -16653,7 +16649,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 2,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -16799,7 +16794,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 2,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -16866,7 +16860,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 3,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -17058,7 +17051,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 3,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -17125,7 +17117,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 5,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -17357,7 +17348,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 5,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -17424,7 +17414,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 6,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -17658,7 +17647,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "offset": 6,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -20909,7 +20897,6 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
         "offset": 19,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -21141,7 +21128,6 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
         "offset": 19,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -21208,7 +21194,6 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
         "offset": 31,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -21398,7 +21383,6 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
         "offset": 31,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,

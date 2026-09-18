@@ -14,7 +14,6 @@ import type {
   Code,
   ContinuableConstruct,
   Effects,
-  Language,
   NamedConstruct,
   State,
   TokenizeContext
@@ -146,13 +145,6 @@ function factoryLineComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
-    /**
-     * The current source language.
-     *
-     * @const {Language | undefined}
-     */
-    const lang: Language | undefined = options.fields?.lang ?? self.parser.lang
-
     return startComment
 
     /**
@@ -191,7 +183,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
 
       // open the comment container if not already open.
       if (!self.containerState.open) {
-        effects.enter(tt.comment, { kind: kind.line, ...options.fields, lang })
+        effects.enter(tt.comment, { kind: kind.line, ...options.fields })
         self.containerState.open = true
       }
 

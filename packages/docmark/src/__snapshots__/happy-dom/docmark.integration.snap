@@ -12979,7 +12979,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "offset": 624,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 14,
         "_index": 37,
@@ -13417,7 +13416,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "offset": 624,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 14,
         "_index": 37,
@@ -13439,7 +13437,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "offset": 810,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 40,
@@ -14465,7 +14462,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "offset": 810,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 40,
@@ -14487,7 +14483,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "offset": 895,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 49,
@@ -14925,7 +14920,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "offset": 895,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 49,
@@ -14947,7 +14941,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "offset": 1000,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 54,
@@ -15385,7 +15378,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "offset": 1000,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 54,
@@ -44146,7 +44138,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 4036,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 300,
@@ -45380,7 +45371,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 4036,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 300,
@@ -50172,7 +50162,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 4699,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 353,
@@ -50610,7 +50599,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 4699,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 353,
@@ -52222,7 +52210,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 5259,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 391,
@@ -52660,7 +52647,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 5259,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 391,
@@ -52682,7 +52668,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 5440,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 402,
@@ -53120,7 +53105,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 5440,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 402,
@@ -53142,7 +53126,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 5600,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 417,
@@ -53580,7 +53563,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 5600,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 417,
@@ -60752,7 +60734,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 6937,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 499,
@@ -61190,7 +61171,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 6937,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 499,
@@ -77102,7 +77082,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 9003,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 660,
@@ -77540,7 +77519,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 9003,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 660,
@@ -77562,7 +77540,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 9080,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 665,
@@ -78000,7 +77977,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 9080,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 665,
@@ -81200,7 +81176,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 9754,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 719,
@@ -81638,7 +81613,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 9754,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 719,
@@ -86638,7 +86612,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 10286,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 771,
@@ -87076,7 +87049,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 10286,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 771,
@@ -93702,7 +93674,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11303,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 846,
@@ -94140,7 +94111,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11303,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 846,
@@ -94162,7 +94132,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11369,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 851,
@@ -94600,7 +94569,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11369,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 851,
@@ -94622,7 +94590,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11526,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 860,
@@ -95060,7 +95027,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11526,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 860,
@@ -95082,7 +95048,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11602,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 865,
@@ -95520,7 +95485,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11602,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 865,
@@ -95542,7 +95506,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11755,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 870,
@@ -96274,7 +96237,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 11755,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 870,
@@ -96296,7 +96258,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 12898,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 877,
@@ -106616,7 +106577,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 12898,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 877,
@@ -108228,7 +108188,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13240,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 10,
         "_index": 965,
@@ -108666,7 +108625,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13240,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 10,
         "_index": 965,
@@ -108688,7 +108646,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13344,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 12,
         "_index": 969,
@@ -109126,7 +109083,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13344,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 12,
         "_index": 969,
@@ -109148,7 +109104,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13473,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 52,
         "_index": 973,
@@ -109586,7 +109541,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13473,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 52,
         "_index": 973,
@@ -109608,7 +109562,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13606,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 10,
         "_index": 979,
@@ -110340,7 +110293,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13606,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 10,
         "_index": 979,
@@ -110362,7 +110314,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13790,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 990,
@@ -111302,7 +111253,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 13790,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 990,
@@ -117684,7 +117634,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 14523,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1047,
@@ -118122,7 +118071,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 14523,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1047,
@@ -118144,7 +118092,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 15004,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1079,
@@ -118582,7 +118529,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 15004,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1079,
@@ -118604,7 +118550,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 15216,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1092,
@@ -119042,7 +118987,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 15216,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1092,
@@ -119064,7 +119008,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 15376,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1107,
@@ -119502,7 +119445,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "offset": 15376,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 6,
         "_index": 1107,
@@ -149934,7 +149876,6 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
         "offset": 15,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -150710,7 +150651,6 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
         "offset": 15,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -150777,7 +150717,6 @@ exports[`integration:docmark > should parse comments ("multiline/line/02.txt") 1
         "offset": 98,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 0,
@@ -151803,7 +151742,6 @@ exports[`integration:docmark > should parse comments ("multiline/line/02.txt") 1
         "offset": 98,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 4,
         "_index": 0,
@@ -152570,7 +152508,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/01.txt")
         "offset": 2,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152716,7 +152653,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/01.txt")
         "offset": 2,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152783,7 +152719,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/02.txt")
         "offset": 3,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -152973,7 +152908,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/02.txt")
         "offset": 3,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -153040,7 +152974,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
         "offset": 5,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -153270,7 +153203,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
         "offset": 5,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -153337,7 +153269,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
         "offset": 6,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -153611,7 +153542,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
         "offset": 6,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -158157,7 +158087,6 @@ exports[`integration:docmark > should parse comments ("sameline/line/01.txt") 1`
         "offset": 19,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -158551,7 +158480,6 @@ exports[`integration:docmark > should parse comments ("sameline/line/01.txt") 1`
         "offset": 19,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -158618,7 +158546,6 @@ exports[`integration:docmark > should parse comments ("sameline/line/02.txt") 1`
         "offset": 31,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
@@ -158970,7 +158897,6 @@ exports[`integration:docmark > should parse comments ("sameline/line/02.txt") 1`
         "offset": 31,
       },
       "kind": "line",
-      "lang": undefined,
       "start": {
         "_bufferIndex": 0,
         "_index": 0,
