@@ -6,7 +6,6 @@
 import type {
   Create,
   FullNormalizedExtension,
-  Language,
   Lazy
 } from '@flex-development/docmark-util-types'
 
@@ -18,7 +17,7 @@ import type {
  * @example
  *  declare module '@flex-development/docmark-util-types' {
  *    interface ParseContext {
- *      list: string[]
+ *      lang?: Language | undefined
  *    }
  *  }
  */
@@ -77,13 +76,6 @@ interface ParseContext {
    * Whether a comment region was just added.
    */
   freshRegion?: boolean | null | undefined
-
-  /**
-   * The current source language.
-   *
-   * @see {@linkcode Language}
-   */
-  lang?: Language | undefined
 
   /**
    * At the `document` level, a record where each key is a line number, and each

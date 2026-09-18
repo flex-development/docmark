@@ -6,7 +6,6 @@
 import type {
   Create,
   FullNormalizedExtension,
-  Language,
   Lazy
 } from '@flex-development/docmark-util-types'
 import type { Nilable } from '@flex-development/tutils'
@@ -64,12 +63,6 @@ describe('unit-d:ParseContext', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('freshRegion')
       .toEqualTypeOf<Nilable<boolean>>()
-  })
-
-  it('should match [lang?: Language | undefined]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('lang')
-      .toEqualTypeOf<Language | undefined>()
   })
 
   it('should match [lazy: Lazy]', () => {
