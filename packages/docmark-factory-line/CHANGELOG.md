@@ -1,3 +1,28 @@
+## [docmark-factory-line@1.0.0-alpha.5](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.4...docmark-factory-line@1.0.0-alpha.5) (2026-09-18)
+
+### ⚠ BREAKING CHANGES
+
+- source language identifiers
+- **types:** [`ParseContext`] remove `lang`
+- **factory-line:** remove `fields.lang` fallback
+- **factory-block:** remove `fields.lang` fallback
+
+### :package: Build
+
+- [[`8394462`](https://github.com/flex-development/docmark/commit/839446216d70651b605042985cadb5144060ecc4)] **deps-dev:** Bump cspell from 10.3.0 to 10.3.1 ([#224](https://github.com/flex-development/docmark/issues/224))
+- [[`2d3fec5`](https://github.com/flex-development/docmark/commit/2d3fec5224e5f7a3ea7110b69ce9b53f7a81dc6d)] **deps-dev:** Bump rollup from 4.63.2 to 4.63.3 ([#237](https://github.com/flex-development/docmark/issues/237))
+
+### :robot: Continuous Integration
+
+- [[`2f48734`](https://github.com/flex-development/docmark/commit/2f487340cb2dd6af632d15d38c4b33a840fa824e)] **workflows:** [`ci`] continue on bun canary setup failure
+
+### :mechanical_arm: Refactors
+
+- [[`5d1594d`](https://github.com/flex-development/docmark/commit/5d1594d6289593fa65057869309b04ef280bc7de)] source language identifiers
+- [[`2c1df49`](https://github.com/flex-development/docmark/commit/2c1df49e536d0d72a3dbb2a2c6933d33c6fe204c)] **factory-block:** remove `fields.lang` fallback
+- [[`04650ac`](https://github.com/flex-development/docmark/commit/04650acc8be13f2d2cec3cf9d03a3bb2fb52026c)] **factory-line:** remove `fields.lang` fallback
+- [[`75cd3fa`](https://github.com/flex-development/docmark/commit/75cd3fab281581973412ed8c1c18fbd43dfe533d)] **types:** [`ParseContext`] remove `lang`
+
 ## [docmark-factory-line@1.0.0-alpha.4](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.3...docmark-factory-line@1.0.0-alpha.4) (2026-09-17)
 
 ### :robot: Continuous Integration
@@ -179,6 +204,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
