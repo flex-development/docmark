@@ -4,21 +4,23 @@
  */
 
 /**
- * Registry of source languages.
+ * Registry of source language identifiers.
  *
  * @enum {Lowercase<string> | null}
  */
 const lang = {
   css: 'css',
   html: 'html',
-  javascript: 'js',
+  javascript: 'javascript',
+  json5: 'json5',
   jsonc: 'jsonc',
-  markdown: 'md',
+  markdown: 'markdown',
   mdx: 'mdx',
   null: null,
   sass: 'sass',
+  scss: 'scss',
   shell: 'shell',
-  typescript: 'ts',
+  typescript: 'typescript',
   xml: 'xml',
   yaml: 'yaml'
 } as const

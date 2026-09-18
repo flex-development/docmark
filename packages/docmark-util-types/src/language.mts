@@ -6,9 +6,9 @@
 import type { LanguageMap } from '@flex-development/docmark-util-types'
 
 /**
- * Union of registered source languages.
+ * Union of registered source language identifiers.
  *
- * To register custom encodings, augment {@linkcode LanguageMap}.
+ * To register custom language identifiers, augment {@linkcode LanguageMap}.\
  * They will be added to this union automatically.
  */
 type Language = LanguageMap[keyof LanguageMap]

@@ -4,7 +4,7 @@
  */
 
 /**
- * Registry of source languages.
+ * Registry of source language identifiers.
  *
  * This interface can be augmented to register custom languages.
  *
@@ -18,9 +18,10 @@
 interface LanguageMap {
   css: 'css'
   html: 'html'
-  javascript: 'js'
+  javascript: 'javascript'
+  json5: 'json5'
   jsonc: 'jsonc'
-  markdown: 'md'
+  markdown: 'markdown'
   mdx: 'mdx'
 
   /**
@@ -31,8 +32,9 @@ interface LanguageMap {
   null: never
 
   sass: 'sass'
+  scss: 'scss'
   shell: 'shell'
-  typescript: 'ts'
+  typescript: 'typescript'
   xml: 'xml'
   yaml: 'yaml'
 }

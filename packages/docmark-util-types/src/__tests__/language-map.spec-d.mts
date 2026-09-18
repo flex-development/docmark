@@ -15,18 +15,24 @@ describe('unit-d:LanguageMap', () => {
     expectTypeOf<TestSubject>().toHaveProperty('html').toEqualTypeOf<'html'>()
   })
 
-  it('should match [javascript: "js"]', () => {
+  it('should match [javascript: "javascript"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('javascript')
-      .toEqualTypeOf<'js'>()
+      .toEqualTypeOf<'javascript'>()
+  })
+
+  it('should match [json5: "json5"]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('json5').toEqualTypeOf<'json5'>()
   })
 
   it('should match [jsonc: "jsonc"]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('jsonc').toEqualTypeOf<'jsonc'>()
   })
 
-  it('should match [markdown: "md"]', () => {
-    expectTypeOf<TestSubject>().toHaveProperty('markdown').toEqualTypeOf<'md'>()
+  it('should match [markdown: "markdown"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('markdown')
+      .toEqualTypeOf<'markdown'>()
   })
 
   it('should match [mdx: "mdx"]', () => {
@@ -41,14 +47,18 @@ describe('unit-d:LanguageMap', () => {
     expectTypeOf<TestSubject>().toHaveProperty('sass').toEqualTypeOf<'sass'>()
   })
 
+  it('should match [scss: "scss"]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('scss').toEqualTypeOf<'scss'>()
+  })
+
   it('should match [shell: "shell"]', () => {
     expectTypeOf<TestSubject>().toHaveProperty('shell').toEqualTypeOf<'shell'>()
   })
 
-  it('should match [typescript: "ts"]', () => {
+  it('should match [typescript: "typescript"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('typescript')
-      .toEqualTypeOf<'ts'>()
+      .toEqualTypeOf<'typescript'>()
   })
 
   it('should match [xml: "xml"]', () => {
