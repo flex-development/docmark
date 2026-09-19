@@ -9,6 +9,7 @@ import type {
   ContinuableConstruct,
   Event,
   NamedConstruct,
+  TokenFields,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { ok } from 'devlop'
@@ -23,7 +24,18 @@ const blockComment: ContinuableConstruct & NamedConstruct = factory({
     name: `${tt.comment}:${kind.block}`,
     resolve: resolveBlockComment
   },
-  fields: { info: undefined },
+
+  /**
+   * Create a token fields object.
+   *
+   * @this {TokenizeContext}
+   *
+   * @return {TokenFields}
+   *  The token fields object
+   */
+  fields(this: TokenizeContext): TokenFields {
+    return { info: undefined }
+  },
 
   /**
    * Create a markers configuration.

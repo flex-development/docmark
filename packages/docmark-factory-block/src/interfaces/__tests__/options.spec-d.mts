@@ -9,6 +9,7 @@ import type {
 } from '@flex-development/docmark-factory-block'
 import type {
   Construct,
+  CreateFields,
   TokenFields
 } from '@flex-development/docmark-util-types'
 import type {
@@ -30,11 +31,11 @@ describe('unit-d:interfaces/Options', () => {
       .toEqualTypeOf<Nilable<Partial<Construct>>>()
   })
 
-  it('should match [fields?: TokenFields | null | undefined]', () => {
+  it('should match [fields?: CreateFields | TokenFields | null | undefined]', () => {
     expectTypeOf<Optional>().extract<'fields'>().not.toBeNever()
     expectTypeOf<TestSubject>()
       .toHaveProperty('fields')
-      .toEqualTypeOf<Nilable<Partial<TokenFields>>>()
+      .toEqualTypeOf<Nilable<CreateFields | TokenFields>>()
   })
 
   it('should match [markers: CreateMarkers | Markers]', () => {

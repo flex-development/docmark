@@ -25,6 +25,7 @@ import type {
   Place,
   Position,
   State,
+  TokenFields,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { eol, eos, whitespace } from '@flex-development/mark-util-character'
@@ -203,6 +204,16 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
+    /**
+     * The token fields.
+     *
+     * @const {TokenFields | null | undefined} fields
+     */
+    const fields: TokenFields | null | undefined =
+      typeof options.fields === 'function'
+        ? options.fields.call(self)
+        : options.fields
+
     // initializer markers configuration and first markers map.
     if (typeof markers === 'undefined') {
       markers = typeof options.markers === 'function'
@@ -239,7 +250,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     function startComment(this: void, code: Code): State | undefined {
       assert(code === fm.opener.code, `expected \`${fm.opener.code}\``)
-      effects.enter(tt.comment, { kind: kind.block, ...options.fields })
+      effects.enter(tt.comment, { kind: kind.block, ...fields })
       return effects.attempt(commentOpener, afterOpener, nok)(code)
     }
 
