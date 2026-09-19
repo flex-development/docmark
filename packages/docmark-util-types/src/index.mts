@@ -30,6 +30,7 @@ export type { default as ContentType } from './content-type.mts'
 export type {
   default as ContinuableConstruct
 } from './continuable-construct.mts'
+export type { default as CreateFields } from './create-fields.mts'
 export type { default as Create } from './create.mts'
 export type { default as DefineSkip } from './define-skip.mts'
 export type { default as Disable } from './disable.mts'
