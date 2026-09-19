@@ -38,6 +38,19 @@ const blockComment: ContinuableConstruct & NamedConstruct = factory({
   },
 
   /**
+   * Finalize the block comment construct.
+   *
+   * @this {void}
+   *
+   * @param {ContinuableConstruct} construct
+   *  The construct to finalize
+   * @return {undefined}
+   */
+  finalizeConstruct(this: void, construct: ContinuableConstruct): undefined {
+    return void construct
+  },
+
+  /**
    * Create a markers configuration.
    *
    * @this {TokenizeContext}

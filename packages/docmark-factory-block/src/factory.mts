@@ -158,6 +158,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
    */
   let markers: Markers
 
+  options.finalizeConstruct?.(blockComment)
   return blockComment as T
 
   /**

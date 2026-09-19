@@ -5,6 +5,7 @@
 
 import type {
   CreateMarkers,
+  FinalizeConstruct,
   Markers
 } from '@flex-development/docmark-factory-block'
 import type {
@@ -36,6 +37,13 @@ describe('unit-d:interfaces/Options', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('fields')
       .toEqualTypeOf<Nilable<CreateFields | TokenFields>>()
+  })
+
+  it('should match [finalizeConstruct?: FinalizeConstruct | null | undefined]', () => {
+    expectTypeOf<Optional>().extract<'finalizeConstruct'>().not.toBeNever()
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('finalizeConstruct')
+      .toEqualTypeOf<Nilable<FinalizeConstruct>>()
   })
 
   it('should match [markers: CreateMarkers | Markers]', () => {
