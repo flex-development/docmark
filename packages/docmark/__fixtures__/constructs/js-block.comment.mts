@@ -3,12 +3,13 @@
  * @module docmark/fixtures/blockComment
  */
 
-import factory from '@flex-development/docmark-factory-block'
+import factory, { type Markers } from '@flex-development/docmark-factory-block'
 import { codes, ev, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
   Event,
-  NamedConstruct
+  NamedConstruct,
+  TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { ok } from 'devlop'
 
@@ -23,17 +24,28 @@ const blockComment: ContinuableConstruct & NamedConstruct = factory({
     resolve: resolveBlockComment
   },
   fields: { info: undefined },
-  markers: {
-    closer: [
-      { code: codes.asterisk, type: null },
-      { code: codes.slash, type: null }
-    ],
-    line: codes.asterisk,
-    opener: [
-      { code: codes.slash, type: null },
-      { code: codes.asterisk, type: null },
-      { code: codes.asterisk, optional: true, type: null }
-    ]
+
+  /**
+   * Create a markers configuration.
+   *
+   * @this {TokenizeContext}
+   *
+   * @return {Markers}
+   *  The markers configuration
+   */
+  markers(this: TokenizeContext): Markers {
+    return {
+      closer: [
+        { code: codes.asterisk, type: null },
+        { code: codes.slash, type: null }
+      ],
+      line: codes.asterisk,
+      opener: [
+        { code: codes.slash, type: null },
+        { code: codes.asterisk, type: null },
+        { code: codes.asterisk, optional: true, type: null }
+      ]
+    }
   }
 })
 

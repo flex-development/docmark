@@ -3,7 +3,10 @@
  * @module docmark-factory-block/interfaces/Options
  */
 
-import type { Markers } from '@flex-development/docmark-factory-block'
+import type {
+  CreateMarkers,
+  Markers
+} from '@flex-development/docmark-factory-block'
 import type {
   Construct,
   TokenFields
@@ -33,11 +36,12 @@ interface Options {
   fields?: TokenFields | null | undefined
 
   /**
-   * The markers configuration.
+   * The markers configuration, or a function that returns the configuration.
    *
+   * @see {@linkcode CreateMarkers}
    * @see {@linkcode Markers}
    */
-  markers: Markers
+  markers: CreateMarkers | Markers
 }
 
 export type { Options as default }

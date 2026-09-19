@@ -3,11 +3,7 @@
  * @module docmark-factory-block/factory
  */
 
-import type {
-  Markers,
-  NamedOptions,
-  Options
-} from '@flex-development/docmark-factory-block'
+import type { Markers, Options } from '@flex-development/docmark-factory-block'
 import {
   factoryMarkers,
   type Info,
@@ -25,7 +21,6 @@ import type {
   ContinuableConstruct,
   Effects,
   Marker,
-  NamedConstruct,
   PartialConstruct,
   Place,
   Position,
@@ -43,28 +38,6 @@ export default factoryBlockComment
  * Create a construct that tokenizes block comments.
  *
  * @see {@linkcode ContinuableConstruct}
- * @see {@linkcode NamedOptions}
- *
- * @template {ContinuableConstruct & NamedConstruct} T
- *  The block comment construct
- *
- * @this {void}
- *
- * @param {NamedOptions} options
- *  The options for creating the named construct
- * @return {T}
- *  The block comment construct
- */
-function factoryBlockComment<T extends ContinuableConstruct & NamedConstruct>(
-  this: void,
-  options: NamedOptions
-): T
-
-/**
- * Create a construct that tokenizes block comments.
- *
- * @see {@linkcode ContinuableConstruct}
- * @see {@linkcode NamedOptions}
  * @see {@linkcode Options}
  *
  * @template {ContinuableConstruct} T
@@ -72,48 +45,15 @@ function factoryBlockComment<T extends ContinuableConstruct & NamedConstruct>(
  *
  * @this {void}
  *
- * @param {NamedOptions | Options} options
+ * @param {Options} options
  *  The options for creating the construct
  * @return {T}
  *  The block comment construct
  */
 function factoryBlockComment<T extends ContinuableConstruct>(
   this: void,
-  options: NamedOptions | Options
-): T
-
-/**
- * Create a construct that tokenizes block comments.
- *
- * @see {@linkcode ContinuableConstruct}
- * @see {@linkcode NamedOptions}
- * @see {@linkcode Options}
- *
- * @template {ContinuableConstruct} T
- *  The block comment construct
- *
- * @this {void}
- *
- * @param {NamedOptions | Options} options
- *  The options for creating the construct
- * @return {T}
- *  The block comment construct
- */
-function factoryBlockComment<T extends ContinuableConstruct>(
-  this: void,
-  options: NamedOptions | Options
+  options: Options
 ): T {
-  /**
-   * Record where each key is a marker type and each value is an info object
-   * representing the first marker in a registered marker sequence.
-   *
-   * @const {Record<keyof Omit<Markers, 'line'>, Info>} fm
-   */
-  const fm: Record<keyof Omit<Markers, 'line'>, Info> = {
-    closer: firstMarker(options.markers.closer),
-    opener: firstMarker(options.markers.opener)
-  }
-
   /**
    * The block comment construct.
    *
@@ -202,6 +142,21 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     tokenize: tokenizeTrailingCommentCloser
   }
 
+  /**
+   * Record where each key is a marker type and each value is an info object
+   * representing the first marker in a registered marker sequence.
+   *
+   * @var {Record<keyof Omit<Markers, 'line'>, Info>} fm
+   */
+  let fm: Record<keyof Omit<Markers, 'line'>, Info>
+
+  /**
+   * The markers configuration.
+   *
+   * @var {Markers} markers
+   */
+  let markers: Markers
+
   return blockComment as T
 
   /**
@@ -247,6 +202,18 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      * @const {TokenizeContext} self
      */
     const self: TokenizeContext = this
+
+    // initializer markers configuration and first markers map.
+    if (typeof markers === 'undefined') {
+      markers = typeof options.markers === 'function'
+        ? options.markers.call(self)
+        : options.markers
+
+      fm = {
+        closer: firstMarker(markers.closer),
+        opener: firstMarker(markers.opener)
+      }
+    }
 
     return startComment
 
@@ -978,7 +945,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *
      * @var {Info} lastMarker
      */
-    let lastMarker: Info = finalMarker(options.markers.opener)
+    let lastMarker: Info = finalMarker(markers.opener)
 
     return startOpener
 
@@ -1000,49 +967,49 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     function startOpener(this: void, code: Code): State | undefined {
       /**
-       * The opening marker sequence.
-       *
-       * @var {Info | Marker | Sequence}
-       */
-      let markers: Info | Marker | Sequence = options.markers.opener
-
-      /**
        * The next state.
        *
        * @var {State} next
        */
       let next: State = afterMarkers
 
+      /**
+       * The opening marker sequence.
+       *
+       * @var {Info | Marker | Sequence} sequence
+       */
+      let sequence: Info | Marker | Sequence = markers.opener
+
       // the comment closer is able to overlap the opener.
       if (
-        Array.isArray(options.markers.opener) &&
-        options.markers.opener.length > 1 &&
+        Array.isArray(markers.opener) &&
+        markers.opener.length > 1 &&
         typeof lastMarker === 'object' &&
         lastMarker.code === fm.closer.code &&
         lastMarker.optional &&
         !fm.closer.optional
       ) {
         // remove the optional marker from the current sequence.
-        markers = options.markers.opener.slice(0, -1) as Sequence
+        sequence = markers.opener.slice(0, -1) as Sequence
         next = maybeMarker
 
         // ensure no other markers are considered optional.
-        for (const [i, marker] of markers.map(normalize).entries()) {
-          markers[i] = { ...marker, optional: false }
+        for (const [i, marker] of sequence.map(normalize).entries()) {
+          sequence[i] = { ...marker, optional: false }
         }
       }
 
       // start the comment opener and try capturing configured markers.
       effects.enter(tt.commentOpener)
-      return factoryMarkers(effects, next, nok, markers)(code)
+      return factoryMarkers(effects, next, nok, sequence)(code)
     }
 
     /**
      * Check for overlap between the last comment marker and a comment closer.
      *
      * The comment closer is considered to be overlapping when the last marker
-     * code in {@linkcode options.markers.opener} is optional and equal to the
-     * first configured marker code in {@linkcode options.markers.closer}.
+     * code in {@linkcode markers.opener} is optional and equal to the first
+     * configured marker code in {@linkcode markers.closer}.
      *
      * @example
      *  ```markdown
@@ -1211,7 +1178,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     function startCloser(this: void, code: Code): State | undefined {
       effects.enter(tt.commentCloser)
-      return factoryMarkers(effects, after, nok, options.markers.closer)(code)
+      return factoryMarkers(effects, after, nok, markers.closer)(code)
     }
 
     /**
@@ -1420,7 +1387,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
             effects,
             paddingAfter,
             nok,
-            options.markers.line ?? Number.NEGATIVE_INFINITY
+            markers.line ?? Number.NEGATIVE_INFINITY
           )
         ),
         tt.commentPadding
