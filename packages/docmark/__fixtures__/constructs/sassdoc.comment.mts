@@ -7,6 +7,7 @@ import factory, { type Markers } from '@flex-development/docmark-factory-line'
 import { codes } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
+  TokenFields,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 
@@ -18,7 +19,17 @@ import type {
  * @const {ContinuableConstruct} sassdocComment
  */
 const sassdocComment: ContinuableConstruct = factory({
-  fields: { info: true },
+  /**
+   * Create a token fields object.
+   *
+   * @this {TokenizeContext}
+   *
+   * @return {TokenFields}
+   *  The token fields object
+   */
+  fields(this: TokenizeContext): TokenFields {
+    return { info: true }
+  },
 
   /**
    * Create a markers configuration.

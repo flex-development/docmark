@@ -9,6 +9,7 @@ import type {
 } from '@flex-development/docmark-factory-line'
 import type {
   Construct,
+  CreateFields,
   TokenFields
 } from '@flex-development/docmark-util-types'
 
@@ -29,11 +30,15 @@ interface Options {
   construct?: Partial<Construct> | null | undefined
 
   /**
-   * Additional `comment` token fields.
+   * Additional `comment` token fields,
+   * or a function that returns the token fields object.
    *
+   * Fields are applied when the token is `enter`ed.
+   *
+   * @see {@linkcode CreateFields}
    * @see {@linkcode TokenFields}
    */
-  fields?: TokenFields | null | undefined
+  fields?: CreateFields | TokenFields | null | undefined
 
   /**
    * The markers configuration, or a function that returns the configuration.

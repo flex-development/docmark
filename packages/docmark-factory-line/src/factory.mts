@@ -12,6 +12,7 @@ import type {
   ContinuableConstruct,
   Effects,
   State,
+  TokenFields,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { ok as assert } from 'devlop'
@@ -104,6 +105,16 @@ function factoryLineComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
+    /**
+     * The token fields.
+     *
+     * @const {TokenFields | null | undefined} fields
+     */
+    const fields: TokenFields | null | undefined =
+      typeof options.fields === 'function'
+        ? options.fields.call(self)
+        : options.fields
+
     // initialize markers configuration.
     if (typeof markers === 'undefined') {
       markers = typeof options.markers === 'function'
@@ -149,7 +160,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
 
       // open the comment container if not already open.
       if (!self.containerState.open) {
-        effects.enter(tt.comment, { kind: kind.line, ...options.fields })
+        effects.enter(tt.comment, { kind: kind.line, ...fields })
         self.containerState.open = true
       }
 
