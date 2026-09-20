@@ -9,6 +9,7 @@ import htmlComment from '#fixtures/constructs/html.comment'
 import inlineTag from '#fixtures/constructs/inline-tag'
 import jsBlockComment from '#fixtures/constructs/js-block.comment'
 import jsLineComment from '#fixtures/constructs/line.comment'
+import sassdocComment from '#fixtures/constructs/sassdoc.comment'
 import { codes } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
 
@@ -25,7 +26,7 @@ const extension: NormalizedExtension = {
   },
   source: {
     [codes.numberSign]: hashbang,
-    [codes.slash]: [jsBlockComment, jsLineComment],
+    [codes.slash]: [jsBlockComment, jsLineComment, sassdocComment],
     [codes.lessThan]: htmlComment
   },
   text: {

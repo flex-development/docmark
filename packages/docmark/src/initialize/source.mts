@@ -13,6 +13,7 @@ import type {
   ContainerState,
   ContinuableConstruct,
   Effects,
+  Event,
   InitialConstruct,
   Place,
   State,
@@ -344,6 +345,9 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function tryComment(this: void, code: Code): State | undefined {
+    // eat whitespace before attempting comment.
+    if (whitespace(code)) return factorySpace(effects, tryComment)(code)
+
     // reset container state to get ready for new comment.
     self.containerState = {}
 
@@ -351,9 +355,6 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     // this is used to determine where to begin forwarding tokens after
     // successfully entering the comment.
     continued = self.events.length
-
-    // eat whitespace before attempting comment.
-    if (whitespace(code)) return factorySpace(effects, tryComment)(code)
 
     // try entering a comment.
     return effects.attempt(sourceComment, takeComment, restart)(code)
@@ -383,13 +384,22 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     assert(self.containerState, 'expected `containerState`')
     assert(self.currentConstruct, 'expected `currentConstruct`')
     assert(self.currentConstruct.continuation, 'expected continuable construct')
-    assert(self.events[continued], 'expected `self.events[continued]`')
+
+    /**
+     * The first event produced by the comment's `tokenize` method.
+     *
+     * @const {Event | undefined} event
+     */
+    const event: Event | undefined = self.events[continued]
+
+    assert(event, 'expected `self.events[continued]`')
+    assert(event[0] === ev.enter, 'expected `enter` event')
+    assert(event[1].type === tt.comment, 'expected `comment` enter event')
 
     // capture new comment kind from the opening token.
     // the first event belonging to the new comment is at `continued`.
-    assert(self.events[continued]![0] === ev.enter, 'expected `enter` event')
-    self.containerState.comment = self.events[continued]![1].kind
-    self.containerState.documentation = self.events[continued]![1].info
+    self.containerState.comment = event[1].kind
+    self.containerState.documentation = event[1].info
 
     // forward any comment chunks emitted by `tokenize`.
     forward()

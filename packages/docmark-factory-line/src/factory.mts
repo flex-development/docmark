@@ -3,10 +3,7 @@
  * @module docmark-factory-line/factory
  */
 
-import type {
-  NamedOptions,
-  Options
-} from '@flex-development/docmark-factory-line'
+import type { Markers, Options } from '@flex-development/docmark-factory-line'
 import { factoryMarkers } from '@flex-development/docmark-factory-markers'
 import { factorySpace } from '@flex-development/docmark-factory-space'
 import { constants, kind, tt } from '@flex-development/docmark-util-symbol'
@@ -14,7 +11,6 @@ import type {
   Code,
   ContinuableConstruct,
   Effects,
-  NamedConstruct,
   State,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
@@ -26,28 +22,6 @@ export default factoryLineComment
  * Create a construct that tokenizes line comments.
  *
  * @see {@linkcode ContinuableConstruct}
- * @see {@linkcode NamedOptions}
- *
- * @template {ContinuableConstruct & NamedConstruct} T
- *  The line comment construct
- *
- * @this {void}
- *
- * @param {NamedOptions} options
- *  The options for creating the named construct
- * @return {T}
- *  The line comment construct
- */
-function factoryLineComment<T extends ContinuableConstruct & NamedConstruct>(
-  this: void,
-  options: NamedOptions
-): T
-
-/**
- * Create a construct that tokenizes line comments.
- *
- * @see {@linkcode ContinuableConstruct}
- * @see {@linkcode NamedOptions}
  * @see {@linkcode Options}
  *
  * @template {ContinuableConstruct} T
@@ -62,29 +36,7 @@ function factoryLineComment<T extends ContinuableConstruct & NamedConstruct>(
  */
 function factoryLineComment<T extends ContinuableConstruct>(
   this: void,
-  options: NamedOptions | Options
-): T
-
-/**
- * Create a construct that tokenizes line comments.
- *
- * @see {@linkcode ContinuableConstruct}
- * @see {@linkcode NamedOptions}
- * @see {@linkcode Options}
- *
- * @template {ContinuableConstruct} T
- *  The line comment construct
- *
- * @this {void}
- *
- * @param {NamedOptions | Options} options
- *  The options for creating the construct
- * @return {T}
- *  The line comment construct
- */
-function factoryLineComment<T extends ContinuableConstruct>(
-  this: void,
-  options: NamedOptions | Options
+  options: Options
 ): T {
   /**
    * The line comment construct.
@@ -97,6 +49,13 @@ function factoryLineComment<T extends ContinuableConstruct>(
     exit: exitLineComment,
     tokenize: tokenizeLineComment
   }
+
+  /**
+   * The markers configuration.
+   *
+   * @var {Markers} markers
+   */
+  let markers: Markers
 
   return lineComment as T
 
@@ -144,6 +103,13 @@ function factoryLineComment<T extends ContinuableConstruct>(
      * @const {TokenizeContext} self
      */
     const self: TokenizeContext = this
+
+    // initialize markers configuration.
+    if (typeof markers === 'undefined') {
+      markers = typeof options.markers === 'function'
+        ? options.markers.call(self)
+        : options.markers
+    }
 
     return startComment
 
@@ -203,7 +169,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
       )
 
       // try capturing comment markers.
-      return factoryMarkers(effects, paddingAfter, nok, options.markers)(code)
+      return factoryMarkers(effects, paddingAfter, nok, markers)(code)
     }
 
     /**

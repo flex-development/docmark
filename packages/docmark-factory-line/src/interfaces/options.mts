@@ -3,10 +3,12 @@
  * @module docmark-factory-line/interfaces/Options
  */
 
-import type { Info, Sequence } from '@flex-development/docmark-factory-markers'
+import type {
+  CreateMarkers,
+  Markers
+} from '@flex-development/docmark-factory-line'
 import type {
   Construct,
-  Marker,
   TokenFields
 } from '@flex-development/docmark-util-types'
 
@@ -34,13 +36,12 @@ interface Options {
   fields?: TokenFields | null | undefined
 
   /**
-   * The comment line marker code, info, or sequence.
+   * The markers configuration, or a function that returns the configuration.
    *
-   * @see {@linkcode Info}
-   * @see {@linkcode Marker}
-   * @see {@linkcode Sequence}
+   * @see {@linkcode CreateMarkers}
+   * @see {@linkcode Markers}
    */
-  markers: Info | Marker | Sequence
+  markers: CreateMarkers | Markers
 }
 
 export type { Options as default }
