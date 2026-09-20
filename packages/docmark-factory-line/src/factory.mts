@@ -58,6 +58,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
    */
   let markers: Markers
 
+  options.finalizeConstruct?.(lineComment)
   return lineComment as T
 
   /**

@@ -5,6 +5,7 @@
 
 import type {
   CreateMarkers,
+  FinalizeConstruct,
   Markers
 } from '@flex-development/docmark-factory-line'
 import type {
@@ -39,6 +40,13 @@ interface Options {
    * @see {@linkcode TokenFields}
    */
   fields?: CreateFields | TokenFields | null | undefined
+
+  /**
+   * Finalize the line comment construct.
+   *
+   * @see {@linkcode FinalizeConstruct}
+   */
+  finalizeConstruct?: FinalizeConstruct | null | undefined
 
   /**
    * The markers configuration, or a function that returns the configuration.
