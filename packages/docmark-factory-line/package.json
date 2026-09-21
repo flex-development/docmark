@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-factory-line",
   "description": "docmark factory to parse line comments",
-  "version": "1.0.0-alpha.9",
+  "version": "1.0.0-alpha.10",
   "keywords": [
     "docmark",
     "factory",

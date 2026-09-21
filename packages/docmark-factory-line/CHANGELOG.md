@@ -1,3 +1,27 @@
+## [docmark-factory-line@1.0.0-alpha.10](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.9...docmark-factory-line@1.0.0-alpha.10) (2026-09-21)
+
+### ⚠ BREAKING CHANGES
+
+- **factory-line:** emit `commentOpener` token
+
+### :package: Build
+
+- [[`509f306`](https://github.com/flex-development/docmark/commit/509f30671dcfcc147d890bccd105bb4b8fd95a64)] **deps-dev:** Bump cspell from 10.3.1 to 10.3.3 ([#290](https://github.com/flex-development/docmark/issues/290))
+- [[`dd9afcd`](https://github.com/flex-development/docmark/commit/dd9afcd9b2ef9f8907372a1f024e61d5d387e227)] **deps-dev:** Bump rolldown from 1.2.8 to 1.2.9 ([#291](https://github.com/flex-development/docmark/issues/291))
+- [[`e17e4de`](https://github.com/flex-development/docmark/commit/e17e4de2702684e3c752e1656dab8730c14c7166)] **deps-dev:** Bump the vitest group with 3 updates ([#289](https://github.com/flex-development/docmark/issues/289))
+
+### :robot: Continuous Integration
+
+- [[`79ce0e8`](https://github.com/flex-development/docmark/commit/79ce0e842a9c559e1820547b4f6302606639a65e)] **deps:** Bump codecov/codecov-action from 7.1.0 to 7.1.1 ([#288](https://github.com/flex-development/docmark/issues/288))
+
+### :house_with_garden: Housekeeping
+
+- [[`f5d3c80`](https://github.com/flex-development/docmark/commit/f5d3c8014287472854dbf7b4de177d783876e581)] fix `docmark-factory-identifier` release
+
+### :mechanical_arm: Refactors
+
+- [[`90c205d`](https://github.com/flex-development/docmark/commit/90c205d72ad98d4c2a911e8bd87cf63b3d9b49ac)] **factory-line:** emit `commentOpener` token
+
 ## [docmark-factory-line@1.0.0-alpha.9](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.8...docmark-factory-line@1.0.0-alpha.9) (2026-09-20)
 
 ### :sparkles: Features
@@ -245,6 +269,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
