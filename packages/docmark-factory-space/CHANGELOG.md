@@ -1,3 +1,13 @@
+## [docmark-factory-space@1.0.0-alpha.14](https://github.com/flex-development/docmark/compare/docmark-factory-space@1.0.0-alpha.13...docmark-factory-space@1.0.0-alpha.14) (2026-09-20)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** `LanguageOptions#documentationOnly` -> `Settings#documentationOnly`
+
+### :bug: Fixes
+
+- [[`2d7c7d5`](https://github.com/flex-development/docmark/commit/2d7c7d5fd1d0a44f3fae696237a89218bffa5fcd)] **types:** `LanguageOptions#documentationOnly` -> `Settings#documentationOnly`
+
 ## [docmark-factory-space@1.0.0-alpha.13](https://github.com/flex-development/docmark/compare/docmark-factory-space@1.0.0-alpha.12...docmark-factory-space@1.0.0-alpha.13) (2026-09-20)
 
 ### ⚠ BREAKING CHANGES
@@ -358,6 +368,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
