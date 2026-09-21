@@ -17,6 +17,7 @@ import type { NormalizedExtension } from '@flex-development/docmark-util-types'
  */
 const docmark: NormalizedExtension = {
   comment: { null: summary },
+  settings: {},
   source: {},
   type: { null: typeExpressionValue }
 }

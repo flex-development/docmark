@@ -7,7 +7,8 @@ import type {
   AttentionMarkers,
   ConstructRecord,
   Disable,
-  InsideSpan
+  InsideSpan,
+  Settings
 } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../extension.mts'
@@ -65,6 +66,12 @@ describe('unit-d:Extension', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('insideSpan')
       .toEqualTypeOf<InsideSpan | undefined>()
+  })
+
+  it('should match [settings?: Settings | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('settings')
+      .toEqualTypeOf<Settings | undefined>()
   })
 
   it('should match [source?: ConstructRecord | undefined]', () => {

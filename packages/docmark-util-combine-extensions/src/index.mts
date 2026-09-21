@@ -5,10 +5,14 @@
 
 import type {
   AnyExtension,
-  NormalizedExtension
+  Extension,
+  NormalizedExtension,
+  Settings
 } from '@flex-development/docmark-util-types'
 import { splice } from '@flex-development/mark-util-chunked'
 import { ok } from 'devlop'
+import list from './internal/list.mts'
+import merge from './internal/merge.mts'
 
 export { combineExtensions, combineExtensions as default }
 
@@ -76,69 +80,73 @@ function combineExtensions<T extends NormalizedExtension>(
   const all: NormalizedExtension = {}
 
   /**
-   * The list of syntax extensions.
-   *
-   * @const {AnyExtension[]} list
-   */
-  const list: AnyExtension[] = [extensions, ...sources].filter(s => !!s).flat()
-
-  /**
    * The index of the current extension.
    *
    * @var {number} index
    */
   let index: number = -1
 
-  while (++index < list.length) {
+  // normalize the list of syntax extensions.
+  extensions = [extensions, ...sources].filter(s => !!s).flat()
+
+  // merge extensions into `all`.
+  while (++index < extensions.length) {
     /**
      * The current extension.
      *
-     * @const {AnyExtension | undefined} extension
+     * @const {Extension | undefined} extension
      */
-    const extension: AnyExtension | undefined = list[index]
+    const extension: Extension | undefined = (extensions as Extension[])[index]
 
     /**
      * The current hook name.
      *
-     * @var {keyof AnyExtension} hook
+     * @var {keyof Extension} hook
      */
-    let hook: keyof AnyExtension
+    let hook: keyof Extension
 
-    for (hook in (ok(extension, 'expected `extension`'), extension)) {
+    ok(extension, 'expected `extension`')
+
+    for (hook in extension) {
+      // merge `settings` fields as objects.
+      if (hook === 'settings') {
+        all[hook] = merge(all[hook], extension[hook])
+        continue
+      }
+
       /**
        * The field value of the combined extension.
        *
-       * @const {ExtensionField} maybe
+       * @const {NonSettingsField | undefined} maybe
        */
-      const maybe: ExtensionField = Object.hasOwnProperty.call(all, hook)
-        ? all[hook]
-        : undefined
+      const maybe: NonSettingsField | undefined =
+        Object.hasOwnProperty.call(all, hook) ? all[hook] : undefined
 
       /**
-       * The current field value.
+       * The current top-level extension field value.
        *
-       * @const {NonNullable<ExtensionField>} left
+       * @const {NonSettingsField} left
        */
-      const left: NonNullable<ExtensionField> = maybe ?? (all[hook] = {})
+      const left: NonSettingsField = maybe ?? (all[hook] = {})
 
       /**
-       * The incoming field value.
+       * The incoming top-level extension field value.
        *
-       * @const {ExtensionField} right
+       * @const {NonSettingsField | undefined} right
        */
-      const right: ExtensionField = extension[hook]
+      const right: NonSettingsField | undefined = extension[hook]
 
       if (right) {
         /**
-         * The current key.
+         * The current extension field key.
          *
-         * @var {keyof NonNullable<ExtensionField>} code
+         * @var {keyof NonSettingsField} key
          */
-        let key: keyof NonNullable<ExtensionField>
+        let key: keyof NonSettingsField
 
         for (key in right) {
           if (!Object.hasOwnProperty.call(left, key)) left[key] = []
-          merge(toList(left[key]!), toList(right[key] ?? []))
+          lists(list(left[key]!), list(right[key] ?? []))
         }
       }
     }
@@ -148,26 +156,22 @@ function combineExtensions<T extends NormalizedExtension>(
 }
 
 /**
- * Union of extension field values.
+ * Union of extension field values that are not extension settings.
  *
  * @internal
  */
-type ExtensionField = AnyExtension[keyof AnyExtension]
+type NonSettingsField = NonNullable<Exclude<
+  Extension[keyof Extension],
+  Settings
+>>
 
 /**
- * Convert `T` to a list.
+ * Merge `list` into `existing` (both lists of constructs, partial constructs,
+ * or character codes).
+ *
+ * > 👉 **Note**: Mutates `existing`.
  *
  * @internal
- *
- * @template {any} T
- *  The value to convert
- */
-type ToList<T> = T extends readonly (infer U)[] ? U[] : T[]
-
-/**
- * Merge `list` into `existing`.
- *
- * > 👉 Mutates `existing`.
  *
  * @this {void}
  *
@@ -177,7 +181,7 @@ type ToList<T> = T extends readonly (infer U)[] ? U[] : T[]
  *  The list to merge
  * @return {undefined}
  */
-function merge(
+function lists(
   this: void,
   existing: unknown[],
   list: unknown[]
@@ -201,21 +205,4 @@ function merge(
   }
 
   return void splice(existing, 0, 0, before)
-}
-
-/**
- * Convert `value` to a list.
- *
- * @template {any} T
- *  The value to convert
- *
- * @this {void}
- *
- * @param {unknown} value
- *  The value to convert
- * @return {ToList<T>}
- *  `value` or an array containing `value`
- */
-function toList<T>(this: void, value: T): ToList<T> {
-  return (Array.isArray(value) ? value : [value]) as ToList<T>
 }

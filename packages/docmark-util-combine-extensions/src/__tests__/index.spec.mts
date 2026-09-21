@@ -19,7 +19,16 @@ describe('unit:docmark-util-combine-extensions', () => {
     [null],
     [{}, undefined],
     [{ disable: { null: [] } }, { disable: undefined }],
-    [{ disable: { null: [tt.eoc] } }, { disable: { null: ['fail'] } }],
+    [
+      {
+        disable: { null: [tt.eoc] },
+        settings: {}
+      },
+      {
+        disable: { null: ['fail'] },
+        settings: {}
+      }
+    ],
     [
       {
         [constants.contentTypeComment]: { null: summary }

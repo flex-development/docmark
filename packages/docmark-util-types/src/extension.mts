@@ -7,7 +7,8 @@ import type {
   AttentionMarkers,
   ConstructRecord,
   Disable,
-  InsideSpan
+  InsideSpan,
+  Settings
 } from '@flex-development/docmark-util-types'
 
 /**
@@ -89,6 +90,13 @@ interface Extension {
    * @see {@linkcode InsideSpan}
    */
   insideSpan?: InsideSpan | undefined
+
+  /**
+   * Additional settings.
+   *
+   * @see {@linkcode Settings}
+   */
+  settings?: Settings | undefined
 
   /**
    * @todo `source`
