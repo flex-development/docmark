@@ -1,3 +1,32 @@
+## [docmark-util-symbol@1.0.0-alpha.9](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.8...docmark-util-symbol@1.0.0-alpha.9) (2026-09-20)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** `LanguageOptions#documentationOnly` -> `Settings#documentationOnly`
+- **factory-line:** bounded `markers` function
+- **factory-block:** bounded `markers` function
+
+### :sparkles: Features
+
+- [[`5f8671c`](https://github.com/flex-development/docmark/commit/5f8671c5a2be812a25935fec99e3f99df79e3737)] `Extension#settings`
+- [[`bacee18`](https://github.com/flex-development/docmark/commit/bacee18a2818e2d0378b02cfb41c85cdeef88280)] comment parsing modes
+- [[`b40021b`](https://github.com/flex-development/docmark/commit/b40021bfa3141126618186ce89ec30728e2e7311)] **factory-block:** `Options#finalizeConstruct`
+- [[`d797b1a`](https://github.com/flex-development/docmark/commit/d797b1ae0aeb75ee74613a9d00f61339198f9796)] **factory-block:** bounded `fields` function
+- [[`4a04bd3`](https://github.com/flex-development/docmark/commit/4a04bd32b94b0195fb7c73a85016e04a80d057d9)] **factory-block:** bounded `markers` function
+- [[`c75c32a`](https://github.com/flex-development/docmark/commit/c75c32a0077d699e28e5fc63b7b3be0e52e8f5a5)] **factory-line:** `Options#finalizeConstruct`
+- [[`903f88a`](https://github.com/flex-development/docmark/commit/903f88a707b1202934fd2eeb7adcff1b3f86efc3)] **factory-line:** bounded `fields` function
+- [[`381a3f3`](https://github.com/flex-development/docmark/commit/381a3f38c64f59c4116c70d29c68c917faa0026a)] **factory-line:** bounded `markers` function
+- [[`544d99d`](https://github.com/flex-development/docmark/commit/544d99d385a0d8ca8d795597b69060f2c38e3acd)] **types:** `CreateFields`
+
+### :bug: Fixes
+
+- [[`2d7c7d5`](https://github.com/flex-development/docmark/commit/2d7c7d5fd1d0a44f3fae696237a89218bffa5fcd)] **types:** `LanguageOptions#documentationOnly` -> `Settings#documentationOnly`
+
+### :mechanical_arm: Refactors
+
+- [[`dab1842`](https://github.com/flex-development/docmark/commit/dab18427d50eeb35d3f535e669a40fd8ccab82f6)] **factory-block:** markers config initialization
+- [[`d28e9e4`](https://github.com/flex-development/docmark/commit/d28e9e46e2afc5f1d2ab5784cd1c24f31d19b9b3)] **factory-line:** markers config initialization
+
 ## [docmark-util-symbol@1.0.0-alpha.8](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.7...docmark-util-symbol@1.0.0-alpha.8) (2026-09-18)
 
 ### ⚠ BREAKING CHANGES
@@ -307,6 +336,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 

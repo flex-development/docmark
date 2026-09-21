@@ -1,3 +1,14 @@
+## [docmark-util-types@1.0.0-alpha.15](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.14...docmark-util-types@1.0.0-alpha.15) (2026-09-20)
+
+### :sparkles: Features
+
+- [[`bacee18`](https://github.com/flex-development/docmark/commit/bacee18a2818e2d0378b02cfb41c85cdeef88280)] comment parsing modes
+
+### :mechanical_arm: Refactors
+
+- [[`dab1842`](https://github.com/flex-development/docmark/commit/dab18427d50eeb35d3f535e669a40fd8ccab82f6)] **factory-block:** markers config initialization
+- [[`d28e9e4`](https://github.com/flex-development/docmark/commit/d28e9e46e2afc5f1d2ab5784cd1c24f31d19b9b3)] **factory-line:** markers config initialization
+
 ## [docmark-util-types@1.0.0-alpha.14](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.13...docmark-util-types@1.0.0-alpha.14) (2026-09-20)
 
 ### ⚠ BREAKING CHANGES
@@ -376,6 +387,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
