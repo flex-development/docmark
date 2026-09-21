@@ -51,13 +51,6 @@ function factoryLineComment<T extends ContinuableConstruct>(
     tokenize: tokenizeLineComment
   }
 
-  /**
-   * The markers configuration.
-   *
-   * @var {Markers} markers
-   */
-  let markers: Markers
-
   options.finalizeConstruct?.(lineComment)
   return lineComment as T
 
@@ -116,12 +109,14 @@ function factoryLineComment<T extends ContinuableConstruct>(
         ? options.fields.call(self)
         : options.fields
 
-    // initialize markers configuration.
-    if (typeof markers === 'undefined') {
-      markers = typeof options.markers === 'function'
-        ? options.markers.call(self)
-        : options.markers
-    }
+    /**
+     * The markers configuration.
+     *
+     * @const {Markers} markers
+     */
+    const markers: Markers = typeof options.markers === 'function'
+      ? options.markers.call(self)
+      : options.markers
 
     return startComment
 
