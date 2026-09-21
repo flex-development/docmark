@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-factory-identifier",
   "description": "docmark factory to parse identifiers",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "keywords": [
     "docmark",
     "factory",
