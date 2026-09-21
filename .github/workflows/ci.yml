@@ -315,7 +315,7 @@ jobs:
       - id: codecov-results
         if: ${{ !cancelled() }}
         name: Upload test results to Codecov
-        uses: codecov/codecov-action@v7.1.0
+        uses: codecov/codecov-action@v7.1.1
         with:
           disable_search: true
           env_vars: GITHUB_JOB,GITHUB_REF_TYPE
@@ -327,7 +327,7 @@ jobs:
           verbose: true
       - id: codecov-coverage
         name: Upload coverage report to Codecov
-        uses: codecov/codecov-action@v7.1.0
+        uses: codecov/codecov-action@v7.1.1
         with:
           disable_search: true
           env_vars: GITHUB_JOB,GITHUB_REF_TYPE
@@ -402,7 +402,7 @@ jobs:
       - id: codecov-results
         if: ${{ !cancelled() }}
         name: Upload test results to Codecov
-        uses: codecov/codecov-action@v7.1.0
+        uses: codecov/codecov-action@v7.1.1
         with:
           disable_search: true
           env_vars: GITHUB_JOB,GITHUB_REF_TYPE
@@ -414,7 +414,7 @@ jobs:
           verbose: true
       - id: codecov-coverage
         name: Upload coverage report to Codecov
-        uses: codecov/codecov-action@v7.1.0
+        uses: codecov/codecov-action@v7.1.1
         with:
           disable_search: true
           env_vars: GITHUB_JOB,GITHUB_REF_TYPE
