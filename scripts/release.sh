@@ -7,6 +7,7 @@ set -e
 # References:
 #
 # - https://git-scm.com/docs/git-commit
+# - https://jqlang.org/manual
 
 ROOT_DIRECTORY=${PROJECT_CWD:-$PWD}
 VERSION_MANIFEST=$ROOT_DIRECTORY/.yarn/versions/*.yml
