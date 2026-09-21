@@ -215,16 +215,15 @@ function factoryBlockComment<T extends ContinuableConstruct>(
         ? options.fields.call(self)
         : options.fields
 
-    // initializer markers configuration and first markers map.
-    if (typeof markers === 'undefined') {
-      markers = typeof options.markers === 'function'
-        ? options.markers.call(self)
-        : options.markers
+    // initialize markers configuration.
+    markers = typeof options.markers === 'function'
+      ? options.markers.call(self)
+      : options.markers
 
-      fm = {
-        closer: firstMarker(markers.closer),
-        opener: firstMarker(markers.opener)
-      }
+    // initialize first markers map.
+    fm = {
+      closer: firstMarker(markers.closer),
+      opener: firstMarker(markers.opener)
     }
 
     return startComment
