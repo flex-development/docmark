@@ -12993,11 +12993,11 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 17,
+        "_bufferIndex": 16,
         "_index": 37,
-        "column": 18,
+        "column": 17,
         "line": 20,
-        "offset": 572,
+        "offset": 571,
       },
       "start": {
         "_bufferIndex": 14,
@@ -13006,7 +13006,8 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "line": 20,
         "offset": 569,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -13091,6 +13092,27 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 16,
+        "_index": 37,
+        "column": 17,
+        "line": 20,
+        "offset": 571,
+      },
+      "start": {
+        "_bufferIndex": 14,
+        "_index": 37,
+        "column": 15,
+        "line": 20,
+        "offset": 569,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -13133,26 +13155,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 17,
-        "_index": 37,
-        "column": 18,
-        "line": 20,
-        "offset": 572,
-      },
-      "start": {
-        "_bufferIndex": 14,
-        "_index": 37,
-        "column": 15,
-        "line": 20,
-        "offset": 569,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -13451,11 +13453,11 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 40,
-        "column": 8,
+        "column": 7,
         "line": 22,
-        "offset": 632,
+        "offset": 631,
       },
       "start": {
         "_bufferIndex": 4,
@@ -13464,7 +13466,8 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "line": 22,
         "offset": 629,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -13549,6 +13552,27 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 40,
+        "column": 7,
+        "line": 22,
+        "offset": 631,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 40,
+        "column": 5,
+        "line": 22,
+        "offset": 629,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -13591,26 +13615,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 40,
-        "column": 8,
-        "line": 22,
-        "offset": 632,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 40,
-        "column": 5,
-        "line": 22,
-        "offset": 629,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -14497,11 +14501,11 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 49,
-        "column": 8,
+        "column": 7,
         "line": 27,
-        "offset": 853,
+        "offset": 852,
       },
       "start": {
         "_bufferIndex": 4,
@@ -14510,7 +14514,8 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "line": 27,
         "offset": 850,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -14595,6 +14600,27 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 49,
+        "column": 7,
+        "line": 27,
+        "offset": 852,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 49,
+        "column": 5,
+        "line": 27,
+        "offset": 850,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -14637,26 +14663,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 49,
-        "column": 8,
-        "line": 27,
-        "offset": 853,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 49,
-        "column": 5,
-        "line": 27,
-        "offset": 850,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -14955,11 +14961,11 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 54,
-        "column": 8,
+        "column": 7,
         "line": 30,
-        "offset": 976,
+        "offset": 975,
       },
       "start": {
         "_bufferIndex": 4,
@@ -14968,7 +14974,8 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
         "line": 30,
         "offset": 973,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -15053,6 +15060,27 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 54,
+        "column": 7,
+        "line": 30,
+        "offset": 975,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 54,
+        "column": 5,
+        "line": 30,
+        "offset": 973,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -15095,26 +15123,6 @@ exports[`integration:docmark > should parse comments ("modules/02.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 54,
-        "column": 8,
-        "line": 30,
-        "offset": 976,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 54,
-        "column": 5,
-        "line": 30,
-        "offset": 973,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -44152,11 +44160,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 300,
-        "column": 8,
+        "column": 7,
         "line": 161,
-        "offset": 3876,
+        "offset": 3875,
       },
       "start": {
         "_bufferIndex": 4,
@@ -44165,7 +44173,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 161,
         "offset": 3873,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -44250,6 +44259,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 300,
+        "column": 7,
+        "line": 161,
+        "offset": 3875,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 300,
+        "column": 5,
+        "line": 161,
+        "offset": 3873,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -44292,26 +44322,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 300,
-        "column": 8,
-        "line": 161,
-        "offset": 3876,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 300,
-        "column": 5,
-        "line": 161,
-        "offset": 3873,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -50176,11 +50186,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 353,
-        "column": 10,
+        "column": 9,
         "line": 190,
-        "offset": 4673,
+        "offset": 4672,
       },
       "start": {
         "_bufferIndex": 6,
@@ -50189,7 +50199,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 190,
         "offset": 4670,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -50274,6 +50285,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 353,
+        "column": 9,
+        "line": 190,
+        "offset": 4672,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 353,
+        "column": 7,
+        "line": 190,
+        "offset": 4670,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -50316,26 +50348,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 353,
-        "column": 10,
-        "line": 190,
-        "offset": 4673,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 353,
-        "column": 7,
-        "line": 190,
-        "offset": 4670,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -52224,11 +52236,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 391,
-        "column": 10,
+        "column": 9,
         "line": 211,
-        "offset": 5240,
+        "offset": 5239,
       },
       "start": {
         "_bufferIndex": 6,
@@ -52237,7 +52249,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 211,
         "offset": 5237,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -52322,6 +52335,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 391,
+        "column": 9,
+        "line": 211,
+        "offset": 5239,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 391,
+        "column": 7,
+        "line": 211,
+        "offset": 5237,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -52364,26 +52398,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 391,
-        "column": 10,
-        "line": 211,
-        "offset": 5240,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 391,
-        "column": 7,
-        "line": 211,
-        "offset": 5237,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -52682,11 +52696,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 402,
-        "column": 10,
+        "column": 9,
         "line": 217,
-        "offset": 5386,
+        "offset": 5385,
       },
       "start": {
         "_bufferIndex": 6,
@@ -52695,7 +52709,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 217,
         "offset": 5383,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -52780,6 +52795,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 402,
+        "column": 9,
+        "line": 217,
+        "offset": 5385,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 402,
+        "column": 7,
+        "line": 217,
+        "offset": 5383,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -52822,26 +52858,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 402,
-        "column": 10,
-        "line": 217,
-        "offset": 5386,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 402,
-        "column": 7,
-        "line": 217,
-        "offset": 5383,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -53140,11 +53156,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 417,
-        "column": 10,
+        "column": 9,
         "line": 225,
-        "offset": 5575,
+        "offset": 5574,
       },
       "start": {
         "_bufferIndex": 6,
@@ -53153,7 +53169,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 225,
         "offset": 5572,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -53238,6 +53255,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 417,
+        "column": 9,
+        "line": 225,
+        "offset": 5574,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 417,
+        "column": 7,
+        "line": 225,
+        "offset": 5572,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -53280,26 +53318,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 417,
-        "column": 10,
-        "line": 225,
-        "offset": 5575,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 417,
-        "column": 7,
-        "line": 225,
-        "offset": 5572,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -60748,11 +60766,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 499,
-        "column": 8,
+        "column": 7,
         "line": 269,
-        "offset": 6902,
+        "offset": 6901,
       },
       "start": {
         "_bufferIndex": 4,
@@ -60761,7 +60779,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 269,
         "offset": 6899,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -60846,6 +60865,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 499,
+        "column": 7,
+        "line": 269,
+        "offset": 6901,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 499,
+        "column": 5,
+        "line": 269,
+        "offset": 6899,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -60888,26 +60928,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 499,
-        "column": 8,
-        "line": 269,
-        "offset": 6902,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 499,
-        "column": 5,
-        "line": 269,
-        "offset": 6899,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -77096,11 +77116,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 660,
-        "column": 8,
+        "column": 7,
         "line": 354,
-        "offset": 8969,
+        "offset": 8968,
       },
       "start": {
         "_bufferIndex": 4,
@@ -77109,7 +77129,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 354,
         "offset": 8966,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -77194,6 +77215,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 660,
+        "column": 7,
+        "line": 354,
+        "offset": 8968,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 660,
+        "column": 5,
+        "line": 354,
+        "offset": 8966,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -77236,26 +77278,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 660,
-        "column": 8,
-        "line": 354,
-        "offset": 8969,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 660,
-        "column": 5,
-        "line": 354,
-        "offset": 8966,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -77554,11 +77576,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 665,
-        "column": 8,
+        "column": 7,
         "line": 357,
-        "offset": 9058,
+        "offset": 9057,
       },
       "start": {
         "_bufferIndex": 4,
@@ -77567,7 +77589,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 357,
         "offset": 9055,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -77652,6 +77675,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 665,
+        "column": 7,
+        "line": 357,
+        "offset": 9057,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 665,
+        "column": 5,
+        "line": 357,
+        "offset": 9055,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -77694,26 +77738,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 665,
-        "column": 8,
-        "line": 357,
-        "offset": 9058,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 665,
-        "column": 5,
-        "line": 357,
-        "offset": 9055,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -81190,11 +81214,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 719,
-        "column": 10,
+        "column": 9,
         "line": 386,
-        "offset": 9725,
+        "offset": 9724,
       },
       "start": {
         "_bufferIndex": 6,
@@ -81203,7 +81227,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 386,
         "offset": 9722,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -81288,6 +81313,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 719,
+        "column": 9,
+        "line": 386,
+        "offset": 9724,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 719,
+        "column": 7,
+        "line": 386,
+        "offset": 9722,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -81330,26 +81376,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 719,
-        "column": 10,
-        "line": 386,
-        "offset": 9725,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 719,
-        "column": 7,
-        "line": 386,
-        "offset": 9722,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -86626,11 +86652,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 771,
-        "column": 8,
+        "column": 7,
         "line": 414,
-        "offset": 10256,
+        "offset": 10255,
       },
       "start": {
         "_bufferIndex": 4,
@@ -86639,7 +86665,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 414,
         "offset": 10253,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -86724,6 +86751,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 771,
+        "column": 7,
+        "line": 414,
+        "offset": 10255,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 771,
+        "column": 5,
+        "line": 414,
+        "offset": 10253,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -86766,26 +86814,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 771,
-        "column": 8,
-        "line": 414,
-        "offset": 10256,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 771,
-        "column": 5,
-        "line": 414,
-        "offset": 10253,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -93688,11 +93716,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 846,
-        "column": 8,
+        "column": 7,
         "line": 454,
-        "offset": 11275,
+        "offset": 11274,
       },
       "start": {
         "_bufferIndex": 4,
@@ -93701,7 +93729,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 454,
         "offset": 11272,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -93786,6 +93815,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 846,
+        "column": 7,
+        "line": 454,
+        "offset": 11274,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 846,
+        "column": 5,
+        "line": 454,
+        "offset": 11272,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -93828,26 +93878,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 846,
-        "column": 8,
-        "line": 454,
-        "offset": 11275,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 846,
-        "column": 5,
-        "line": 454,
-        "offset": 11272,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -94146,11 +94176,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 851,
-        "column": 8,
+        "column": 7,
         "line": 457,
-        "offset": 11347,
+        "offset": 11346,
       },
       "start": {
         "_bufferIndex": 4,
@@ -94159,7 +94189,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 457,
         "offset": 11344,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -94244,6 +94275,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 851,
+        "column": 7,
+        "line": 457,
+        "offset": 11346,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 851,
+        "column": 5,
+        "line": 457,
+        "offset": 11344,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -94286,26 +94338,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 851,
-        "column": 8,
-        "line": 457,
-        "offset": 11347,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 851,
-        "column": 5,
-        "line": 457,
-        "offset": 11344,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -94604,11 +94636,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 860,
-        "column": 8,
+        "column": 7,
         "line": 462,
-        "offset": 11476,
+        "offset": 11475,
       },
       "start": {
         "_bufferIndex": 4,
@@ -94617,7 +94649,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 462,
         "offset": 11473,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -94702,6 +94735,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 860,
+        "column": 7,
+        "line": 462,
+        "offset": 11475,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 860,
+        "column": 5,
+        "line": 462,
+        "offset": 11473,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -94744,26 +94798,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 860,
-        "column": 8,
-        "line": 462,
-        "offset": 11476,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 860,
-        "column": 5,
-        "line": 462,
-        "offset": 11473,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -95062,11 +95096,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 865,
-        "column": 8,
+        "column": 7,
         "line": 465,
-        "offset": 11572,
+        "offset": 11571,
       },
       "start": {
         "_bufferIndex": 4,
@@ -95075,7 +95109,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 465,
         "offset": 11569,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -95160,6 +95195,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 865,
+        "column": 7,
+        "line": 465,
+        "offset": 11571,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 865,
+        "column": 5,
+        "line": 465,
+        "offset": 11569,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -95202,26 +95258,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 865,
-        "column": 8,
-        "line": 465,
-        "offset": 11572,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 865,
-        "column": 5,
-        "line": 465,
-        "offset": 11569,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -95520,11 +95556,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 870,
-        "column": 8,
+        "column": 7,
         "line": 468,
-        "offset": 11638,
+        "offset": 11637,
       },
       "start": {
         "_bufferIndex": 4,
@@ -95533,7 +95569,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 468,
         "offset": 11635,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -95618,6 +95655,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 870,
+        "column": 7,
+        "line": 468,
+        "offset": 11637,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 870,
+        "column": 5,
+        "line": 468,
+        "offset": 11635,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -95660,26 +95718,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 870,
-        "column": 8,
-        "line": 468,
-        "offset": 11638,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 870,
-        "column": 5,
-        "line": 468,
-        "offset": 11635,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -96272,11 +96310,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 877,
-        "column": 8,
+        "column": 7,
         "line": 472,
-        "offset": 11820,
+        "offset": 11819,
       },
       "start": {
         "_bufferIndex": 4,
@@ -96285,7 +96323,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 472,
         "offset": 11817,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -96370,6 +96409,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 877,
+        "column": 7,
+        "line": 472,
+        "offset": 11819,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 877,
+        "column": 5,
+        "line": 472,
+        "offset": 11817,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -96412,26 +96472,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 877,
-        "column": 8,
-        "line": 472,
-        "offset": 11820,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 877,
-        "column": 5,
-        "line": 472,
-        "offset": 11817,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -108202,11 +108242,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 13,
+        "_bufferIndex": 12,
         "_index": 965,
-        "column": 14,
+        "column": 13,
         "line": 517,
-        "offset": 13201,
+        "offset": 13200,
       },
       "start": {
         "_bufferIndex": 10,
@@ -108215,7 +108255,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 517,
         "offset": 13198,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -108300,6 +108341,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 12,
+        "_index": 965,
+        "column": 13,
+        "line": 517,
+        "offset": 13200,
+      },
+      "start": {
+        "_bufferIndex": 10,
+        "_index": 965,
+        "column": 11,
+        "line": 517,
+        "offset": 13198,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -108342,26 +108404,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 13,
-        "_index": 965,
-        "column": 14,
-        "line": 517,
-        "offset": 13201,
-      },
-      "start": {
-        "_bufferIndex": 10,
-        "_index": 965,
-        "column": 11,
-        "line": 517,
-        "offset": 13198,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -108660,11 +108702,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 15,
+        "_bufferIndex": 14,
         "_index": 969,
-        "column": 16,
+        "column": 15,
         "line": 519,
-        "offset": 13312,
+        "offset": 13311,
       },
       "start": {
         "_bufferIndex": 12,
@@ -108673,7 +108715,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 519,
         "offset": 13309,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -108758,6 +108801,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 14,
+        "_index": 969,
+        "column": 15,
+        "line": 519,
+        "offset": 13311,
+      },
+      "start": {
+        "_bufferIndex": 12,
+        "_index": 969,
+        "column": 13,
+        "line": 519,
+        "offset": 13309,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -108800,26 +108864,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 15,
-        "_index": 969,
-        "column": 16,
-        "line": 519,
-        "offset": 13312,
-      },
-      "start": {
-        "_bufferIndex": 12,
-        "_index": 969,
-        "column": 13,
-        "line": 519,
-        "offset": 13309,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -109118,11 +109162,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 55,
+        "_bufferIndex": 54,
         "_index": 973,
-        "column": 56,
+        "column": 55,
         "line": 521,
-        "offset": 13453,
+        "offset": 13452,
       },
       "start": {
         "_bufferIndex": 52,
@@ -109131,7 +109175,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 521,
         "offset": 13450,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -109216,6 +109261,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 54,
+        "_index": 973,
+        "column": 55,
+        "line": 521,
+        "offset": 13452,
+      },
+      "start": {
+        "_bufferIndex": 52,
+        "_index": 973,
+        "column": 53,
+        "line": 521,
+        "offset": 13450,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -109258,26 +109324,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 55,
-        "_index": 973,
-        "column": 56,
-        "line": 521,
-        "offset": 13453,
-      },
-      "start": {
-        "_bufferIndex": 52,
-        "_index": 973,
-        "column": 53,
-        "line": 521,
-        "offset": 13450,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -109576,11 +109622,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 13,
+        "_bufferIndex": 12,
         "_index": 979,
-        "column": 14,
+        "column": 13,
         "line": 524,
-        "offset": 13510,
+        "offset": 13509,
       },
       "start": {
         "_bufferIndex": 10,
@@ -109589,7 +109635,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 524,
         "offset": 13507,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -109674,6 +109721,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 12,
+        "_index": 979,
+        "column": 13,
+        "line": 524,
+        "offset": 13509,
+      },
+      "start": {
+        "_bufferIndex": 10,
+        "_index": 979,
+        "column": 11,
+        "line": 524,
+        "offset": 13507,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -109716,26 +109784,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 13,
-        "_index": 979,
-        "column": 14,
-        "line": 524,
-        "offset": 13510,
-      },
-      "start": {
-        "_bufferIndex": 10,
-        "_index": 979,
-        "column": 11,
-        "line": 524,
-        "offset": 13507,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -110328,11 +110376,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 990,
-        "column": 10,
+        "column": 9,
         "line": 530,
-        "offset": 13667,
+        "offset": 13666,
       },
       "start": {
         "_bufferIndex": 6,
@@ -110341,7 +110389,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 530,
         "offset": 13664,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -110426,6 +110475,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 990,
+        "column": 9,
+        "line": 530,
+        "offset": 13666,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 990,
+        "column": 7,
+        "line": 530,
+        "offset": 13664,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -110468,26 +110538,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 990,
-        "column": 10,
-        "line": 530,
-        "offset": 13667,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 990,
-        "column": 7,
-        "line": 530,
-        "offset": 13664,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -117648,11 +117698,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 1047,
-        "column": 10,
+        "column": 9,
         "line": 561,
-        "offset": 14497,
+        "offset": 14496,
       },
       "start": {
         "_bufferIndex": 6,
@@ -117661,7 +117711,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 561,
         "offset": 14494,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -117746,6 +117797,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 1047,
+        "column": 9,
+        "line": 561,
+        "offset": 14496,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 1047,
+        "column": 7,
+        "line": 561,
+        "offset": 14494,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -117788,26 +117860,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 1047,
-        "column": 10,
-        "line": 561,
-        "offset": 14497,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 1047,
-        "column": 7,
-        "line": 561,
-        "offset": 14494,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -118106,11 +118158,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 1079,
-        "column": 10,
+        "column": 9,
         "line": 579,
-        "offset": 14982,
+        "offset": 14981,
       },
       "start": {
         "_bufferIndex": 6,
@@ -118119,7 +118171,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 579,
         "offset": 14979,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -118204,6 +118257,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 1079,
+        "column": 9,
+        "line": 579,
+        "offset": 14981,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 1079,
+        "column": 7,
+        "line": 579,
+        "offset": 14979,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -118246,26 +118320,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 1079,
-        "column": 10,
-        "line": 579,
-        "offset": 14982,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 1079,
-        "column": 7,
-        "line": 579,
-        "offset": 14979,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -118564,11 +118618,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 1092,
-        "column": 10,
+        "column": 9,
         "line": 586,
-        "offset": 15162,
+        "offset": 15161,
       },
       "start": {
         "_bufferIndex": 6,
@@ -118577,7 +118631,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 586,
         "offset": 15159,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -118662,6 +118717,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 1092,
+        "column": 9,
+        "line": 586,
+        "offset": 15161,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 1092,
+        "column": 7,
+        "line": 586,
+        "offset": 15159,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -118704,26 +118780,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 1092,
-        "column": 10,
-        "line": 586,
-        "offset": 15162,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 1092,
-        "column": 7,
-        "line": 586,
-        "offset": 15159,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -119022,11 +119078,11 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
     "enter",
     {
       "end": {
-        "_bufferIndex": 9,
+        "_bufferIndex": 8,
         "_index": 1107,
-        "column": 10,
+        "column": 9,
         "line": 594,
-        "offset": 15351,
+        "offset": 15350,
       },
       "start": {
         "_bufferIndex": 6,
@@ -119035,7 +119091,8 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
         "line": 594,
         "offset": 15348,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -119120,6 +119177,27 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 1107,
+        "column": 9,
+        "line": 594,
+        "offset": 15350,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 1107,
+        "column": 7,
+        "line": 594,
+        "offset": 15348,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -119162,26 +119240,6 @@ exports[`integration:docmark > should parse comments ("modules/03.txt") 1`] = `
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 9,
-        "_index": 1107,
-        "column": 10,
-        "line": 594,
-        "offset": 15351,
-      },
-      "start": {
-        "_bufferIndex": 6,
-        "_index": 1107,
-        "column": 7,
-        "line": 594,
-        "offset": 15348,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -149903,7 +149961,8 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -150007,7 +150066,8 @@ exports[`integration:docmark > should parse comments ("multiline/line/01.txt") 1
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -150731,11 +150791,11 @@ exports[`integration:docmark > should parse comments ("multiline/line/02.txt") 1
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 0,
-        "column": 8,
+        "column": 7,
         "line": 1,
-        "offset": 7,
+        "offset": 6,
       },
       "start": {
         "_bufferIndex": 4,
@@ -150744,7 +150804,8 @@ exports[`integration:docmark > should parse comments ("multiline/line/02.txt") 1
         "line": 1,
         "offset": 4,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -150829,6 +150890,27 @@ exports[`integration:docmark > should parse comments ("multiline/line/02.txt") 1
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 0,
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -150871,26 +150953,6 @@ exports[`integration:docmark > should parse comments ("multiline/line/02.txt") 1
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 0,
-        "column": 8,
-        "line": 1,
-        "offset": 7,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 0,
-        "column": 5,
-        "line": 1,
-        "offset": 4,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -152535,7 +152597,8 @@ exports[`integration:docmark > should parse comments ("opener-only/line/01.txt")
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -152639,7 +152702,8 @@ exports[`integration:docmark > should parse comments ("opener-only/line/01.txt")
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -152746,7 +152810,8 @@ exports[`integration:docmark > should parse comments ("opener-only/line/02.txt")
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -152850,7 +152915,8 @@ exports[`integration:docmark > should parse comments ("opener-only/line/02.txt")
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -152988,11 +153054,11 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
     "enter",
     {
       "end": {
-        "_bufferIndex": 3,
+        "_bufferIndex": 2,
         "_index": 0,
-        "column": 4,
+        "column": 3,
         "line": 1,
-        "offset": 3,
+        "offset": 2,
       },
       "start": {
         "_bufferIndex": 0,
@@ -153001,7 +153067,8 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -153086,6 +153153,27 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -153128,26 +153216,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/03.txt")
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 3,
-        "_index": 0,
-        "column": 4,
-        "line": 1,
-        "offset": 3,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 0,
-        "column": 1,
-        "line": 1,
-        "offset": 0,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -153283,11 +153351,11 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
     "enter",
     {
       "end": {
-        "_bufferIndex": 3,
+        "_bufferIndex": 2,
         "_index": 0,
-        "column": 4,
+        "column": 3,
         "line": 1,
-        "offset": 3,
+        "offset": 2,
       },
       "start": {
         "_bufferIndex": 0,
@@ -153296,7 +153364,8 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -153381,6 +153450,27 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -153423,26 +153513,6 @@ exports[`integration:docmark > should parse comments ("opener-only/line/04.txt")
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 3,
-        "_index": 0,
-        "column": 4,
-        "line": 1,
-        "offset": 3,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 0,
-        "column": 1,
-        "line": 1,
-        "offset": 0,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -158101,11 +158171,11 @@ exports[`integration:docmark > should parse comments ("sameline/line/01.txt") 1`
     "enter",
     {
       "end": {
-        "_bufferIndex": 3,
+        "_bufferIndex": 2,
         "_index": 0,
-        "column": 4,
+        "column": 3,
         "line": 1,
-        "offset": 3,
+        "offset": 2,
       },
       "start": {
         "_bufferIndex": 0,
@@ -158114,7 +158184,8 @@ exports[`integration:docmark > should parse comments ("sameline/line/01.txt") 1`
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -158199,6 +158270,27 @@ exports[`integration:docmark > should parse comments ("sameline/line/01.txt") 1`
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -158241,26 +158333,6 @@ exports[`integration:docmark > should parse comments ("sameline/line/01.txt") 1`
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 3,
-        "_index": 0,
-        "column": 4,
-        "line": 1,
-        "offset": 3,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 0,
-        "column": 1,
-        "line": 1,
-        "offset": 0,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -158573,7 +158645,8 @@ exports[`integration:docmark > should parse comments ("sameline/line/02.txt") 1`
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -158677,7 +158750,8 @@ exports[`integration:docmark > should parse comments ("sameline/line/02.txt") 1`
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [

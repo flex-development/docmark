@@ -14364,7 +14364,8 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -14468,7 +14469,8 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -15156,11 +15158,11 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
     "enter",
     {
       "end": {
-        "_bufferIndex": 7,
+        "_bufferIndex": 6,
         "_index": 0,
-        "column": 8,
+        "column": 7,
         "line": 1,
-        "offset": 7,
+        "offset": 6,
       },
       "start": {
         "_bufferIndex": 4,
@@ -15169,7 +15171,8 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
         "line": 1,
         "offset": 4,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -15254,6 +15257,27 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 0,
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -15296,26 +15320,6 @@ exports[`integration:initialize/source > should parse source file ("multiline/li
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 7,
-        "_index": 0,
-        "column": 8,
-        "line": 1,
-        "offset": 7,
-      },
-      "start": {
-        "_bufferIndex": 4,
-        "_index": 0,
-        "column": 5,
-        "line": 1,
-        "offset": 4,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -16676,7 +16680,8 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -16780,7 +16785,8 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -16887,7 +16893,8 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -16991,7 +16998,8 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -17131,11 +17139,11 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
     "enter",
     {
       "end": {
-        "_bufferIndex": 3,
+        "_bufferIndex": 2,
         "_index": 0,
-        "column": 4,
+        "column": 3,
         "line": 1,
-        "offset": 3,
+        "offset": 2,
       },
       "start": {
         "_bufferIndex": 0,
@@ -17144,7 +17152,8 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -17229,6 +17238,27 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -17271,26 +17301,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 3,
-        "_index": 0,
-        "column": 4,
-        "line": 1,
-        "offset": 3,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 0,
-        "column": 1,
-        "line": 1,
-        "offset": 0,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -17428,11 +17438,11 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
     "enter",
     {
       "end": {
-        "_bufferIndex": 3,
+        "_bufferIndex": 2,
         "_index": 0,
-        "column": 4,
+        "column": 3,
         "line": 1,
-        "offset": 3,
+        "offset": 2,
       },
       "start": {
         "_bufferIndex": 0,
@@ -17441,7 +17451,8 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -17526,6 +17537,27 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -17568,26 +17600,6 @@ exports[`integration:initialize/source > should parse source file ("opener-only/
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 3,
-        "_index": 0,
-        "column": 4,
-        "line": 1,
-        "offset": 3,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 0,
-        "column": 1,
-        "line": 1,
-        "offset": 0,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -20911,11 +20923,11 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
     "enter",
     {
       "end": {
-        "_bufferIndex": 3,
+        "_bufferIndex": 2,
         "_index": 0,
-        "column": 4,
+        "column": 3,
         "line": 1,
-        "offset": 3,
+        "offset": 2,
       },
       "start": {
         "_bufferIndex": 0,
@@ -20924,7 +20936,8 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -21009,6 +21022,27 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
       },
       "type": "commentMarker",
       "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -21051,26 +21085,6 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
       },
       "type": "commentPadding",
       "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 3,
-        "_index": 0,
-        "column": 4,
-        "line": 1,
-        "offset": 3,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 0,
-        "column": 1,
-        "line": 1,
-        "offset": 0,
-      },
-      "type": "commentLinePrefix",
     },
   ],
   [
@@ -21221,7 +21235,8 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [
@@ -21325,7 +21340,8 @@ exports[`integration:initialize/source > should parse source file ("sameline/lin
         "line": 1,
         "offset": 0,
       },
-      "type": "commentLinePrefix",
+      "type": "commentOpener",
+      "value": "//",
     },
   ],
   [

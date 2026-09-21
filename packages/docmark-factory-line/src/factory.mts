@@ -156,9 +156,22 @@ function factoryLineComment<T extends ContinuableConstruct>(
 
       // open the comment container if not already open.
       if (!self.containerState.open) {
+        // start new comment.
         effects.enter(tt.comment, { kind: kind.line, ...fields })
+
+        // the comment container is fresh.
+        // markers are captured inside a `commentOpener` token.
+        effects.enter(tt.commentOpener)
+
+        // mark the comment container as open.
         self.containerState.open = true
+
+        // try capturing comment markers.
+        return factoryMarkers(effects, endOpener, nok, markers)(code)
       }
+
+      // the comment container is open.
+      // markers are captured inside a `commentLinePrefix` token.
 
       // begin comment line prefix.
       effects.enter(tt.commentLinePrefix)
@@ -180,9 +193,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
     }
 
     /**
-     * After comment line markers and optional padding.
-     *
-     * The comment line prefix ends immediately before comment content.
+     * After the opening set of comment line markers.
      *
      * > 👉 **Note**: `␊` represents a line ending.
      *
@@ -192,6 +203,45 @@ function factoryLineComment<T extends ContinuableConstruct>(
      *       ^
      *  > |if (code !== self.previous) return nok(code)
      *  ```
+     *
+     * @example
+     *  ```markdown
+     *  > |// continuation construct did not consume entire line.␊
+     *      ^
+     *  > |// start markdown chunk from current point in the stream.␊
+     *  > |if (!eol(self.previous)) return beforeMarkdown(code)␊
+     *  ```
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function endOpener(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+
+      // finish the comment opener and propagate token to container state.
+      self.containerState.opener = effects.exit(tt.commentOpener)
+
+      // capture optional padding following the opener.
+      // **note**: padding is captured ***outside*** the opener,
+      // as opposed to inside like with `commentLinePrefix`es.
+      return factorySpace(
+        effects,
+        ok,
+        tt.commentPadding,
+        constants.commentPaddingSizeMin
+      )(code)
+    }
+
+    /**
+     * After comment line markers and optional padding.
+     *
+     * The comment line prefix ends immediately before comment content.
+     *
+     * > 👉 **Note**: `␊` represents a line ending.
      *
      * @example
      *  ```markdown
@@ -239,6 +289,13 @@ function factoryLineComment<T extends ContinuableConstruct>(
     ok: State,
     nok: State
   ): State {
+    /**
+     * The tokenization context.
+     *
+     * @const {TokenizeContext} self
+     */
+    const self: TokenizeContext = this
+
     return lineStart
 
     /**
@@ -262,6 +319,8 @@ function factoryLineComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function lineStart(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+      assert(self.containerState.opener, 'expected comment `opener` token')
       return factorySpace(effects, afterLineStart, tt.commentPadding)(code)
     }
 
