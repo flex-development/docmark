@@ -3,7 +3,10 @@
  * @module docmark-util-types/tests/unit-d/Settings
  */
 
-import type { LanguageSettings } from '@flex-development/docmark-util-types'
+import type {
+  LanguageSettings,
+  Modes
+} from '@flex-development/docmark-util-types'
 import type { OptionalKeys } from '@flex-development/tutils'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../settings.mts'
@@ -15,10 +18,10 @@ describe('unit-d:Settings', () => {
     expectTypeOf<TestSubject>().toExtend<LanguageSettings>()
   })
 
-  it('should match [documentationOnly?: boolean | undefined]', () => {
-    expectTypeOf<Optional>().extract<'documentationOnly'>().not.toBeNever()
+  it('should match [modes?: Modes | undefined]', () => {
+    expectTypeOf<Optional>().extract<'modes'>().not.toBeNever()
     expectTypeOf<TestSubject>()
-      .toHaveProperty('documentationOnly')
-      .toEqualTypeOf<boolean | undefined>()
+      .toHaveProperty('modes')
+      .toEqualTypeOf<Modes | undefined>()
   })
 })

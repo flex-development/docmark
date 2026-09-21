@@ -3,7 +3,10 @@
  * @module docmark-util-types/Settings
  */
 
-import type { LanguageSettings } from '@flex-development/docmark-util-types'
+import type {
+  LanguageSettings,
+  Modes
+} from '@flex-development/docmark-util-types'
 
 /**
  * Additional extension settings.
@@ -23,9 +26,12 @@ import type { LanguageSettings } from '@flex-development/docmark-util-types'
  */
 interface Settings extends LanguageSettings {
   /**
-   * Whether only docblock and docline comments should be parsed.
+   * Record where each key is a registered comment kind
+   * and each value is a registered comment parsing mode.
+   *
+   * @see {@linkcode Modes}
    */
-  documentationOnly?: boolean | undefined
+  modes?: Modes | undefined
 }
 
 export type { Settings as default }

@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`unit:mode > should be comment parsing mode dictionary 1`] = `
+{
+  "documentation": "documentation",
+  "null": null,
+}
+`;
