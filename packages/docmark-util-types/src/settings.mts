@@ -21,6 +21,11 @@ import type { LanguageSettings } from '@flex-development/docmark-util-types'
  *
  * @extends {LanguageSettings}
  */
-interface Settings extends LanguageSettings {}
+interface Settings extends LanguageSettings {
+  /**
+   * Whether only docblock and docline comments should be parsed.
+   */
+  documentationOnly?: boolean | undefined
+}
 
 export type { Settings as default }

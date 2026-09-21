@@ -15,11 +15,6 @@
  *    }
  *  }
  */
-interface LanguageOptions {
-  /**
-   * Whether only docblock and docline comments should be parsed.
-   */
-  documentationOnly?: boolean | undefined
-}
+interface LanguageOptions {}
 
 export type { LanguageOptions as default }
