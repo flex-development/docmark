@@ -49,8 +49,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "dependencies": {
-    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.8",
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.14",
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.9",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.15",
     "@flex-development/mark-util-character": "1.1.0"
   },
   "sideEffects": false
