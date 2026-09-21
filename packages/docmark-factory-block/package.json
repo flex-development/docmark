@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-factory-block",
   "description": "docmark factory to parse block comments",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "keywords": [
     "block-comment",
     "docmark",
