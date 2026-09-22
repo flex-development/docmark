@@ -163,9 +163,6 @@ function factoryLineComment<T extends ContinuableConstruct>(
         // markers are captured inside a `commentOpener` token.
         effects.enter(tt.commentOpener)
 
-        // mark the comment container as open.
-        self.containerState.open = true
-
         // try capturing comment markers.
         return factoryMarkers(effects, endOpener, nok, markers)(code)
       }
@@ -224,6 +221,9 @@ function factoryLineComment<T extends ContinuableConstruct>(
 
       // finish the comment opener and propagate token to container state.
       self.containerState.opener = effects.exit(tt.commentOpener)
+
+      // mark the comment container as open.
+      self.containerState.open = true
 
       // capture optional padding following the opener.
       // **note**: padding is captured ***outside*** the opener,

@@ -1,6 +1,6 @@
 /**
- * @file Fixtures - sassdocComment
- * @module docmark/fixtures/constructs/sassdocComment
+ * @file Fixtures - tripleSlashComment
+ * @module docmark/fixtures/constructs/tripleSlashComment
  */
 
 import factory, { type Markers } from '@flex-development/docmark-factory-line'
@@ -12,13 +12,13 @@ import type {
 } from '@flex-development/docmark-util-types'
 
 /**
- * The sass documentation comment construct.
+ * The TypeScript triple-slash comment construct.
  *
  * This construct is expected to run at the `source` content level.
  *
- * @const {ContinuableConstruct} sassdocComment
+ * @const {ContinuableConstruct} tripleSlashComment
  */
-const sassdocComment: ContinuableConstruct = factory({
+const tripleSlashComment: ContinuableConstruct = factory({
   /**
    * Create a token fields object.
    *
@@ -28,7 +28,7 @@ const sassdocComment: ContinuableConstruct = factory({
    *  The token fields object
    */
   fields(this: TokenizeContext): TokenFields {
-    return { info: true }
+    return { triple: true }
   },
 
   /**
@@ -57,4 +57,4 @@ const sassdocComment: ContinuableConstruct = factory({
   }
 })
 
-export default sassdocComment
+export default tripleSlashComment

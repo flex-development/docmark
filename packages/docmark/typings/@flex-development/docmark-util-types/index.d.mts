@@ -19,6 +19,13 @@ declare module '@flex-development/docmark-util-types' {
      * @internal
      */
     tag?: string | undefined
+
+    /**
+     * For comments, whether the comment is a TypeScript triple-slash comment.
+     *
+     * @internal
+     */
+    triple?: boolean | undefined
   }
 
   interface TokenizeContext {

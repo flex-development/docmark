@@ -106,7 +106,7 @@ function tokenizeHashbang(
     assert(code === codes.numberSign, 'expected `codes.numberSign`')
 
     effects.enter(tt.comment, { kind: kind.hashbang })
-    effects.enter(tt.commentLinePrefix)
+    effects.enter(tt.commentOpener)
 
     return factoryMarkers(effects, afterFirstMarker, nok, {
       code,
@@ -136,7 +136,7 @@ function tokenizeHashbang(
     if (code !== codes.exclamationMark) return nok(code)
 
     effects.consume(code)
-    effects.exit(tt.commentLinePrefix)
+    effects.exit(tt.commentOpener)
 
     return factorySpace(effects, startPath, tt.commentPadding)
   }

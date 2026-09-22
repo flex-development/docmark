@@ -65,7 +65,8 @@ describe('integration:docmark', () => {
     ['multiline/line/02.txt'],
     ['modules/01.txt'],
     ['modules/02.txt'],
-    ['modules/03.txt']
+    ['modules/03.txt'],
+    ['modules/04.txt']
   ])('should parse comments (%j)', path => {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
