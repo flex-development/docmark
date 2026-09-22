@@ -1,3 +1,14 @@
+## [docmark-factory-line@1.0.0-alpha.11](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.10...docmark-factory-line@1.0.0-alpha.11) (2026-09-22)
+
+### :package: Build
+
+- [[`6042ffc`](https://github.com/flex-development/docmark/commit/6042ffc212378ea2b159c3187f3dd26c8cb8ee3d)] **deps-dev:** bump eslint from 9.39.4 to 9.39.5
+- [[`54c8658`](https://github.com/flex-development/docmark/commit/54c8658afa0d8367e2ee82c01b48e8f0a843efee)] **deps-dev:** Bump rollup from 4.63.3 to 4.63.4 ([#295](https://github.com/flex-development/docmark/issues/295))
+
+### :bug: Fixes
+
+- [[`bad3484`](https://github.com/flex-development/docmark/commit/bad3484744d199b7c2cc9a9e8ab10e4d09a558a2)] **factory-line:** open comment container after finishing opener
+
 ## [docmark-factory-line@1.0.0-alpha.10](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.9...docmark-factory-line@1.0.0-alpha.10) (2026-09-21)
 
 ### ⚠ BREAKING CHANGES
@@ -269,6 +280,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
