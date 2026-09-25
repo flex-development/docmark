@@ -3,7 +3,8 @@
  * @module docmark/tests/integration/api
  */
 
-import extension from '#fixtures/extension'
+import markdown from '#fixtures/extensions/markdown'
+import typescript from '#fixtures/extensions/typescript'
 import snapshot from '#tests/utils/snapshot-events'
 import { parse, postprocess, preprocess } from '@flex-development/docmark'
 import { ev, tt } from '@flex-development/docmark-util-symbol'
@@ -70,7 +71,7 @@ describe('integration:docmark', () => {
   ])('should parse comments (%j)', path => {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
-    const options: ParseOptions = { extensions: [extension] }
+    const options: ParseOptions = { extensions: [markdown, typescript] }
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act

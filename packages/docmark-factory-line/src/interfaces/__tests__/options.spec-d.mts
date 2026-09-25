@@ -4,6 +4,7 @@
  */
 
 import type {
+  AllowIndentedLines,
   CreateMarkers,
   FinalizeConstruct,
   Markers
@@ -24,6 +25,15 @@ import type TestSubject from '../options.mts'
 describe('unit-d:interfaces/Options', () => {
   type Optional = OptionalKeys<TestSubject>
   type Required = RequiredKeys<TestSubject>
+
+  it('should match [allowIndentedContinuation?: AllowIndentedLines | boolean | undefined]', () => {
+    expectTypeOf<Optional>()
+      .extract<'allowIndentedContinuation'>()
+      .not.toBeNever()
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('allowIndentedContinuation')
+      .toEqualTypeOf<AllowIndentedLines | boolean | undefined>()
+  })
 
   it('should match [construct?: Partial<Construct> | null | undefined]', () => {
     expectTypeOf<Optional>().extract<'construct'>().not.toBeNever()

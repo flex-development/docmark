@@ -3,7 +3,7 @@
  * @module docmark/initialize/tests/integration/comment
  */
 
-import extension from '#fixtures/extension'
+import typescript from '#fixtures/extensions/typescript'
 import snapshot from '#tests/utils/snapshot-events'
 import { parse, preprocess } from '@flex-development/docmark'
 import { tt } from '@flex-development/docmark-util-symbol'
@@ -88,7 +88,7 @@ describe('integration:initialize/comment', () => {
     // Setup
     options ??= {}
     options.extensions ??= []
-    options.extensions.unshift(extension)
+    options.extensions.unshift(typescript)
 
     // Act
     const result = parse(options).comment().write(slice)

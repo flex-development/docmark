@@ -1,6 +1,6 @@
 /**
  * @file Fixtures - tripleSlashComment
- * @module docmark/fixtures/constructs/tripleSlashComment
+ * @module docmark/fixtures/constructs/ts/tripleSlash
  */
 
 import factory, { type Markers } from '@flex-development/docmark-factory-line'

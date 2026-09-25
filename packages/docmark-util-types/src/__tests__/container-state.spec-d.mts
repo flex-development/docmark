@@ -3,7 +3,7 @@
  * @module docmark-util-types/tests/unit-d/ContainerState
  */
 
-import type { Token, TokenFields } from '@flex-development/docmark-util-types'
+import type { Token } from '@flex-development/docmark-util-types'
 import type * as micromark from 'micromark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../container-state.mts'
@@ -13,21 +13,21 @@ describe('unit-d:ContainerState', () => {
     expectTypeOf<TestSubject>().toExtend<micromark.ContainerState>()
   })
 
-  it('should match [comment?: TokenFields["kind"] | undefined]', () => {
+  it('should match [comment?: Token | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('comment')
-      .toEqualTypeOf<TokenFields['kind'] | undefined>()
-  })
-
-  it('should match [documentation?: TokenFields["info"] | undefined]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('documentation')
-      .toEqualTypeOf<TokenFields['info'] | undefined>()
+      .toEqualTypeOf<Token | undefined>()
   })
 
   it('should match [opener?: Token | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('opener')
       .toEqualTypeOf<Token | undefined>()
+  })
+
+  it('should match [openerWidth?: number | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('openerWidth')
+      .toEqualTypeOf<number | undefined>()
   })
 })

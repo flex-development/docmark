@@ -15,17 +15,18 @@ import {
   blankLine,
   trailingWhitespace
 } from '@flex-development/docmark-grammar'
-import { constants, kind, tt } from '@flex-development/docmark-util-symbol'
+import { constants, ev, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
   ContinuableConstruct,
   Effects,
+  Event,
   Marker,
   PartialConstruct,
   Place,
   Position,
   State,
-  TokenFields,
+  Token,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { eol, eos, whitespace } from '@flex-development/mark-util-character'
@@ -83,39 +84,6 @@ function factoryBlockComment<T extends ContinuableConstruct>(
   }
 
   /**
-   * The comment line prefix construct.
-   *
-   * A comment line prefix occurs at the beginning of a line within a comment.
-   * It may contain leading comment line padding, a single comment line marker,
-   * and optional padding following the marker.
-   *
-   * A prefix may also consist only of padding when the next input begins the
-   * comment closer.
-   *
-   * @const {PartialConstruct} commentLinePrefix
-   */
-  const commentLinePrefix: PartialConstruct = {
-    partial: true,
-    previous: eol,
-    tokenize: tokenizeCommentLinePrefix
-  }
-
-  /**
-   * The alternate comment line prefix construct.
-   *
-   * An alternate comment line prefix contains only padding.\
-   * Unlike the {@linkcode commentLinePrefix} construct, such padding is
-   * calculated based on the current comment opener's `end` column.
-   *
-   * @const {PartialConstruct} commentLinePrefixAlt
-   */
-  const commentLinePrefixAlt: PartialConstruct = {
-    partial: true,
-    previous: eol,
-    tokenize: tokenizeCommentLinePrefixAlt
-  }
-
-  /**
    * The comment closer construct.
    *
    * A comment closer ends a block comment.
@@ -142,6 +110,58 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     partial: true,
     tokenize: tokenizeTrailingCommentCloser
   }
+
+  /**
+   * The default comment line prefix construct.
+   *
+   * A default comment line prefix may contain leading comment padding, a single
+   * comment line marker, and optional inner padding following the marker.
+   *
+   * The prefix may also consist only of leading comment padding when the next
+   * input begins the comment closer.
+   *
+   * @const {PartialConstruct} commentLinePrefix
+   */
+  const commentLinePrefix: PartialConstruct = {
+    partial: true,
+    previous: eol,
+    tokenize: tokenizeCommentLinePrefix
+  }
+
+  /**
+   * The indented comment line prefix construct.
+   *
+   * Indented comment line prefixes align with the middle marker of the current
+   * comment opener and use whitespace as their line marker.
+   *
+   * @const {PartialConstruct} commentLinePrefixIndented
+   */
+  const commentLinePrefixIndented: PartialConstruct = {
+    partial: true,
+    previous: eol,
+    tokenize: tokenizeCommentLinePrefixIndented
+  }
+
+  /**
+   * The padding-only comment line prefix construct.
+   *
+   * Unlike the default {@linkcode commentLinePrefix} construct, leading comment
+   * padding is calculated based on the current comment opener's `end` column.
+   *
+   * @const {PartialConstruct} commentLinePrefixPadded
+   */
+  const commentLinePrefixPadded: PartialConstruct = {
+    partial: true,
+    previous: eol,
+    tokenize: tokenizeCommentLinePrefixPadded
+  }
+
+  /**
+   * Whether continued lines can be indented in lieu of an explicit marker.
+   *
+   * @var {boolean} allowIndentedContinuation
+   */
+  let allowIndentedContinuation: boolean = !!options.allowIndentedContinuation
 
   /**
    * Record where each key is a marker type and each value is an info object
@@ -205,17 +225,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
-    /**
-     * The token fields.
-     *
-     * @const {TokenFields | null | undefined} fields
-     */
-    const fields: TokenFields | null | undefined =
-      typeof options.fields === 'function'
-        ? options.fields.call(self)
-        : options.fields
-
-    // initialize markers configuration.
+    // initialize the markers configuration.
     markers = typeof options.markers === 'function'
       ? options.markers.call(self)
       : options.markers
@@ -249,8 +259,17 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function startComment(this: void, code: Code): State | undefined {
-      assert(code === fm.opener.code, `expected \`${fm.opener.code}\``)
-      effects.enter(tt.comment, { kind: kind.block, ...fields })
+      const { fields } = options
+
+      // start a new block comment
+      effects.enter(tt.comment, {
+        kind: kind.block,
+        ...(typeof fields === 'function' ? fields.call(self) : fields)
+      })
+
+      // try capturing the comment opener.
+      // if successful, finish out the line.
+      // otherwise, fail and delegate to the `source` initializer.
       return effects.attempt(commentOpener, afterOpener, nok)(code)
     }
 
@@ -329,6 +348,8 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function afterOpener(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+
       // comment terminated by end of stream.
       if (eos(code)) return ok(code)
 
@@ -356,7 +377,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
           commentCloser,
           closeComment,
           // try finishing a whitespace-only comment.
-          // on success, mark comment container for closer.
+          // on success, mark comment container for closure.
           // otherwise, capture arbitrary whitespace before starting chunk.
           effects.attempt(
             trailingCommentCloser,
@@ -513,9 +534,10 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     /**
      * Mark the active comment for closure.
      *
-     * The `source` initializer owns container finalization.
-     * This state records that the comment has reached its closing boundary via
-     * {@linkcode self.containerState} without exiting the container directly.
+     * Container finalization is deferred to the `source` initializer.
+     *
+     * Via {@linkcode self.containerState}, this state records that the comment
+     * has reached its closing boundary without exiting the container directly.
      *
      * @this {void}
      *
@@ -577,9 +599,9 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     /**
      * Begin a continued comment line.
      *
-     * A comment line prefix is attempted first.
-     * When the marker required by the prefix is not present, line indentation
-     * is attempted directly.
+     * A comment line prefix is attempted first.\
+     * When a marked prefix is not present, an unmarked prefix is attempted,
+     * which may use indentation when enabled.
      *
      * Both paths leave control at the beginning of normalized comment content.
      *
@@ -626,50 +648,26 @@ function factoryBlockComment<T extends ContinuableConstruct>(
       // comment terminated by end of stream.
       if (eos(code)) return nok(code)
 
-      // try capturing comment line prefix.
+      // try capturing a comment line prefix.
       // the construct fails if a comment line marker is missing,
       // but can succeed without a marker before a comment closer as well.
       // the comment container is marked for closure by `commentLinePrefix`
       // if a comment closer is detected.
-      // on success, check for a blank line.
-      // if the initial attempt fails, try capturing a padding-only prefix.
-      // padding is calculated based on the `end` column of the current opener.
+      // on success, try starting a new comment chunk.
+      // on failure, try capturing an unmarked comment line prefix.
       return effects.attempt(
         commentLinePrefix,
-        checkBlankLine,
-        // try capturing padding-only prefix.
-        // afterwards, on success or failure, check for a blank line.
-        // if found, delegate to the `source` initializer.
-        effects.attempt(commentLinePrefixAlt, checkBlankLine, checkBlankLine)
+        beforeChunk,
+        noMarkedPrefix
       )(code)
     }
 
     /**
-     * Check for a blank line.
+     * Attempt to begin an unmarked comment line.
      *
-     * Blank lines are delegated to the `source` initializer.
-     *
-     * > 👉 **Note**: `␊` represents a line ending.
-     *
-     * @example
-     *  ```markdown
-     *  > |/**␊
-     *  > | * The tokenization context.␊
-     *  > | *␊
-     *       ^
-     *  > | * @const {TokenizeContext} self␊
-     *  > | *\/
-     *  ```
-     *
-     * @example
-     *  ```markdown
-     *  > |/**␊
-     *  > |   The point where an active markdown indent starts.␊
-     *  > |␊
-     *     ^
-     *  > |   @var {Place | undefined} then␊
-     *  > | *\/
-     *  ```
+     * Indented continuation is attempted only when enabled
+     * and a line marker ({@linkcode markers.line}) is configured.\
+     * A padding-only prefix is attempted otherwise.
      *
      * @this {void}
      *
@@ -678,20 +676,39 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      * @return {State | undefined}
      *  The next state
      */
-    function checkBlankLine(this: void, code: Code): State | undefined {
-      // check for a blank line.
-      // if found, delegate to the `source` initializer.
-      // otherwise try starting comment content chunk.
-      return effects.check(blankLine, ok, beforeChunk)(code)
+    function noMarkedPrefix(this: void, code: Code): State | undefined {
+      // check if continued lines can be indented.
+      // call the user's `allowIndentedContinuation` predicate.
+      if (typeof options.allowIndentedContinuation === 'function') {
+        allowIndentedContinuation = options.allowIndentedContinuation.call(self)
+      }
+
+      // line cannot be indented if there are no configured line markers.
+      allowIndentedContinuation &&= markers.line !== undefined
+
+      // try capturing indentation.
+      // on success, try starting a new comment chunk.
+      // the attempt fails if the indent is missing,
+      // but can also succeed at an unprefixed blank line.
+      if (allowIndentedContinuation) {
+        return effects.attempt(
+          commentLinePrefixIndented,
+          beforeChunk,
+          nok
+        )(code)
+      }
+
+      // try capturing padding-only prefix before starting comment chunk.
+      return effects.attempt(commentLinePrefixPadded, beforeChunk)(code)
     }
 
     /**
      * Prepare to start a continued comment chunk.
      *
-     * Blank lines have already been delegated to the `source` initializer.
-     *
      * If the current `comment` tokenizer encountered concrete content on the
      * previous line, control returns to the `source` initializer.
+     *
+     * Blank lines are delegated to the `source` initializer.
      *
      * Otherwise, a possible closer is attempted before the chunk begins.
      *
@@ -743,12 +760,8 @@ function factoryBlockComment<T extends ContinuableConstruct>(
       if (self.containerState._closeFlow) return ok(code)
 
       // concrete subcontent encountered on previous line.
-      // bypass chunk creation and implicit comment closer check.
+      // bypass chunk creation and comment closer check.
       if (self.concrete) return ok(code)
-
-      // blank lines are expected to be delegated to the `source` initializer.
-      assert(!eol(code), 'did not expect line ending')
-      assert(!eos(code), 'did not expect end of stream')
 
       // previous active markdown indent, fresh region, or previous blank line.
       if (
@@ -762,10 +775,17 @@ function factoryBlockComment<T extends ContinuableConstruct>(
         if (whitespace(code)) then = self.now()
       }
 
-      // check for a comment closer.
-      // if found, mark the comment container for closure.
-      // otherwise, start comment content chunk.
-      return effects.attempt(commentCloser, closeComment, startChunk)(code)
+      // check for a blank line.
+      // if found, delegate to the `source` initializer.
+      // otherwise check for a comment closer.
+      return effects.check(
+        blankLine,
+        ok,
+        // check for a comment closer.
+        // if found, mark the comment container for closure.
+        // otherwise, start comment content chunk.
+        effects.attempt(commentCloser, closeComment, startChunk)
+      )(code)
     }
 
     /**
@@ -827,8 +847,8 @@ function factoryBlockComment<T extends ContinuableConstruct>(
         return ok
       }
 
-      // check for indented code prefix.
-      // let `source` initializer take over if indented code is detected.
+      // check for markdown indented code prefix.
+      // let the `source` initializer take over if indented code is detected.
       if (then && whitespace(self.previous) && !whitespace(code)) {
         /**
          * The points to start and stop slicing the stream.
@@ -909,6 +929,9 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      * Mark the continued comment for closure.
      *
      * Container finalization is deferred to the `source` initializer.
+     *
+     * Via {@linkcode self.containerState}, this state records that the comment
+     * has reached its closing boundary without exiting the container directly.
      *
      * @this {void}
      *
@@ -1067,18 +1090,17 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function beforeCloserOverlap(this: void, code: Code): State | undefined {
-      assert(self.containerState, 'expected `containerState` inside comment')
-      self.containerState.opener = effects.exit(tt.commentOpener)
+      raise(effects.exit(tt.commentOpener))
       return ok(code)
     }
 
     /**
      * Finish a comment opener.
      *
-     * Whitespace following the marker is then consumed as comment padding
-     * or arbitrary whitespace.\
-     * Whitespace is considered arbitrary when the comment closer follows a
-     * single whitespace character after the opener.
+     * Whitespace following the marker is classified as trailing whitespace,
+     * comment padding, or arbitrary whitespace.\
+     * Whitespace immediately preceding a comment closer is considered arbitrary
+     * when only a single whitespace separates the opener from the closer.
      *
      * > 👉 **Note**: `␊` represents a line ending, `␠` represents a space,
      * > and `ᴺᵁᴸ` represents end-of-stream.
@@ -1115,10 +1137,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function afterMarkers(this: void, code: Code): State | undefined {
-      assert(self.containerState, 'expected `containerState` inside comment')
-
-      // finish the comment opener.
-      self.containerState.opener = effects.exit(tt.commentOpener)
+      raise(effects.exit(tt.commentOpener)) // finish the comment opener.
 
       // try capturing trailing whitespace.
       // if attempt fails, check for comment closer sequence.
@@ -1147,6 +1166,26 @@ function factoryBlockComment<T extends ContinuableConstruct>(
           )
         )
       )(code)
+    }
+
+    /**
+     * Propagate the opener token and width to the current container state.
+     *
+     * @this {void}
+     *
+     * @param {Token} token
+     *  The comment opener token
+     * @return {undefined}
+     */
+    function raise(this: void, token: Token): undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+      assert(token.type === tt.commentOpener, 'expected `commentOpener` token')
+
+      // propagate token and width to container state.
+      self.containerState.opener = token
+      self.containerState.openerWidth = token.end.column - token.start.column
+
+      return void token
     }
   }
 
@@ -1443,9 +1482,10 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     /**
      * Mark the active comment for closure.
      *
-     * The `source` initializer owns container finalization.
-     * This state records that the comment has reached its closing boundary via
-     * {@linkcode self.containerState} without exiting the container directly.
+     * Container finalization is deferred to the `source` initializer.
+     *
+     * Via {@linkcode self.containerState}, this state records that the comment
+     * has reached its closing boundary without exiting the container directly.
      *
      * @this {void}
      *
@@ -1462,7 +1502,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
   }
 
   /**
-   * Tokenize an alternate comment line prefix.
+   * Tokenize an indented comment line prefix.
    *
    * @this {TokenizeContext}
    *
@@ -1475,11 +1515,214 @@ function factoryBlockComment<T extends ContinuableConstruct>(
    * @return {State}
    *  The initial state
    */
-  function tokenizeCommentLinePrefixAlt(
+  function tokenizeCommentLinePrefixIndented(
     this: TokenizeContext,
     effects: Effects,
     ok: State,
     nok: State
+  ): State {
+    /**
+     * The tokenization context.
+     *
+     * @const {TokenizeContext} self
+     */
+    const self: TokenizeContext = this
+
+    /**
+     * The maximum leading comment padding size.
+     *
+     * The value aligns the leading padding's end with the middle marker of the
+     * current comment opener.
+     *
+     * @var {number} maxLead
+     */
+    let maxLead: number = 0
+
+    return prefixBefore
+
+    /**
+     * Try to begin a comment line prefix.
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function prefixBefore(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+      assert(self.containerState.opener, 'expected comment opener token')
+      assert(self.containerState.openerWidth, 'expected comment opener width')
+      assert(markers.line !== undefined, 'expected line marker config')
+
+      // try capturing the indent.
+      if (whitespace(code)) return prefixStart(code)
+
+      // no indent.
+      // succeed at blank line, but fail if indent cannot otherwise begin.
+      return effects.check(blankLine, ok, nok)(code)
+    }
+
+    /**
+     * Begin a comment line prefix.
+     *
+     * Leading comment padding is captured before resolving the line marker.
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function prefixStart(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+      assert(self.containerState.opener, 'expected comment opener token')
+      assert(self.containerState.openerWidth, 'expected comment opener width')
+
+      // begin comment line prefix.
+      effects.enter(tt.commentLinePrefix)
+
+      // get the comment opener token and its width.
+      const { opener, openerWidth } = self.containerState
+
+      // calculate the maximum leading comment padding size.
+      // starting from the beginning of the line, `opener.start.column` aligns
+      // the prefix's current end with the beginning of the comment opener.
+      // the next addend, `Math.floor(openerWidth / 2)`, aligns the current end
+      // with the opener's middle marker.
+      // **note**: this logic is not perfect.
+      // it assumes that the current opener uses an odd number of markers,
+      // or exactly `2` markers. it is applied anyway, however.
+      // source languages failing this constraint (e.g. html, ruby) tend to not
+      // have block comment line markers, so they'll fail at `prefixBefore` even
+      // if indented syntax is enabled.
+      // the logic also assumes the opener requires at least `2` markers.
+      // on any line, `factorySpace` will successfully consume no whitespace if
+      // the opener has a width of `1` and also starts at column `1`.
+      // if the current line proves to be indented, this will result in not only
+      // an empty `commentPadding` token, but overlap between the padding token
+      // and the next `commentMarker` token as well.
+      maxLead = opener.start.column + Math.floor(openerWidth / 2)
+
+      // capture leading comment padding.
+      return factorySpace(
+        effects,
+        afterLeadingPadding,
+        tt.commentPadding,
+        maxLead
+      )(code)
+    }
+
+    /**
+     * Attempt to tokenize the comment line marker.
+     *
+     * A valid line marker for an indented continued line is any character code
+     * that satisfies the {@linkcode whitespace} predicate.
+     *
+     * When the current opener starts at column `1` and has a width of `2`,
+     * leading whitespace consumed by {@linkcode prefixStart} is considered
+     * an implicit marker.
+     * The whitespace is reclassified from {@linkcode tt.commentPadding}
+     * to {@linkcode tt.commentMarker}.
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function afterLeadingPadding(this: void, code: Code): State | undefined {
+      /**
+       * The last emitted event.
+       *
+       * @const {Event | undefined} tail
+       */
+      const tail: Event | undefined = self.events[self.events.length - 1]
+
+      assert(tail, 'expected `tail` event')
+      assert(tail[1].type === tt.commentPadding, 'expected `commentPadding`')
+      assert(tail[0] === ev.exit, 'expected `commentPadding` `exit` event')
+
+      // not on an active comment line; leading comment padding is not aligned.
+      // padding must end below the comment opener's middle marker.
+      if (tail[1].end.column !== maxLead) return nok(code)
+
+      // the implicit line marker was already consumed.
+      // this line is indented, but has no leading comment padding.
+      // reclassify the `tail` token and try capturing optional inner padding.
+      if (maxLead === 2 && !whitespace(code)) {
+        tail[1].type = tt.commentMarker
+        return afterMarker(code)
+      }
+
+      // no leading comment padding even though whitespace was encountered.
+      // this is unexpected, however.
+      assert(
+        tail[1].end.column - tail[1].start.column > 0,
+        'expected non-empty `commentPadding` token'
+      )
+
+      // success means this line is indented and continues the active comment.
+      // failure means this line is not an indented or continued line.
+      return factoryMarkers(effects, afterMarker, nok, whitespace)(code)
+    }
+
+    /**
+     * Capture optional inner comment padding after the comment line marker.
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function afterMarker(this: void, code: Code): State | undefined {
+      return factorySpace(
+        effects,
+        endPrefix,
+        tt.commentPadding,
+        constants.commentPaddingSizeMin
+      )(code)
+    }
+
+    /**
+     * Finish the comment line prefix.
+     *
+     * Control is then passed back to the parent tokenizer.
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function endPrefix(this: void, code: Code): State | undefined {
+      effects.exit(tt.commentLinePrefix)
+      return ok(code)
+    }
+  }
+
+  /**
+   * Tokenize a padding-only comment line prefix.
+   *
+   * @this {TokenizeContext}
+   *
+   * @param {Effects} effects
+   *  The context object used to transition the state machine
+   * @param {State} ok
+   *  The successful tokenization state
+   * @return {State}
+   *  The initial state
+   */
+  function tokenizeCommentLinePrefixPadded(
+    this: TokenizeContext,
+    effects: Effects,
+    ok: State
   ): State {
     /**
      * The tokenization context.
@@ -1503,14 +1746,14 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     function prefixBefore(this: void, code: Code): State | undefined {
       assert(eol(self.previous), 'expected to be at beginning of line')
       if (whitespace(code)) return prefixStart(code)
-      return nok(code)
+      return ok(code)
     }
 
     /**
      * Begin a comment line prefix.
      *
-     * Leading padding is consumed based on the `end` column of the current
-     * comment opener ({@linkcode self.containerState.opener}).
+     * Leading comment padding is consumed based on the `end` column of the
+     * current comment opener ({@linkcode self.containerState.opener}).
      *
      * @this {void}
      *

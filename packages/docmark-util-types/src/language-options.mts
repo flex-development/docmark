@@ -15,6 +15,11 @@
  *    }
  *  }
  */
-interface LanguageOptions {}
+interface LanguageOptions {
+  /**
+   * Whether indented syntax is enabled.
+   */
+  indented?: boolean | null | undefined
+}
 
 export type { LanguageOptions as default }

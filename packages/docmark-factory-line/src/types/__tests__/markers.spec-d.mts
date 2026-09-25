@@ -8,7 +8,7 @@ import type { Marker } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../markers.mts'
 
-describe('unit-d:Markers', () => {
+describe('unit-d:types/Markers', () => {
   it('should extract Info', () => {
     expectTypeOf<TestSubject>().extract<Info>().not.toBeNever()
   })

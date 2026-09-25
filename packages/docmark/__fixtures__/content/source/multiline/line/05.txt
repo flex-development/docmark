@@ -1,0 +1,8 @@
+// populate the continuation line marker sequence.
+   the first marker is required; all other markers are optional.
+continuationMarkers = [whitespace]
+continuationMarkers.length = self.containerState.openerWidth
+continuationMarkers.fill({ code: whitespace, optional: true }, 1)
+
+
+

@@ -1,0 +1,17 @@
+    /// Create an accent color.
+
+        @require {function} map.get
+        @require {variable} accents
+        @require {variable} intensities
+        
+        @param {keyof $accents} $color
+          The name of the color
+        @param {keyof $intensities} [$intensity='strong']
+          The intensity of the color
+        @return {Color}
+          The accent color
+  @function accent($color, $intensity: 'strong') {
+    $accent: map.get($accents, $color);
+    $strength: map.get($intensities, $intensity);
+    @return rgb(from $accent r g b / $strength);
+  }

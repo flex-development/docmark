@@ -1,6 +1,6 @@
 /**
  * @file Constructs - hashbang
- * @module fixtures/constructs/hashbang
+ * @module fixtures/constructs/ts/hashbang
  */
 
 import { factoryMarkers } from '@flex-development/docmark-factory-markers'
@@ -20,7 +20,9 @@ import { ok as assert } from 'devlop'
 /**
  * The hashbang comment construct.
  *
- * @const {ContinuableConstruct} hashbang
+ * This construct is expected to run at the `source` content level.
+ *
+ * @const {ContinuableConstruct & NamedConstruct} hashbang
  */
 const hashbang: ContinuableConstruct & NamedConstruct = {
   add: 'after',

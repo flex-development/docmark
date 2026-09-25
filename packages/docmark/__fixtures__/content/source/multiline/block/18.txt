@@ -1,0 +1,7 @@
+  /* This comment will be included in the CSS, except in compressed mode.
+
+    This is also commented out.
+    
+    And this line too.
+  p .sans
+    font: Helvetica, sans-serif

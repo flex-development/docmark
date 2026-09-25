@@ -1,0 +1,5 @@
+/*! This comment will be included even in compressed mode.
+ This line is commented out but included as well.
+   And this line too!
+p .sans
+  font: Helvetica, sans-serif

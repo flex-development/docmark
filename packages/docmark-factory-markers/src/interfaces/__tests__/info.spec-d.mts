@@ -8,6 +8,7 @@ import type {
   TokenFields,
   TokenType
 } from '@flex-development/docmark-util-types'
+import type { CodeCheck } from '@flex-development/mark/parse'
 import type {
   Nilable,
   OptionalKeys,
@@ -20,9 +21,11 @@ describe('unit-d:interfaces/Info', () => {
   type Optional = OptionalKeys<TestSubject>
   type Required = RequiredKeys<TestSubject>
 
-  it('should match [code: Marker]', () => {
+  it('should match [code: CodeCheck | Marker]', () => {
     expectTypeOf<Required>().extract<'code'>().not.toBeNever()
-    expectTypeOf<TestSubject>().toHaveProperty('code').toEqualTypeOf<Marker>()
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('code')
+      .toEqualTypeOf<CodeCheck | Marker>()
   })
 
   it('should match [fields?: TokenFields | null | undefined]', () => {

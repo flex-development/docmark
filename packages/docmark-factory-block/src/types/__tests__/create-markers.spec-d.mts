@@ -8,7 +8,7 @@ import type { TokenizeContext } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../create-markers.mts'
 
-describe('unit-d:CreateMarkers', () => {
+describe('unit-d:types/CreateMarkers', () => {
   it('should match [this: TokenizeContext]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<TokenizeContext>()
   })

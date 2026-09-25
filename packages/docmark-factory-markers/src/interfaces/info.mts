@@ -9,17 +9,19 @@ import type {
   TokenFields,
   TokenType
 } from '@flex-development/docmark-util-types'
+import type { CodeCheck } from '@flex-development/mark/parse'
 
 /**
  * Info about how to tokenize a comment marker.
  */
 interface Info {
   /**
-   * The character code to consume.
+   * The character code to consume or the character code matcher.
    *
+   * @see {@linkcode CodeCheck}
    * @see {@linkcode Marker}
    */
-  code: Marker
+  code: CodeCheck | Marker
 
   /**
    * The fields to attach to the emitted token.

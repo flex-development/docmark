@@ -1,6 +1,6 @@
 /**
  * @file Constructs - blockComment
- * @module docmark/fixtures/blockComment
+ * @module docmark/fixtures/sass/block
  */
 
 import factory, { type Markers } from '@flex-development/docmark-factory-block'
@@ -8,50 +8,36 @@ import { codes, ev, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
   Event,
-  NamedConstruct,
-  TokenFields,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { ok } from 'devlop'
 
 /**
- * The JavaScript block comment construct.
+ * The sass block comment construct.
  *
- * @const {ContinuableConstruct & NamedConstruct} blockComment
+ * This construct is expected to run at the `source` content level.
+ *
+ * @const {ContinuableConstruct} blockComment
  */
-const blockComment: ContinuableConstruct & NamedConstruct = factory({
-  construct: {
-    name: `${tt.comment}:${kind.block}`,
-    resolve: resolveBlockComment
-  },
-
+const blockComment: ContinuableConstruct = factory({
   /**
-   * Create a token fields object.
+   * Check whether continued lines can be indented in lieu
+   * of an explicit line marker.
    *
    * @this {TokenizeContext}
    *
-   * @return {TokenFields}
-   *  The token fields object
+   * @return {boolean}
+   *  Whether a continued line can be indented
    */
-  fields(this: TokenizeContext): TokenFields {
-    return { info: undefined }
+  allowIndentedContinuation(this: TokenizeContext): boolean {
+    return true
   },
 
-  /**
-   * Finalize the block comment construct.
-   *
-   * @this {void}
-   *
-   * @param {ContinuableConstruct} construct
-   *  The construct to finalize
-   * @return {undefined}
-   */
-  finalizeConstruct(this: void, construct: ContinuableConstruct): undefined {
-    return void construct
-  },
+  construct: { resolve: resolveBlockComment },
+  fields: { info: undefined },
 
   /**
-   * Create a markers configuration.
+   * Create a comment markers configuration.
    *
    * @this {TokenizeContext}
    *
@@ -107,13 +93,11 @@ function resolveBlockComment(this: void, events: Event[]): Event[] {
       token.kind === kind.block
     ) {
       ok(self.containerState, 'expected `containerState` inside comment')
-      ok(self.containerState.opener, 'expected comment opener token')
-
-      const { opener } = self.containerState
+      ok(self.containerState.openerWidth, 'expected comment opener width')
 
       // a docblock comment opener contains three characters.
       // any other block comment opener contains two characters.
-      token.info = opener.end.offset - opener.start.offset === 3
+      token.info = self.containerState.openerWidth === 3
       if (!token.info) delete token.info
     }
   }

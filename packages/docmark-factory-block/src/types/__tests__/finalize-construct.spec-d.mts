@@ -7,7 +7,7 @@ import type { ContinuableConstruct } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../finalize-construct.mts'
 
-describe('unit-d:FinalizeConstruct', () => {
+describe('unit-d:types/FinalizeConstruct', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })

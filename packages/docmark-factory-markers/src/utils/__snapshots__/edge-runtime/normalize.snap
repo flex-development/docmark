@@ -1,6 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`unit:utils/normalize > should return new comment marker info object 1`] = `
+exports[`unit:utils/normalize > should return new info object if \`marker\` is a \`CodeCheck\` 1`] = `
+{
+  "code": [MockFunction],
+}
+`;
+
+exports[`unit:utils/normalize > should return new info object if \`marker\` is a \`Marker\` 1`] = `
 {
   "code": 42,
 }

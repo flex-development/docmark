@@ -3,9 +3,10 @@
  * @module docmark-factory-markers/tests/unit-d/Sequence
  */
 
+import type { Info } from '@flex-development/docmark-factory-markers'
 import type { Marker } from '@flex-development/docmark-util-types'
+import type { CodeCheck } from '@flex-development/mark/parse'
 import { describe, expectTypeOf, it } from 'vitest'
-import type Info from '../../interfaces/info.mts'
 import type TestSubject from '../sequence.mts'
 
 describe('unit-d:types/Sequence', () => {
@@ -17,8 +18,10 @@ describe('unit-d:types/Sequence', () => {
     expectTypeOf<[47, 47]>().toExtend<TestSubject>()
   })
 
-  it('should match [0: Info | Marker]', () => {
-    expectTypeOf<TestSubject>().toHaveProperty(0).toEqualTypeOf<Info | Marker>()
+  it('should match [0: CodeCheck |Info | Marker]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty(0)
+      .toEqualTypeOf<CodeCheck | Info | Marker>()
   })
 
   it('should match [length: number]', () => {

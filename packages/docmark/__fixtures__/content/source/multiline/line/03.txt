@@ -1,0 +1,2 @@
+// the comment container is open.
+ markers are captured inside a `commentLinePrefix` token.

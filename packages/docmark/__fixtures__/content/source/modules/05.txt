@@ -1,0 +1,12 @@
+// This comment won't be included in the CSS.
+  This is also commented out.
+
+/* But this comment will, except in compressed mode.
+
+/* It can also contain interpolation:
+  1 + 1 = #{1 + 1}
+
+/*! This comment will be included even in compressed mode.
+
+p .sans
+  font: Helvetica, /* Inline comments must be closed. */ sans-serif

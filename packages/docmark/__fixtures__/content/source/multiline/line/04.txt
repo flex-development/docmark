@@ -1,0 +1,2 @@
+      // capture leading comment padding.
+         padding is no larger than the start column of the opener.

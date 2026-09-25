@@ -10,6 +10,7 @@ import resolveRegionExits from './resolvers/region-exits.mts'
 /**
  * Postprocess events.
  *
+ * @todo remove trailing blank lines when indented syntax is enabled
  * @todo resolve trailing whitespace
  *
  * @see {@linkcode Event}

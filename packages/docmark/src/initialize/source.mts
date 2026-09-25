@@ -364,8 +364,8 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    * Register a newly entered source comment.
    *
    * The successful source comment construct and its persistent container state
-   * are registered as the sole active comment. The comment kind emitted by the
-   * construct is captured from its opening token.
+   * are registered as the sole active comment. The `comment` token emitted by
+   * the construct is propagated to {@linkcode self.containerState}.
    *
    * Comment content tokens emitted while entering the comment are forwarded to
    * a child `comment` tokenizer.
@@ -396,10 +396,8 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     assert(event[0] === ev.enter, 'expected `enter` event')
     assert(event[1].type === tt.comment, 'expected `comment` enter event')
 
-    // capture new comment kind from the opening token.
-    // the first event belonging to the new comment is at `continued`.
-    self.containerState.comment = event[1].kind
-    self.containerState.documentation = event[1].info
+    // capture the active comment token.
+    self.containerState.comment = event[1]
 
     // forward any comment chunks emitted by `tokenize`.
     forward()
@@ -487,7 +485,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    * normalized comment content can span multiple source tokens while remaining
    * apart of one logical child stream.
    *
-   * The active comment kind is propagated to the child tokenizer's container
+   * The active comment token is propagated to the child tokenizer's container
    * state before comment content is tokenized.
    *
    * @this {void}
@@ -500,17 +498,15 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   function chunkStart(this: void, code: Code): State | undefined {
     assert(!eos(code), 'did not expect end of stream')
     assert(self.containerState, 'expected `containerState` inside comment')
-    assert(self.containerState.comment, 'expected comment kind')
+    assert(self.containerState.comment, 'expected comment token')
     assert(stack.length === 1, 'expected comment on `stack`')
 
     // lazily initialize comment content parser.
     comment ??= self.parser.comment(self.now())
 
-    // expose the current comment kind and documentation comment state
-    // to `comment`-level constructs.
+    // expose the active comment token to `comment`-level constructs.
     comment.containerState ??= {}
     comment.containerState.comment = self.containerState.comment
-    comment.containerState.documentation = self.containerState.documentation
 
     // start new comment content chunk.
     effects.enter(tt.chunkComment, {

@@ -4,6 +4,7 @@
  */
 
 import type {
+  AllowIndentedLines,
   CreateMarkers,
   FinalizeConstruct,
   Markers
@@ -13,11 +14,24 @@ import type {
   CreateFields,
   TokenFields
 } from '@flex-development/docmark-util-types'
+import type { whitespace } from '@flex-development/mark-util-character'
 
 /**
  * Options for creating a line comment construct.
  */
 interface Options {
+  /**
+   * Whether continued lines can be indented in lieu of explicit line markers,
+   * or a function that returns a boolean indicating as such.
+   *
+   * A continued line is any line after that first line of an active comment.\
+   * When indented syntax is enabled, line markers for a continued line are any
+   * character codes satisfying the {@linkcode whitespace} predicate.
+   *
+   * @see {@linkcode AllowIndentedLines}
+   */
+  allowIndentedContinuation?: AllowIndentedLines | boolean | undefined
+
   /**
    * Additional construct info.
    *

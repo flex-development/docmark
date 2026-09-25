@@ -1737,6 +1737,7 @@ __metadata:
   dependencies:
     "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.9"
     "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.15"
+    "@flex-development/mark": "npm:1.0.0-alpha.4"
     devlop: "npm:1.1.0"
   languageName: unknown
   linkType: soft
