@@ -1,3 +1,23 @@
+## [docmark-factory-line@1.0.0-alpha.12](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.11...docmark-factory-line@1.0.0-alpha.12) (2026-09-25)
+
+### ⚠ BREAKING CHANGES
+
+- drop source language `scss`
+- indented syntax support
+
+### :package: Build
+
+- [[`06c7b6f`](https://github.com/flex-development/docmark/commit/06c7b6f7ab889326e93809b191d8fe2f62fb9f6a)] **deps-dev:** Bump the commitlint group with 2 updates ([#298](https://github.com/flex-development/docmark/issues/298))
+- [[`e7d1c55`](https://github.com/flex-development/docmark/commit/e7d1c55ae1f74916ca691f4a3e698c807a2baa59)] **deps-dev:** Bump tsx from 4.23.13 to 4.23.15 ([#299](https://github.com/flex-development/docmark/issues/299))
+
+### :sparkles: Features
+
+- [[`bedaa80`](https://github.com/flex-development/docmark/commit/bedaa8089df5cdea65cfbccc5716ae526925800f)] indented syntax support
+
+### :mechanical_arm: Refactors
+
+- [[`d46c6bc`](https://github.com/flex-development/docmark/commit/d46c6bc071a3d73bb2eb47c39fbfafc88b19e61a)] drop source language `scss`
+
 ## [docmark-factory-line@1.0.0-alpha.11](https://github.com/flex-development/docmark/compare/docmark-factory-line@1.0.0-alpha.10...docmark-factory-line@1.0.0-alpha.11) (2026-09-22)
 
 ### :package: Build
@@ -280,6 +300,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
