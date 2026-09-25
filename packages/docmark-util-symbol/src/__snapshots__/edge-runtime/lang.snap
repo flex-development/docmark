@@ -11,7 +11,6 @@ exports[`unit:lang > should be source language dictionary 1`] = `
   "mdx": "mdx",
   "null": null,
   "sass": "sass",
-  "scss": "scss",
   "shell": "shell",
   "typescript": "typescript",
   "xml": "xml",

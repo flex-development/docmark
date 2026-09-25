@@ -18,7 +18,6 @@ const lang = {
   mdx: 'mdx',
   null: null,
   sass: 'sass',
-  scss: 'scss',
   shell: 'shell',
   typescript: 'typescript',
   xml: 'xml',

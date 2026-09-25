@@ -32,7 +32,6 @@ interface LanguageMap {
   null: never
 
   sass: 'sass'
-  scss: 'scss'
   shell: 'shell'
   typescript: 'typescript'
   xml: 'xml'
