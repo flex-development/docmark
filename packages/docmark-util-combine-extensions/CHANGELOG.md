@@ -1,3 +1,42 @@
+## [docmark-util-combine-extensions@1.0.0-alpha.16](https://github.com/flex-development/docmark/compare/docmark-util-combine-extensions@1.0.0-alpha.15...docmark-util-combine-extensions@1.0.0-alpha.16) (2026-09-25)
+
+### ⚠ BREAKING CHANGES
+
+- drop source language `scss`
+- indented syntax support
+- **factory-line:** emit `commentOpener` token
+
+### :package: Build
+
+- [[`509f306`](https://github.com/flex-development/docmark/commit/509f30671dcfcc147d890bccd105bb4b8fd95a64)] **deps-dev:** Bump cspell from 10.3.1 to 10.3.3 ([#290](https://github.com/flex-development/docmark/issues/290))
+- [[`6042ffc`](https://github.com/flex-development/docmark/commit/6042ffc212378ea2b159c3187f3dd26c8cb8ee3d)] **deps-dev:** bump eslint from 9.39.4 to 9.39.5
+- [[`dd9afcd`](https://github.com/flex-development/docmark/commit/dd9afcd9b2ef9f8907372a1f024e61d5d387e227)] **deps-dev:** Bump rolldown from 1.2.8 to 1.2.9 ([#291](https://github.com/flex-development/docmark/issues/291))
+- [[`54c8658`](https://github.com/flex-development/docmark/commit/54c8658afa0d8367e2ee82c01b48e8f0a843efee)] **deps-dev:** Bump rollup from 4.63.3 to 4.63.4 ([#295](https://github.com/flex-development/docmark/issues/295))
+- [[`06c7b6f`](https://github.com/flex-development/docmark/commit/06c7b6f7ab889326e93809b191d8fe2f62fb9f6a)] **deps-dev:** Bump the commitlint group with 2 updates ([#298](https://github.com/flex-development/docmark/issues/298))
+- [[`e17e4de`](https://github.com/flex-development/docmark/commit/e17e4de2702684e3c752e1656dab8730c14c7166)] **deps-dev:** Bump the vitest group with 3 updates ([#289](https://github.com/flex-development/docmark/issues/289))
+- [[`e7d1c55`](https://github.com/flex-development/docmark/commit/e7d1c55ae1f74916ca691f4a3e698c807a2baa59)] **deps-dev:** Bump tsx from 4.23.13 to 4.23.15 ([#299](https://github.com/flex-development/docmark/issues/299))
+
+### :robot: Continuous Integration
+
+- [[`79ce0e8`](https://github.com/flex-development/docmark/commit/79ce0e842a9c559e1820547b4f6302606639a65e)] **deps:** Bump codecov/codecov-action from 7.1.0 to 7.1.1 ([#288](https://github.com/flex-development/docmark/issues/288))
+
+### :sparkles: Features
+
+- [[`bedaa80`](https://github.com/flex-development/docmark/commit/bedaa8089df5cdea65cfbccc5716ae526925800f)] indented syntax support
+
+### :bug: Fixes
+
+- [[`bad3484`](https://github.com/flex-development/docmark/commit/bad3484744d199b7c2cc9a9e8ab10e4d09a558a2)] **factory-line:** open comment container after finishing opener
+
+### :house_with_garden: Housekeeping
+
+- [[`f5d3c80`](https://github.com/flex-development/docmark/commit/f5d3c8014287472854dbf7b4de177d783876e581)] fix `docmark-factory-identifier` release
+
+### :mechanical_arm: Refactors
+
+- [[`d46c6bc`](https://github.com/flex-development/docmark/commit/d46c6bc071a3d73bb2eb47c39fbfafc88b19e61a)] drop source language `scss`
+- [[`90c205d`](https://github.com/flex-development/docmark/commit/90c205d72ad98d4c2a911e8bd87cf63b3d9b49ac)] **factory-line:** emit `commentOpener` token
+
 ## [docmark-util-combine-extensions@1.0.0-alpha.15](https://github.com/flex-development/docmark/compare/docmark-util-combine-extensions@1.0.0-alpha.14...docmark-util-combine-extensions@1.0.0-alpha.15) (2026-09-20)
 
 ### :sparkles: Features
@@ -368,6 +407,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 

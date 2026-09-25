@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/docmark-factory-markers",
   "description": "docmark factory to parse comment markers",
-  "version": "1.0.0-alpha.15",
+  "version": "1.0.0-alpha.16",
   "keywords": [
     "comment",
     "docmark",
@@ -54,8 +54,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "dependencies": {
-    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.9",
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.15",
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.10",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.16",
     "@flex-development/mark": "1.0.0-alpha.4",
     "devlop": "1.1.0"
   },
