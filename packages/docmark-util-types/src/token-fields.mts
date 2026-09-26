@@ -104,6 +104,19 @@ interface TokenFields {
   contentType?: ContentType | undefined
 
   /**
+   * For comments, whether indented syntax was detected.
+   *
+   * When indented syntax is enabled, the continued lines of a comment can be
+   * indented in lieu of explicit line markers.\
+   * Within an event list, the line's indentation is made up of `commentMarker`
+   * tokens spanning a single whitespace each.
+   *
+   * > 👉 **Note**: A continued line is any line after the first line of an
+   * > active comment.
+   */
+  indented?: boolean | undefined
+
+  /**
    * For comments, whether the comment is a docblock or docline comment.
    */
   info?: boolean | undefined

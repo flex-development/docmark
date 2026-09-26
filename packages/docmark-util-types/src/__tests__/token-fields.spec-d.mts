@@ -86,6 +86,12 @@ describe('unit-d:TokenFields', () => {
       .toEqualTypeOf<ContentType | undefined>()
   })
 
+  it('should match [indented?: boolean | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('indented')
+      .toEqualTypeOf<boolean | undefined>()
+  })
+
   it('should match [info?: boolean | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('info')

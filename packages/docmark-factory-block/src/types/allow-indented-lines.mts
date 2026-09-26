@@ -9,7 +9,7 @@ import type { whitespace } from '@flex-development/mark-util-character'
 /**
  * Check whether continued lines can be indented in lieu of an explicit marker.
  *
- * A continued line is any line after that first line of an active comment.\
+ * A continued line is any line after the first line of an active comment.\
  * When indented syntax is enabled, the line marker for a continued line is any
  * character code satisfying the {@linkcode whitespace} predicate.
  *

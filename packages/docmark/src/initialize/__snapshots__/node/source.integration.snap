@@ -14846,6 +14846,7 @@ exports[`integration:initialize/source > should parse block comments in source f
         "line": 2,
         "offset": 56,
       },
+      "indented": true,
       "kind": "block",
       "start": {
         "_bufferIndex": 0,
@@ -15165,6 +15166,7 @@ exports[`integration:initialize/source > should parse block comments in source f
         "line": 2,
         "offset": 56,
       },
+      "indented": true,
       "kind": "block",
       "start": {
         "_bufferIndex": 0,
@@ -15231,6 +15233,7 @@ exports[`integration:initialize/source > should parse block comments in source f
         "line": 6,
         "offset": 135,
       },
+      "indented": true,
       "kind": "block",
       "start": {
         "_bufferIndex": 2,
@@ -15938,6 +15941,7 @@ exports[`integration:initialize/source > should parse block comments in source f
         "line": 6,
         "offset": 135,
       },
+      "indented": true,
       "kind": "block",
       "start": {
         "_bufferIndex": 2,
@@ -16004,6 +16008,7 @@ exports[`integration:initialize/source > should parse block comments in source f
         "line": 4,
         "offset": 131,
       },
+      "indented": true,
       "kind": "block",
       "start": {
         "_bufferIndex": 0,
@@ -16453,6 +16458,7 @@ exports[`integration:initialize/source > should parse block comments in source f
         "line": 4,
         "offset": 131,
       },
+      "indented": true,
       "kind": "block",
       "start": {
         "_bufferIndex": 0,
@@ -21464,6 +21470,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
         "line": 2,
         "offset": 91,
       },
+      "indented": true,
       "kind": "line",
       "start": {
         "_bufferIndex": 0,
@@ -21825,6 +21832,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
         "line": 2,
         "offset": 91,
       },
+      "indented": true,
       "kind": "line",
       "start": {
         "_bufferIndex": 0,
@@ -21891,6 +21899,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
         "line": 3,
         "offset": 109,
       },
+      "indented": true,
       "kind": "line",
       "start": {
         "_bufferIndex": 6,
@@ -22380,6 +22389,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
         "line": 3,
         "offset": 109,
       },
+      "indented": true,
       "kind": "line",
       "start": {
         "_bufferIndex": 6,
@@ -22446,6 +22456,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
         "line": 3,
         "offset": 116,
       },
+      "indented": true,
       "kind": "line",
       "start": {
         "_bufferIndex": 0,
@@ -22893,6 +22904,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
         "line": 3,
         "offset": 116,
       },
+      "indented": true,
       "kind": "line",
       "start": {
         "_bufferIndex": 0,
@@ -22959,6 +22971,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
         "line": 13,
         "offset": 371,
       },
+      "indented": true,
       "info": true,
       "kind": "line",
       "start": {
@@ -25993,6 +26006,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
         "line": 13,
         "offset": 371,
       },
+      "indented": true,
       "info": true,
       "kind": "line",
       "start": {

@@ -525,7 +525,42 @@ function factoryLineComment<T extends ContinuableConstruct>(
       // the new marker sequence will be used, not `options.markers`.
       // success means this line is indented and continues the active comment.
       // failure means this line is not an indented or continued line.
-      return effects.attempt(lineComment, ok, nok)(code)
+      return effects.attempt(lineComment, afterIndent, nok)(code)
+    }
+
+    /**
+     * Capture the indented syntax state on the current `comment` token.
+     *
+     * > 👉 **Note**: `␊` represents a line ending
+     * > and `ᴺᵁᴸ` represents end-of-stream.
+     *
+     * @example
+     *  ```markdown
+     *  > |// the comment container is open.␊
+     *  > | markers are captured inside a `commentLinePrefix` token.␊
+     *      ^
+     *  > |␊
+     *  ```
+     *
+     * @example
+     *  ```markdown
+     *  > |      // capture leading comment padding.␊
+     *  > |         padding ends no later than the opener start column.ᴺᵁᴸ
+     *              ^
+     *  ```
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function afterIndent(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+      assert(self.containerState.comment, 'expected comment token')
+      self.containerState.comment.indented = true
+      return ok(code)
     }
   }
 

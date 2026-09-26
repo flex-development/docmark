@@ -696,13 +696,30 @@ function factoryBlockComment<T extends ContinuableConstruct>(
       if (allowIndentedContinuation) {
         return effects.attempt(
           commentLinePrefixIndented,
-          beforeChunk,
+          afterIndent,
           nok
         )(code)
       }
 
       // try capturing padding-only prefix before starting comment chunk.
       return effects.attempt(commentLinePrefixPadded, beforeChunk)(code)
+    }
+
+    /**
+     * Capture the indented syntax state on the current `comment` token.
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function afterIndent(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+      assert(self.containerState.comment, 'expected comment token')
+      self.containerState.comment.indented = true
+      return beforeChunk(code)
     }
 
     /**
