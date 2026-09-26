@@ -1,3 +1,13 @@
+## [docmark-util-types@1.0.0-alpha.18](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.17...docmark-util-types@1.0.0-alpha.18) (2026-09-26)
+
+### :sparkles: Features
+
+- [[`d423c81`](https://github.com/flex-development/docmark/commit/d423c81bd46fd409a2e323bea0dfa7e6f6a5693d)] capture indented syntax state
+
+### :mechanical_arm: Refactors
+
+- [[`fbfe78a`](https://github.com/flex-development/docmark/commit/fbfe78ab7ec001866ce4197aa228c4f8944ce582)] improve construct factory closure states
+
 ## [docmark-util-types@1.0.0-alpha.17](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.16...docmark-util-types@1.0.0-alpha.17) (2026-09-26)
 
 ### :package: Build
@@ -434,6 +444,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 

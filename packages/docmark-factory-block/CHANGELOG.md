@@ -1,3 +1,13 @@
+## [docmark-factory-block@1.0.0-alpha.11](https://github.com/flex-development/docmark/compare/docmark-factory-block@1.0.0-alpha.10...docmark-factory-block@1.0.0-alpha.11) (2026-09-26)
+
+### :sparkles: Features
+
+- [[`d423c81`](https://github.com/flex-development/docmark/commit/d423c81bd46fd409a2e323bea0dfa7e6f6a5693d)] capture indented syntax state
+
+### :mechanical_arm: Refactors
+
+- [[`fbfe78a`](https://github.com/flex-development/docmark/commit/fbfe78ab7ec001866ce4197aa228c4f8944ce582)] improve construct factory closure states
+
 ## [docmark-factory-block@1.0.0-alpha.10](https://github.com/flex-development/docmark/compare/docmark-factory-block@1.0.0-alpha.9...docmark-factory-block@1.0.0-alpha.10) (2026-09-26)
 
 ### :package: Build
@@ -290,6 +300,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
