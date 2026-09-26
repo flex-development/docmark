@@ -1,3 +1,11 @@
+## [docmark-util-types@1.0.0-alpha.17](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.16...docmark-util-types@1.0.0-alpha.17) (2026-09-26)
+
+### :package: Build
+
+- [[`ccb79fb`](https://github.com/flex-development/docmark/commit/ccb79fb5113c3fa1ce27df024b790cd5f90d890b)] **deps-dev:** Bump rolldown from 1.2.9 to 1.2.10 ([#312](https://github.com/flex-development/docmark/issues/312))
+- [[`f3cb955`](https://github.com/flex-development/docmark/commit/f3cb955b569d2ab74c882eed596e139694a19365)] **deps:** bump the mark group with 2 updates across 3 directories
+- [[`732618f`](https://github.com/flex-development/docmark/commit/732618f451ed45f27ba0b169fc19ccf4c8aa0d87)] **deps:** bump the micromark group with 3 updates across 4 directories
+
 ## [docmark-util-types@1.0.0-alpha.16](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.15...docmark-util-types@1.0.0-alpha.16) (2026-09-25)
 
 ### ⚠ BREAKING CHANGES
@@ -426,6 +434,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
