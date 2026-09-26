@@ -26,7 +26,7 @@ describe('unit:docmark-util-combine-extensions', () => {
       },
       {
         disable: { null: ['fail'] },
-        settings: {}
+        settings: { sass: { indented: true } }
       }
     ],
     [

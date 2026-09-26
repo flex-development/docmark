@@ -29,10 +29,18 @@ updates:
       flex-development:
         patterns:
           - '@flex-development/*'
+      mark:
+        patterns:
+          - '@flex-development/mark'
+          - '@flex-development/mark-*'
+      micromark:
+        patterns:
+          - micromark
+          - micromark-*
       remark:
         patterns:
-          - 'remark-*'
           - remark
+          - remark-*
       vitest:
         patterns:
           - '@vitest/*'

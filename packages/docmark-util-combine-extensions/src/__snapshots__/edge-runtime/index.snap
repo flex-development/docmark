@@ -20,7 +20,11 @@ exports[`unit:docmark-util-combine-extensions > should return combined extension
       "eoc",
     ],
   },
-  "settings": {},
+  "settings": {
+    "sass": {
+      "indented": true,
+    },
+  },
 }
 `;
 
