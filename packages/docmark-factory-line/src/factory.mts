@@ -58,7 +58,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
   /**
    * Whether continued lines can be indented in lieu of explicit markers.
    *
-   * @const {boolean | undefined} allowIndentedContinuation
+   * @var {boolean | undefined} allowIndentedContinuation
    */
   let allowIndentedContinuation: boolean | undefined
 
@@ -72,9 +72,9 @@ function factoryLineComment<T extends ContinuableConstruct>(
   /**
    * The default line markers configuration.
    *
-   * @var {Markers} markers
+   * @var {Markers | undefined} markers
    */
-  let markers: Markers
+  let markers: Markers | undefined
 
   options.finalizeConstruct?.(lineComment)
   return lineComment as T
@@ -124,19 +124,6 @@ function factoryLineComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
-    // get the default marker configuration.
-    markers = typeof options.markers === 'function'
-      ? options.markers.call(self)
-      : options.markers
-
-    // determine if continued lines can be indented.
-    allowIndentedContinuation = !!options.allowIndentedContinuation
-
-    // check if continued lines can be indented.
-    if (typeof options.allowIndentedContinuation === 'function') {
-      allowIndentedContinuation = options.allowIndentedContinuation.call(self)
-    }
-
     return startComment
 
     /**
@@ -176,6 +163,11 @@ function factoryLineComment<T extends ContinuableConstruct>(
       // open the comment container if not already open.
       if (!self.containerState.open) {
         const { fields } = options
+
+        // get the default marker configuration.
+        markers = typeof options.markers === 'function'
+          ? options.markers.call(self)
+          : options.markers
 
         // start new comment.
         effects.enter(tt.comment, {
@@ -264,6 +256,15 @@ function factoryLineComment<T extends ContinuableConstruct>(
 
       // reset the current continuation markers.
       continuationMarkers = undefined
+
+      // determine if continued lines can be indented.
+      allowIndentedContinuation = !!options.allowIndentedContinuation
+
+      // check if continued lines can be indented.
+      // call the user's `allowIndentedContinuation` predicate.
+      if (typeof options.allowIndentedContinuation === 'function') {
+        allowIndentedContinuation = options.allowIndentedContinuation.call(self)
+      }
 
       // capture optional padding following the opener.
       // **note**: padding is captured ***outside*** the opener,

@@ -159,9 +159,9 @@ function factoryBlockComment<T extends ContinuableConstruct>(
   /**
    * Whether continued lines can be indented in lieu of an explicit marker.
    *
-   * @var {boolean} allowIndentedContinuation
+   * @var {boolean | undefined} allowIndentedContinuation
    */
-  let allowIndentedContinuation: boolean = !!options.allowIndentedContinuation
+  let allowIndentedContinuation: boolean | undefined
 
   /**
    * Record where each key is a marker type and each value is an info object
@@ -225,17 +225,6 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
-    // initialize the markers configuration.
-    markers = typeof options.markers === 'function'
-      ? options.markers.call(self)
-      : options.markers
-
-    // initialize first markers map.
-    fm = {
-      closer: firstMarker(markers.closer),
-      opener: firstMarker(markers.opener)
-    }
-
     return startComment
 
     /**
@@ -261,7 +250,18 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     function startComment(this: void, code: Code): State | undefined {
       const { fields } = options
 
-      // start a new block comment
+      // initialize the markers configuration.
+      markers = typeof options.markers === 'function'
+        ? options.markers.call(self)
+        : options.markers
+
+      // initialize first markers map.
+      fm = {
+        closer: firstMarker(markers.closer),
+        opener: firstMarker(markers.opener)
+      }
+
+      // start a new block comment.
       effects.enter(tt.comment, {
         kind: kind.block,
         ...(typeof fields === 'function' ? fields.call(self) : fields)
@@ -352,6 +352,18 @@ function factoryBlockComment<T extends ContinuableConstruct>(
 
       // comment terminated by end of stream.
       if (eos(code)) return ok(code)
+
+      // determine if continued lines can be indented.
+      allowIndentedContinuation = !!options.allowIndentedContinuation
+
+      // check if continued lines can be indented.
+      // call the user's `allowIndentedContinuation` predicate.
+      if (typeof options.allowIndentedContinuation === 'function') {
+        allowIndentedContinuation = options.allowIndentedContinuation.call(self)
+      }
+
+      // line cannot be indented if there are no configured line markers.
+      allowIndentedContinuation &&= markers.line !== undefined
 
       // the `commentOpener` construct captured trailing whitespace.
       // the entirety of the first line has been consumed.
@@ -677,15 +689,6 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function noMarkedPrefix(this: void, code: Code): State | undefined {
-      // check if continued lines can be indented.
-      // call the user's `allowIndentedContinuation` predicate.
-      if (typeof options.allowIndentedContinuation === 'function') {
-        allowIndentedContinuation = options.allowIndentedContinuation.call(self)
-      }
-
-      // line cannot be indented if there are no configured line markers.
-      allowIndentedContinuation &&= markers.line !== undefined
-
       // try capturing indentation.
       // on success, try starting a new comment chunk.
       // the attempt fails if the indent is missing,
