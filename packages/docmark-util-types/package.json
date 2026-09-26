@@ -51,7 +51,7 @@
   "dependencies": {
     "@flex-development/mark": "1.0.0-alpha.5",
     "@types/debug": "4.1.13",
-    "micromark-util-types": "2.0.2"
+    "micromark-util-types": "2.0.3"
   },
   "sideEffects": false
 }

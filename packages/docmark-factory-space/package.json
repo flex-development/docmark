@@ -51,7 +51,7 @@
   "dependencies": {
     "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.16",
     "@flex-development/mark-util-character": "1.1.0",
-    "micromark-util-types": "2.0.2"
+    "micromark-util-types": "2.0.3"
   },
   "sideEffects": false
 }
