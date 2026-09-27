@@ -26,11 +26,12 @@ import {
  *
  * A blank line may start at the beginning of stream or after a new line.
  *
- * At the `source` content level, blank lines are considered opaque content when
- * there is no active comment.\
+ * When parsing comments, and there is no active comment,
+ * blank lines are considered opaque content.\
  * Otherwise, leading whitespace is a captured as a `linePrefix`.
  *
- * This construct is expected to run at the `comment` or `source` content level.
+ * This construct is expected to run
+ * at the `comment` or `comments` content level.
  *
  * @category
  *  constructs
@@ -129,16 +130,16 @@ function tokenizeBlankLine(
     /**
      * The token type to capture whitespace as.
      *
-     * When parsing `source` content outside of a comment, blank lines are
+     * When parsing comments, and not inside an active comment, blank lines are
      * considered opaque content.\
      * Otherwise, leading whitespace is captured as a `linePrefix`.
      *
      * @const {TokenType | undefined} type
      */
     const type: TokenType | undefined =
-      // not parsing `source` content.
-      self.contentType !== constants.contentTypeSource ||
-        // parsing `source` content, but a comment is active.
+      // not parsing comments.
+      self.contentType !== constants.contentTypeComments ||
+        // parsing comments, but a comment is active.
         self.containerState?.comment
         ? tt.linePrefix
         : undefined

@@ -4,7 +4,7 @@
  */
 
 /**
- * Registry of encodings supported by {@linkcode TextDecoder}.
+ * Registry of encodings recognized by {@linkcode TextDecoder}.
  *
  * > 👉 **Note**: Arbitrary encodings can be supported depending on how an
  * > engine is built, so any string *could* be valid.

@@ -13,13 +13,15 @@ import type {
 } from '@flex-development/docmark-util-types'
 
 /**
- * Object describing how to tokenize a syntax construct.
+ * An object describing how to tokenize a syntax construct.
  */
 interface Construct {
   /**
    * Whether the construct, when in a {@linkcode ConstructRecord},
    * takes precedence over existing constructs for the same character code
    * when merged.
+   *
+   * The default is that new constructs precede over existing ones.
    *
    * @see {@linkcode ConstructPosition}
    */
@@ -38,7 +40,7 @@ interface Construct {
    * > - list?
    * ````
    *
-   * …then `- list?` cannot form if this fenced code construct is concrete.
+   * ...then `- list?` cannot form if the fenced code construct is concrete.
    *
    * An example of a construct that is not concrete is a GFM table:
    *
@@ -53,7 +55,10 @@ interface Construct {
   concrete?: boolean | undefined
 
   /**
-   * For containers, a continuation construct.
+   * For containers, a continuation construct to parse continued lines.
+   *
+   * A continued line is any line after that first line of an active container.\
+   * An active container may be a comment or markdown `document` construct.
    */
   continuation?: Construct | undefined
 
@@ -67,14 +72,16 @@ interface Construct {
   /**
    * The name of the construct, used to toggle constructs off.
    *
-   * > 👉 **Note**: Named constructs must not be {@linkcode partial}.
+   * > 👉 **Note**: At markdown content levels,
+   * > named constructs must not be {@linkcode partial}.
    */
   name?: string | undefined
 
   /**
    * Whether the construct represents a partial construct.
    *
-   * > 👉 **Note**: Partial constructs must not have a {@linkcode name}.
+   * > 👉 **Note**: At markdown content levels,
+   * > partial constructs must not have a {@linkcode name}.
    */
   partial?: boolean | undefined
 
@@ -93,7 +100,7 @@ interface Construct {
   resolve?: Resolver | undefined
 
   /**
-   * Resolve all events when the content is complete, from the start to the end.
+   * Resolve all events when the content is complete, from start to end.
    *
    * > 👉 **Note**: Only called if {@linkcode tokenize} is successful at least
    * > once in the content.
@@ -103,8 +110,8 @@ interface Construct {
   resolveAll?: Resolver | undefined
 
   /**
-   * Resolve the events parsed from the start of the content (which may include
-   * other constructs) to the last one parsed by {@linkcode tokenize}.
+   * Resolve events parsed from the start of content, which may include other
+   * constructs, to the last one parsed by {@linkcode tokenize}.
    *
    * @see {@linkcode Resolver}
    */

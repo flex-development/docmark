@@ -19,7 +19,7 @@ export default subcontent
 /**
  * Tokenize embedded content for a single token.
  *
- * This algorithm has three phases:
+ * The algorithm has three phases:
  *
  * 1. Feed linked chunk tokens to a child tokenizer
  * 2. Determine which child events belong to each linked token
@@ -30,7 +30,7 @@ export default subcontent
  * @param {Event[]} events
  *  The parent event stream
  * @param {number} eventIndex
- *  The index of the first chunk `enter` event
+ *  The index of the corresponding `enter` event in `events`
  * @return {undefined}
  */
 function subcontent(

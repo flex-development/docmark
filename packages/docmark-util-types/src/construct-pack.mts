@@ -6,7 +6,7 @@
 import type { AnyConstruct } from '@flex-development/docmark-util-types'
 
 /**
- * A construct or a list of constructs.
+ * A `docmark` or `micromark` construct, or a list of constructs.
  *
  * @see {@linkcode AnyConstruct}
  */

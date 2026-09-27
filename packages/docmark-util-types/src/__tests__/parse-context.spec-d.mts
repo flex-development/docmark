@@ -25,6 +25,12 @@ describe('unit-d:ParseContext', () => {
       .toEqualTypeOf<Create>()
   })
 
+  it('should match [comments: Create]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('comments')
+      .toEqualTypeOf<Create>()
+  })
+
   it('should match [constructs: FullNormalizedExtension]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('constructs')
@@ -79,10 +85,6 @@ describe('unit-d:ParseContext', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('skipSummary')
       .toEqualTypeOf<boolean | undefined>()
-  })
-
-  it('should match [source: Create]', () => {
-    expectTypeOf<TestSubject>().toHaveProperty('source').toEqualTypeOf<Create>()
   })
 
   it('should match [string: Create]', () => {

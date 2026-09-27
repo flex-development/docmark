@@ -20,12 +20,12 @@ import type { NormalizedExtension } from '@flex-development/docmark-util-types'
  * @const {NormalizedExtension} typescript
  */
 const typescript: NormalizedExtension = {
-  [constants.contentTypeComment]: {
-    [codes.atSign]: blockTag
-  },
-  [constants.contentTypeSource]: {
+  [constants.contentTypeComments]: {
     [codes.numberSign]: hashbang,
     [codes.slash]: [blockComment, tripleSlashComment, lineComment]
+  },
+  [constants.contentTypeComment]: {
+    [codes.atSign]: blockTag
   },
   [constants.contentTypeText]: {
     [codes.leftCurlyBrace]: inlineTag

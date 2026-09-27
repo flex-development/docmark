@@ -6,8 +6,8 @@
 import type { Extension } from '@flex-development/docmark-util-types'
 
 /**
- * A filtered, combined extension, where all properties are optional,
- * but defined.
+ * A filtered and normalized extension,
+ * where all properties are optional, but defined.
  *
  * @see {@linkcode Extension}
  */

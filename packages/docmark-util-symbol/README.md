@@ -76,7 +76,7 @@ console.log(tt.tagName) // 'tagName'
 
 ## API
 
-This package exports the identifiers `chars`, `codes`, `constants`, `ct`, `ev`, and `tt`.\
+This package exports the identifiers `chars`, `codes`, `constants`, `ev`, `kind`, `lang`, and `tt`.\
 There is no default export.
 
 Each identifier is an object mapping strings to values.\
@@ -84,7 +84,7 @@ See the [code](./src/) for the exposed data.
 
 ## Types
 
-This package is fully typed with [TypeScript][].
+This package is fully typed with [TypeScript][].\
 It exports no additional types.
 
 ## Project

@@ -18,11 +18,11 @@ import type { NormalizedExtension } from '@flex-development/docmark-util-types'
  * @const {NormalizedExtension} sass
  */
 const sass: NormalizedExtension = {
+  [constants.contentTypeComments]: {
+    [codes.slash]: [blockComment, lineComment]
+  },
   [constants.contentTypeComment]: {
     [codes.atSign]: blockTag
-  },
-  [constants.contentTypeSource]: {
-    [codes.slash]: [blockComment, lineComment]
   },
   [constants.contentTypeText]: {
     [codes.leftCurlyBrace]: inlineTag

@@ -20,10 +20,10 @@ import { eol } from '@flex-development/mark-util-character'
 import docmark from './extensions/docmark.mts'
 import markdown from './extensions/markdown.mts'
 import comment from './initialize/comment.mts'
+import comments from './initialize/comments.mts'
 import content from './initialize/content.mts'
 import document from './initialize/document.mts'
 import flow from './initialize/flow.mts'
-import source from './initialize/source.mts'
 import { string, text } from './initialize/text.mts'
 import typeExpression from './initialize/type.mts'
 
@@ -32,7 +32,7 @@ export default parse
 /**
  * Create a parser.
  *
- * Tokenizers deal with one content type.
+ * Tokenizers deal with one content type.\
  * The parser is the object dealing with it all.
  *
  * @see {@linkcode ParseContext}
@@ -41,7 +41,7 @@ export default parse
  * @this {void}
  *
  * @param {ParseOptions | null | undefined} [options]
- *  Options for parsing
+ *  The parse options
  * @return {ParseContext}
  *  The parse context
  */
@@ -100,7 +100,7 @@ function parse(
         self.noEmptyTokens = true
         self.noPrevious = true
         break
-      case constants.contentTypeSource:
+      case constants.contentTypeComments:
       case constants.contentTypeComment:
       case constants.contentTypeType:
         self.code = codes.bos
@@ -127,7 +127,7 @@ function parse(
    */
   function initialize(this: void): InitialConstructs {
     return {
-      [constants.contentTypeSource]: source,
+      [constants.contentTypeComments]: comments,
       [constants.contentTypeComment]: comment,
       [constants.contentTypeType]: typeExpression,
       [constants.contentTypeDocument]: document,

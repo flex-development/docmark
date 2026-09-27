@@ -15,7 +15,7 @@ import { ok } from 'devlop'
 /**
  * The sass block comment construct.
  *
- * This construct is expected to run at the `source` content level.
+ * This construct is expected to run at the `comments` content level.
  *
  * @const {ContinuableConstruct} blockComment
  */

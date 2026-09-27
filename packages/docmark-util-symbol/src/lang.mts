@@ -4,7 +4,7 @@
  */
 
 /**
- * Registry of source language identifiers.
+ * The source language identifier dictionary.
  *
  * @enum {Lowercase<string> | null}
  */

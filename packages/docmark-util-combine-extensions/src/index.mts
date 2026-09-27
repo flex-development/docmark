@@ -26,7 +26,7 @@ export { combineExtensions, combineExtensions as default }
  *  The combined extension
  *
  * @param {AnyExtension | AnyExtension[] | null | undefined} extensions
- *  The extension or list of extensions
+ *  The extension to copy or the list of extensions to combine
  * @return {T}
  *  The combined extension
  */

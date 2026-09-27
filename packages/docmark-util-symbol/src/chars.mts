@@ -4,7 +4,7 @@
  */
 
 /**
- * Character dictionary.
+ * The character dictionary.
  *
  * Although docmark works based on character codes,
  * this module includes string versions of those codes.

@@ -3,6 +3,7 @@
 exports[`unit:parse > should return parse context 1`] = `
 {
   "comment": [Function create],
+  "comments": [Function create],
   "constructs": {
     "attentionMarkers": {
       "null": [
@@ -23,6 +24,7 @@ exports[`unit:parse > should return parse context 1`] = `
         },
       ],
     },
+    "comments": {},
     "content": {},
     "contentInitial": {
       "91": [
@@ -269,7 +271,6 @@ exports[`unit:parse > should return parse context 1`] = `
       ],
     },
     "settings": {},
-    "source": {},
     "string": {
       "38": [
         {
@@ -390,7 +391,6 @@ exports[`unit:parse > should return parse context 1`] = `
   "document": [Function create],
   "flow": [Function create],
   "lazy": {},
-  "source": [Function create],
   "string": [Function create],
   "text": [Function create],
   "type": [Function create],

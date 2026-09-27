@@ -4,9 +4,7 @@
  */
 
 /**
- * Registry of all token types exposed by docmark.
- *
- * @todo remove extension-specific types
+ * The token type dictionary.
  *
  * @enum {string}
  */
@@ -51,7 +49,6 @@ const tt = {
   codeTextSequence: 'codeTextSequence',
   comment: 'comment',
   commentCloser: 'commentCloser',
-  commentLineMarker: 'commentLineMarker',
   commentLinePrefix: 'commentLinePrefix',
   commentMarker: 'commentMarker',
   commentOpener: 'commentOpener',

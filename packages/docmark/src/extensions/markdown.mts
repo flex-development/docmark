@@ -3,7 +3,7 @@
  * @module docmark/extensions/markdown
  */
 
-import { codes } from '@flex-development/docmark-util-symbol'
+import { codes, constants } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
 import * as commonmark from 'micromark-core-commonmark'
 import { string } from '../initialize/text.mts'
@@ -18,16 +18,7 @@ import { string } from '../initialize/text.mts'
  * @const {NormalizedExtension} markdown
  */
 const markdown: NormalizedExtension = {
-  attentionMarkers: {
-    null: [codes.asterisk, codes.underscore]
-  },
-  contentInitial: {
-    [codes.leftSquareBracket]: commonmark.definition
-  },
-  disable: {
-    null: []
-  },
-  document: {
+  [constants.contentTypeDocument]: {
     [codes.asterisk]: commonmark.list,
     [codes.plusSign]: commonmark.list,
     [codes.dash]: commonmark.list,
@@ -43,7 +34,7 @@ const markdown: NormalizedExtension = {
     [codes.digit9]: commonmark.list,
     [codes.greaterThan]: commonmark.blockQuote
   },
-  flow: {
+  [constants.contentTypeFlow]: {
     [codes.numberSign]: commonmark.headingAtx,
     [codes.asterisk]: commonmark.thematicBreak,
     [codes.dash]: [commonmark.setextUnderline, commonmark.thematicBreak],
@@ -53,22 +44,7 @@ const markdown: NormalizedExtension = {
     [codes.graveAccent]: commonmark.codeFenced,
     [codes.tilde]: commonmark.codeFenced
   },
-  flowInitial: {
-    [codes.horizontalTab]: commonmark.codeIndented,
-    [codes.virtualSpace]: commonmark.codeIndented,
-    [codes.space]: commonmark.codeIndented
-  },
-  insideSpan: {
-    null: [
-      { resolveAll: commonmark.attention.resolveAll },
-      { resolveAll: string.resolveAll! }
-    ]
-  },
-  string: {
-    [codes.ampersand]: commonmark.characterReference,
-    [codes.backslash]: commonmark.characterEscape
-  },
-  text: {
+  [constants.contentTypeText]: {
     [codes.carriageReturn]: commonmark.lineEnding,
     [codes.lineFeed]: commonmark.lineEnding,
     [codes.carriageReturnLineFeed]: commonmark.lineEnding,
@@ -81,6 +57,27 @@ const markdown: NormalizedExtension = {
     [codes.rightSquareBracket]: commonmark.labelEnd,
     [codes.underscore]: commonmark.attention,
     [codes.graveAccent]: commonmark.codeText
+  },
+  [constants.contentTypeString]: {
+    [codes.ampersand]: commonmark.characterReference,
+    [codes.backslash]: commonmark.characterEscape
+  },
+  attentionMarkers: {
+    null: [codes.asterisk, codes.underscore]
+  },
+  contentInitial: {
+    [codes.leftSquareBracket]: commonmark.definition
+  },
+  flowInitial: {
+    [codes.horizontalTab]: commonmark.codeIndented,
+    [codes.virtualSpace]: commonmark.codeIndented,
+    [codes.space]: commonmark.codeIndented
+  },
+  insideSpan: {
+    null: [
+      { resolveAll: commonmark.attention.resolveAll },
+      { resolveAll: string.resolveAll! }
+    ]
   }
 }
 

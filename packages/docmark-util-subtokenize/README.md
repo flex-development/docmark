@@ -18,16 +18,18 @@
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`subtokenize(events)`][api-subtokenize]
+  - [`subcontent(events, eventIndex)`][api-subcontent]
 - [Types](#types)
 - [Contribute](#contribute)
 
 ## What is this?
 
-**TODO**: what is this?
+This packages exposes utilities to tokenize embedded content.
 
 ## When should I use this?
 
-This package is useful when extending docmark.
+This package is useful when building ecosystems on top of docmark.
 
 ## Install
 
@@ -66,11 +68,62 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+This package exports the identifiers [`subtokenize`][api-subtokenize] and [`subcontent`][api-subcontent].\
+There is no default export.
+
+### `subtokenize(events)`
+
+Tokenize embedded content.
+
+Some tokens declare a [`ContentType`][content-type].\
+These tokens do not contain fully parsed content themselves.
+Tokens with a `chunk*` (i.e. `chunkMarkdown`, `chunkDocument`, `chunkFlow`) type and `contentType` act as containers
+for another tokenizer.
+
+For example:
+
+```txt
+comment
+└─ chunkComment
+```
+
+A `chunkComment` token may contain embedded syntax.\
+This function replaces those chunk tokens with the events produced by their child tokenizer.
+
+#### Parameters
+
+- `events` ([`Event[]`][event])
+  — the current list of events
+
+#### Returns
+
+(`boolean`) Whether subtokens (embedded content) were found
+
+### `subcontent(events, eventIndex)`
+
+Tokenize embedded content for a single token.
+
+The algorithm has three phases:
+
+1. Feed linked chunk tokens to a child tokenizer
+2. Determine which child events belong to each linked token
+3. Replace `chunk*` events with their corresponding child events
+
+#### Parameters
+
+- `events` ([`Event[]`][event])
+  — the parent event stream
+- `eventIndex` (`number`)
+  — the index of the corresponding `enter` event in `events`
+
+#### Returns
+
+(`undefined`) Nothing
 
 ## Types
 
-This package is fully typed with [TypeScript][].
+This package is fully typed with [TypeScript][].\
+It exports no additional types.
 
 ## Contribute
 
@@ -79,11 +132,19 @@ See [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
 This project has a [code of conduct](../../CODE_OF_CONDUCT.md).
 By interacting with this repository, organization, or community you agree to abide by its terms.
 
+[api-subcontent]: #subcontentevents-eventindex
+
+[api-subtokenize]: #subtokenizeevents
+
+[content-type]: ../docmark-util-types/src/content-type.mts
+
 [docmark]: ../../README.md
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
+
+[event]: ../docmark-util-types/src/event.mts
 
 [typescript]: https://www.typescriptlang.org
 

@@ -4,15 +4,15 @@
  */
 
 /**
- * Character codes.
+ * The character code dictionary.
  *
- * docmark works based on character codes.
+ * `docmark` works based on character codes.\
  * This module contains constants for the ASCII block and the replacement
  * character.
  *
  * A few codes are handled in a special way, such as line endings (CR, LF,
  * and CR+LF, commonly known as end-of-line: EOLs), as well as tab (horizontal
- * tab) and its expansion based on what column it’s at (virtual space).
+ * tab) and its expansion based on what column it’s at (virtual space).\
  * As values are preprocessed before handling them, the actual characters LF,
  * CR, and HT are guaranteed to not exist.
  *

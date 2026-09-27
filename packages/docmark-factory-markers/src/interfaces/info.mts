@@ -31,14 +31,15 @@ interface Info {
   fields?: TokenFields | null | undefined
 
   /**
-   * Whether the comment marker is not required.
+   * Whether the comment marker is optional.
    *
    * If `true`, an unexpected code successfully terminates the marker sequence.
    */
   optional?: boolean | undefined
 
   /**
-   * The token type to emit when {@linkcode code} is consumed.
+   * The token type to emit when {@linkcode code}, or the character code matched
+   * by `code`, is consumed.
    *
    * If `type` is `undefined`, {@linkcode tt.commentMarker} is used.\
    * If `null`, `code` is consumed without emitting a token.

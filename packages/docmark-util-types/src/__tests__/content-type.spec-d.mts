@@ -12,8 +12,8 @@ describe('unit-d:ContentType', () => {
     expectTypeOf<TestSubject>().extract<'comment'>().not.toBeNever()
   })
 
-  it('should extract "source"', () => {
-    expectTypeOf<TestSubject>().extract<'source'>().not.toBeNever()
+  it('should extract "comments"', () => {
+    expectTypeOf<TestSubject>().extract<'comments'>().not.toBeNever()
   })
 
   it('should extract "type"', () => {

@@ -12,8 +12,8 @@ import type {
 /**
  * The final hook to run when a container must be closed.
  *
- * > 👉 **Note**: Like a {@linkcode Tokenizer}, but without `ok` and `nok`, and
- * > returns `undefined`.
+ * > 👉 **Note**: Like a {@linkcode Tokenizer}, but without `ok` and `nok`,
+ * > and returns `undefined`.
  *
  * @see {@linkcode Effects}
  * @see {@linkcode TokenizeContext}

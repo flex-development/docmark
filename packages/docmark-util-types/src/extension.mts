@@ -16,41 +16,53 @@ import type {
  *
  * Syntax extensions are objects whose fields are typically the names of hooks,
  * referring to where constructs "hook" into. The fields at such objects are
- * character codes, mapping to constructs as values.
+ * character codes, mapping to constructs as values, while other fields provide
+ * parser configuration or additional behavior.
  *
  * This interface can be augmented to register custom fields.
  *
  * @example
  *  declare module '@flex-development/docmark-util-types' {
  *    interface Extension {
- *      custom?: { null?: Code[] | undefined } | undefined
+ *      codeTags?: { null?: string[] | undefined } | undefined
  *    }
  *  }
  */
 interface Extension {
   /**
-   * The attention marker settings.
+   * Register markers that can be used to trigger markdown attention constructs.
    *
    * @see {@linkcode AttentionMarkers}
    */
   attentionMarkers?: AttentionMarkers | undefined
 
   /**
-   * @todo `comment`
+   * Parse `comment` content.
    *
    * @see {@linkcode ConstructRecord}
    */
   comment?: ConstructRecord | undefined
 
   /**
-   * @todo `content`
+   * Parse comments.
+   *
+   * @see {@linkcode ConstructRecord}
+   */
+  comments?: ConstructRecord | undefined
+
+  /**
+   * Parse markdown block-level content like paragraphs and definitions.
    *
    * @see {@linkcode ConstructRecord}
    */
   content?: ConstructRecord | undefined
 
   /**
-   * @todo `contentInitial`
+   * Parse initial markdown `content`.
+   *
+   * Use `contentInitial` to define constructs that start at the absolute
+   * beginning of a markdown content block or a new line within a paragraph,
+   * notably before the paragraph content itself is fully parsed.
    *
    * @see {@linkcode ConstructRecord}
    */
@@ -64,28 +76,31 @@ interface Extension {
   disable?: Disable | undefined
 
   /**
-   * @todo `document`
+   * Parse markdown containers.
    *
    * @see {@linkcode ConstructRecord}
    */
   document?: ConstructRecord | undefined
 
   /**
-   * @todo `flow`
+   * Parse markdown block content.
    *
    * @see {@linkcode ConstructRecord}
    */
   flow?: ConstructRecord | undefined
 
   /**
-   * @todo `flowInitial`
+   * Parse initial markdown `flow`.
+   *
+   * Use `flowInitial` to define constructs that start at the absolute beginning
+   * of a markdown block.
    *
    * @see {@linkcode ConstructRecord}
    */
   flowInitial?: ConstructRecord | undefined
 
   /**
-   * @todo `insideSpan`
+   * Resolvers to run after inline markdown text has been parsed.
    *
    * @see {@linkcode InsideSpan}
    */
@@ -99,28 +114,26 @@ interface Extension {
   settings?: Settings | undefined
 
   /**
-   * @todo `source`
+   * Parse markdown `string` content.
    *
-   * @see {@linkcode ConstructRecord}
-   */
-  source?: ConstructRecord | undefined
-
-  /**
-   * @todo `string`
+   * Markdown string content is text-like content that only allows character
+   * references and character escapes.
+   * It exists in things such as markdown identifiers (e.g. media references,
+   * definitions), titles, or URLs and such.
    *
    * @see {@linkcode ConstructRecord}
    */
   string?: ConstructRecord | undefined
 
   /**
-   * @todo `text`
+   * Parse markdown phrasing content.
    *
    * @see {@linkcode ConstructRecord}
    */
   text?: ConstructRecord | undefined
 
   /**
-   * @todo `type`
+   * Parse type expressions.
    *
    * @see {@linkcode ConstructRecord}
    */

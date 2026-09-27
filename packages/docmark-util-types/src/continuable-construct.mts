@@ -14,7 +14,7 @@ import type { Construct, Exiter } from '@flex-development/docmark-util-types'
  */
 interface ContinuableConstruct extends Construct {
   /**
-   * The continuation construct.
+   * The continuation construct to parse continued lines.
    *
    * @see {@linkcode Construct}
    *
@@ -23,7 +23,7 @@ interface ContinuableConstruct extends Construct {
   continuation: Construct
 
   /**
-   * For containers, a final exit hook.
+   * The final exit hook.
    *
    * @see {@linkcode Exiter}
    *

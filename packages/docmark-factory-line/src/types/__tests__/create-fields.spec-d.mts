@@ -1,6 +1,6 @@
 /**
  * @file Type Tests - CreateFields
- * @module docmark-util-types/tests/unit-d/CreateFields
+ * @module docmark-factory-line/types/tests/unit-d/CreateFields
  */
 
 import type {

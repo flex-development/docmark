@@ -19,12 +19,12 @@ import terminate from './internal/terminate.mts'
 /**
  * Create a state that tokenizes a sequence of comment markers.
  *
- * The returned state consumes each marker in `marks` in order.\
+ * The returned state consumes each marker in `markers` in order.\
  * Each marker produces a token using the specified token type,
  * or {@linkcode tt.commentMarker} by default.
  *
- * If the input does not match the expected sequence, tokenization fails
- * without consuming the mismatching character.
+ * If the input does not match the expected sequence,
+ * tokenization fails without consuming the mismatching character.
  *
  * @see {@linkcode CodeCheck}
  * @see {@linkcode Effects}
@@ -40,8 +40,8 @@ import terminate from './internal/terminate.mts'
  *  The successful tokenization state
  * @param {State} nok
  *  The failed tokenization state
- * @param {CodeCheck | Info | Marker | Sequence} marks
- *  The comment marker matcher, info, code, or sequence
+ * @param {CodeCheck | Info | Marker | Sequence} markers
+ *  The comment marker matcher, info object, code, or sequence
  * @return {State}
  *  The initial state
  */
@@ -50,17 +50,17 @@ function factoryMarkers(
   effects: Effects,
   ok: State,
   nok: State,
-  marks: CodeCheck | Info | Marker | Sequence
+  markers: CodeCheck | Info | Marker | Sequence
 ): State {
-  // normalize initial sequence.
-  if (!Array.isArray(marks)) marks = [marks]
+  // normalize the initial sequence.
+  if (!Array.isArray(markers)) markers = [markers]
 
   /**
    * The normalized marker sequence.
    *
    * @const {Info[]} seq
    */
-  const seq: Info[] = [...marks].map(normalize)
+  const seq: Info[] = [...markers].map(normalize)
 
   /**
    * The index of the current marker.

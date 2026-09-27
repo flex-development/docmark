@@ -1748,7 +1748,6 @@ __metadata:
   dependencies:
     "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.18"
     "@flex-development/mark-util-character": "npm:1.1.0"
-    micromark-util-types: "npm:2.0.3"
   languageName: unknown
   linkType: soft
 

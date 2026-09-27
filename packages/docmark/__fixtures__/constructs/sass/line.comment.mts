@@ -15,7 +15,7 @@ import { ok } from 'devlop'
 /**
  * The sass line comment construct.
  *
- * This construct is expected to run at the `source` content level.
+ * This construct is expected to run at the `comments` content level.
  *
  * @const {ContinuableConstruct} lineComment
  */

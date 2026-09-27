@@ -42,7 +42,6 @@ exports[`unit:tt > should be token type dictionary 1`] = `
   "codeTextSequence": "codeTextSequence",
   "comment": "comment",
   "commentCloser": "commentCloser",
-  "commentLineMarker": "commentLineMarker",
   "commentLinePrefix": "commentLinePrefix",
   "commentMarker": "commentMarker",
   "commentOpener": "commentOpener",

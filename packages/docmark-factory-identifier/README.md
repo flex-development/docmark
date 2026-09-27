@@ -18,6 +18,7 @@
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`factoryIdentifier(effects, ok, nok[, type])`][api-factory]
 - [Types](#types)
 - [Contribute](#contribute)
 
@@ -66,11 +67,32 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+This package exports the identifier [`factoryIdentifier`][api-factory].\
+There is no default export.
+
+### `factoryIdentifier(effects, ok, nok[, type])`
+
+Tokenize an identifier.
+
+#### Parameters
+
+- `effects` ([`Effects`][effects])
+  — the context object used to transition the state machine
+- `ok` ([`State`][state])
+  — the successful tokenization state
+- `nok` ([`State`][state])
+  — the failed tokenization state
+- `type` ([`TokenType`][token-type] | `null` | `undefined`, optional)
+  — the token type to capture the identifier as.
+  - **default**: [`tt.identifier`][tt]
+
+#### Returns
+
+([`State`][state]) The initial state
 
 ## Types
 
-This package is fully typed with [TypeScript][].
+This package is fully typed with [TypeScript][].\
 It exports no additional types.
 
 ## Project
@@ -91,13 +113,23 @@ By interacting with this repository, organization, or community you agree to abi
 Small primitives power larger systems.
 Support long-term stability by sponsoring Flex Development.
 
+[api-factory]: #factoryidentifiereffects-ok-nok-type
+
 [docmark]: ../../README.md
+
+[effects]: ../docmark-util-types/src/effects.mts
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
 
 [semver]: https://semver.org
+
+[state]: ../docmark-util-types/src/state.mts
+
+[token-type]: ../docmark-util-types/src/token-type.mts
+
+[tt]: ../docmark-util-symbol/src/tt.mts
 
 [typescript]: https://www.typescriptlang.org
 

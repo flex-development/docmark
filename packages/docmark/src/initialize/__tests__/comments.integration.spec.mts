@@ -1,6 +1,6 @@
 /**
- * @file Integration Tests - source
- * @module docmark/initialize/tests/integration/source
+ * @file Integration Tests - comments
+ * @module docmark/initialize/tests/integration/comments
  */
 
 import markdown from '#fixtures/extensions/markdown'
@@ -18,7 +18,7 @@ import pathe from '@flex-development/pathe'
 import { readSync as read } from 'to-vfile'
 import { beforeAll, describe, expect, it } from 'vitest'
 
-describe('integration:initialize/source', () => {
+describe('integration:initialize/comments', () => {
   let directory: string
 
   beforeAll(() => {
@@ -34,7 +34,7 @@ describe('integration:initialize/source', () => {
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act
-    const result = parse(options).source().write(slice)
+    const result = parse(options).comments().write(slice)
 
     // Expect
     expect(result).to.have.property('length', 2)
@@ -49,7 +49,7 @@ describe('integration:initialize/source', () => {
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act
-    const result = parse().source().write(slice)
+    const result = parse().comments().write(slice)
 
     // Expect
     expect(result).to.have.property('length', 2)
@@ -132,7 +132,7 @@ describe('integration:initialize/source', () => {
     options ??= { extensions: [typescript] }
 
     // Act
-    const result = parse(options).source().write(slice)
+    const result = parse(options).comments().write(slice)
     const beforeLast = result.at(-2)
     const last = result.at(-1)
 

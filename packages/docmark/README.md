@@ -22,6 +22,9 @@ a comment parser with support for markdown.
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`parse([options])`][api-parse]
+  - [`postprocess(events)`][api-postprocess]
+  - [`preprocess([options])`][api-preprocess]
 - [Types](#types)
 - [Contribute](#contribute)
 
@@ -31,9 +34,7 @@ a comment parser with support for markdown.
 
 ## When should I use this?
 
-docmark parses documentation comments, not just docblocks.
-Extensions can register additional comment syntaxes — such as line comments, hash comments, or language-specific
-documentation comments — without changing how the comment content itself is parsed.
+**TODO**: when should i use this?
 
 ## Install
 
@@ -55,14 +56,14 @@ yarn add @flex-development/docmark
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { docmark } from 'https://esm.sh/@flex-development/docmark'
+import { parse, postprocess, preprocess } from 'https://esm.sh/@flex-development/docmark'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { docmark } from 'https://esm.sh/@flex-development/docmark'
+  import { parse, postprocess, preprocess } from 'https://esm.sh/@flex-development/docmark'
 </script>
 ```
 
@@ -72,11 +73,56 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+This package exports the identifiers [`parse`][api-parse], [`postprocess`][api-postprocess],
+and [`preprocess`][api-preprocess].\
+There is no default export.
+
+### `parse([options])`
+
+Create a parser.
+
+Tokenizers deal with one content type.\
+The parser is the object dealing with it all.
+
+#### Parameters
+
+- `options` ([`ParseOptions`][parse-options] | `null` | `undefined`, optional)
+  — the parse options
+
+#### Returns
+
+([`ParseContext`][parse-context]) The parse context
+
+### `postprocess(events)`
+
+Postprocess events.
+
+#### Parameters
+
+- `events` ([`Event[]`][event])
+  — the current list of events
+
+#### Returns
+
+([`Event[]`][event]) The list of changed events
+
+### `preprocess([options])`
+
+Create a preprocessor to turn a value into chunks.
+
+#### Parameters
+
+- `options` ([`PreprocessOptions`][preprocess-options] | `null` | `undefined`, optional)
+  — the configuration options
+
+#### Returns
+
+([`Preprocessor`][preprocessor]) The preprocessor
 
 ## Types
 
-This package is fully typed with [TypeScript][].
+This package is fully typed with [TypeScript][].\
+It exports no additional types.
 
 ## Contribute
 
@@ -85,11 +131,27 @@ See [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
 This project has a [code of conduct](../../CODE_OF_CONDUCT.md).
 By interacting with this repository, organization, or community you agree to abide by its terms.
 
+[api-parse]: #parseoptions
+
+[api-postprocess]: #postprocessevents
+
+[api-preprocess]: #preprocessoptions
+
 [docmark]: ../../README.md
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
+
+[event]: ../docmark-util-types/src/event.mts
+
+[parse-context]: ../docmark-util-types/src/parse-context.mts
+
+[parse-options]: ../docmark-util-types/src/parse-options.mts
+
+[preprocess-options]: ../docmark-util-types/src/preprocess-options.mts
+
+[preprocessor]: ../docmark-util-types/src/preprocessor.mts
 
 [typescript]: https://www.typescriptlang.org
 

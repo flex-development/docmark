@@ -1,6 +1,6 @@
 /**
- * @file Event
- * @module docmark-util-types/Event
+ * @file EventType
+ * @module docmark-util-types/EventType
  */
 
 /**

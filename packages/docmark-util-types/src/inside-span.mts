@@ -6,7 +6,7 @@
 import type { AnyConstruct } from '@flex-development/docmark-util-types'
 
 /**
- * Resolvers to run inside a span.
+ * Resolvers to run after inline markdown text has been parsed.
  */
 interface InsideSpan {
   /**

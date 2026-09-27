@@ -4,13 +4,10 @@
  */
 
 /**
- * Event types used by docmark.
+ * The event type dictionary.
  *
  * @enum {'enter' | 'ext'}
  */
-const ev = {
-  enter: 'enter',
-  exit: 'exit'
-} as const
+const ev = { enter: 'enter', exit: 'exit' } as const
 
 export default ev

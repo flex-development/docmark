@@ -39,8 +39,7 @@ interface TokenFields {
   _close?: boolean | undefined
 
   /**
-   * Whether the token represents a `document`, `comment`,
-   * or `source`-level container.
+   * Whether the token represents a `document`-level container.
    */
   _container?: boolean | undefined
 
@@ -82,15 +81,15 @@ interface TokenFields {
   _region?: boolean | undefined
 
   /**
-   * The connected tokenizer, used when dealing with linked tokens.
+   * The connected tokenizer used when dealing with linked tokens.
    *
    * @see {@linkcode TokenizeContext}
    */
   _tokenizer?: TokenizeContext | undefined
 
   /**
-   * At the `comment` or `source` level, whether a `whitespace` token represents
-   * trailing whitespace.\
+   * When {@linkcode contentType} is `comment` or `comments` level, whether a
+   * `whitespace` token represents trailing whitespace.\
    * Depending on the next logical comment line, trailing whitespaces are
    * resolved into hard breaks or line suffixes.
    */
@@ -108,7 +107,7 @@ interface TokenFields {
    *
    * When indented syntax is enabled, the continued lines of a comment can be
    * indented in lieu of explicit line markers.\
-   * Within an event list, the line's indentation is made up of `commentMarker`
+   * In an event list, the line's indentation is represented by `commentMarker`
    * tokens spanning a single whitespace each.
    *
    * > 👉 **Note**: A continued line is any line after the first line of an
@@ -117,19 +116,19 @@ interface TokenFields {
   indented?: boolean | undefined
 
   /**
-   * For comments, whether the comment is a docblock or docline comment.
+   * For comments, whether the comment is a documentation comment.
    */
   info?: boolean | undefined
 
   /**
-   * For comments, the current comment kind.
+   * For comments, the comment kind.
    *
    * @see {@linkcode CommentKind}
    */
   kind?: CommentKind | undefined
 
   /**
-   * For comments, the source language.
+   * For comments, the source language identifier.
    *
    * @see {@linkcode Language}
    */

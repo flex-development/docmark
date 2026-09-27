@@ -9,8 +9,8 @@ import type {
 } from '@flex-development/docmark-util-types'
 
 /**
- * Record, where each key is a language identifier
- * and each value is a language-specific options object.
+ * Record, where each key is a {@linkcode Language}
+ * and each value is a {@linkcode LanguageOptions} object.
  *
  * To register custom language identifiers, augment {@linkcode LanguageMap}.\
  * They will be added to this union automatically.

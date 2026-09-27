@@ -1,6 +1,6 @@
 /**
- * @file Initialize - source
- * @module docmark/initialize/source
+ * @file Initialize - comments
+ * @module docmark/initialize/comments
  */
 
 import { factorySpace } from '@flex-development/docmark-factory-space'
@@ -29,15 +29,15 @@ import {
 import { ok as assert } from 'devlop'
 
 /**
- * The initial source document construct.
+ * The initial comments construct.
  *
- * The initializer scans a source document for comments.\
- * Comment syntax is provided by extensions through constructs registered at the
- * `source` content level.
+ * The initializer scans content for comments.\
+ * Comment syntax is provided by extensions through constructs registered
+ * at the `comments` content level.
  *
- * Constructs registered at the `source` content level determine where comments
- * begin and end.
- * Source content not consumed by a registered construct is consumed as opaque
+ * Constructs registered at the `comments` content level determine where
+ * comments begin and end.
+ * Any content not consumed by a registered construct is consumed as opaque
  * input and is not represented in the resulting event stream.
  *
  * Each discovered comment delegates its content to a child `comment` tokenizer,
@@ -46,16 +46,16 @@ import { ok as assert } from 'devlop'
  * Comments are siblings and cannot be nested.
  * Therefore, at most one comment may be active at any point in the stream.
  *
- * @const {InitialConstruct} source
+ * @const {InitialConstruct} comments
  */
-const source: InitialConstruct = { tokenize: tokenizeSource }
+const comments: InitialConstruct = { tokenize: tokenizeComments }
 
-export default source
+export default comments
 
 /**
  * The source comment construct.
  *
- * The construct attempts constructs registered for the `source` content level
+ * The construct attempts constructs registered for the `comments` content level
  * in extension order.
  *
  * Centralizing dispatch allows the initializer to discover comments without
@@ -66,16 +66,16 @@ export default source
 const sourceComment: Construct = { tokenize: tokenizeSourceComment }
 
 /**
- * Tokenize a source document.
+ * Tokenize comments.
  *
- * The initializer scans the source stream for comments using constructs
- * registered at the `source` content level.
- * Source text outside comments is consumed as opaque input and is not
- * represented in the resulting event stream.
+ * The initializer scans the current stream for comments using constructs
+ * registered at the `comments` content level.
+ * Text outside comments is consumed as opaque input and is not represented in
+ * the resulting event stream.
  *
- * Each discovered comment is maintained as an active source construct while
- * its content is delegated to a child `comment` tokenizer.
- * The active comment kind is propagated to that tokenizer so comment-level
+ * Each discovered comment is maintained as an active construct while its
+ * content is delegated to a child `comment` tokenizer.
+ * The active comment token is propagated to that tokenizer so comment-level
  * constructs can determine which syntax is currently being parsed.
  *
  * @this {TokenizeContext}
@@ -85,7 +85,7 @@ const sourceComment: Construct = { tokenize: tokenizeSourceComment }
  * @return {State}
  *  The initial state
  */
-function tokenizeSource(this: TokenizeContext, effects: Effects): State {
+function tokenizeComments(this: TokenizeContext, effects: Effects): State {
   /**
    * The active comment and its persistent state.
    *
@@ -157,15 +157,14 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   return start
 
   /**
-   * Start or resume source scanning.
+   * Start or resume comments scanning.
    *
-   * When no comment is active, registered source constructs are attempted at
-   * the current position after blank lines are skipped.
+   * When no comment is active, constructs registered at the `comments` level
+   * are attempted at the current position after blank lines are skipped.
    *
    * Otherwise, the active comment's `continuation` construct is attempted with
-   * its persistent container state.
-   * A failed continuation finalizes the current comment before ordinary source
-   * scanning resumes.
+   * its persistent container state. A failed continuation finalizes the current
+   * comment before ordinary scanning resumes.
    *
    * @this {void}
    *
@@ -194,7 +193,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * Continue the active source comment.
+   * Continue the active comment.
    *
    * The active comment's `continuation` construct is attempted with its
    * persistent container state.
@@ -306,10 +305,10 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * Resume source scanning after a failed comment continuation.
+   * Resume scanning after a failed comment continuation.
    *
-   * The active comment content stream and source comment are finalized before a
-   * new source-level comment is attempted at the current position.
+   * The active comment content stream and comment are finalized before a new
+   * comment is attempted at the current position.
    *
    * @this {void}
    *
@@ -329,13 +328,12 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * Attempt to enter a source-level comment.
+   * Attempt to enter a comment.
    *
    * The container state is reset before registered constructs are attempted.\
-   * Whitespace is consumed as opaque source content before the attempt.
+   * Whitespace is consumed as opaque content before the attempt.
    *
-   * If no construct succeeds, the current code is consumed as opaque source
-   * content.
+   * If no construct succeeds, the current code is consumed as opaque content.
    *
    * @this {void}
    *
@@ -361,10 +359,10 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * Register a newly entered source comment.
+   * Register a newly entered comment.
    *
-   * The successful source comment construct and its persistent container state
-   * are registered as the sole active comment. The `comment` token emitted by
+   * The successful comment construct and its persistent container state are
+   * registered as the sole active comment. The `comment` token emitted by
    * the construct is propagated to {@linkcode self.containerState}.
    *
    * Comment content tokens emitted while entering the comment are forwarded to
@@ -420,13 +418,13 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * Continue scanning opaque source content.
+   * Continue scanning opaque content.
    *
-   * The current code did not begin a registered source comment construct.
-   * It is consumed without producing an event before source scanning resumes.
+   * The current code did not begin a registered comment construct.
+   * It is consumed without producing an event before scanning resumes.
    *
-   * At the end of the source stream, comment content and the active source
-   * comment are finalized before the end-of-stream code is processed.
+   * At the end of the stream, comment content and the active comment are
+   * finalized before the end-of-stream code is processed.
    *
    * @this {void}
    *
@@ -439,7 +437,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     assert(!comment, 'did not expect comment content parser')
     assert(stack.length === 0, 'expected empty comment stack')
 
-    // end of source stream.
+    // end of stream.
     if (eos(code)) return beforeChunk(code)
 
     // consume code as opaque content.
@@ -454,8 +452,8 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   /**
    * Prepare to tokenize comment content.
    *
-   * At the end of the source stream, the active child `comment` tokenizer and
-   * source comment are finalized before the end-of-content token is emitted.
+   * At the end of the stream, the active child `comment` tokenizer and comment
+   * are finalized before the end-of-content token is emitted.
    *
    * Otherwise, a new comment content chunk is started.
    *
@@ -467,7 +465,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    *  The next state
    */
   function beforeChunk(this: void, code: Code): State | undefined {
-    // end of source stream.
+    // end of stream.
     // finalize the current comment content stream and active comment.
     if (eos(code)) return void end(code)
 
@@ -482,8 +480,8 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    * `chunkComment` token.
    *
    * The chunk is linked to the preceding comment {@linkcode content} token so
-   * normalized comment content can span multiple source tokens while remaining
-   * apart of one logical child stream.
+   * normalized comment content can span multiple tokens while remaining apart
+   * of one logical child stream.
    *
    * The active comment token is propagated to the child tokenizer's container
    * state before comment content is tokenized.
@@ -525,9 +523,9 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    * The line ending is included in the chunk before the completed token is
    * written to the child `comment` tokenizer.
    *
-   * After consuming a line ending, processing then returns to the active source
-   * comment's `continuation` so it can recognize prefixes, closing syntax, or
-   * other line-boundary specific behavior before another chunk begins.
+   * After consuming a line ending, processing then returns to the active
+   * comment's `continuation` so it can recognize prefixes, closing syntax,
+   * or other line-boundary specific behavior before another chunk begins.
    *
    * At end of stream, the current chunk and child stream are finalized.
    *
@@ -566,10 +564,10 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   }
 
   /**
-   * Finish the source content stream.
+   * Finish the stream.
    *
-   * The active child `comment` tokenizer and source comment are finalized
-   * before the end-of-content token is emitted.
+   * The active child `comment` tokenizer and comment are finalized before the
+   * end-of-content token is emitted.
    *
    * @this {void}
    *
@@ -600,13 +598,13 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    * Close the current comment parsing context.
    *
    * The active child `comment` tokenizer is finalized and its token-link state
-   * is cleared. The active source comment's persistent container state is then
+   * is cleared. The active comment's persistent container state is then
    * restored before its `exit` hook is called.
    *
    * Later comments create independent child tokenizers and do not inherit
    * parsing state from the finalized comment.
    *
-   * > 👉 **Note**: Source comments cannot nest, so the stack contains at most
+   * > 👉 **Note**: Comments cannot nest, so the stack always contains at most
    * > one item. The loop keeps teardown generic.
    *
    * @this {void}
@@ -628,7 +626,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
       construct.exit.call(self, effects)
     }
 
-    // get ready for the next source comment.
+    // get ready for the next comment.
     self.currentConstruct = undefined
     self.containerState = {}
     self.parser.skipSummary = undefined
@@ -639,7 +637,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
   /**
    * Forward emitted tokens to the child {@linkcode comment} tokenizer.
    *
-   * Source comment constructs may emit `chunkComment` tokens.\
+   * Comment constructs may emit `chunkComment` tokens.\
    * Completed tokens are located in emission order and written to the active
    * child tokenizer.
    *
@@ -672,7 +670,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
    * Write a comment content chunk to the child {@linkcode comment} tokenizer.
    *
    * The token is linked to the previously written comment content token,
-   * associated with the active child tokenizer, sliced from the source stream,
+   * associated with the active child tokenizer, sliced from the current stream,
    * and written to the child.
    *
    * When requested, the {@linkcode eos} code can be appended to the pending
@@ -708,7 +706,7 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
     token._tokenizer ??= comment
 
     /**
-     * The source chunks spanning {@linkcode token}.
+     * The chunks spanning {@linkcode token}.
      *
      * @const {Chunk[]} stream
      */
@@ -740,9 +738,10 @@ function tokenizeSource(this: TokenizeContext, effects: Effects): State {
 }
 
 /**
- * Tokenize a source-level comment.
+ * Tokenize a source comment.
  *
- * Constructs registered at the `source` level are attempted in extension order.
+ * Constructs registered at the `comments` level
+ * are attempted in extension order.
  *
  * @this {TokenizeContext}
  *
@@ -761,5 +760,5 @@ function tokenizeSourceComment(
   ok: State,
   nok: State
 ): State {
-  return effects.attempt(this.parser.constructs.source, ok, nok)
+  return effects.attempt(this.parser.constructs.comments, ok, nok)
 }

@@ -9,7 +9,7 @@
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![license](https://img.shields.io/github/license/flex-development/docmark)](LICENSE.md)
 
-core [docmark][] constructs and utilities.
+core [docmark][] constructs.
 
 ## Contents
 
@@ -51,7 +51,6 @@ In Deno with [`esm.sh`][esmsh]:
 ```ts
 import {
   blankLine,
-  eoc,
   region,
   summary,
   trailingWhitespace,
@@ -65,7 +64,6 @@ In browsers with [`esm.sh`][esmsh]:
 <script type="module">
   import {
     blankLine,
-    eoc,
     region,
     summary,
     trailingWhitespace,
@@ -80,7 +78,11 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+This package exports the identifiers `blankLine`, `region`, `summary`, `trailingWhitespace`, and `typeExpressionValue`.\
+There is no default export.
+
+Each identifier is a [`Construct`][construct].\
+See the [code](./src/constructs/) for more info.
 
 ## Types
 
@@ -92,6 +94,8 @@ See [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
 
 This project has a [code of conduct](../../CODE_OF_CONDUCT.md).
 By interacting with this repository, organization, or community you agree to abide by its terms.
+
+[construct]: ../docmark-util-types/src/construct.mts
 
 [docmark]: ../../README.md
 

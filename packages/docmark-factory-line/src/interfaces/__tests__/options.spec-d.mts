@@ -5,13 +5,13 @@
 
 import type {
   AllowIndentedLines,
+  CreateFields,
   CreateMarkers,
   FinalizeConstruct,
   Markers
 } from '@flex-development/docmark-factory-line'
 import type {
   Construct,
-  CreateFields,
   TokenFields
 } from '@flex-development/docmark-util-types'
 import type {

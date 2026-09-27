@@ -20,7 +20,7 @@ import { ok as assert } from 'devlop'
 /**
  * The hashbang comment construct.
  *
- * This construct is expected to run at the `source` content level.
+ * This construct is expected to run at the `comments` content level.
  *
  * @const {ContinuableConstruct & NamedConstruct} hashbang
  */

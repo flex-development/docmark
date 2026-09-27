@@ -75,7 +75,7 @@ describe('integration:docmark', () => {
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act
-    const result = postprocess(parse(options).source().write(slice))
+    const result = postprocess(parse(options).comments().write(slice))
     const beforeLast = result.at(-2)
     const last = result.at(-1)
 

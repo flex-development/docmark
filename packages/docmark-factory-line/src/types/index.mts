@@ -4,6 +4,7 @@
  */
 
 export type { default as AllowIndentedLines } from './allow-indented-lines.mts'
+export type { default as CreateFields } from './create-fields.mts'
 export type { default as CreateMarkers } from './create-markers.mts'
 export type { default as FinalizeConstruct } from './finalize-construct.mts'
 export type { default as Markers } from './markers.mts'

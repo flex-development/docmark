@@ -9,7 +9,7 @@
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![license](https://img.shields.io/github/license/flex-development/docmark)](LICENSE.md)
 
-[docmark][] factory to parse [docdown space][ws].
+[docmark][] factory to parse [whitespace][ws].
 
 ## Contents
 
@@ -18,6 +18,7 @@
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`factorySpace(effects, ok[, type][, max])`][api-factory]
 - [Types](#types)
 - [Contribute](#contribute)
 
@@ -66,7 +67,27 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+This package exports the identifier [`factorySpace`][api-factory].\
+There is no default export.
+
+### `factorySpace(effects, ok[, type][, max])`
+
+Tokenize spaces and tabs.
+
+#### Parameters
+
+- `effects` ([`Effects`][effects])
+  — the context object used to transition the state machine
+- `ok` ([`State`][state])
+  — the successful tokenization state
+- `type` ([`TokenType`][token-type] | `null` | `undefined`, optional)
+  — the token type to capture whitespace as
+- `max` (`number` | `null` | `undefined`, optional)
+  — the maximum number of spaces/tabs to consume (exclusive)
+
+#### Returns
+
+([`State`][state]) The initial state
 
 ## Types
 
@@ -91,13 +112,21 @@ By interacting with this repository, organization, or community you agree to abi
 Small primitives power larger systems.
 Support long-term stability by sponsoring Flex Development.
 
+[api-factory]: #factoryspaceeffects-ok-type-max
+
 [docmark]: ../../README.md
+
+[effects]: ../docmark-util-types/src/effects.mts
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
 
 [semver]: https://semver.org
+
+[state]: ../docmark-util-types/src/state.mts
+
+[token-type]: ../docmark-util-types/src/token-type.mts
 
 [typescript]: https://www.typescriptlang.org
 

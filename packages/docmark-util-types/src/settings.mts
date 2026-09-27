@@ -3,15 +3,15 @@
  * @module docmark-util-types/Settings
  */
 
-import type {
-  LanguageSettings,
-  Modes
-} from '@flex-development/docmark-util-types'
+import type { LanguageSettings } from '@flex-development/docmark-util-types'
 
 /**
  * Additional extension settings.
  *
- * This interface can be augmented to register custom settings.
+ * Language-specific options are inherited from {@linkcode LanguageSettings}.
+ *
+ * This interface can be augmented to register global settings
+ * or override already-registered language-specific settings.
  *
  * @example
  *  declare module '@flex-development/docmark-util-types' {
@@ -24,14 +24,6 @@ import type {
  *
  * @extends {LanguageSettings}
  */
-interface Settings extends LanguageSettings {
-  /**
-   * Record where each key is a registered comment kind
-   * and each value is a registered comment parsing mode.
-   *
-   * @see {@linkcode Modes}
-   */
-  modes?: Modes | undefined
-}
+interface Settings extends LanguageSettings {}
 
 export type { Settings as default }

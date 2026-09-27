@@ -34,7 +34,7 @@ export default factoryLineComment
  *
  * @this {void}
  *
- * @param {NamedOptions | Options} options
+ * @param {Options} options
  *  The options for creating the construct
  * @return {T}
  *  The line comment construct

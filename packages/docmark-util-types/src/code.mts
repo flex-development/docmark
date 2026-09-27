@@ -6,7 +6,7 @@
 /**
  * A character code.
  *
- * This often the same as what [`String#codePointAt`][codepointat] yields,
+ * This is often the same as what [`String#codePointAt`][codepointat] yields,
  * but docmark adds meaning to other values as well.
  *
  * The code `null` represents the end of the input stream (`eos`).

@@ -4,7 +4,7 @@
  */
 
 /**
- * Constant values.
+ * The constant value dictionary.
  *
  * @enum {number | string}
  */
@@ -26,10 +26,10 @@ const constants = {
   commentKindLine: 'line',
   commentPaddingSizeMin: 2,
   contentTypeComment: 'comment',
+  contentTypeComments: 'comments',
   contentTypeContent: 'content',
   contentTypeDocument: 'document',
   contentTypeFlow: 'flow',
-  contentTypeSource: 'source',
   contentTypeString: 'string',
   contentTypeText: 'text',
   contentTypeType: 'type',

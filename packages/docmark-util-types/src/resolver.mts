@@ -6,11 +6,12 @@
 import type {
   Construct,
   Event,
-  TokenizeContext
+  TokenizeContext,
+  Tokenizer
 } from '@flex-development/docmark-util-types'
 
 /**
- * Handle events coming from `tokenize`.
+ * Handle events coming from a {@linkcode Tokenizer}.
  *
  * @see {@linkcode Construct.tokenize}
  * @see {@linkcode Event}
@@ -21,7 +22,7 @@ import type {
  * @param {Event[]} events
  *  The current list of events
  * @param {TokenizeContext} context
- *  The tokenize context
+ *  The tokenization context
  * @return {Event[]}
  *  The list of changed events
  */

@@ -8,7 +8,6 @@ exports[`e2e:docmark-util-symbol > should expose public api 1`] = `
   "ev",
   "kind",
   "lang",
-  "mode",
   "tt",
 ]
 `;

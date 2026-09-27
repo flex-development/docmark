@@ -13,7 +13,7 @@ export default subtokenize
 /**
  * Tokenize embedded content.
  *
- * Some tokens declare a {@linkcode ContentType}.
+ * Some tokens declare a {@linkcode ContentType}.\
  * These tokens do not contain fully parsed content themselves.
  * Tokens with a `chunk*` (i.e. `chunkMarkdown`, `chunkDocument`, `chunkFlow`)
  * type and a `contentType` act as containers for another tokenizer.
@@ -25,13 +25,13 @@ export default subtokenize
  * └─ chunkComment
  * ```
  *
- * A `chunkComment` token may contain markdown, block tags, inline tags, and
- * other syntax. This function replaces those chunk tokens with the events
- * produced by their child tokenizer.
+ * A `chunkComment` token may contain embedded syntax.\
+ * This function replaces those chunk tokens with the events produced by their
+ * child tokenizer.
  *
  * Linked chunks are handled as one logical stream, but child events are spliced
- * back into the same positions as the original chunk tokens. This preserves
- * surrounding events such as ones for `commentLinePrefix`.
+ * back into the same positions as the original chunk tokens.\
+ * This preserves surrounding events such as ones for `commentLinePrefix`.
  *
  * @this {void}
  *

@@ -10,9 +10,6 @@ import type { ContinuableConstruct } from '@flex-development/docmark-util-types'
  *
  * @see {@linkcode ContinuableConstruct}
  *
- * @template {ContinuableConstruct} T
- *  The construct to finalize
- *
  * @this {void}
  *
  * @param {ContinuableConstruct} construct

@@ -11,8 +11,8 @@ import type * as micromark from 'micromark-util-types'
  * The token type `null` is forbidden.
  * The ecosystem uses the `null` key to support additional functionality.
  *
- * Libraries and other tools can augment this interface
- * to register custom token types.
+ * Libraries and other tools can augment this interface to register
+ * custom token types.
  *
  * @example
  *  declare module '@flex-development/docmark-util-types' {
@@ -32,7 +32,6 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   chunkType: 'chunkType'
   comment: 'comment'
   commentCloser: 'commentCloser'
-  commentLineMarker: 'commentLineMarker'
   commentLinePrefix: 'commentLinePrefix'
   commentMarker: 'commentMarker'
   commentOpener: 'commentOpener'
@@ -50,7 +49,7 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   namepathMarker: 'namepathMarker'
 
   /**
-   * Forbidden token type.
+   * The forbidden token type.
    *
    * The ecosystem uses the `null` key to support additional functionality.
    */

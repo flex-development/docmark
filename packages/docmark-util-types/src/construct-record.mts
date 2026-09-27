@@ -7,7 +7,7 @@ import type { ConstructPack } from '@flex-development/docmark-util-types'
 import type { Numeric } from '@flex-development/mark/core'
 
 /**
- * Several constructs, mapped from their initial codes.
+ * An object containing several construct mapped from their initial codes.
  */
 interface ConstructRecord {
   /**

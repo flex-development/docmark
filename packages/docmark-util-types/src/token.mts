@@ -11,14 +11,14 @@ import type {
 } from '@flex-development/docmark-util-types'
 
 /**
- * A span of one (`1`) or more chunks.
+ * A span of chunks.
  *
  * Tokens are the core of what docmark produces: libraries and other tools can
  * turn them into different things.
  *
- * Tokens are essentially names attached to a slice of chunks, such as
- * `lineEndingBlank` for certain line endings, `codeFenced` for fenced code, or
- * `summary` for an entire comment summary.
+ * Tokens are essentially names attached to a slice of chunks,
+ * such as `lineEndingBlank` for certain line endings,
+ * `codeFenced` for fenced code, or `summary` for an entire comment summary.
  *
  * Sometimes, more info is attached to tokens, such as `_open` and `_close`
  * by `attention` (strong, emphasis) to signal whether the sequence can open

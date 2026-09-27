@@ -5,13 +5,13 @@
 
 import type {
   AllowIndentedLines,
+  CreateFields,
   CreateMarkers,
   FinalizeConstruct,
   Markers
 } from '@flex-development/docmark-factory-line'
 import type {
   Construct,
-  CreateFields,
   TokenFields
 } from '@flex-development/docmark-util-types'
 import type { whitespace } from '@flex-development/mark-util-character'
@@ -63,7 +63,8 @@ interface Options {
   finalizeConstruct?: FinalizeConstruct | null | undefined
 
   /**
-   * The markers configuration, or a function that returns the configuration.
+   * The line markers configuration,
+   * or a function that returns the configuration.
    *
    * @see {@linkcode CreateMarkers}
    * @see {@linkcode Markers}

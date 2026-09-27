@@ -18,12 +18,13 @@
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`combineExtensions<T>(extensions)`][api-combine-extensions]
 - [Types](#types)
 - [Contribute](#contribute)
 
 ## What is this?
 
-This package can merge multiple syntax extensions into one.
+This package exposes a utility to merge multiple syntax extensions into one.
 
 ## When should I use this?
 
@@ -66,11 +67,46 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+The default, and only, export is [`combineExtensions`][api-combine-extensions].
+
+### `combineExtensions<T>(extensions)`
+
+Combine multiple extensions into one.
+
+#### Overloads
+
+```ts
+function combineExtensions<T extends NormalizedExtension>(
+  extensions: AnyExtension | AnyExtension[] | null | undefined
+): T
+```
+
+```ts
+function combineExtensions<T extends NormalizedExtension>(
+  ...extensions: (AnyExtension | AnyExtension[] | null | undefined)[]
+): T
+```
+
+#### Type Parameters
+
+- `T` ([`NormalizedExtension`][normalized-extension])
+  — the combined extension
+
+#### Parameters
+
+- `extensions` ([`AnyExtension`][any-extension] | [`AnyExtension[]`][any-extension] | `null` | `undefined`)
+  — the extension to copy or the list of extensions to combine
+- `...extensions` ([`(AnyExtension | AnyExtension[] | null | undefined)[]`][any-extension])
+  — the extensions to combine
+
+#### Returns
+
+(`T`) The combined extension
 
 ## Types
 
-This package is fully typed with [TypeScript][].
+This package is fully typed with [TypeScript][].\
+It exports no additional types.
 
 ## Contribute
 
@@ -79,11 +115,17 @@ See [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
 This project has a [code of conduct](../../CODE_OF_CONDUCT.md).
 By interacting with this repository, organization, or community you agree to abide by its terms.
 
+[api-combine-extensions]: #combineextensionstextensions
+
+[any-extension]: ../docmark-util-types/src/any-extension.mts
+
 [docmark]: ../../README.md
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
+
+[normalized-extension]: ../docmark-util-types/src/normalized-extension.mts
 
 [typescript]: https://www.typescriptlang.org
 

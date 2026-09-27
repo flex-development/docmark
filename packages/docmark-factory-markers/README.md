@@ -18,7 +18,12 @@
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`factoryMarkers(effects, ok, nok, markers)`][api-factory]
+  - Utilities
+    - [`normalize(marker)`][api-normalize]
 - [Types](#types)
+  - [`Info`][api-info]
+  - [`Sequence`][api-sequence]
 - [Contribute](#contribute)
 
 ## What is this?
@@ -66,12 +71,88 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+This package exports the identifier [`factoryMarkers`][api-factory].\
+There is no default export.
+
+### `factoryMarkers(effects, ok, nok, markers)`
+
+Create a state that tokenizes a sequence of comment markers.
+
+The returned state consumes each marker in `markers` in order.\
+Each marker produces a token using the specified token type, or [`tt.commentMarker`][tt] by default.
+
+If the input does not match the expected sequence, tokenization fails without consuming the mismatching character.
+
+#### Parameters
+
+- `effects` ([`Effects`][effects])
+  — the context object used to transition the state machine
+- `ok` ([`State`][state])
+  — the successful tokenization state
+- `nok` ([`State`][state])
+  — the failed tokenization state
+- `markers` ([`CodeCheck`][code-check] | [`Info`][api-info] | [`Marker`][marker] | [`Sequence`][api-sequence])
+  — the comment marker matcher, info object, code, or sequence
+
+#### Returns
+
+([`State`][state]) The initial state
+
+### Utilities
+
+`@flex-development/docmark-factory-markers/utils` exports the identifier [`normalize`][api-normalize].\
+There is no default export.
+
+#### `normalize(marker)`
+
+Normalize a comment marker configuration.
+
+##### Parameters
+
+- `marker` ([`CodeCheck`][code-check] | [`Info`][api-info] | [`Marker`][marker])
+  — the comment marker matcher, info object, or code
+
+##### Returns
+
+([`Info`][api-info]) The comment marker info object
 
 ## Types
 
-This package is fully typed with [TypeScript][].
-It exports no additional types.
+This package is fully typed with [TypeScript][].\
+It exports additional types.
+
+### `Info`
+
+Info about how to tokenize a comment marker (`interface`).
+
+#### Properties
+
+- `code` ([`CodeCheck`][code-check] | [`Marker`][marker])
+  — the character code to consume or the character code matcher
+- `fields` ([`TokenFields`][token-fields] | `null` | `undefined`, optional)
+  — the fields to attach to the emitted token
+- `optional` (`boolean` | `null` | `undefined`, optional)
+  — whether the comment marker is optional.\
+  if `true`, an unexpected code successfully terminates the marker sequence.
+- `type` ([`TokenType`][token-type] | `null` | `undefined`, optional)
+  — the token type to emit when `code`, or the character code matched by `code` is consumed.\
+  if `type` is `undefined` [`tt.commentMarker`][tt] is used.\
+  if `null`, `code` is consumed without emitting a token
+
+### `Sequence`
+
+A comment marker info list (`type` alias).
+
+Each element specifies a marker to consume and, optionally, the token type to emit for that marker.
+
+At least one element is required.
+
+```ts
+type Sequence = [
+  marker: CodeCheck | Info | Marker,
+  ...markers: (CodeCheck | Info | Marker)[]
+]
+```
 
 ## Project
 
@@ -91,13 +172,35 @@ By interacting with this repository, organization, or community you agree to abi
 Small primitives power larger systems.
 Support long-term stability by sponsoring Flex Development.
 
+[api-factory]: #factorymarkerseffects-ok-nok-markers
+
+[api-info]: #info
+
+[api-normalize]: #normalizemarker
+
+[api-sequence]: #sequence
+
+[code-check]: https://github.com/flex-development/mark/blob/main/src/parse/types/code-check.mts
+
 [docmark]: ../../README.md
+
+[effects]: ../docmark-util-types/src/effects.mts
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
 
+[marker]: ../docmark-util-types/src/marker.mts
+
 [semver]: https://semver.org
+
+[state]: ../docmark-util-types/src/state.mts
+
+[token-fields]: ../docmark-util-types/src/token-fields.mts
+
+[token-type]: ../docmark-util-types/src/token-type.mts
+
+[tt]: ../docmark-util-symbol/src/tt.mts
 
 [typescript]: https://www.typescriptlang.org
 

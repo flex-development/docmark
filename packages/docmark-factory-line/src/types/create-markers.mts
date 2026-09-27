@@ -7,7 +7,7 @@ import type { Markers } from '@flex-development/docmark-factory-line'
 import type { TokenizeContext } from '@flex-development/docmark-util-types'
 
 /**
- * Create a markers configuration.
+ * Create a line markers configuration.
  *
  * @see {@linkcode Markers}
  * @see {@linkcode TokenizeContext}

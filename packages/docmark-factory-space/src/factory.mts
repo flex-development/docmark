@@ -10,7 +10,6 @@ import type {
   TokenType
 } from '@flex-development/docmark-util-types'
 import { whitespace } from '@flex-development/mark-util-character'
-import type * as micromark from 'micromark-util-types'
 
 /**
  * Tokenize spaces and tabs.
@@ -18,11 +17,10 @@ import type * as micromark from 'micromark-util-types'
  * @see {@linkcode Effects}
  * @see {@linkcode State}
  * @see {@linkcode TokenType}
- * @see {@linkcode micromark.Effects}
  *
  * @this {void}
  *
- * @param {Effects | micromark.Effects} effects
+ * @param {Effects} effects
  *  The context object used to transition the state machine
  * @param {State} ok
  *  The successful tokenization state
@@ -35,7 +33,7 @@ import type * as micromark from 'micromark-util-types'
  */
 function factorySpace(
   this: void,
-  effects: Effects | micromark.Effects,
+  effects: Effects,
   ok: State,
   type?: TokenType | null | undefined,
   max?: number | null | undefined
@@ -66,7 +64,7 @@ function factorySpace(
    */
   function maybeWhitespace(this: void, code: Code): State | undefined {
     if (!whitespace(code)) return ok(code)
-    return type && effects.enter(type as never), insideWhitespace(code)
+    return type && effects.enter(type), insideWhitespace(code)
   }
 
   /**
@@ -83,7 +81,7 @@ function factorySpace(
       return insideWhitespace
     }
 
-    type && effects.exit(type as never)
+    type && effects.exit(type)
     return ok(code)
   }
 }

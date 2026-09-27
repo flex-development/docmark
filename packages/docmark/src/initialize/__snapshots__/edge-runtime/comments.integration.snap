@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/01.txt") 1`] = `
 [
   [
     "enter",
@@ -385,7 +385,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/02.txt") 1`] = `
 [
   [
     "enter",
@@ -772,7 +772,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/03.txt") 1`] = `
 [
   [
     "enter",
@@ -1835,7 +1835,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/04.txt") 1`] = `
 [
   [
     "enter",
@@ -2564,7 +2564,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/05.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/05.txt") 1`] = `
 [
   [
     "enter",
@@ -3547,7 +3547,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/06.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/06.txt") 1`] = `
 [
   [
     "enter",
@@ -4440,7 +4440,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/07.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/07.txt") 1`] = `
 [
   [
     "enter",
@@ -5969,7 +5969,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/08.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/08.txt") 1`] = `
 [
   [
     "enter",
@@ -6696,7 +6696,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/09.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/09.txt") 1`] = `
 [
   [
     "enter",
@@ -7507,7 +7507,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/10.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/10.txt") 1`] = `
 [
   [
     "enter",
@@ -8530,7 +8530,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/11.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/11.txt") 1`] = `
 [
   [
     "enter",
@@ -10065,7 +10065,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/12.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/12.txt") 1`] = `
 [
   [
     "enter",
@@ -12442,7 +12442,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/13.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/13.txt") 1`] = `
 [
   [
     "enter",
@@ -13037,7 +13037,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/14.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/14.txt") 1`] = `
 [
   [
     "enter",
@@ -13512,7 +13512,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/15.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/15.txt") 1`] = `
 [
   [
     "enter",
@@ -14279,7 +14279,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/16.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/16.txt") 1`] = `
 [
   [
     "enter",
@@ -14834,7 +14834,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/17.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/17.txt") 1`] = `
 [
   [
     "enter",
@@ -15221,7 +15221,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/18.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/18.txt") 1`] = `
 [
   [
     "enter",
@@ -15996,7 +15996,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("multiline/block/19.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/19.txt") 1`] = `
 [
   [
     "enter",
@@ -16513,7 +16513,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("opener-only/block/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("opener-only/block/01.txt") 1`] = `
 [
   [
     "enter",
@@ -16644,7 +16644,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("opener-only/block/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("opener-only/block/02.txt") 1`] = `
 [
   [
     "enter",
@@ -16819,7 +16819,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("opener-only/block/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("opener-only/block/03.txt") 1`] = `
 [
   [
     "enter",
@@ -16994,7 +16994,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("opener-only/block/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("opener-only/block/04.txt") 1`] = `
 [
   [
     "enter",
@@ -17213,7 +17213,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/01.txt") 1`] = `
 [
   [
     "enter",
@@ -17386,7 +17386,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/02.txt") 1`] = `
 [
   [
     "enter",
@@ -17601,7 +17601,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/03.txt") 1`] = `
 [
   [
     "enter",
@@ -17858,7 +17858,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/04.txt") 1`] = `
 [
   [
     "enter",
@@ -18157,7 +18157,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/05.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/05.txt") 1`] = `
 [
   [
     "enter",
@@ -18500,7 +18500,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/06.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/06.txt") 1`] = `
 [
   [
     "enter",
@@ -18717,7 +18717,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/07.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/07.txt") 1`] = `
 [
   [
     "enter",
@@ -18934,7 +18934,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/08.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/08.txt") 1`] = `
 [
   [
     "enter",
@@ -19235,7 +19235,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/09.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/09.txt") 1`] = `
 [
   [
     "enter",
@@ -19452,7 +19452,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/10.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/10.txt") 1`] = `
 [
   [
     "enter",
@@ -19671,7 +19671,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse block comments in source file ("sameline/block/11.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/11.txt") 1`] = `
 [
   [
     "enter",
@@ -19842,7 +19842,7 @@ exports[`integration:initialize/source > should parse block comments in source f
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("multiline/line/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/01.txt") 1`] = `
 [
   [
     "enter",
@@ -20649,7 +20649,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("multiline/line/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/02.txt") 1`] = `
 [
   [
     "enter",
@@ -21458,7 +21458,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("multiline/line/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/03.txt") 1`] = `
 [
   [
     "enter",
@@ -21887,7 +21887,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("multiline/line/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/04.txt") 1`] = `
 [
   [
     "enter",
@@ -22444,7 +22444,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("multiline/line/05.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/05.txt") 1`] = `
 [
   [
     "enter",
@@ -22959,7 +22959,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("multiline/line/06.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/06.txt") 1`] = `
 [
   [
     "enter",
@@ -26062,7 +26062,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("opener-only/line/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("opener-only/line/01.txt") 1`] = `
 [
   [
     "enter",
@@ -26275,7 +26275,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("opener-only/line/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("opener-only/line/02.txt") 1`] = `
 [
   [
     "enter",
@@ -26534,7 +26534,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("opener-only/line/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("opener-only/line/03.txt") 1`] = `
 [
   [
     "enter",
@@ -26833,7 +26833,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("opener-only/line/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("opener-only/line/04.txt") 1`] = `
 [
   [
     "enter",
@@ -27134,7 +27134,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("sameline/line/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("sameline/line/01.txt") 1`] = `
 [
   [
     "enter",
@@ -27433,7 +27433,7 @@ exports[`integration:initialize/source > should parse line comments in source fi
 ]
 `;
 
-exports[`integration:initialize/source > should parse line comments in source file ("sameline/line/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments in source file ("sameline/line/02.txt") 1`] = `
 [
   [
     "enter",

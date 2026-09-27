@@ -9,7 +9,7 @@ import type {
 } from '@flex-development/docmark-util-types'
 
 /**
- * Record where each key is {@linkcode ContentType},
+ * Record where each key is {@linkcode ContentType}
  * and each value is an {@linkcode InitialConstruct}.
  */
 type InitialConstructs = { [K in ContentType]: InitialConstruct }

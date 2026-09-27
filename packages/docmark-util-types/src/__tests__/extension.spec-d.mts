@@ -26,6 +26,12 @@ describe('unit-d:Extension', () => {
       .toEqualTypeOf<ConstructRecord | undefined>()
   })
 
+  it('should match [comments?: ConstructRecord | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('comments')
+      .toEqualTypeOf<ConstructRecord | undefined>()
+  })
+
   it('should match [content?: ConstructRecord | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('content')
@@ -72,12 +78,6 @@ describe('unit-d:Extension', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('settings')
       .toEqualTypeOf<Settings | undefined>()
-  })
-
-  it('should match [source?: ConstructRecord | undefined]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('source')
-      .toEqualTypeOf<ConstructRecord | undefined>()
   })
 
   it('should match [string?: ConstructRecord | undefined]', () => {

@@ -6,11 +6,10 @@
 import type { ConstructRecord } from '@flex-development/docmark-util-types'
 
 /**
- * Union of construct positions.
+ * The position of construct when merging into a {@linkcode ConstructRecord}.
  *
- * Positions determine whether a construct,
- * when in a {@linkcode ConstructRecord}, takes precedence over existing
- * constructs for the same character code when merged.
+ * Construct positions determine whether a construct takes precedence over
+ * existing constructs for the same character code when merged.
  */
 type ConstructPosition = 'after' | 'before'
 

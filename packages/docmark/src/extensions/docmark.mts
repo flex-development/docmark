@@ -4,6 +4,7 @@
  */
 
 import { summary, typeExpressionValue } from '@flex-development/docmark-grammar'
+import { constants } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
 
 /**
@@ -16,10 +17,11 @@ import type { NormalizedExtension } from '@flex-development/docmark-util-types'
  * @const {NormalizedExtension} docmark
  */
 const docmark: NormalizedExtension = {
-  comment: { null: summary },
-  settings: {},
-  source: {},
-  type: { null: typeExpressionValue }
+  [constants.contentTypeComments]: {},
+  [constants.contentTypeComment]: { null: summary },
+  [constants.contentTypeType]: { null: typeExpressionValue },
+  disable: { null: [] },
+  settings: {}
 }
 
 export default docmark

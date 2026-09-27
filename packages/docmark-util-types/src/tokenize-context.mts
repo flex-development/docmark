@@ -48,7 +48,7 @@ interface TokenizeContext {
   _gfmTasklistFirstContentOfListItem?: boolean | undefined
 
   /**
-   * Whether a speculative check is being ran.
+   * Whether a speculative check is being run.
    *
    * @see {@linkcode Check}
    */

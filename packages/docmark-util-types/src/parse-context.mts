@@ -35,7 +35,14 @@ interface ParseContext {
   comment: Create
 
   /**
-   * The normalized syntax extension.
+   * Create a comments parser.
+   *
+   * @see {@linkcode Create}
+   */
+  comments: Create
+
+  /**
+   * The full, normalized syntax extension.
    *
    * @see {@linkcode FullNormalizedExtension}
    */
@@ -68,12 +75,12 @@ interface ParseContext {
   flow: Create
 
   /**
-   * Whether a comment was just added.
+   * Whether a comment was just entered.
    */
   freshComment?: boolean | null | undefined
 
   /**
-   * Whether a comment region was just added.
+   * Whether a comment region was just entered.
    */
   freshRegion?: boolean | null | undefined
 
@@ -104,13 +111,6 @@ interface ParseContext {
    * Whether a comment summary is not allowed.
    */
   skipSummary?: boolean | undefined
-
-  /**
-   * Create a source document parser.
-   *
-   * @see {@linkcode Create}
-   */
-  source: Create
 
   /**
    * Create a markdown string parser.

@@ -39,7 +39,7 @@ interface ParseOptions {
   finalizeContext?: FinalizeContext | null | undefined
 
   /**
-   * Record where each key is {@linkcode ContentType},
+   * Record where each key is {@linkcode ContentType}
    * and each value is an {@linkcode InitialConstruct} override.
    */
   initializers?: Partial<InitialConstructs> | null | undefined

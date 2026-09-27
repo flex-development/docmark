@@ -15,7 +15,7 @@ import type { NormalizedExtension } from '@flex-development/docmark-util-types'
  * @const {NormalizedExtension} markdown
  */
 const markdown: NormalizedExtension = {
-  [constants.contentTypeSource]: {
+  [constants.contentTypeComments]: {
     [codes.lessThan]: [markdownComment]
   }
 }
