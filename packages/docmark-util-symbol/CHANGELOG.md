@@ -1,3 +1,32 @@
+## [docmark-util-symbol@1.0.0-alpha.11](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.10...docmark-util-symbol@1.0.0-alpha.11) (2026-09-28)
+
+### ⚠ BREAKING CHANGES
+
+- api review
+
+### :package: Build
+
+- [[`ccb79fb`](https://github.com/flex-development/docmark/commit/ccb79fb5113c3fa1ce27df024b790cd5f90d890b)] **deps-dev:** Bump rolldown from 1.2.9 to 1.2.10 ([#312](https://github.com/flex-development/docmark/issues/312))
+- [[`f3cb955`](https://github.com/flex-development/docmark/commit/f3cb955b569d2ab74c882eed596e139694a19365)] **deps:** bump the mark group with 2 updates across 3 directories
+- [[`732618f`](https://github.com/flex-development/docmark/commit/732618f451ed45f27ba0b169fc19ccf4c8aa0d87)] **deps:** bump the micromark group with 3 updates across 4 directories
+
+### :robot: Continuous Integration
+
+- [[`d4ae63e`](https://github.com/flex-development/docmark/commit/d4ae63e597b1008845e5d7379b890b55142086ac)] **workflows:** [`release`] remove `devDependencies` from manifest
+
+### :pencil: Documentation
+
+- [[`fc51150`](https://github.com/flex-development/docmark/commit/fc5115026cfeb7acdf20fcf807c51b7cbfca741b)] api, extensions
+
+### :sparkles: Features
+
+- [[`d423c81`](https://github.com/flex-development/docmark/commit/d423c81bd46fd409a2e323bea0dfa7e6f6a5693d)] capture indented syntax state
+
+### :mechanical_arm: Refactors
+
+- [[`fbfe78a`](https://github.com/flex-development/docmark/commit/fbfe78ab7ec001866ce4197aa228c4f8944ce582)] improve construct factory closure states
+- [[`252f7d2`](https://github.com/flex-development/docmark/commit/252f7d268d66dfb1057a292a654c6e50e3f688b0)] api review
+
 ## [docmark-util-symbol@1.0.0-alpha.10](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.9...docmark-util-symbol@1.0.0-alpha.10) (2026-09-25)
 
 ### ⚠ BREAKING CHANGES
@@ -375,6 +404,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 

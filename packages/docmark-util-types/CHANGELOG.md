@@ -1,3 +1,21 @@
+## [docmark-util-types@1.0.0-alpha.19](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.18...docmark-util-types@1.0.0-alpha.19) (2026-09-28)
+
+### ⚠ BREAKING CHANGES
+
+- api review
+
+### :robot: Continuous Integration
+
+- [[`d4ae63e`](https://github.com/flex-development/docmark/commit/d4ae63e597b1008845e5d7379b890b55142086ac)] **workflows:** [`release`] remove `devDependencies` from manifest
+
+### :pencil: Documentation
+
+- [[`fc51150`](https://github.com/flex-development/docmark/commit/fc5115026cfeb7acdf20fcf807c51b7cbfca741b)] api, extensions
+
+### :mechanical_arm: Refactors
+
+- [[`252f7d2`](https://github.com/flex-development/docmark/commit/252f7d268d66dfb1057a292a654c6e50e3f688b0)] api review
+
 ## [docmark-util-types@1.0.0-alpha.18](https://github.com/flex-development/docmark/compare/docmark-util-types@1.0.0-alpha.17...docmark-util-types@1.0.0-alpha.18) (2026-09-26)
 
 ### :sparkles: Features
@@ -444,6 +462,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
