@@ -30,7 +30,11 @@ a comment parser with support for markdown.
 
 ## What is this?
 
-**TODO**: what is this?
+<!-- note: this section has to be in sync with the monorepo readme. -->
+
+`docmark` is an open source comment parser with support for markdown written in TypeScript.\
+The parser is implemented as a state machine that emits concrete tokens with positional info.\
+External tools and libraries can turn these tokens into different things.
 
 ## When should I use this?
 
@@ -40,7 +44,7 @@ a comment parser with support for markdown.
 
 This package is [ESM only][esm].
 
-In Node.js (version 20+) with [yarn][]:
+In Node.js (version 22+) with [yarn][]:
 
 ```sh
 yarn add @flex-development/docmark

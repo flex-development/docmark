@@ -8,7 +8,7 @@
 [![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat\&logo=vitest\&logoColor=ffffff)](https://vitest.dev)
 [![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat\&logo=yarn\&logoColor=ffffff)](https://yarnpkg.com)
 
-Comment parser with support for markdown, positional info, and concrete tokens.
+comment parser with support for markdown, positional info, and concrete tokens.
 
 ## Contents
 
@@ -43,17 +43,21 @@ Comment parser with support for markdown, positional info, and concrete tokens.
 
 ## What is this?
 
-**TODO**: what is this?
+<!-- note: this section has to be in sync with the `docmark` readme. -->
+
+`docmark` is an open source comment parser with support for markdown written in TypeScript.\
+The parser is implemented as a state machine that emits concrete tokens with positional info.\
+External tools and libraries can turn these tokens into different things.
 
 ## When should I use this?
 
-**TODO**: when should I use this?
+**TODO**: when should i use this?
 
 ## Install
 
 This package is [ESM only][esm].
 
-In Node.js (version 20+) with [yarn][]:
+In Node.js (version 22+) with [yarn][]:
 
 ```sh
 yarn add @flex-development/docmark
@@ -69,14 +73,14 @@ yarn add @flex-development/docmark
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { docmark } from 'https://esm.sh/@flex-development/docmark'
+import { parse, postprocess, preprocess } from 'https://esm.sh/@flex-development/docmark'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { docmark } from 'https://esm.sh/@flex-development/docmark'
+  import { parse, postprocess, preprocess } from 'https://esm.sh/@flex-development/docmark'
 </script>
 ```
 
@@ -86,17 +90,39 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+See [§ API][api] in the `docmark` readme.
 
 ## Extensions
 
-### List of extensions
-
-**TODO**: list of extensions
+`docmark` supports extensions.\
+[`Extension`s][extension] change how comments are parsed.
 
 ### `Extension`
 
-**TODO**: `Extension`
+A syntax extension is an object whose fields are typically the names of hooks,
+referring to where constructs "hook" into.
+The fields at such objects are character codes, mapping to constructs as values,
+while other fields provide parser configuration or additional behavior.
+
+The [builtin extensions][extensions-builtin] are an example.\
+See them and [existing extensions][extensions] for inspiration.
+
+### List of extensions
+
+- [`@flex-development/docmark-extension-hashbang`][extension-hashbang]
+  — support hasbang comment syntax
+- [`@flex-development/docmark-extension-js`][extension-js]
+  — support javascript comment syntax
+- [`@flex-development/docmark-extension-jsonc`][extension-jsonc]
+  — support json comment syntax
+- [`@flex-development/docmark-extension-sass`][extension-sass]
+  — support sass comment syntax
+- [`@flex-development/docmark-extension-shell`][extension-shell]
+  — support shell comment syntax
+- [`@flex-development/docmark-extension-ts`][extension-ts]
+  — support typescript comment syntax
+- [`@flex-development/docmark-extension-yaml`][extension-yaml]
+  — support yaml comment syntax
 
 ### Extending docdown
 
@@ -172,6 +198,28 @@ Consider sponsoring to support maintenance, tests, and long-term stability!
 ### Origin
 
 **TODO**: origin
+
+[api]: ./packages/docmark/README.md#api
+
+[extension]: #extension
+
+[extensions]: #list-of-extensions
+
+[extensions-builtin]: ./packages/docmark/src/extensions/
+
+[extension-hashbang]: https://github.com/flex-development/docmark-extension-hashnbang
+
+[extension-js]: https://github.com/flex-development/docmark-extension-js
+
+[extension-jsonc]: https://github.com/flex-development/docmark-extension-jsonc
+
+[extension-sass]: https://github.com/flex-development/docmark-extension-sass
+
+[extension-shell]: https://github.com/flex-development/docmark-extension-shell
+
+[extension-ts]: https://github.com/flex-development/docmark-extension-ts
+
+[extension-yaml]: https://github.com/flex-development/docmark-extension-yaml
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
