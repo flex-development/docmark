@@ -195,6 +195,11 @@ jobs:
         with:
           tag-prefix: ${{ matrix.workspace != steps.package.outputs.result && format('{0}@', steps.package.outputs.result) || '' }}
           version: ${{ steps.version.outputs.result }}
+      - id: dev-deps
+        if: matrix.workspace != steps.package.outputs.result
+        name: Remove `devDependencies` from manifest
+        run: yq 'del(.devDependencies)' -i package.json
+        working-directory: ${{ steps.workspace-directory.outputs.result }}
       - id: build-metadata
         if: matrix.workspace != steps.package.outputs.result
         name: Add build metadata to manifest
