@@ -67,5 +67,6 @@
   "devDependencies": {
     "@flex-development/docmark-factory-markers": "workspace:1.0.0-alpha.19"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "private": true
 }

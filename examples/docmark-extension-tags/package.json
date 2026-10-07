@@ -55,5 +55,6 @@
     "@flex-development/mark-util-character": "1.1.0",
     "devlop": "1.1.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "private": true
 }
