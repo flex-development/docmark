@@ -1,3 +1,32 @@
+## [docmark-util-symbol@1.0.0-alpha.12](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.11...docmark-util-symbol@1.0.0-alpha.12) (2026-10-07)
+
+### ⚠ BREAKING CHANGES
+
+- source language support
+
+### :package: Build
+
+- [[`536f78a`](https://github.com/flex-development/docmark/commit/536f78aca9e1b53e0aa68b31971266d85bc6fb4b)] **deps-dev:** Bump cspell from 10.3.3 to 10.3.4 ([#335](https://github.com/flex-development/docmark/issues/335))
+- [[`5bb7a3d`](https://github.com/flex-development/docmark/commit/5bb7a3db8563eff1ef64c260457aa9a5215a713e)] **deps-dev:** Bump cspell from 10.3.4 to 10.3.5 ([#354](https://github.com/flex-development/docmark/issues/354))
+- [[`b60776b`](https://github.com/flex-development/docmark/commit/b60776b08690e1368bc17a1a5225728fa2e88d76)] **deps-dev:** Bump cspell from 10.3.5 to 10.3.6 ([#360](https://github.com/flex-development/docmark/issues/360))
+- [[`a52c784`](https://github.com/flex-development/docmark/commit/a52c78482fb2aaafb0a62d7a56afa04ebfda64f1)] **deps-dev:** bump dprint from 0.57.4 to 0.60.1
+- [[`82928fd`](https://github.com/flex-development/docmark/commit/82928fd46f7bd02de49fd21620f4fa7646dae77f)] **deps-dev:** Bump rolldown from 1.2.10 to 1.2.11 ([#338](https://github.com/flex-development/docmark/issues/338))
+- [[`9aa807a`](https://github.com/flex-development/docmark/commit/9aa807a555099529f21aafcbeb1c17ebb362d344)] **deps-dev:** Bump rolldown from 1.2.11 to 1.2.12 ([#361](https://github.com/flex-development/docmark/issues/361))
+- [[`3adfd11`](https://github.com/flex-development/docmark/commit/3adfd11845edecc32c75f084862ab2a379911c61)] **deps-dev:** Bump rollup from 4.63.4 to 4.63.5 ([#339](https://github.com/flex-development/docmark/issues/339))
+- [[`9c9d60c`](https://github.com/flex-development/docmark/commit/9c9d60c20b7a845de2add28c419a2b583cf88d7c)] **deps-dev:** Bump rollup from 4.63.5 to 4.64.0 ([#359](https://github.com/flex-development/docmark/issues/359))
+- [[`a1d01dc`](https://github.com/flex-development/docmark/commit/a1d01dc3f16eeef0311e0913cc234fcf6105a7d2)] **deps-dev:** Bump sh-syntax from 0.6.0 to 0.7.0 ([#336](https://github.com/flex-development/docmark/issues/336))
+- [[`9531168`](https://github.com/flex-development/docmark/commit/9531168a214b4fdf36840271e2b6bb4a6f464e3c)] **deps-dev:** Bump the vitest group across 1 directory with 3 updates ([#358](https://github.com/flex-development/docmark/issues/358))
+- [[`b5e3ab8`](https://github.com/flex-development/docmark/commit/b5e3ab82f9050d29023c69deea477a9787fbcd4a)] **deps-dev:** Bump the vitest group with 3 updates ([#353](https://github.com/flex-development/docmark/issues/353))
+- [[`2c3266a`](https://github.com/flex-development/docmark/commit/2c3266a036e5fb31a509b63503cd8ee168de998f)] **deps-dev:** Bump vite from 8.3.0 to 8.3.1 ([#337](https://github.com/flex-development/docmark/issues/337))
+- [[`9e4f651`](https://github.com/flex-development/docmark/commit/9e4f6519d884a665282efff6bc5974f94fdcbdba)] **deps:** Bump brace-expansion from 1.1.18 to 1.1.21 ([#355](https://github.com/flex-development/docmark/issues/355))
+- [[`5540d46`](https://github.com/flex-development/docmark/commit/5540d46674c29e203b0d7702c4c46db492042303)] **deps:** Bump fast-uri from 3.1.6 to 3.1.8 ([#352](https://github.com/flex-development/docmark/issues/352))
+- [[`0afe9da`](https://github.com/flex-development/docmark/commit/0afe9dac8c230bdbee5dac21518f605bd2bba1f0)] **deps:** Bump ip-address from 10.7.0 to 10.7.2 ([#356](https://github.com/flex-development/docmark/issues/356))
+- [[`9676689`](https://github.com/flex-development/docmark/commit/9676689fb9e3a6fb409956c45d30c46ccadeadf5)] **deps:** Bump undici from 6.28.0 to 6.29.0 ([#357](https://github.com/flex-development/docmark/issues/357))
+
+### :sparkles: Features
+
+- [[`4455b85`](https://github.com/flex-development/docmark/commit/4455b8591fefe8a101ea81cea8b0a8a2387e4cb8)] source language support
+
 ## [docmark-util-symbol@1.0.0-alpha.11](https://github.com/flex-development/docmark/compare/docmark-util-symbol@1.0.0-alpha.10...docmark-util-symbol@1.0.0-alpha.11) (2026-09-28)
 
 ### ⚠ BREAKING CHANGES
@@ -404,6 +433,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
