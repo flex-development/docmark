@@ -3,7 +3,6 @@
  * @module docmark/tests/integration/api
  */
 
-import markdown from '#fixtures/extensions/markdown'
 import typescript from '#fixtures/extensions/typescript'
 import snapshot from '#tests/utils/snapshot-events'
 import { parse, postprocess, preprocess } from '@flex-development/docmark'
@@ -21,58 +20,105 @@ describe('integration:docmark', () => {
   let directory: string
 
   beforeAll(() => {
-    directory = 'packages/docmark/__fixtures__/content/source'
+    directory = 'packages/docmark/__fixtures__/content'
   })
 
-  it.each<[path: string]>([
-    ['empty/01.txt'],
-    ['opener-only/block/01.txt'],
-    ['opener-only/block/02.txt'],
-    ['opener-only/block/03.txt'],
-    ['opener-only/block/04.txt'],
-    ['opener-only/line/01.txt'],
-    ['opener-only/line/02.txt'],
-    ['opener-only/line/03.txt'],
-    ['opener-only/line/04.txt'],
-    ['sameline/block/01.txt'],
-    ['sameline/block/02.txt'],
-    ['sameline/block/03.txt'],
-    ['sameline/block/04.txt'],
-    ['sameline/block/05.txt'],
-    ['sameline/block/06.txt'],
-    ['sameline/block/07.txt'],
-    ['sameline/block/08.txt'],
-    ['sameline/block/09.txt'],
-    ['sameline/block/10.txt'],
-    ['sameline/block/11.txt'],
-    ['sameline/line/01.txt'],
-    ['sameline/line/02.txt'],
-    ['multiline/block/01.txt'],
-    ['multiline/block/02.txt'],
-    ['multiline/block/03.txt'],
-    ['multiline/block/04.txt'],
-    ['multiline/block/05.txt'],
-    ['multiline/block/06.txt'],
-    ['multiline/block/07.txt'],
-    ['multiline/block/08.txt'],
-    ['multiline/block/09.txt'],
-    ['multiline/block/10.txt'],
-    ['multiline/block/11.txt'],
-    ['multiline/block/12.txt'],
-    ['multiline/block/13.txt'],
-    ['multiline/block/14.txt'],
-    ['multiline/block/15.txt'],
-    ['multiline/line/01.txt'],
-    ['multiline/line/02.txt'],
+  it('should handle no content', () => {
+    // Arrange
+    const file: FileLike = read(pathe.join(directory, 'source/empty.txt'))
+    const options: ParseOptions = { extensions: [typescript] }
+    const slice: Chunk[] = preprocess()(file, undefined, true)
+
+    // Act
+    const result = parse(options).comments().write(slice)
+
+    // Expect
+    expect(result).to.have.property('length', 2)
+    expect(result).to.each.have.nested.property('1.start')
+    expect(result).to.each.have.nested.property('1.end')
+    expect(result).to.each.have.nested.property('1.type', tt.eoc)
+    expect(snapshot(result)).toMatchSnapshot()
+  })
+
+  it.each<[path: string, ...Parameters<typeof parse>]>([
+    ['opener-only/01.txt'],
+    ['opener-only/02.txt'],
+    ['opener-only/03.txt'],
+    ['opener-only/04.txt'],
+    ['sameline/01.txt'],
+    ['sameline/02.txt'],
+    ['sameline/03.txt'],
+    ['sameline/04.txt'],
+    ['sameline/05.txt'],
+    ['sameline/06.txt'],
+    ['sameline/07.txt'],
+    ['sameline/08.txt'],
+    ['sameline/09.txt'],
+    ['sameline/10.txt'],
+    ['sameline/11.txt'],
+    ['multiline/01.txt'],
+    ['multiline/02.txt'],
+    ['multiline/03.txt'],
+    ['multiline/04.txt'],
+    ['multiline/05.txt'],
+    ['multiline/06.txt'],
+    ['multiline/07.txt'],
+    ['multiline/08.txt'],
+    ['multiline/09.txt'],
+    ['multiline/10.txt'],
+    ['multiline/11.txt'],
+    ['multiline/12.txt'],
+    ['multiline/13.txt'],
+    ['multiline/14.txt'],
+    ['multiline/15.txt']
+  ])('should parse block comments (%j)', (path, options) => {
+    void test('comments/block/' + path, options)
+  })
+
+  it.each<[path: string, ...Parameters<typeof parse>]>([
+    ['opener-only/01.txt'],
+    ['opener-only/02.txt'],
+    ['opener-only/03.txt'],
+    ['opener-only/04.txt'],
+    ['sameline/01.txt'],
+    ['sameline/02.txt'],
+    ['sameline/03.txt'],
+    ['multiline/01.txt'],
+    ['multiline/02.txt'],
+    ['multiline/03.txt']
+  ])('should parse line comments (%j)', (path, options) => {
+    void test('comments/line/' + path, options)
+  })
+
+  it.each<[path: string, ...Parameters<typeof parse>]>([
     ['modules/01.txt'],
     ['modules/02.txt'],
     ['modules/03.txt'],
     ['modules/04.txt']
-  ])('should parse comments (%j)', path => {
+  ])('should parse mixed comments (%j)', (path, options) => {
+    void test('source/' + path, options)
+  })
+
+  /**
+   * @this {void}
+   *
+   * @param {string} path
+   *  The fixture path, relative to {@linkcode directory}
+   * @param {ParseOptions | null | undefined} [options]
+   *  The parse options
+   * @return {undefined}
+   */
+  function test(
+    this: void,
+    path: string,
+    options?: ParseOptions | null | undefined
+  ): undefined {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
-    const options: ParseOptions = { extensions: [markdown, typescript] }
     const slice: Chunk[] = preprocess()(file, undefined, true)
+
+    // Setup
+    options ??= { extensions: [typescript] }
 
     // Act
     const result = postprocess(parse(options).comments().write(slice))
@@ -90,5 +136,7 @@ describe('integration:docmark', () => {
     expect(last).to.have.property('0', ev.exit)
     expect(last).to.have.property('1', beforeLast![1])
     expect(snapshot(result)).toMatchSnapshot()
-  })
+
+    return void result
+  }
 })

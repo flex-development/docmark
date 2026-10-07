@@ -6,6 +6,7 @@
     "rootDir": "src"
   },
   "extends": "../../tsconfig.build.json",
+  "files": ["typings/@flex-development/docmark-util-types/index.d.mts"],
   "include": ["src/**/**.mts"],
   "references": [
     {

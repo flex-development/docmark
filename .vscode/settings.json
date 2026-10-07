@@ -1,4 +1,14 @@
 {
+  "[abnf]": {
+    "editor.rulers": [
+      {
+        "color": "var(--vscode-editorRuler-foreground)",
+        "column": 130
+      }
+    ],
+    "editor.wordWrapColumn": 130,
+    "rewrap.wrappingColumn": 130
+  },
   "[github-actions-workflow]": {
     "editor.rulers": [
       {

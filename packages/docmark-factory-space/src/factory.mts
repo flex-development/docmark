@@ -7,6 +7,7 @@ import type {
   Code,
   Effects,
   State,
+  TokenFields,
   TokenType
 } from '@flex-development/docmark-util-types'
 import { whitespace } from '@flex-development/mark-util-character'
@@ -16,6 +17,7 @@ import { whitespace } from '@flex-development/mark-util-character'
  *
  * @see {@linkcode Effects}
  * @see {@linkcode State}
+ * @see {@linkcode TokenFields}
  * @see {@linkcode TokenType}
  *
  * @this {void}
@@ -28,6 +30,8 @@ import { whitespace } from '@flex-development/mark-util-character'
  *  The token type to capture whitespace as
  * @param {number | null | undefined} [max]
  *  The maximum number of spaces/tabs to consume (exclusive)
+ * @param {TokenFields | null | undefined} [fields]
+ *  The token fields to apply if whitespace is encountered
  * @return {State}
  *  The initial state
  */
@@ -36,7 +40,8 @@ function factorySpace(
   effects: Effects,
   ok: State,
   type?: TokenType | null | undefined,
-  max?: number | null | undefined
+  max?: number | null | undefined,
+  fields?: TokenFields | null | undefined
 ): State {
   /**
    * The maximum number of spaces/tabs to tokenize.
@@ -64,7 +69,8 @@ function factorySpace(
    */
   function maybeWhitespace(this: void, code: Code): State | undefined {
     if (!whitespace(code)) return ok(code)
-    return type && effects.enter(type), insideWhitespace(code)
+    type && effects.enter(type, { ...fields })
+    return insideWhitespace(code)
   }
 
   /**

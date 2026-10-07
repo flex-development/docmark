@@ -1,0 +1,4032 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`e2e:jaymark/parse > should handle no content 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`e2e:jaymark/parse > should parse comments and source language ("01.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 47,
+        "line": 1,
+        "offset": 46,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": " "https://github.com/flex-development/docmark"",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 47,
+        "line": 1,
+        "offset": 46,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": " "https://github.com/flex-development/docmark"",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 47,
+        "line": 1,
+        "offset": 46,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 47,
+        "line": 1,
+        "offset": 46,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 47,
+        "line": 1,
+        "offset": 46,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 47,
+        "line": 1,
+        "offset": 46,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`e2e:jaymark/parse > should parse comments and source language ("02.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 25,
+        "_index": 0,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": " 13"/* not a comment */" ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 25,
+        "_index": 0,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": " 13"/* not a comment */" ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 39,
+        "line": 1,
+        "offset": 38,
+      },
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 25,
+        "_index": 0,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 27,
+        "_index": 0,
+        "column": 28,
+        "line": 1,
+        "offset": 27,
+      },
+      "start": {
+        "_bufferIndex": 25,
+        "_index": 0,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "type": "commentOpener",
+      "value": "/*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 27,
+        "_index": 0,
+        "column": 28,
+        "line": 1,
+        "offset": 27,
+      },
+      "start": {
+        "_bufferIndex": 25,
+        "_index": 0,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "type": "commentOpener",
+      "value": "/*",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 28,
+        "_index": 0,
+        "column": 29,
+        "line": 1,
+        "offset": 28,
+      },
+      "start": {
+        "_bufferIndex": 27,
+        "_index": 0,
+        "column": 28,
+        "line": 1,
+        "offset": 27,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 28,
+        "_index": 0,
+        "column": 29,
+        "line": 1,
+        "offset": 28,
+      },
+      "start": {
+        "_bufferIndex": 27,
+        "_index": 0,
+        "column": 28,
+        "line": 1,
+        "offset": 27,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": 35,
+        "_index": 0,
+        "column": 36,
+        "line": 1,
+        "offset": 35,
+      },
+      "start": {
+        "_bufferIndex": 28,
+        "_index": 0,
+        "column": 29,
+        "line": 1,
+        "offset": 28,
+      },
+      "type": "chunkComment",
+      "value": "comment",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": 35,
+        "_index": 0,
+        "column": 36,
+        "line": 1,
+        "offset": 35,
+      },
+      "start": {
+        "_bufferIndex": 28,
+        "_index": 0,
+        "column": 29,
+        "line": 1,
+        "offset": 28,
+      },
+      "type": "chunkComment",
+      "value": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 36,
+        "_index": 0,
+        "column": 37,
+        "line": 1,
+        "offset": 36,
+      },
+      "start": {
+        "_bufferIndex": 35,
+        "_index": 0,
+        "column": 36,
+        "line": 1,
+        "offset": 35,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 36,
+        "_index": 0,
+        "column": 37,
+        "line": 1,
+        "offset": 36,
+      },
+      "start": {
+        "_bufferIndex": 35,
+        "_index": 0,
+        "column": 36,
+        "line": 1,
+        "offset": 35,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 39,
+        "line": 1,
+        "offset": 38,
+      },
+      "start": {
+        "_bufferIndex": 36,
+        "_index": 0,
+        "column": 37,
+        "line": 1,
+        "offset": 36,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 39,
+        "line": 1,
+        "offset": 38,
+      },
+      "start": {
+        "_bufferIndex": 36,
+        "_index": 0,
+        "column": 37,
+        "line": 1,
+        "offset": 36,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 39,
+        "line": 1,
+        "offset": 38,
+      },
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 25,
+        "_index": 0,
+        "column": 26,
+        "line": 1,
+        "offset": 25,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 39,
+        "line": 1,
+        "offset": 38,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 39,
+        "line": 1,
+        "offset": 38,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 39,
+        "line": 1,
+        "offset": 38,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 39,
+        "line": 1,
+        "offset": 38,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`e2e:jaymark/parse > should parse comments and source language ("03.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 15,
+        "_index": 0,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "commentOpener",
+      "value": "/*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "commentOpener",
+      "value": "/*",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": 12,
+        "_index": 0,
+        "column": 13,
+        "line": 1,
+        "offset": 12,
+      },
+      "start": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "type": "chunkComment",
+      "value": "a comment",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": 12,
+        "_index": 0,
+        "column": 13,
+        "line": 1,
+        "offset": 12,
+      },
+      "start": {
+        "_bufferIndex": 3,
+        "_index": 0,
+        "column": 4,
+        "line": 1,
+        "offset": 3,
+      },
+      "type": "chunkComment",
+      "value": "a comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 13,
+        "_index": 0,
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "start": {
+        "_bufferIndex": 12,
+        "_index": 0,
+        "column": 13,
+        "line": 1,
+        "offset": 12,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 13,
+        "_index": 0,
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "start": {
+        "_bufferIndex": 12,
+        "_index": 0,
+        "column": 13,
+        "line": 1,
+        "offset": 12,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 15,
+        "_index": 0,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "start": {
+        "_bufferIndex": 13,
+        "_index": 0,
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 15,
+        "_index": 0,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "start": {
+        "_bufferIndex": 13,
+        "_index": 0,
+        "column": 14,
+        "line": 1,
+        "offset": 13,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 15,
+        "_index": 0,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 42,
+        "_index": 0,
+        "column": 43,
+        "line": 1,
+        "offset": 42,
+      },
+      "start": {
+        "_bufferIndex": 15,
+        "_index": 0,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "type": "chunkLanguage",
+      "value": " "/* actually a string */" ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 42,
+        "_index": 0,
+        "column": 43,
+        "line": 1,
+        "offset": 42,
+      },
+      "start": {
+        "_bufferIndex": 15,
+        "_index": 0,
+        "column": 16,
+        "line": 1,
+        "offset": 15,
+      },
+      "type": "chunkLanguage",
+      "value": " "/* actually a string */" ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 18,
+        "_index": 2,
+        "column": 19,
+        "line": 2,
+        "offset": 64,
+      },
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 42,
+        "_index": 0,
+        "column": 43,
+        "line": 1,
+        "offset": 42,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 44,
+        "_index": 0,
+        "column": 45,
+        "line": 1,
+        "offset": 44,
+      },
+      "start": {
+        "_bufferIndex": 42,
+        "_index": 0,
+        "column": 43,
+        "line": 1,
+        "offset": 42,
+      },
+      "type": "commentOpener",
+      "value": "/*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 44,
+        "_index": 0,
+        "column": 45,
+        "line": 1,
+        "offset": 44,
+      },
+      "start": {
+        "_bufferIndex": 42,
+        "_index": 0,
+        "column": 43,
+        "line": 1,
+        "offset": 42,
+      },
+      "type": "commentOpener",
+      "value": "/*",
+    },
+  ],
+  [
+    "enter",
+    {
+      "_trailing": true,
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 46,
+        "line": 1,
+        "offset": 45,
+      },
+      "start": {
+        "_bufferIndex": 44,
+        "_index": 0,
+        "column": 45,
+        "line": 1,
+        "offset": 44,
+      },
+      "type": "whitespace",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "_trailing": true,
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 46,
+        "line": 1,
+        "offset": 45,
+      },
+      "start": {
+        "_bufferIndex": 44,
+        "_index": 0,
+        "column": 45,
+        "line": 1,
+        "offset": 44,
+      },
+      "type": "whitespace",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 46,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 46,
+        "line": 1,
+        "offset": 45,
+      },
+      "type": "lineEnding",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 46,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 46,
+        "line": 1,
+        "offset": 45,
+      },
+      "type": "lineEnding",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": 15,
+        "_index": 2,
+        "column": 16,
+        "line": 2,
+        "offset": 61,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 46,
+      },
+      "type": "chunkComment",
+      "value": "another comment",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": 15,
+        "_index": 2,
+        "column": 16,
+        "line": 2,
+        "offset": 61,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 46,
+      },
+      "type": "chunkComment",
+      "value": "another comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 16,
+        "_index": 2,
+        "column": 17,
+        "line": 2,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": 15,
+        "_index": 2,
+        "column": 16,
+        "line": 2,
+        "offset": 61,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 16,
+        "_index": 2,
+        "column": 17,
+        "line": 2,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": 15,
+        "_index": 2,
+        "column": 16,
+        "line": 2,
+        "offset": 61,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 18,
+        "_index": 2,
+        "column": 19,
+        "line": 2,
+        "offset": 64,
+      },
+      "start": {
+        "_bufferIndex": 16,
+        "_index": 2,
+        "column": 17,
+        "line": 2,
+        "offset": 62,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 18,
+        "_index": 2,
+        "column": 19,
+        "line": 2,
+        "offset": 64,
+      },
+      "start": {
+        "_bufferIndex": 16,
+        "_index": 2,
+        "column": 17,
+        "line": 2,
+        "offset": 62,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 18,
+        "_index": 2,
+        "column": 19,
+        "line": 2,
+        "offset": 64,
+      },
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 42,
+        "_index": 0,
+        "column": 43,
+        "line": 1,
+        "offset": 42,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 68,
+      },
+      "start": {
+        "_bufferIndex": 18,
+        "_index": 2,
+        "column": 19,
+        "line": 2,
+        "offset": 64,
+      },
+      "type": "chunkLanguage",
+      "value": " []
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 68,
+      },
+      "start": {
+        "_bufferIndex": 18,
+        "_index": 2,
+        "column": 19,
+        "line": 2,
+        "offset": 64,
+      },
+      "type": "chunkLanguage",
+      "value": " []
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 1,
+        "line": 3,
+        "offset": 68,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 68,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 1,
+        "line": 3,
+        "offset": 68,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 68,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`e2e:jaymark/parse > should parse comments and source language ("04.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 44,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "[ ,-3,0,+13,13.98,0e3,1e-3,1e+3,13.98e28, {
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 44,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "[ ,-3,0,+13,13.98,0e3,1e-3,1e+3,13.98e28, {
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 60,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 44,
+      },
+      "type": "chunkLanguage",
+      "value": "  "value": null
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 60,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 44,
+      },
+      "type": "chunkLanguage",
+      "value": "  "value": null
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 3,
+        "line": 3,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 60,
+      },
+      "type": "chunkLanguage",
+      "value": "}]",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 3,
+        "line": 3,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 60,
+      },
+      "type": "chunkLanguage",
+      "value": "}]",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 3,
+        "line": 3,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 3,
+        "line": 3,
+        "offset": 62,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 3,
+        "line": 3,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 3,
+        "line": 3,
+        "offset": 62,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`e2e:jaymark/parse > should parse comments and source language ("05.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "{
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "{
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 2,
+      },
+      "type": "chunkLanguage",
+      "value": "  ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 2,
+      },
+      "type": "chunkLanguage",
+      "value": "  ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 103,
+      },
+      "kind": "line",
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 4,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 2,
+        "column": 5,
+        "line": 2,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 4,
+      },
+      "type": "commentOpener",
+      "value": "//",
+    },
+  ],
+  [
+    "enter",
+    {
+      "_open": true,
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 2,
+        "column": 4,
+        "line": 2,
+        "offset": 5,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 4,
+      },
+      "type": "commentMarker",
+      "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "_open": true,
+      "end": {
+        "_bufferIndex": 3,
+        "_index": 2,
+        "column": 4,
+        "line": 2,
+        "offset": 5,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 4,
+      },
+      "type": "commentMarker",
+      "value": "/",
+    },
+  ],
+  [
+    "enter",
+    {
+      "_close": true,
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 2,
+        "column": 5,
+        "line": 2,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 3,
+        "_index": 2,
+        "column": 4,
+        "line": 2,
+        "offset": 5,
+      },
+      "type": "commentMarker",
+      "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "_close": true,
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 2,
+        "column": 5,
+        "line": 2,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 3,
+        "_index": 2,
+        "column": 4,
+        "line": 2,
+        "offset": 5,
+      },
+      "type": "commentMarker",
+      "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 2,
+        "column": 5,
+        "line": 2,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 4,
+      },
+      "type": "commentOpener",
+      "value": "//",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 2,
+        "column": 6,
+        "line": 2,
+        "offset": 7,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 2,
+        "column": 5,
+        "line": 2,
+        "offset": 6,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 2,
+        "column": 6,
+        "line": 2,
+        "offset": 7,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 2,
+        "column": 5,
+        "line": 2,
+        "offset": 6,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 103,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 2,
+        "column": 6,
+        "line": 2,
+        "offset": 7,
+      },
+      "type": "chunkComment",
+      "value": ""$schema": "https://raw.githubusercontent.com/flex-development/grease/main/grease.schema.json",
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 103,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 2,
+        "column": 6,
+        "line": 2,
+        "offset": 7,
+      },
+      "type": "chunkComment",
+      "value": ""$schema": "https://raw.githubusercontent.com/flex-development/grease/main/grease.schema.json",
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 103,
+      },
+      "kind": "line",
+      "start": {
+        "_bufferIndex": 2,
+        "_index": 2,
+        "column": 3,
+        "line": 2,
+        "offset": 4,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 116,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 103,
+      },
+      "type": "chunkLanguage",
+      "value": "  "tag": { }
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 116,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 103,
+      },
+      "type": "chunkLanguage",
+      "value": "  "tag": { }
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 118,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 116,
+      },
+      "type": "chunkLanguage",
+      "value": "}
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 118,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 116,
+      },
+      "type": "chunkLanguage",
+      "value": "}
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 1,
+        "line": 5,
+        "offset": 118,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 118,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 1,
+        "line": 5,
+        "offset": 118,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 118,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`e2e:jaymark/parse > should parse comments and source language ("06.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "{
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "{
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 13,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 2,
+      },
+      "type": "chunkLanguage",
+      "value": "  "tag": {
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 13,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 2,
+      },
+      "type": "chunkLanguage",
+      "value": "  "tag": {
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 4,
+        "column": 5,
+        "line": 3,
+        "offset": 17,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 13,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 4,
+        "column": 5,
+        "line": 3,
+        "offset": 17,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 13,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 8,
+        "line": 7,
+        "offset": 84,
+      },
+      "info": true,
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 4,
+        "column": 5,
+        "line": 3,
+        "offset": 17,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 8,
+        "line": 3,
+        "offset": 20,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 4,
+        "column": 5,
+        "line": 3,
+        "offset": 17,
+      },
+      "type": "commentOpener",
+      "value": "/**",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 8,
+        "line": 3,
+        "offset": 20,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 4,
+        "column": 5,
+        "line": 3,
+        "offset": 17,
+      },
+      "type": "commentOpener",
+      "value": "/**",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 21,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 8,
+        "line": 3,
+        "offset": 20,
+      },
+      "type": "lineEnding",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 21,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 8,
+        "line": 3,
+        "offset": 20,
+      },
+      "type": "lineEnding",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 6,
+        "column": 8,
+        "line": 4,
+        "offset": 28,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 21,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 6,
+        "column": 6,
+        "line": 4,
+        "offset": 26,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 21,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 6,
+        "column": 6,
+        "line": 4,
+        "offset": 26,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 21,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 6,
+        "column": 7,
+        "line": 4,
+        "offset": 27,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 6,
+        "column": 6,
+        "line": 4,
+        "offset": 26,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 6,
+        "column": 7,
+        "line": 4,
+        "offset": 27,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 6,
+        "column": 6,
+        "line": 4,
+        "offset": 26,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 6,
+        "column": 8,
+        "line": 4,
+        "offset": 28,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 6,
+        "column": 7,
+        "line": 4,
+        "offset": 27,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 6,
+        "column": 8,
+        "line": 4,
+        "offset": 28,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 6,
+        "column": 7,
+        "line": 4,
+        "offset": 27,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 6,
+        "column": 8,
+        "line": 4,
+        "offset": 28,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 21,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 48,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 6,
+        "column": 8,
+        "line": 4,
+        "offset": 28,
+      },
+      "type": "chunkComment",
+      "value": "The commit message.
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 48,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 6,
+        "column": 8,
+        "line": 4,
+        "offset": 28,
+      },
+      "type": "chunkComment",
+      "value": "The commit message.
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 7,
+        "line": 5,
+        "offset": 54,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 48,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 8,
+        "column": 6,
+        "line": 5,
+        "offset": 53,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 48,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 8,
+        "column": 6,
+        "line": 5,
+        "offset": 53,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 48,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 7,
+        "line": 5,
+        "offset": 54,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 8,
+        "column": 6,
+        "line": 5,
+        "offset": 53,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 7,
+        "line": 5,
+        "offset": 54,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 8,
+        "column": 6,
+        "line": 5,
+        "offset": 53,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 7,
+        "line": 5,
+        "offset": 54,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 48,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 55,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 7,
+        "line": 5,
+        "offset": 54,
+      },
+      "type": "chunkComment",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 55,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 7,
+        "line": 5,
+        "offset": 54,
+      },
+      "type": "chunkComment",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 10,
+        "column": 8,
+        "line": 6,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 55,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 10,
+        "column": 6,
+        "line": 6,
+        "offset": 60,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 55,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 10,
+        "column": 6,
+        "line": 6,
+        "offset": 60,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 55,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 10,
+        "column": 7,
+        "line": 6,
+        "offset": 61,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 10,
+        "column": 6,
+        "line": 6,
+        "offset": 60,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 10,
+        "column": 7,
+        "line": 6,
+        "offset": 61,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 10,
+        "column": 6,
+        "line": 6,
+        "offset": 60,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 10,
+        "column": 8,
+        "line": 6,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 10,
+        "column": 7,
+        "line": 6,
+        "offset": 61,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 10,
+        "column": 8,
+        "line": 6,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 10,
+        "column": 7,
+        "line": 6,
+        "offset": 61,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 10,
+        "column": 8,
+        "line": 6,
+        "offset": 62,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 55,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 1,
+        "line": 7,
+        "offset": 77,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 10,
+        "column": 8,
+        "line": 6,
+        "offset": 62,
+      },
+      "type": "chunkComment",
+      "value": "@type {string}
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 1,
+        "line": 7,
+        "offset": 77,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 10,
+        "column": 8,
+        "line": 6,
+        "offset": 62,
+      },
+      "type": "chunkComment",
+      "value": "@type {string}
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 12,
+        "column": 6,
+        "line": 7,
+        "offset": 82,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 12,
+        "column": 1,
+        "line": 7,
+        "offset": 77,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 12,
+        "column": 6,
+        "line": 7,
+        "offset": 82,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 12,
+        "column": 1,
+        "line": 7,
+        "offset": 77,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 12,
+        "column": 6,
+        "line": 7,
+        "offset": 82,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 12,
+        "column": 1,
+        "line": 7,
+        "offset": 77,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 12,
+        "column": 6,
+        "line": 7,
+        "offset": 82,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 12,
+        "column": 1,
+        "line": 7,
+        "offset": 77,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 8,
+        "line": 7,
+        "offset": 84,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 12,
+        "column": 6,
+        "line": 7,
+        "offset": 82,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 8,
+        "line": 7,
+        "offset": 84,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 12,
+        "column": 6,
+        "line": 7,
+        "offset": 82,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 8,
+        "line": 7,
+        "offset": 84,
+      },
+      "info": true,
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 4,
+        "column": 5,
+        "line": 3,
+        "offset": 17,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 14,
+        "column": 1,
+        "line": 8,
+        "offset": 85,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 8,
+        "line": 7,
+        "offset": 84,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 14,
+        "column": 1,
+        "line": 8,
+        "offset": 85,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 8,
+        "line": 7,
+        "offset": 84,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 1,
+        "line": 9,
+        "offset": 118,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 14,
+        "column": 1,
+        "line": 8,
+        "offset": 85,
+      },
+      "type": "chunkLanguage",
+      "value": "    "message": "release: {tag}",
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 1,
+        "line": 9,
+        "offset": 118,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 14,
+        "column": 1,
+        "line": 8,
+        "offset": 85,
+      },
+      "type": "chunkLanguage",
+      "value": "    "message": "release: {tag}",
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 16,
+        "column": 5,
+        "line": 9,
+        "offset": 122,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 16,
+        "column": 1,
+        "line": 9,
+        "offset": 118,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 16,
+        "column": 5,
+        "line": 9,
+        "offset": 122,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 16,
+        "column": 1,
+        "line": 9,
+        "offset": 118,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 8,
+        "line": 13,
+        "offset": 205,
+      },
+      "info": true,
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 16,
+        "column": 5,
+        "line": 9,
+        "offset": 122,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 17,
+        "column": 8,
+        "line": 9,
+        "offset": 125,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 16,
+        "column": 5,
+        "line": 9,
+        "offset": 122,
+      },
+      "type": "commentOpener",
+      "value": "/**",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 17,
+        "column": 8,
+        "line": 9,
+        "offset": 125,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 16,
+        "column": 5,
+        "line": 9,
+        "offset": 122,
+      },
+      "type": "commentOpener",
+      "value": "/**",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 18,
+        "column": 1,
+        "line": 10,
+        "offset": 126,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 17,
+        "column": 8,
+        "line": 9,
+        "offset": 125,
+      },
+      "type": "lineEnding",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 18,
+        "column": 1,
+        "line": 10,
+        "offset": 126,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 17,
+        "column": 8,
+        "line": 9,
+        "offset": 125,
+      },
+      "type": "lineEnding",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 18,
+        "column": 8,
+        "line": 10,
+        "offset": 133,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 18,
+        "column": 1,
+        "line": 10,
+        "offset": 126,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 18,
+        "column": 6,
+        "line": 10,
+        "offset": 131,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 18,
+        "column": 1,
+        "line": 10,
+        "offset": 126,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 18,
+        "column": 6,
+        "line": 10,
+        "offset": 131,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 18,
+        "column": 1,
+        "line": 10,
+        "offset": 126,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 18,
+        "column": 7,
+        "line": 10,
+        "offset": 132,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 18,
+        "column": 6,
+        "line": 10,
+        "offset": 131,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 18,
+        "column": 7,
+        "line": 10,
+        "offset": 132,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 18,
+        "column": 6,
+        "line": 10,
+        "offset": 131,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 18,
+        "column": 8,
+        "line": 10,
+        "offset": 133,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 18,
+        "column": 7,
+        "line": 10,
+        "offset": 132,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 18,
+        "column": 8,
+        "line": 10,
+        "offset": 133,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 18,
+        "column": 7,
+        "line": 10,
+        "offset": 132,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 18,
+        "column": 8,
+        "line": 10,
+        "offset": 133,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 18,
+        "column": 1,
+        "line": 10,
+        "offset": 126,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 20,
+        "column": 1,
+        "line": 11,
+        "offset": 161,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 18,
+        "column": 8,
+        "line": 10,
+        "offset": 133,
+      },
+      "type": "chunkComment",
+      "value": "Whether to sign the commit.
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 20,
+        "column": 1,
+        "line": 11,
+        "offset": 161,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 18,
+        "column": 8,
+        "line": 10,
+        "offset": 133,
+      },
+      "type": "chunkComment",
+      "value": "Whether to sign the commit.
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 21,
+        "column": 7,
+        "line": 11,
+        "offset": 167,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 20,
+        "column": 1,
+        "line": 11,
+        "offset": 161,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 20,
+        "column": 6,
+        "line": 11,
+        "offset": 166,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 20,
+        "column": 1,
+        "line": 11,
+        "offset": 161,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 20,
+        "column": 6,
+        "line": 11,
+        "offset": 166,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 20,
+        "column": 1,
+        "line": 11,
+        "offset": 161,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 21,
+        "column": 7,
+        "line": 11,
+        "offset": 167,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 20,
+        "column": 6,
+        "line": 11,
+        "offset": 166,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 21,
+        "column": 7,
+        "line": 11,
+        "offset": 167,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 20,
+        "column": 6,
+        "line": 11,
+        "offset": 166,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 21,
+        "column": 7,
+        "line": 11,
+        "offset": 167,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 20,
+        "column": 1,
+        "line": 11,
+        "offset": 161,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 22,
+        "column": 1,
+        "line": 12,
+        "offset": 168,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 21,
+        "column": 7,
+        "line": 11,
+        "offset": 167,
+      },
+      "type": "chunkComment",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 22,
+        "column": 1,
+        "line": 12,
+        "offset": 168,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 21,
+        "column": 7,
+        "line": 11,
+        "offset": 167,
+      },
+      "type": "chunkComment",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 22,
+        "column": 8,
+        "line": 12,
+        "offset": 175,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 22,
+        "column": 1,
+        "line": 12,
+        "offset": 168,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 22,
+        "column": 6,
+        "line": 12,
+        "offset": 173,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 22,
+        "column": 1,
+        "line": 12,
+        "offset": 168,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 22,
+        "column": 6,
+        "line": 12,
+        "offset": 173,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 22,
+        "column": 1,
+        "line": 12,
+        "offset": 168,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 22,
+        "column": 7,
+        "line": 12,
+        "offset": 174,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 22,
+        "column": 6,
+        "line": 12,
+        "offset": 173,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 22,
+        "column": 7,
+        "line": 12,
+        "offset": 174,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 22,
+        "column": 6,
+        "line": 12,
+        "offset": 173,
+      },
+      "type": "commentMarker",
+      "value": "*",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 22,
+        "column": 8,
+        "line": 12,
+        "offset": 175,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 22,
+        "column": 7,
+        "line": 12,
+        "offset": 174,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 22,
+        "column": 8,
+        "line": 12,
+        "offset": 175,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 22,
+        "column": 7,
+        "line": 12,
+        "offset": 174,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 22,
+        "column": 8,
+        "line": 12,
+        "offset": 175,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 22,
+        "column": 1,
+        "line": 12,
+        "offset": 168,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 24,
+        "column": 1,
+        "line": 13,
+        "offset": 198,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 22,
+        "column": 8,
+        "line": 12,
+        "offset": 175,
+      },
+      "type": "chunkComment",
+      "value": "@type {boolean | null}
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 24,
+        "column": 1,
+        "line": 13,
+        "offset": 198,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 22,
+        "column": 8,
+        "line": 12,
+        "offset": 175,
+      },
+      "type": "chunkComment",
+      "value": "@type {boolean | null}
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 24,
+        "column": 6,
+        "line": 13,
+        "offset": 203,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 24,
+        "column": 1,
+        "line": 13,
+        "offset": 198,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 24,
+        "column": 6,
+        "line": 13,
+        "offset": 203,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 24,
+        "column": 1,
+        "line": 13,
+        "offset": 198,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 24,
+        "column": 6,
+        "line": 13,
+        "offset": 203,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 24,
+        "column": 1,
+        "line": 13,
+        "offset": 198,
+      },
+      "type": "commentPadding",
+      "value": "     ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 24,
+        "column": 6,
+        "line": 13,
+        "offset": 203,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 24,
+        "column": 1,
+        "line": 13,
+        "offset": 198,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 8,
+        "line": 13,
+        "offset": 205,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 24,
+        "column": 6,
+        "line": 13,
+        "offset": 203,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 8,
+        "line": 13,
+        "offset": 205,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 24,
+        "column": 6,
+        "line": 13,
+        "offset": 203,
+      },
+      "type": "commentCloser",
+      "value": "*/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 8,
+        "line": 13,
+        "offset": 205,
+      },
+      "info": true,
+      "kind": "block",
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 16,
+        "column": 5,
+        "line": 9,
+        "offset": 122,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 26,
+        "column": 1,
+        "line": 14,
+        "offset": 206,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 8,
+        "line": 13,
+        "offset": 205,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 26,
+        "column": 1,
+        "line": 14,
+        "offset": 206,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 8,
+        "line": 13,
+        "offset": 205,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 28,
+        "column": 1,
+        "line": 15,
+        "offset": 223,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 26,
+        "column": 1,
+        "line": 14,
+        "offset": 206,
+      },
+      "type": "chunkLanguage",
+      "value": "    "sign": true
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 28,
+        "column": 1,
+        "line": 15,
+        "offset": 223,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 26,
+        "column": 1,
+        "line": 14,
+        "offset": 206,
+      },
+      "type": "chunkLanguage",
+      "value": "    "sign": true
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 30,
+        "column": 1,
+        "line": 16,
+        "offset": 227,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 28,
+        "column": 1,
+        "line": 15,
+        "offset": 223,
+      },
+      "type": "chunkLanguage",
+      "value": "  }
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 30,
+        "column": 1,
+        "line": 16,
+        "offset": 227,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 28,
+        "column": 1,
+        "line": 15,
+        "offset": 223,
+      },
+      "type": "chunkLanguage",
+      "value": "  }
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 32,
+        "column": 1,
+        "line": 17,
+        "offset": 229,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 30,
+        "column": 1,
+        "line": 16,
+        "offset": 227,
+      },
+      "type": "chunkLanguage",
+      "value": "}
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 32,
+        "column": 1,
+        "line": 17,
+        "offset": 229,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 30,
+        "column": 1,
+        "line": 16,
+        "offset": 227,
+      },
+      "type": "chunkLanguage",
+      "value": "}
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 33,
+        "column": 1,
+        "line": 17,
+        "offset": 229,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 32,
+        "column": 1,
+        "line": 17,
+        "offset": 229,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 33,
+        "column": 1,
+        "line": 17,
+        "offset": 229,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 32,
+        "column": 1,
+        "line": 17,
+        "offset": 229,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;

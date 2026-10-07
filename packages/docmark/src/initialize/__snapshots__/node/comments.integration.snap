@@ -1,6 +1,51 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/01.txt") 1`] = `
+exports[`integration:initialize/comments > should handle no comments ("../source/empty.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`integration:initialize/comments > should parse block comments ("multiline/01.txt") 1`] = `
 [
   [
     "enter",
@@ -385,7 +430,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/02.txt") 1`] = `
 [
   [
     "enter",
@@ -772,7 +817,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/03.txt") 1`] = `
 [
   [
     "enter",
@@ -1835,7 +1880,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/04.txt") 1`] = `
 [
   [
     "enter",
@@ -2564,7 +2609,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/05.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/05.txt") 1`] = `
 [
   [
     "enter",
@@ -3547,7 +3592,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/06.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/06.txt") 1`] = `
 [
   [
     "enter",
@@ -4400,6 +4445,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 73,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 4,
+        "line": 5,
+        "offset": 72,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 73,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 4,
+        "line": 5,
+        "offset": 72,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 11,
@@ -4440,7 +4531,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/07.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/07.txt") 1`] = `
 [
   [
     "enter",
@@ -5929,6 +6020,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 1,
+        "line": 9,
+        "offset": 130,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 15,
+        "column": 4,
+        "line": 8,
+        "offset": 129,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 16,
+        "column": 1,
+        "line": 9,
+        "offset": 130,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 15,
+        "column": 4,
+        "line": 8,
+        "offset": 129,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 17,
@@ -5969,7 +6106,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/08.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/08.txt") 1`] = `
 [
   [
     "enter",
@@ -6656,6 +6793,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 102,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 4,
+        "line": 5,
+        "offset": 101,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 102,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 4,
+        "line": 5,
+        "offset": 101,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 11,
@@ -6696,7 +6879,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/09.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/09.txt") 1`] = `
 [
   [
     "enter",
@@ -7507,7 +7690,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/10.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/10.txt") 1`] = `
 [
   [
     "enter",
@@ -8490,6 +8673,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 76,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 4,
+        "line": 5,
+        "offset": 75,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 76,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 9,
+        "column": 4,
+        "line": 5,
+        "offset": 75,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 11,
@@ -8530,7 +8759,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/11.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/11.txt") 1`] = `
 [
   [
     "enter",
@@ -10025,6 +10254,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 14,
+        "column": 1,
+        "line": 8,
+        "offset": 125,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 4,
+        "line": 7,
+        "offset": 124,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 14,
+        "column": 1,
+        "line": 8,
+        "offset": 125,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 4,
+        "line": 7,
+        "offset": 124,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 15,
@@ -10065,8 +10340,52 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/12.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/12.txt") 1`] = `
 [
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 0,
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 0,
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
   [
     "enter",
     {
@@ -12402,6 +12721,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 24,
+        "column": 1,
+        "line": 13,
+        "offset": 255,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 23,
+        "column": 8,
+        "line": 12,
+        "offset": 254,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 24,
+        "column": 1,
+        "line": 13,
+        "offset": 255,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 23,
+        "column": 8,
+        "line": 12,
+        "offset": 254,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 25,
@@ -12442,7 +12807,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/13.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/13.txt") 1`] = `
 [
   [
     "enter",
@@ -13037,7 +13402,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/14.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/14.txt") 1`] = `
 [
   [
     "enter",
@@ -13512,7 +13877,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/15.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/15.txt") 1`] = `
 [
   [
     "enter",
@@ -14279,7 +14644,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/16.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/16.txt") 1`] = `
 [
   [
     "enter",
@@ -14794,6 +15159,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 34,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 4,
+        "line": 3,
+        "offset": 33,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 34,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 5,
+        "column": 4,
+        "line": 3,
+        "offset": 33,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 7,
@@ -14834,7 +15245,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/17.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/17.txt") 1`] = `
 [
   [
     "enter",
@@ -15221,8 +15632,52 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/18.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/18.txt") 1`] = `
 [
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "  ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 2,
+        "_index": 0,
+        "column": 3,
+        "line": 1,
+        "offset": 2,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "  ",
+    },
+  ],
   [
     "enter",
     {
@@ -15956,6 +16411,98 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 1,
+        "line": 7,
+        "offset": 145,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 9,
+        "column": 1,
+        "line": 6,
+        "offset": 135,
+      },
+      "type": "chunkLanguage",
+      "value": "  p .sans
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 1,
+        "line": 7,
+        "offset": 145,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 9,
+        "column": 1,
+        "line": 6,
+        "offset": 135,
+      },
+      "type": "chunkLanguage",
+      "value": "  p .sans
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 1,
+        "line": 8,
+        "offset": 177,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 11,
+        "column": 1,
+        "line": 7,
+        "offset": 145,
+      },
+      "type": "chunkLanguage",
+      "value": "    font: Helvetica, sans-serif
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 1,
+        "line": 8,
+        "offset": 177,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 11,
+        "column": 1,
+        "line": 7,
+        "offset": 145,
+      },
+      "type": "chunkLanguage",
+      "value": "    font: Helvetica, sans-serif
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 14,
@@ -15996,7 +16543,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("multiline/block/19.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("multiline/19.txt") 1`] = `
 [
   [
     "enter",
@@ -16473,6 +17020,98 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 139,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 131,
+      },
+      "type": "chunkLanguage",
+      "value": "p .sans
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 139,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 131,
+      },
+      "type": "chunkLanguage",
+      "value": "p .sans
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 169,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 139,
+      },
+      "type": "chunkLanguage",
+      "value": "  font: Helvetica, sans-serif
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 169,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 139,
+      },
+      "type": "chunkLanguage",
+      "value": "  font: Helvetica, sans-serif
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 11,
@@ -16513,7 +17152,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("opener-only/block/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("opener-only/01.txt") 1`] = `
 [
   [
     "enter",
@@ -16644,7 +17283,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("opener-only/block/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("opener-only/02.txt") 1`] = `
 [
   [
     "enter",
@@ -16819,7 +17458,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("opener-only/block/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("opener-only/03.txt") 1`] = `
 [
   [
     "enter",
@@ -16994,7 +17633,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("opener-only/block/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("opener-only/04.txt") 1`] = `
 [
   [
     "enter",
@@ -17213,7 +17852,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/01.txt") 1`] = `
 [
   [
     "enter",
@@ -17386,7 +18025,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/02.txt") 1`] = `
 [
   [
     "enter",
@@ -17601,7 +18240,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/03.txt") 1`] = `
 [
   [
     "enter",
@@ -17818,6 +18457,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 8,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 8,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 3,
@@ -17858,7 +18543,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/04.txt") 1`] = `
 [
   [
     "enter",
@@ -18157,7 +18842,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/05.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/05.txt") 1`] = `
 [
   [
     "enter",
@@ -18500,7 +19185,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/06.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/06.txt") 1`] = `
 [
   [
     "enter",
@@ -18717,7 +19402,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/07.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/07.txt") 1`] = `
 [
   [
     "enter",
@@ -18934,7 +19619,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/08.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/08.txt") 1`] = `
 [
   [
     "enter",
@@ -19195,6 +19880,52 @@ exports[`integration:initialize/comments > should parse block comments in source
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 36,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 36,
+        "line": 1,
+        "offset": 35,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 36,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 36,
+        "line": 1,
+        "offset": 35,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 3,
@@ -19235,7 +19966,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/09.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/09.txt") 1`] = `
 [
   [
     "enter",
@@ -19452,7 +20183,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/10.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/10.txt") 1`] = `
 [
   [
     "enter",
@@ -19671,7 +20402,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse block comments in source file ("sameline/block/11.txt") 1`] = `
+exports[`integration:initialize/comments > should parse block comments ("sameline/11.txt") 1`] = `
 [
   [
     "enter",
@@ -19842,7 +20573,7 @@ exports[`integration:initialize/comments > should parse block comments in source
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("multiline/01.txt") 1`] = `
 [
   [
     "enter",
@@ -20649,8 +21380,52 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("multiline/02.txt") 1`] = `
 [
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 0,
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 0,
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
   [
     "enter",
     {
@@ -21458,19 +22233,18 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("multiline/03.txt") 1`] = `
 [
   [
     "enter",
     {
       "end": {
-        "_bufferIndex": -1,
-        "_index": 3,
-        "column": 58,
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
         "line": 2,
-        "offset": 91,
+        "offset": 34,
       },
-      "indented": true,
       "kind": "line",
       "start": {
         "_bufferIndex": 0,
@@ -21697,142 +22471,15 @@ exports[`integration:initialize/comments > should parse line comments in source 
     },
   ],
   [
-    "enter",
+    "exit",
     {
       "end": {
-        "_bufferIndex": 1,
-        "_index": 2,
-        "column": 2,
-        "line": 2,
-        "offset": 35,
-      },
-      "start": {
         "_bufferIndex": 0,
         "_index": 2,
         "column": 1,
         "line": 2,
         "offset": 34,
       },
-      "type": "commentLinePrefix",
-    },
-  ],
-  [
-    "enter",
-    {
-      "end": {
-        "_bufferIndex": 1,
-        "_index": 2,
-        "column": 2,
-        "line": 2,
-        "offset": 35,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 2,
-        "column": 1,
-        "line": 2,
-        "offset": 34,
-      },
-      "type": "commentMarker",
-      "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 1,
-        "_index": 2,
-        "column": 2,
-        "line": 2,
-        "offset": 35,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 2,
-        "column": 1,
-        "line": 2,
-        "offset": 34,
-      },
-      "type": "commentMarker",
-      "value": " ",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": 1,
-        "_index": 2,
-        "column": 2,
-        "line": 2,
-        "offset": 35,
-      },
-      "start": {
-        "_bufferIndex": 0,
-        "_index": 2,
-        "column": 1,
-        "line": 2,
-        "offset": 34,
-      },
-      "type": "commentLinePrefix",
-    },
-  ],
-  [
-    "enter",
-    {
-      "contentType": "comment",
-      "end": {
-        "_bufferIndex": -1,
-        "_index": 3,
-        "column": 58,
-        "line": 2,
-        "offset": 91,
-      },
-      "start": {
-        "_bufferIndex": 1,
-        "_index": 2,
-        "column": 2,
-        "line": 2,
-        "offset": 35,
-      },
-      "type": "chunkComment",
-      "value": "markers are captured inside a \`commentLinePrefix\` token.",
-    },
-  ],
-  [
-    "exit",
-    {
-      "contentType": "comment",
-      "end": {
-        "_bufferIndex": -1,
-        "_index": 3,
-        "column": 58,
-        "line": 2,
-        "offset": 91,
-      },
-      "start": {
-        "_bufferIndex": 1,
-        "_index": 2,
-        "column": 2,
-        "line": 2,
-        "offset": 35,
-      },
-      "type": "chunkComment",
-      "value": "markers are captured inside a \`commentLinePrefix\` token.",
-    },
-  ],
-  [
-    "exit",
-    {
-      "end": {
-        "_bufferIndex": -1,
-        "_index": 3,
-        "column": 58,
-        "line": 2,
-        "offset": 91,
-      },
-      "indented": true,
       "kind": "line",
       "start": {
         "_bufferIndex": 0,
@@ -21842,6 +22489,50 @@ exports[`integration:initialize/comments > should parse line comments in source 
         "offset": 0,
       },
       "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 58,
+        "line": 2,
+        "offset": 91,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 34,
+      },
+      "type": "chunkLanguage",
+      "value": " markers are captured inside a \`commentLinePrefix\` token.",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 3,
+        "column": 58,
+        "line": 2,
+        "offset": 91,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 2,
+        "column": 1,
+        "line": 2,
+        "offset": 34,
+      },
+      "type": "chunkLanguage",
+      "value": " markers are captured inside a \`commentLinePrefix\` token.",
     },
   ],
   [
@@ -21887,8 +22578,52 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("multiline/04.txt") 1`] = `
 [
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "      ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "      ",
+    },
+  ],
   [
     "enter",
     {
@@ -22444,7 +23179,7 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/05.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("multiline/05.txt") 1`] = `
 [
   [
     "enter",
@@ -22914,6 +23649,282 @@ exports[`integration:initialize/comments > should parse line comments in source 
         "offset": 0,
       },
       "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 151,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 116,
+      },
+      "type": "chunkLanguage",
+      "value": "continuationMarkers = [whitespace]
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 151,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 4,
+        "column": 1,
+        "line": 3,
+        "offset": 116,
+      },
+      "type": "chunkLanguage",
+      "value": "continuationMarkers = [whitespace]
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 212,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 151,
+      },
+      "type": "chunkLanguage",
+      "value": "continuationMarkers.length = self.containerState.openerWidth
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 212,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 6,
+        "column": 1,
+        "line": 4,
+        "offset": 151,
+      },
+      "type": "chunkLanguage",
+      "value": "continuationMarkers.length = self.containerState.openerWidth
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 278,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 212,
+      },
+      "type": "chunkLanguage",
+      "value": "continuationMarkers.fill({ code: whitespace, optional: true }, 1)
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 278,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 8,
+        "column": 1,
+        "line": 5,
+        "offset": 212,
+      },
+      "type": "chunkLanguage",
+      "value": "continuationMarkers.fill({ code: whitespace, optional: true }, 1)
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 1,
+        "line": 7,
+        "offset": 279,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 278,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 1,
+        "line": 7,
+        "offset": 279,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 1,
+        "line": 6,
+        "offset": 278,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 1,
+        "line": 8,
+        "offset": 280,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 1,
+        "line": 7,
+        "offset": 279,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 1,
+        "line": 8,
+        "offset": 280,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 11,
+        "column": 1,
+        "line": 7,
+        "offset": 279,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 1,
+        "line": 9,
+        "offset": 281,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 1,
+        "line": 8,
+        "offset": 280,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 13,
+        "column": 1,
+        "line": 9,
+        "offset": 281,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 12,
+        "column": 1,
+        "line": 8,
+        "offset": 280,
+      },
+      "type": "chunkLanguage",
+      "value": "
+",
     },
   ],
   [
@@ -22959,8 +23970,52 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("multiline/line/06.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("multiline/06.txt") 1`] = `
 [
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 0,
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 0,
+        "column": 5,
+        "line": 1,
+        "offset": 4,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "    ",
+    },
+  ],
   [
     "enter",
     {
@@ -24177,6 +25232,256 @@ exports[`integration:initialize/comments > should parse line comments in source 
   [
     "enter",
     {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 9,
+        "line": 6,
+        "offset": 153,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 9,
+        "column": 1,
+        "line": 6,
+        "offset": 145,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 9,
+        "column": 5,
+        "line": 6,
+        "offset": 149,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 9,
+        "column": 1,
+        "line": 6,
+        "offset": 145,
+      },
+      "type": "commentPadding",
+      "value": "    ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 4,
+        "_index": 9,
+        "column": 5,
+        "line": 6,
+        "offset": 149,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 9,
+        "column": 1,
+        "line": 6,
+        "offset": 145,
+      },
+      "type": "commentPadding",
+      "value": "    ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 9,
+        "column": 6,
+        "line": 6,
+        "offset": 150,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 9,
+        "column": 5,
+        "line": 6,
+        "offset": 149,
+      },
+      "type": "commentMarker",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 5,
+        "_index": 9,
+        "column": 6,
+        "line": 6,
+        "offset": 150,
+      },
+      "start": {
+        "_bufferIndex": 4,
+        "_index": 9,
+        "column": 5,
+        "line": 6,
+        "offset": 149,
+      },
+      "type": "commentMarker",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 9,
+        "column": 7,
+        "line": 6,
+        "offset": 151,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 9,
+        "column": 6,
+        "line": 6,
+        "offset": 150,
+      },
+      "type": "commentMarker",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 9,
+        "column": 7,
+        "line": 6,
+        "offset": 151,
+      },
+      "start": {
+        "_bufferIndex": 5,
+        "_index": 9,
+        "column": 6,
+        "line": 6,
+        "offset": 150,
+      },
+      "type": "commentMarker",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 9,
+        "column": 8,
+        "line": 6,
+        "offset": 152,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 9,
+        "column": 7,
+        "line": 6,
+        "offset": 151,
+      },
+      "type": "commentMarker",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 9,
+        "column": 8,
+        "line": 6,
+        "offset": 152,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 9,
+        "column": 7,
+        "line": 6,
+        "offset": 151,
+      },
+      "type": "commentMarker",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 9,
+        "line": 6,
+        "offset": 153,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 9,
+        "column": 8,
+        "line": 6,
+        "offset": 152,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 9,
+        "line": 6,
+        "offset": 153,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 9,
+        "column": 8,
+        "line": 6,
+        "offset": 152,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 9,
+        "line": 6,
+        "offset": 153,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 9,
+        "column": 1,
+        "line": 6,
+        "offset": 145,
+      },
+      "type": "commentLinePrefix",
+    },
+  ],
+  [
+    "enter",
+    {
       "contentType": "comment",
       "end": {
         "_bufferIndex": -1,
@@ -24186,14 +25491,14 @@ exports[`integration:initialize/comments > should parse line comments in source 
         "offset": 154,
       },
       "start": {
-        "_bufferIndex": 0,
-        "_index": 9,
-        "column": 1,
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 9,
         "line": 6,
-        "offset": 145,
+        "offset": 153,
       },
       "type": "chunkComment",
-      "value": "        
+      "value": "
 ",
     },
   ],
@@ -24209,14 +25514,14 @@ exports[`integration:initialize/comments > should parse line comments in source 
         "offset": 154,
       },
       "start": {
-        "_bufferIndex": 0,
-        "_index": 9,
-        "column": 1,
+        "_bufferIndex": -1,
+        "_index": 10,
+        "column": 9,
         "line": 6,
-        "offset": 145,
+        "offset": 153,
       },
       "type": "chunkComment",
-      "value": "        
+      "value": "
 ",
     },
   ],
@@ -26022,6 +27327,236 @@ exports[`integration:initialize/comments > should parse line comments in source 
   [
     "enter",
     {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 1,
+        "line": 14,
+        "offset": 422,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 23,
+        "column": 1,
+        "line": 13,
+        "offset": 371,
+      },
+      "type": "chunkLanguage",
+      "value": "  @function accent($color, $intensity: 'strong') {
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 25,
+        "column": 1,
+        "line": 14,
+        "offset": 422,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 23,
+        "column": 1,
+        "line": 13,
+        "offset": 371,
+      },
+      "type": "chunkLanguage",
+      "value": "  @function accent($color, $intensity: 'strong') {
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 27,
+        "column": 1,
+        "line": 15,
+        "offset": 462,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 25,
+        "column": 1,
+        "line": 14,
+        "offset": 422,
+      },
+      "type": "chunkLanguage",
+      "value": "    $accent: map.get($accents, $color);
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 27,
+        "column": 1,
+        "line": 15,
+        "offset": 462,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 25,
+        "column": 1,
+        "line": 14,
+        "offset": 422,
+      },
+      "type": "chunkLanguage",
+      "value": "    $accent: map.get($accents, $color);
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 29,
+        "column": 1,
+        "line": 16,
+        "offset": 512,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 27,
+        "column": 1,
+        "line": 15,
+        "offset": 462,
+      },
+      "type": "chunkLanguage",
+      "value": "    $strength: map.get($intensities, $intensity);
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 29,
+        "column": 1,
+        "line": 16,
+        "offset": 512,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 27,
+        "column": 1,
+        "line": 15,
+        "offset": 462,
+      },
+      "type": "chunkLanguage",
+      "value": "    $strength: map.get($intensities, $intensity);
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 31,
+        "column": 1,
+        "line": 17,
+        "offset": 561,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 29,
+        "column": 1,
+        "line": 16,
+        "offset": 512,
+      },
+      "type": "chunkLanguage",
+      "value": "    @return rgb(from $accent r g b / $strength);
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 31,
+        "column": 1,
+        "line": 17,
+        "offset": 561,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 29,
+        "column": 1,
+        "line": 16,
+        "offset": 512,
+      },
+      "type": "chunkLanguage",
+      "value": "    @return rgb(from $accent r g b / $strength);
+",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 33,
+        "column": 1,
+        "line": 18,
+        "offset": 565,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 31,
+        "column": 1,
+        "line": 17,
+        "offset": 561,
+      },
+      "type": "chunkLanguage",
+      "value": "  }
+",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 33,
+        "column": 1,
+        "line": 18,
+        "offset": 565,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 31,
+        "column": 1,
+        "line": 17,
+        "offset": 561,
+      },
+      "type": "chunkLanguage",
+      "value": "  }
+",
+    },
+  ],
+  [
+    "enter",
+    {
       "end": {
         "_bufferIndex": -1,
         "_index": 34,
@@ -26062,7 +27597,7 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("opener-only/line/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("opener-only/01.txt") 1`] = `
 [
   [
     "enter",
@@ -26275,7 +27810,7 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("opener-only/line/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("opener-only/02.txt") 1`] = `
 [
   [
     "enter",
@@ -26534,7 +28069,7 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("opener-only/line/03.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("opener-only/03.txt") 1`] = `
 [
   [
     "enter",
@@ -26833,7 +28368,7 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("opener-only/line/04.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("opener-only/04.txt") 1`] = `
 [
   [
     "enter",
@@ -27134,7 +28669,7 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("sameline/line/01.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("sameline/01.txt") 1`] = `
 [
   [
     "enter",
@@ -27433,7 +28968,7 @@ exports[`integration:initialize/comments > should parse line comments in source 
 ]
 `;
 
-exports[`integration:initialize/comments > should parse line comments in source file ("sameline/line/02.txt") 1`] = `
+exports[`integration:initialize/comments > should parse line comments ("sameline/02.txt") 1`] = `
 [
   [
     "enter",
@@ -27683,6 +29218,349 @@ exports[`integration:initialize/comments > should parse line comments in source 
         "column": 32,
         "line": 1,
         "offset": 31,
+      },
+      "type": "eoc",
+    },
+  ],
+]
+`;
+
+exports[`integration:initialize/comments > should parse line comments ("sameline/03.txt") 1`] = `
+[
+  [
+    "enter",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "      ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "language",
+      "end": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "start": {
+        "_bufferIndex": 0,
+        "_index": 0,
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+      "type": "chunkLanguage",
+      "value": "      ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 57,
+        "line": 1,
+        "offset": 56,
+      },
+      "kind": "line",
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 0,
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "type": "commentOpener",
+      "value": "//",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 0,
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "type": "commentMarker",
+      "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 7,
+        "_index": 0,
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "type": "commentMarker",
+      "value": "/",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 0,
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 0,
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "type": "commentMarker",
+      "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 0,
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": {
+        "_bufferIndex": 7,
+        "_index": 0,
+        "column": 8,
+        "line": 1,
+        "offset": 7,
+      },
+      "type": "commentMarker",
+      "value": "/",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 8,
+        "_index": 0,
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "type": "commentOpener",
+      "value": "//",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": 9,
+        "_index": 0,
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": {
+        "_bufferIndex": 8,
+        "_index": 0,
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": 9,
+        "_index": 0,
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "start": {
+        "_bufferIndex": 8,
+        "_index": 0,
+        "column": 9,
+        "line": 1,
+        "offset": 8,
+      },
+      "type": "commentPadding",
+      "value": " ",
+    },
+  ],
+  [
+    "enter",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 57,
+        "line": 1,
+        "offset": 56,
+      },
+      "start": {
+        "_bufferIndex": 9,
+        "_index": 0,
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "type": "chunkComment",
+      "value": "open the comment container if not already open.",
+    },
+  ],
+  [
+    "exit",
+    {
+      "contentType": "comment",
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 57,
+        "line": 1,
+        "offset": 56,
+      },
+      "start": {
+        "_bufferIndex": 9,
+        "_index": 0,
+        "column": 10,
+        "line": 1,
+        "offset": 9,
+      },
+      "type": "chunkComment",
+      "value": "open the comment container if not already open.",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 57,
+        "line": 1,
+        "offset": 56,
+      },
+      "kind": "line",
+      "start": {
+        "_bufferIndex": 6,
+        "_index": 0,
+        "column": 7,
+        "line": 1,
+        "offset": 6,
+      },
+      "type": "comment",
+    },
+  ],
+  [
+    "enter",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 57,
+        "line": 1,
+        "offset": 56,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 57,
+        "line": 1,
+        "offset": 56,
+      },
+      "type": "eoc",
+    },
+  ],
+  [
+    "exit",
+    {
+      "end": {
+        "_bufferIndex": -1,
+        "_index": 2,
+        "column": 57,
+        "line": 1,
+        "offset": 56,
+      },
+      "start": {
+        "_bufferIndex": -1,
+        "_index": 1,
+        "column": 57,
+        "line": 1,
+        "offset": 56,
       },
       "type": "eoc",
     },

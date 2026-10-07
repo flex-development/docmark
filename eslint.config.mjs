@@ -16,6 +16,9 @@ import pathe from '@flex-development/pathe'
 const config = [
   ...fldv.configs.node,
   {
+    ignores: ['examples/jaymark/__fixtures__/files/04.jsonc']
+  },
+  {
     files: ['**/*.+(cjs|cts|js|jsx|mjs|mts|ts|tsx)'],
     languageOptions: {
       parserOptions: {
@@ -35,6 +38,7 @@ const config = [
   },
   {
     files: [
+      'examples/**/src/{constructs,initialize}/*.mts',
       'packages/docmark-factory-block/src/factory.mts',
       'packages/docmark-factory-line/src/factory.mts',
       'packages/docmark-grammar/**/*.mts',

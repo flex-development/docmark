@@ -12,7 +12,7 @@ import type { Extension } from '@flex-development/docmark-util-types'
  * @see {@linkcode Extension}
  */
 type FullNormalizedExtension = {
-  [K in keyof Extension]-?: Exclude<Extension[K], null | undefined>
+  [K in keyof Extension]-?: NonNullable<Extension[K]>
 }
 
 export type { FullNormalizedExtension as default }

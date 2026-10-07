@@ -20,7 +20,7 @@ describe('integration:initialize/comment', () => {
   let directory: string
 
   beforeAll(() => {
-    directory = 'packages/docmark/__fixtures__/chunks/comment'
+    directory = 'packages/docmark/__fixtures__/content/comment'
   })
 
   it('should allow all `comment` constructs to be disabled', () => {

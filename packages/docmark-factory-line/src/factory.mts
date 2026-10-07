@@ -14,11 +14,12 @@ import type {
   ContinuableConstruct,
   Effects,
   Event,
+  PartialConstruct,
   State,
   Token,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
-import { whitespace } from '@flex-development/mark-util-character'
+import { eos, whitespace } from '@flex-development/mark-util-character'
 import { ok as assert } from 'devlop'
 
 export default factoryLineComment
@@ -56,6 +57,16 @@ function factoryLineComment<T extends ContinuableConstruct>(
   }
 
   /**
+   * The line comment opener construct.
+   *
+   * @const {PartialConstruct} commentOpener
+   */
+  const commentOpener: PartialConstruct = {
+    partial: true,
+    tokenize: tokenizeCommentOpener
+  }
+
+  /**
    * Whether continued lines can be indented in lieu of explicit markers.
    *
    * @var {boolean | undefined} allowIndentedContinuation
@@ -76,7 +87,10 @@ function factoryLineComment<T extends ContinuableConstruct>(
    */
   let markers: Markers | undefined
 
+  // finalize the line comment construct.
+  // this is where users can override the default construct properties.
   options.finalizeConstruct?.(lineComment)
+
   return lineComment as T
 
   /**
@@ -89,7 +103,12 @@ function factoryLineComment<T extends ContinuableConstruct>(
    * @return {undefined}
    */
   function exitLineComment(this: TokenizeContext, effects: Effects): undefined {
+    assert(this.containerState, 'expected `containerState` inside comment')
+
+    // call the user's `exit` handler before the factory exit.
     void options.construct?.exit?.call(this, effects)
+
+    // exit the comment container.
     return void effects.exit(tt.comment)
   }
 
@@ -162,12 +181,10 @@ function factoryLineComment<T extends ContinuableConstruct>(
 
       // open the comment container if not already open.
       if (!self.containerState.open) {
-        const { fields } = options
+        const { fields, skipComment } = options
 
-        // get the default marker configuration.
-        markers = typeof options.markers === 'function'
-          ? options.markers.call(self)
-          : options.markers
+        // line comment not allowed at the current position.
+        if (skipComment?.call(self)) return nok(code)
 
         // start new comment.
         effects.enter(tt.comment, {
@@ -175,12 +192,8 @@ function factoryLineComment<T extends ContinuableConstruct>(
           ...(typeof fields === 'function' ? fields.call(self) : fields)
         })
 
-        // the comment container is fresh.
-        // markers are captured inside a `commentOpener` token.
-        effects.enter(tt.commentOpener)
-
-        // try capturing comment markers.
-        return factoryMarkers(effects, endOpener, nok, markers)(code)
+        // try capturing comment opener and optional padding only.
+        return effects.attempt(commentOpener, ok, nok)(code)
       }
 
       // the comment container is open.
@@ -201,13 +214,200 @@ function factoryLineComment<T extends ContinuableConstruct>(
         constants.commentPaddingSizeMin
       )
 
-      // try capturing comment markers.
+      // try capturing comment line markers.
       return factoryMarkers(
         effects,
         afterMarkers,
         nok,
         continuationMarkers
       )(code)
+    }
+
+    /**
+     * At the end of the comment line prefix.
+     *
+     * The comment line prefix contains leading comment padding, continuation
+     * line markers, and optional inner comment padding.\
+     * It ends immediately before comment content.
+     *
+     * > 👉 **Note**: `␊` represents a line ending.
+     *
+     * @example
+     *  ```markdown
+     *  > |// continuation construct did not consume entire line.␊
+     *  > |// start markdown chunk from current point in the stream.␊
+     *        ^
+     *  > |if (!eol(self.previous)) return beforeMarkdown(code)␊
+     *  ```
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function endPrefix(this: void, code: Code): State | undefined {
+      effects.exit(tt.commentLinePrefix)
+      return ok(code)
+    }
+  }
+
+  /**
+   * Continue tokenizing a line comment.
+   *
+   * @this {TokenizeContext}
+   *
+   * @param {Effects} effects
+   *  The context object used to transition the state machine
+   * @param {State} ok
+   *  The successful tokenization state
+   * @param {State} nok
+   *  The failed tokenization state
+   * @return {State}
+   *  The initial state
+   */
+  function tokenizeLineCommentContinuation(
+    this: TokenizeContext,
+    effects: Effects,
+    ok: State,
+    nok: State
+  ): State {
+    /**
+     * The indented line comment continuation construct.
+     *
+     * @const {Construct} indented
+     */
+    const indented: Construct = { tokenize: tokenizeIndentedContinuation }
+
+    /**
+     * The marked line comment continuation construct.
+     *
+     * @const {Construct} marked
+     */
+    const marked: Construct = { tokenize: tokenizeMarkedContinuation }
+
+    return lineStart
+
+    /**
+     * At the beginning of a continued line.
+     *
+     * > 👉 **Note**: `␊` represents a line ending
+     * > and `ᴺᵁᴸ` represents end-of-stream.
+     *
+     * @example
+     *  ```markdown
+     *  > |// the comment container is open.␊
+     *  > |// markers are captured inside a `commentLinePrefix` token.␊
+     *     ^
+     *  ```
+     *
+     * @example
+     *  ```markdown
+     *  > |   // continuation construct did not consume entire line.␊
+     *  > |   // start markdown chunk from current point in the stream.␊
+     *     ^
+     *  > |   if (!eol(self.previous)) return beforeMarkdown(code)␊
+     *  ```
+     *
+     * @example
+     *  ```markdown
+     *  > |      // capture leading comment padding.␊
+     *  > |         padding is no larger than the start column of the opener.ᴺᵁᴸ
+     *     ^
+     *  ```
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function lineStart(this: void, code: Code): State | undefined {
+      // at end of stream.
+      if (eos(code)) return nok(code)
+
+      // try capturing comment line prefix only.
+      return effects.attempt(
+        marked,
+        ok,
+        effects.attempt(indented, ok, effects.check(blankLine, ok, nok))
+      )(code)
+    }
+  }
+
+  /**
+   * Tokenize the comment opener.
+   *
+   * @this {TokenizeContext}
+   *
+   * @param {Effects} effects
+   *  The context object used to transition the state machine
+   * @param {State} ok
+   *  The successful tokenization state
+   * @param {State} nok
+   *  The failed tokenization state
+   * @return {State}
+   *  The initial state
+   */
+  function tokenizeCommentOpener(
+    this: TokenizeContext,
+    effects: Effects,
+    ok: State,
+    nok: State
+  ): State {
+    /**
+     * The tokenization context.
+     *
+     * @const {TokenizeContext} self
+     */
+    const self: TokenizeContext = this
+
+    return startOpener
+
+    /**
+     * At the beginning of a line comment.
+     *
+     * > 👉 **Note**: `␊` represents a line ending.
+     *
+     * @example
+     *  ```markdown
+     *  > |//cannot be a line comment.␊
+     *     ^
+     *  > |if (code !== self.previous) return nok(code)
+     *  ```
+     *
+     * @example
+     *  ```markdown
+     *  > |// continuation construct did not consume entire line.␊
+     *     ^
+     *  > |// start markdown chunk from current point in the stream.␊
+     *  > |if (!eol(self.previous)) return beforeMarkdown(code)␊
+     *  ```
+     *
+     * @this {void}
+     *
+     * @param {Code} code
+     *  The current character code
+     * @return {State | undefined}
+     *  The next state
+     */
+    function startOpener(this: void, code: Code): State | undefined {
+      assert(self.containerState, 'expected `containerState` inside comment')
+      assert(!self.containerState.open, 'did not expect open comment container')
+
+      // get the default marker configuration.
+      markers = typeof options.markers === 'function'
+        ? options.markers.call(self)
+        : options.markers
+
+      // the comment container is fresh.
+      // markers are captured inside a `commentOpener` token.
+      effects.enter(tt.commentOpener)
+
+      // try capturing comment markers.
+      return factoryMarkers(effects, endOpener, nok, markers)(code)
     }
 
     /**
@@ -276,72 +476,6 @@ function factoryLineComment<T extends ContinuableConstruct>(
         constants.commentPaddingSizeMin
       )(code)
     }
-
-    /**
-     * At the end of the comment line prefix.
-     *
-     * The comment line prefix contains leading comment padding, continuation
-     * line markers, and optional inner comment padding.\
-     * It ends immediately before comment content.
-     *
-     * > 👉 **Note**: `␊` represents a line ending.
-     *
-     * @example
-     *  ```markdown
-     *  > |// continuation construct did not consume entire line.␊
-     *  > |// start markdown chunk from current point in the stream.␊
-     *        ^
-     *  > |if (!eol(self.previous)) return beforeMarkdown(code)␊
-     *  ```
-     *
-     * @this {void}
-     *
-     * @param {Code} code
-     *  The current character code
-     * @return {State | undefined}
-     *  The next state
-     */
-    function endPrefix(this: void, code: Code): State | undefined {
-      effects.exit(tt.commentLinePrefix)
-      return ok(code)
-    }
-  }
-
-  /**
-   * Continue tokenizing a line comment.
-   *
-   * @this {TokenizeContext}
-   *
-   * @param {Effects} effects
-   *  The context object used to transition the state machine
-   * @param {State} ok
-   *  The successful tokenization state
-   * @param {State} nok
-   *  The failed tokenization state
-   * @return {State}
-   *  The initial state
-   */
-  function tokenizeLineCommentContinuation(
-    this: TokenizeContext,
-    effects: Effects,
-    ok: State,
-    nok: State
-  ): State {
-    /**
-     * The indented line comment continuation construct.
-     *
-     * @const {Construct} indented
-     */
-    const indented: Construct = { tokenize: tokenizeIndentedContinuation }
-
-    /**
-     * The marked line comment continuation construct.
-     *
-     * @const {Construct} marked
-     */
-    const marked: Construct = { tokenize: tokenizeMarkedContinuation }
-
-    return effects.attempt(marked, ok, effects.attempt(indented, ok, nok))
   }
 
   /**
@@ -380,7 +514,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
      */
     const self: TokenizeContext = this
 
-    return effects.check(blankLine, ok, lineStart)
+    return lineStart
 
     /**
      * Begin an indented continued comment line.
@@ -416,6 +550,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
     function lineStart(this: void, code: Code): State | undefined {
       assert(self.containerState, 'expected `containerState` inside comment')
       assert(self.containerState.opener, 'expected comment opener token')
+      assert(!eos(code), 'did not expect end of stream')
 
       // indented continuation line not allowed here.
       if (!allowIndentedContinuation) return nok(code)
@@ -629,6 +764,7 @@ function factoryLineComment<T extends ContinuableConstruct>(
     function lineStart(this: void, code: Code): State | undefined {
       assert(self.containerState, 'expected `containerState` inside comment')
       assert(self.containerState.opener, 'expected comment `opener` token')
+      assert(!eos(code), 'did not expect end of stream')
 
       // begin comment line prefix.
       effects.enter(tt.commentLinePrefix)

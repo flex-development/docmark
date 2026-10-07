@@ -1,25 +1,31 @@
-import type { Construct, State } from '@flex-development/docmark-util-types'
+import type {
+  Construct,
+  Create,
+  Place,
+  State
+} from '@flex-development/docmark-util-types'
 import type * as mark from '@flex-development/mark/parse'
 
 declare module '@flex-development/docmark-util-types' {
   interface ContainerState {
+  }
+
+  interface ContentTypeMap {
+    source: 'source'
+  }
+
+  interface ParseContext {
     /**
-     * For block tag containers and type expressions,
-     * the current tag name identifier.
+     * Create a source language parser.
+     *
+     * @see {@linkcode Create}
      *
      * @internal
      */
-    tag?: string | undefined
+    language?: Create | undefined
   }
 
   interface TokenFields {
-    /**
-     * For type expression chunks, the current tag name identifier.
-     *
-     * @internal
-     */
-    tag?: string | undefined
-
     /**
      * For comments, whether the comment is a TypeScript triple-slash comment.
      *
@@ -47,6 +53,11 @@ declare module '@flex-development/docmark-util-types' {
     _gfmTasklistFirstContentOfListItem?: boolean | undefined
 
     /**
+     * Whether the position of the tokenizer moves forward at stream breaks.
+     */
+    moveOnBreak?: boolean | null | undefined
+
+    /**
      * When trying a construct, whether {@linkcode Construct.previous}
      * should **not** be called.
      *
@@ -55,6 +66,25 @@ declare module '@flex-development/docmark-util-types' {
      * @internal
      */
     noPrevious?: boolean | undefined
+
+    /**
+     * The current place in the content.
+     *
+     * @see {@linkcode Place}
+     *
+     * @internal
+     * @readonly
+     */
+    readonly place: Place
+
+    /**
+     * Get the string value of a slice of chunks.
+     *
+     * @see {@linkcode mark.SerializeChunks}
+     *
+     * @internal
+     */
+    serializeChunks: mark.SerializeChunks
 
     /**
      * The token factory.

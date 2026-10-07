@@ -46,6 +46,7 @@ permissions:
 env:
   CACHE_PATH: |
     node_modules
+    examples/*/node_modules
     packages/*/node_modules
   CACHE_PATH_BUILD: packages/*/dist
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

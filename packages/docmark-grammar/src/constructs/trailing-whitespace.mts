@@ -62,7 +62,7 @@ function tokenizeTrailingWhitespace(
    */
   const self: TokenizeContext = this
 
-  return whitespaceTrail
+  return startWhitespaceTrail
 
   /**
    * Attempt to begin trailing whitespace.
@@ -84,10 +84,13 @@ function tokenizeTrailingWhitespace(
    * @return {State | undefined}
    *  The next state
    */
-  function whitespaceTrail(this: void, code: Code): State | undefined {
+  function startWhitespaceTrail(this: void, code: Code): State | undefined {
     if (!whitespace(code)) return nok(code)
     assert(!self.parser.atBlankLine, 'did not expect blank line')
-    return factorySpace(effects, afterWhitespaceTrail, tt.whitespace)(code)
+
+    return factorySpace(effects, afterWhitespaceTrail, tt.whitespace, null, {
+      _trailing: true
+    })(code)
   }
 
   /**
@@ -104,9 +107,6 @@ function tokenizeTrailingWhitespace(
    *  The next state
    */
   function afterWhitespaceTrail(this: void, code: Code): State | undefined {
-    // mark trailing whitespace.
-    self.events.at(-1)![1]._trailing = true
-
     // capture line ending.
     if (eol(code)) {
       effects.enter(tt.lineEnding)

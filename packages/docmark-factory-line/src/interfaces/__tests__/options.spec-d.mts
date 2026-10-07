@@ -8,7 +8,8 @@ import type {
   CreateFields,
   CreateMarkers,
   FinalizeConstruct,
-  Markers
+  Markers,
+  SkipComment
 } from '@flex-development/docmark-factory-line'
 import type {
   Construct,
@@ -61,5 +62,12 @@ describe('unit-d:interfaces/Options', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('markers')
       .toEqualTypeOf<CreateMarkers | Markers>()
+  })
+
+  it('should match [skipComment?: SkipComment | null | undefined]', () => {
+    expectTypeOf<Optional>().extract<'skipComment'>().not.toBeNever()
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('skipComment')
+      .toEqualTypeOf<Nilable<SkipComment>>()
   })
 })

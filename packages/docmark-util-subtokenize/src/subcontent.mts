@@ -52,7 +52,7 @@ function subcontent(
    */
   const child: TokenizeContext = token._tokenizer && 'write' in token._tokenizer
     ? token._tokenizer
-    : context.parser[token.contentType](token.start)
+    : context.parser[token.contentType]!(token.start)
 
   /**
    * The parent `enter` event positions for each linked token.\

@@ -1,0 +1,59 @@
+{
+  "name": "@flex-development/docmark-extension-tags",
+  "description": "docmark extension to support tag syntax",
+  "version": "0.0.0",
+  "keywords": [],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/flex-development/docmark",
+  "repository": {
+    "directory": "examples/docmark-extension-tags",
+    "type": "git",
+    "url": "git+https://github.com/flex-development/docmark.git"
+  },
+  "bugs": "https://github.com/flex-development/docmark/issues",
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "diff-dst-prefix": "docmark-extension-tags",
+    "diff-src-prefix": "docmark-extension-tags",
+    "directory": "./",
+    "executableFiles": [],
+    "node-options": null,
+    "pack-destination": ".",
+    "parseable": true,
+    "prefer-dedupe": true,
+    "provenance": true,
+    "tag-version-prefix": "docmark-extension-tags@"
+  },
+  "type": "module",
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "docmark": "./src/index.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "attw": "tsc --build tsconfig.build.json --clean --dry && tsc --build tsconfig.build.json --clean && tsc --build tsconfig.build.json --verbose"
+  },
+  "dependencies": {
+    "@flex-development/docmark-factory-identifier": "workspace:1.0.0-alpha.11",
+    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.19",
+    "@flex-development/docmark-grammar": "workspace:1.0.0-alpha.19",
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.11",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.19",
+    "@flex-development/mark-util-character": "1.1.0",
+    "devlop": "1.1.0"
+  },
+  "sideEffects": false
+}

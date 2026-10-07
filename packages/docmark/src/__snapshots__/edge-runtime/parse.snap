@@ -271,6 +271,7 @@ exports[`unit:parse > should return parse context 1`] = `
       ],
     },
     "settings": {},
+    "source": {},
     "string": {
       "38": [
         {
@@ -391,6 +392,7 @@ exports[`unit:parse > should return parse context 1`] = `
   "document": [Function create],
   "flow": [Function create],
   "lazy": {},
+  "source": [Function create],
   "string": [Function create],
   "text": [Function create],
   "type": [Function create],

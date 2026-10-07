@@ -12,16 +12,22 @@ describe('unit-d:TokenTypeMap', () => {
     expectTypeOf<TestSubject>().toExtend<micromark.TokenTypeMap>()
   })
 
-  it('should match [blockTag: "blockTag"]', () => {
-    expectTypeOf<TestSubject>()
-      .toHaveProperty('blockTag')
-      .toEqualTypeOf<'blockTag'>()
-  })
-
   it('should match [chunkComment: "chunkComment"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('chunkComment')
       .toEqualTypeOf<'chunkComment'>()
+  })
+
+  it('should match [chunkExpression: "chunkExpression"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('chunkExpression')
+      .toEqualTypeOf<'chunkExpression'>()
+  })
+
+  it('should match [chunkLanguage: "chunkLanguage"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('chunkLanguage')
+      .toEqualTypeOf<'chunkLanguage'>()
   })
 
   it('should match [chunkMarkdown: "chunkMarkdown"]', () => {
@@ -136,10 +142,6 @@ describe('unit-d:TokenTypeMap', () => {
       .toEqualTypeOf<'namepathMarker'>()
   })
 
-  it('should match [null: never]', () => {
-    expectTypeOf<TestSubject>().toHaveProperty('null').toEqualTypeOf<never>()
-  })
-
   it('should match [summary: "summary"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('summary')
@@ -150,6 +152,10 @@ describe('unit-d:TokenTypeMap', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('summaryMarker')
       .toEqualTypeOf<'summaryMarker'>()
+  })
+
+  it('should match [tag: "tag"]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('tag').toEqualTypeOf<'tag'>()
   })
 
   it('should match [tagName: "tagName"]', () => {

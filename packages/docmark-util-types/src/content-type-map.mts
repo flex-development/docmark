@@ -22,6 +22,7 @@ interface ContentTypeMap {
   content: 'content'
   document: 'document'
   flow: 'flow'
+  language: 'language'
   string: 'string'
   text: 'text'
   type: 'type'

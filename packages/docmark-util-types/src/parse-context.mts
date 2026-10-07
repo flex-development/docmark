@@ -23,6 +23,11 @@ import type {
  */
 interface ParseContext {
   /**
+   * Whether a comment is active.
+   */
+  activeComment?: boolean | null | undefined
+
+  /**
    * Whether the current line is blank.
    */
   atBlankLine?: boolean | null | undefined
@@ -35,7 +40,11 @@ interface ParseContext {
   comment: Create
 
   /**
-   * Create a comments parser.
+   * Create a comment parser.
+   *
+   * > 👉 **Note**: Alias for {@linkcode source}.\
+   * > Users who do not need source language integration may prefer to use this
+   * > field instead of `source` purely for the sake of readability.
    *
    * @see {@linkcode Create}
    */
@@ -111,6 +120,13 @@ interface ParseContext {
    * Whether a comment summary is not allowed.
    */
   skipSummary?: boolean | undefined
+
+  /**
+   * Create a source content parser.
+   *
+   * @see {@linkcode Create}
+   */
+  source: Create
 
   /**
    * Create a markdown string parser.

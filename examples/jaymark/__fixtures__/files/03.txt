@@ -1,0 +1,2 @@
+/* a comment */ "/* actually a string */" /* 
+another comment */ []

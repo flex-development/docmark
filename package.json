@@ -40,9 +40,9 @@
     "check:types": "tsc -p tsconfig.typecheck.json",
     "check:types:attw": "bash ./scripts/attw.sh",
     "check:upgrades": "yarn upgrade-interactive",
-    "clean:build": "trash \"packages/*/dist\"",
+    "clean:build": "trash \"{examples,packages}/*/dist\"",
     "clean:build:tsc": "tsc --build tsconfig.build.json --clean",
-    "clean:modules": "trash .yarn/{cache/,*.gz} node_modules \"packages/*/node_modules\"",
+    "clean:modules": "trash .yarn/{cache/,*.gz} node_modules \"{examples,packages}/*/node_modules\"",
     "clean:pack": "trash \"*.tgz\" \"packages/*/*.tgz\"",
     "clean:test": "trash  __tests__/reports .vitest-reports coverage",
     "codecov:validate": "cat .codecov.yml | curl --data-binary @- https://codecov.io/validate",
@@ -132,6 +132,7 @@
   "sideEffects": false,
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ]
 }

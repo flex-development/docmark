@@ -27,14 +27,9 @@ describe('unit-d:LanguageMap', () => {
       .toEqualTypeOf<'javascript'>()
   })
 
-  it('should match [json5: "json5"]', () => {
-    expectTypeOf<Required>().extract<'json5'>().not.toBeNever()
-    expectTypeOf<TestSubject>().toHaveProperty('json5').toEqualTypeOf<'json5'>()
-  })
-
-  it('should match [jsonc: "jsonc"]', () => {
-    expectTypeOf<Required>().extract<'jsonc'>().not.toBeNever()
-    expectTypeOf<TestSubject>().toHaveProperty('jsonc').toEqualTypeOf<'jsonc'>()
+  it('should match [json: "json"]', () => {
+    expectTypeOf<Required>().extract<'json'>().not.toBeNever()
+    expectTypeOf<TestSubject>().toHaveProperty('json').toEqualTypeOf<'json'>()
   })
 
   it('should match [markdown: "markdown"]', () => {

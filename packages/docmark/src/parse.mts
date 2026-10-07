@@ -55,7 +55,7 @@ function parse(
    * @const {TokenizeContext} context
    */
   const context: TokenizeContext = createTokenizer({
-    debug: 'docmark',
+    debug: options?.debug ?? 'docmark',
     eol,
     extensions: extensions as Options['extensions'],
     finalizeContext,
@@ -100,11 +100,18 @@ function parse(
         self.noEmptyTokens = true
         self.noPrevious = true
         break
+      case constants.contentTypeSource:
       case constants.contentTypeComments:
       case constants.contentTypeComment:
       case constants.contentTypeType:
         self.code = codes.bos
         self.previous = codes.bos
+        break
+      case constants.contentTypeLanguage:
+        self.code = codes.bos
+        self.previous = codes.bos
+        self.moveOnBreak = true
+        self.noEmptyTokens = true
         break
       default:
         break
@@ -126,7 +133,13 @@ function parse(
    *  The record of initial constructs
    */
   function initialize(this: void): InitialConstructs {
-    return {
+    /**
+     * The record of initial constructs.
+     *
+     * @const {InitialConstructs} constructs
+     */
+    const constructs: InitialConstructs = {
+      [constants.contentTypeSource]: comments,
       [constants.contentTypeComments]: comments,
       [constants.contentTypeComment]: comment,
       [constants.contentTypeType]: typeExpression,
@@ -134,8 +147,20 @@ function parse(
       [constants.contentTypeFlow]: flow,
       [constants.contentTypeContent]: content,
       [constants.contentTypeText]: text,
-      [constants.contentTypeString]: string,
-      ...options?.initializers
+      [constants.contentTypeString]: string
     }
+
+    // merge custom initializers into the record of initial constructs.
+    Object.assign(constructs, { ...options?.initializers })
+
+    // ensure the `source` initializer matches the `comments` initializer.
+    // although these parsers are the same, the `comments` parser is intended
+    // for users who do need not source language support.
+    // it is exposed purely for the sake of readability.
+    // the `source` parser is for users who *do* need source language support
+    // and would find accessing the `comments` parser awkward.
+    constructs.source = Object.assign({}, constructs.comments)
+
+    return constructs
   }
 }

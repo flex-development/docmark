@@ -35,11 +35,11 @@ describe('unit-d:interfaces/Info', () => {
       .toEqualTypeOf<Nilable<TokenFields>>()
   })
 
-  it('should match [optional?: boolean | undefined]', () => {
+  it('should match [optional?: boolean | null | undefined]', () => {
     expectTypeOf<Optional>().extract<'optional'>().not.toBeNever()
     expectTypeOf<TestSubject>()
       .toHaveProperty('optional')
-      .toEqualTypeOf<boolean | undefined>()
+      .toEqualTypeOf<Nilable<boolean>>()
   })
 
   it('should match [type?: TokenType | null | undefined]', () => {

@@ -25,6 +25,11 @@ import type {
  */
 interface ParseOptions {
   /**
+   * The name of the debug logger.
+   */
+  debug?: string | null | undefined
+
+  /**
    * The list of syntax extensions to apply.
    *
    * @see {@linkcode AnyExtension}

@@ -19,8 +19,7 @@ interface LanguageMap {
   css: 'css'
   html: 'html'
   javascript: 'javascript'
-  json5: 'json5'
-  jsonc: 'jsonc'
+  json: 'json'
   markdown: 'markdown'
   mdx: 'mdx'
 

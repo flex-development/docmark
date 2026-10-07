@@ -17,6 +17,9 @@
   "references": [
     {
       "path": "packages/docmark/tsconfig.build.json"
+    },
+    {
+      "path": "examples/jaymark/tsconfig.build.json"
     }
   ]
 }

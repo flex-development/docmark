@@ -8,7 +8,8 @@ import type {
   CreateFields,
   CreateMarkers,
   FinalizeConstruct,
-  Markers
+  Markers,
+  SkipComment
 } from '@flex-development/docmark-factory-block'
 import type {
   Construct,
@@ -69,6 +70,13 @@ interface Options {
    * @see {@linkcode Markers}
    */
   markers: CreateMarkers | Markers
+
+  /**
+   * Check whether a block comment is allowed at the current position.
+   *
+   * @see {@linkcode SkipComment}
+   */
+  skipComment?: SkipComment | null | undefined
 }
 
 export type { Options as default }

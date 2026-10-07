@@ -89,11 +89,13 @@
     "@flex-development/mark-util-character": "1.1.0",
     "@flex-development/mark-util-chunked": "1.0.0",
     "devlop": "1.1.0",
+    "micromark": "4.0.3",
     "micromark-core-commonmark": "2.0.4",
     "micromark-util-subtokenize": "2.1.0",
     "micromark-util-types": "2.0.3"
   },
   "devDependencies": {
+    "@flex-development/docmark-extension-tags": "workspace:*",
     "@flex-development/docmark-factory-block": "workspace:*",
     "@flex-development/docmark-factory-identifier": "workspace:*",
     "@flex-development/docmark-factory-line": "workspace:*",

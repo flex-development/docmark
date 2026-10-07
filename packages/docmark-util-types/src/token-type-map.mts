@@ -8,9 +8,6 @@ import type * as micromark from 'micromark-util-types'
 /**
  * Registry of token types.
  *
- * The token type `null` is forbidden.
- * The ecosystem uses the `null` key to support additional functionality.
- *
  * Libraries and other tools can augment this interface to register
  * custom token types.
  *
@@ -26,8 +23,9 @@ import type * as micromark from 'micromark-util-types'
  * @extends {micromark.TokenTypeMap}
  */
 interface TokenTypeMap extends micromark.TokenTypeMap {
-  blockTag: 'blockTag'
   chunkComment: 'chunkComment'
+  chunkExpression: 'chunkExpression'
+  chunkLanguage: 'chunkLanguage'
   chunkMarkdown: 'chunkMarkdown'
   chunkType: 'chunkType'
   comment: 'comment'
@@ -47,16 +45,9 @@ interface TokenTypeMap extends micromark.TokenTypeMap {
   namepathConnector: 'namepathConnector'
   namepathIdentifier: 'namepathIdentifier'
   namepathMarker: 'namepathMarker'
-
-  /**
-   * The forbidden token type.
-   *
-   * The ecosystem uses the `null` key to support additional functionality.
-   */
-  null: never
-
   summary: 'summary'
   summaryMarker: 'summaryMarker'
+  tag: 'tag'
   tagName: 'tagName'
   tagNameIdentifier: 'tagNameIdentifier'
   tagNameMarker: 'tagNameMarker'

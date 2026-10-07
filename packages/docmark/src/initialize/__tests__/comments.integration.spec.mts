@@ -22,15 +22,15 @@ describe('integration:initialize/comments', () => {
   let directory: string
 
   beforeAll(() => {
-    directory = 'packages/docmark/__fixtures__/content/source'
+    directory = 'packages/docmark/__fixtures__/content/comments'
   })
 
   it.each<[path: string, ...Parameters<typeof parse>]>([
-    ['empty/01.txt']
+    ['../source/empty.txt']
   ])('should handle no comments (%j)', path => {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
-    const options: ParseOptions = { extensions: [markdown, typescript] }
+    const options: ParseOptions = { extensions: [typescript] }
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act
@@ -41,74 +41,87 @@ describe('integration:initialize/comments', () => {
     expect(result).to.each.have.nested.property('1.start')
     expect(result).to.each.have.nested.property('1.end')
     expect(result).to.each.have.nested.property('1.type', tt.eoc)
+    expect(snapshot(result)).toMatchSnapshot()
   })
 
   it('should handle no extensions', () => {
     // Arrange
-    const file: FileLike = read(new URL(import.meta.url))
+    const file: FileLike = read(pathe.fileURLToPath(import.meta.url))
     const slice: Chunk[] = preprocess()(file, undefined, true)
 
     // Act
     const result = parse().comments().write(slice)
+    const beforeLast = result.at(-2)
+    const last = result.at(-1)
 
     // Expect
-    expect(result).to.have.property('length', 2)
+    expect(result).to.have.property('length').be.at.least(2)
     expect(result).to.each.have.nested.property('1.start')
     expect(result).to.each.have.nested.property('1.end')
-    expect(result).to.each.have.nested.property('1.type', tt.eoc)
+    expect(beforeLast).to.be.an('array')
+    expect(beforeLast).to.have.property('0', ev.enter)
+    expect(beforeLast).to.have.nested.property('1.type', tt.eoc)
+    expect(last).to.be.an('array').but.not.eq(beforeLast)
+    expect(last).to.have.property('0', ev.exit)
+    expect(last).to.have.property('1', beforeLast![1])
   })
 
   it.each<[path: string, ...Parameters<typeof parse>]>([
-    ['opener-only/block/01.txt'],
-    ['opener-only/block/02.txt'],
-    ['opener-only/block/03.txt'],
-    ['opener-only/block/04.txt'],
-    ['sameline/block/01.txt'],
-    ['sameline/block/02.txt'],
-    ['sameline/block/03.txt'],
-    ['sameline/block/04.txt'],
-    ['sameline/block/05.txt'],
-    ['sameline/block/06.txt'],
-    ['sameline/block/07.txt'],
-    ['sameline/block/08.txt'],
-    ['sameline/block/09.txt'],
-    ['sameline/block/10.txt'],
-    ['sameline/block/11.txt'],
-    ['multiline/block/01.txt'],
-    ['multiline/block/02.txt'],
-    ['multiline/block/03.txt'],
-    ['multiline/block/04.txt'],
-    ['multiline/block/05.txt'],
-    ['multiline/block/06.txt'],
-    ['multiline/block/07.txt'],
-    ['multiline/block/08.txt'],
-    ['multiline/block/09.txt'],
-    ['multiline/block/10.txt'],
-    ['multiline/block/11.txt'],
-    ['multiline/block/12.txt'],
-    ['multiline/block/13.txt'],
-    ['multiline/block/14.txt'],
-    ['multiline/block/15.txt'],
-    ['multiline/block/16.txt', { extensions: [markdown] }],
-    ['multiline/block/17.txt', { extensions: [sass] }],
-    ['multiline/block/18.txt', { extensions: [sass] }],
-    ['multiline/block/19.txt', { extensions: [sass] }]
-  ])('should parse block comments in source file (%j)', test)
+    ['opener-only/01.txt'],
+    ['opener-only/02.txt'],
+    ['opener-only/03.txt'],
+    ['opener-only/04.txt'],
+    ['sameline/01.txt'],
+    ['sameline/02.txt'],
+    ['sameline/03.txt'],
+    ['sameline/04.txt'],
+    ['sameline/05.txt'],
+    ['sameline/06.txt'],
+    ['sameline/07.txt'],
+    ['sameline/08.txt'],
+    ['sameline/09.txt'],
+    ['sameline/10.txt'],
+    ['sameline/11.txt'],
+    ['multiline/01.txt'],
+    ['multiline/02.txt'],
+    ['multiline/03.txt'],
+    ['multiline/04.txt'],
+    ['multiline/05.txt'],
+    ['multiline/06.txt'],
+    ['multiline/07.txt'],
+    ['multiline/08.txt'],
+    ['multiline/09.txt'],
+    ['multiline/10.txt'],
+    ['multiline/11.txt'],
+    ['multiline/12.txt'],
+    ['multiline/13.txt'],
+    ['multiline/14.txt'],
+    ['multiline/15.txt'],
+    ['multiline/16.txt', { extensions: [markdown] }],
+    ['multiline/17.txt', { extensions: [sass] }],
+    ['multiline/18.txt', { extensions: [sass] }],
+    ['multiline/19.txt', { extensions: [sass] }]
+  ])('should parse block comments (%j)', (path, options) => {
+    void test('block/' + path, options)
+  })
 
   it.each<[path: string, ...Parameters<typeof parse>]>([
-    ['opener-only/line/01.txt'],
-    ['opener-only/line/02.txt'],
-    ['opener-only/line/03.txt'],
-    ['opener-only/line/04.txt'],
-    ['sameline/line/01.txt'],
-    ['sameline/line/02.txt'],
-    ['multiline/line/01.txt'],
-    ['multiline/line/02.txt'],
-    ['multiline/line/03.txt', { extensions: [sass] }],
-    ['multiline/line/04.txt', { extensions: [sass] }],
-    ['multiline/line/05.txt', { extensions: [sass] }],
-    ['multiline/line/06.txt', { extensions: [sass] }]
-  ])('should parse line comments in source file (%j)', test)
+    ['opener-only/01.txt'],
+    ['opener-only/02.txt'],
+    ['opener-only/03.txt'],
+    ['opener-only/04.txt'],
+    ['sameline/01.txt'],
+    ['sameline/02.txt'],
+    ['sameline/03.txt'],
+    ['multiline/01.txt'],
+    ['multiline/02.txt'],
+    ['multiline/03.txt'],
+    ['multiline/04.txt', { extensions: [sass] }],
+    ['multiline/05.txt', { extensions: [sass] }],
+    ['multiline/06.txt', { extensions: [sass] }]
+  ])('should parse line comments (%j)', (path, options) => {
+    void test('line/' + path, options)
+  })
 
   /**
    * @this {void}

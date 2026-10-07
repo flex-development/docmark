@@ -5,12 +5,9 @@
 
 import type {
   AnyExtension,
-  ConstructRecord,
-  ContentType,
   Extension,
   NormalizedExtension
 } from '@flex-development/docmark-util-types'
-import type { NIL } from '@flex-development/tutils'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../full-normalized-extension.mts'
 
@@ -23,11 +20,9 @@ describe('unit-d:FullNormalizedExtension', () => {
     expectTypeOf<TestSubject>().toExtend<NormalizedExtension>()
   })
 
-  it('should require all `Extension` properties and remove `NIL`', () => {
+  it('should equal { [K in keyof Extension]-?: NonNullable<Extension[K]> }', () => {
     // Arrange
-    type K = Exclude<keyof Extension, ContentType>
-    type V = Exclude<Extension[K], NIL>
-    type Expect = Record<K, V> & Record<ContentType, ConstructRecord>
+    type Expect = { [K in keyof Extension]-?: NonNullable<Extension[K]> }
 
     // Expect
     expectTypeOf<TestSubject>().toExtend<Expect>()

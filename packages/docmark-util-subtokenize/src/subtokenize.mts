@@ -57,13 +57,16 @@ function subtokenize(this: void, events: Event[]): boolean {
 
   while (++index < events.length) {
     ok(events[index], 'expected `events[index]`')
-    const [event, token] = events[index]!
+    const [event, token, self] = events[index]!
 
     // only `enter` events can introduce embedded content.
     if (event !== ev.enter) continue
 
     // tokens without a content type are already fully tokenized.
     if (!token.contentType) continue
+
+    // no registered parser.
+    if (typeof self.parser[token.contentType] === 'undefined') continue
 
     // tokenize embedded content.
     subcontent(events, index)

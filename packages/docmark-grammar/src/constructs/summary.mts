@@ -165,7 +165,7 @@ function tokenizeSummary(
     if (self.parser.skipSummary) return nok(code)
 
     // start summary.
-    effects.enter(tt.summary, { _container: true, _region: true })
+    effects.enter(tt.summary, { _region: true })
     self.containerState.open = true
 
     // add summary marker.

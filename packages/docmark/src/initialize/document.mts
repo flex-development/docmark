@@ -13,6 +13,7 @@ import type {
   ContainerState,
   ContinuableConstruct,
   Effects,
+  Event,
   InitialConstruct,
   Place,
   State,
@@ -22,7 +23,7 @@ import type {
 import { eol, eos } from '@flex-development/mark-util-character'
 import { splice } from '@flex-development/mark-util-chunked'
 import { ok as assert } from 'devlop'
-import resolveMarkdown from '../resolvers/markdown.mts'
+import * as micromark from 'micromark'
 
 /**
  * The markdown document construct.
@@ -30,7 +31,7 @@ import resolveMarkdown from '../resolvers/markdown.mts'
  * @const {InitialConstruct} document
  */
 const document: InitialConstruct = {
-  resolve: resolveMarkdown,
+  resolveAll: resolveDocument,
   tokenize: tokenizeDocument
 }
 
@@ -42,6 +43,26 @@ export default document
  * @const {Construct} container
  */
 const container: Construct = { tokenize: tokenizeContainer }
+
+/**
+ * Resolve events emitted while tokenizing a markdown document stream.
+ *
+ * Markdown content is transparent: it's parsed right now.
+ *
+ * That way, definitions are parsed before text in paragraphs (specifically,
+ * media) is parsed.
+ *
+ * @this {void}
+ *
+ * @param {Event[]} events
+ *  The current list of events
+ * @return {Event[]}
+ *  The list of changed events
+ */
+function resolveDocument(this: void, events: Event[]): Event[] {
+  // @ts-expect-error micromark-shaped events (2345).
+  return micromark.postprocess(events) // resolve subtokens.
+}
 
 /**
  * Tokenize a markdown document.

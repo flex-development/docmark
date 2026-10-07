@@ -5,6 +5,7 @@
  */
 
 import Notifier from '#tests/reporters/notifier'
+import listExamples from '#utils/list-examples'
 import listWorkspaces from '#utils/list-workspaces'
 import {
   lookupPackageScope,
@@ -51,7 +52,7 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
    *
    * @const {ReadonlyArray<Dirent>} workspaces
    */
-  const workspaces: readonly Dirent[] = listWorkspaces()
+  const workspaces: readonly Dirent[] = [...listWorkspaces(), ...listExamples()]
 
   return {
     plugins: [
@@ -125,6 +126,7 @@ function config(this: void, env: ConfigEnv): ViteUserConfig {
           '**/__tests__/',
           '**/interfaces/',
           '**/types/',
+          'examples/',
           'packages/docmark-util-types/'
         ],
         ignoreClassMethods: [],

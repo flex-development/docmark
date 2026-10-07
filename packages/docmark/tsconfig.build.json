@@ -13,6 +13,9 @@
   "include": ["src/**/**.mts"],
   "references": [
     {
+      "path": "../../examples/docmark-extension-tags/tsconfig.build.json"
+    },
+    {
       "path": "../docmark-factory-block/tsconfig.build.json"
     },
     {

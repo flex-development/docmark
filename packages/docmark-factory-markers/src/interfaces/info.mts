@@ -35,7 +35,7 @@ interface Info {
    *
    * If `true`, an unexpected code successfully terminates the marker sequence.
    */
-  optional?: boolean | undefined
+  optional?: boolean | null | undefined
 
   /**
    * The token type to emit when {@linkcode code}, or the character code matched

@@ -35,6 +35,12 @@ describe('unit-d:ContentTypeMap', () => {
     expectTypeOf<TestSubject>().toHaveProperty('flow').toEqualTypeOf<'flow'>()
   })
 
+  it('should match [language: "language"]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('language')
+      .toEqualTypeOf<'language'>()
+  })
+
   it('should match [string: "string"]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('string')

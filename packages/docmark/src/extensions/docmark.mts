@@ -20,8 +20,8 @@ const docmark: NormalizedExtension = {
   [constants.contentTypeComments]: {},
   [constants.contentTypeComment]: { null: summary },
   [constants.contentTypeType]: { null: typeExpressionValue },
-  disable: { null: [] },
-  settings: {}
+  [constants.extensionFieldDisable]: { null: [] },
+  [constants.extensionFieldSettings]: {}
 }
 
 export default docmark

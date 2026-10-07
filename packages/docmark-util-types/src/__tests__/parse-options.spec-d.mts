@@ -13,6 +13,12 @@ import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../parse-options.mts'
 
 describe('unit-d:ParseOptions', () => {
+  it('should match [debug?: string | null | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('debug')
+      .toEqualTypeOf<Nilable<string>>()
+  })
+
   it('should match [extensions?: AnyExtension[] | null | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('extensions')

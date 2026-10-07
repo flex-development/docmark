@@ -60,18 +60,20 @@ function snapshotEvents(this: void, events: Event[]): [EventType, Token][] {
       token.type !== tt.summaryMarker &&
       token.type !== tt.tagName &&
       token.type !== tt.tagNameMarker &&
+      token.type !== tt.typeExpression &&
       token.type !== tt.typeMetadata &&
       token.type !== tt.typeMetadataMarker &&
       !token._container &&
+      !token._region &&
       !Object.prototype.hasOwnProperty.call(token, 'value')
     ) {
       token.value = self.sliceSerialize(token)
     }
 
     Object.defineProperties(token, {
-      _tokenizer: { enumerable: false },
-      next: { enumerable: false },
-      previous: { enumerable: false }
+      _tokenizer: { enumerable: false, writable: true },
+      next: { enumerable: false, writable: true },
+      previous: { enumerable: false, writable: true }
     })
 
     return [event, token] as const

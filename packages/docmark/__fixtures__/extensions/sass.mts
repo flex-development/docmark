@@ -3,10 +3,12 @@
  * @module docmark/fixtures/extensions/sass
  */
 
-import blockTag from '#fixtures/constructs/block-tag'
-import inlineTag from '#fixtures/constructs/inline-tag'
 import blockComment from '#fixtures/constructs/sass/block.comment'
 import lineComment from '#fixtures/constructs/sass/line.comment'
+import tags from '@flex-development/docmark-extension-tags'
+import {
+  combineExtensions
+} from '@flex-development/docmark-util-combine-extensions'
 import { codes, constants } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
 
@@ -17,16 +19,10 @@ import type { NormalizedExtension } from '@flex-development/docmark-util-types'
  *
  * @const {NormalizedExtension} sass
  */
-const sass: NormalizedExtension = {
+const sass: NormalizedExtension = combineExtensions(tags, {
   [constants.contentTypeComments]: {
     [codes.slash]: [blockComment, lineComment]
-  },
-  [constants.contentTypeComment]: {
-    [codes.atSign]: blockTag
-  },
-  [constants.contentTypeText]: {
-    [codes.leftCurlyBrace]: inlineTag
   }
-}
+})
 
 export default sass

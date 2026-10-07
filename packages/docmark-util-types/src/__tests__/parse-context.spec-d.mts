@@ -13,6 +13,12 @@ import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../parse-context.mts'
 
 describe('unit-d:ParseContext', () => {
+  it('should match [activeComment?: boolean | null | undefined]', () => {
+    expectTypeOf<TestSubject>()
+      .toHaveProperty('activeComment')
+      .toEqualTypeOf<Nilable<boolean>>()
+  })
+
   it('should match [atBlankLine?: boolean | null | undefined]', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('atBlankLine')
@@ -85,6 +91,10 @@ describe('unit-d:ParseContext', () => {
     expectTypeOf<TestSubject>()
       .toHaveProperty('skipSummary')
       .toEqualTypeOf<boolean | undefined>()
+  })
+
+  it('should match [source: Create]', () => {
+    expectTypeOf<TestSubject>().toHaveProperty('source').toEqualTypeOf<Create>()
   })
 
   it('should match [string: Create]', () => {

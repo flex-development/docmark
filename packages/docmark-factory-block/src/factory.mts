@@ -178,7 +178,10 @@ function factoryBlockComment<T extends ContinuableConstruct>(
    */
   let markers: Markers
 
+  // finalize the block comment construct.
+  // this is where users can override the default construct properties.
   options.finalizeConstruct?.(blockComment)
+
   return blockComment as T
 
   /**
@@ -194,7 +197,10 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     this: TokenizeContext,
     effects: Effects
   ): undefined {
+    // call the user's `exit` handler before the factory exit.
     void options.construct?.exit?.call(this, effects)
+
+    // exit the comment container.
     return void effects.exit(tt.comment)
   }
 
@@ -248,18 +254,10 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function startComment(this: void, code: Code): State | undefined {
-      const { fields } = options
+      const { fields, skipComment } = options
 
-      // initialize the markers configuration.
-      markers = typeof options.markers === 'function'
-        ? options.markers.call(self)
-        : options.markers
-
-      // initialize first markers map.
-      fm = {
-        closer: firstMarker(markers.closer),
-        opener: firstMarker(markers.opener)
-      }
+      // block comment not allowed at the current position.
+      if (skipComment?.call(self)) return nok(code)
 
       // start a new block comment.
       effects.enter(tt.comment, {
@@ -362,7 +360,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
         allowIndentedContinuation = options.allowIndentedContinuation.call(self)
       }
 
-      // line cannot be indented if there are no configured line markers.
+      // lines cannot be indented if there are no configured line markers.
       allowIndentedContinuation &&= markers.line !== undefined
 
       // the `commentOpener` construct captured trailing whitespace.
@@ -527,7 +525,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     }
 
     /**
-     * Add the current character code to the first comment chunk.
+     * Add the current character `code` to the current chunk.
      *
      * This state is reached after checking for an inline comment closer,
      * or after ordinary content is seen inside a comment chunk.
@@ -546,10 +544,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     /**
      * Mark the active comment for closure.
      *
-     * Container finalization is deferred to the `source` initializer.
-     *
-     * Via {@linkcode self.containerState}, this state records that the comment
-     * has reached its closing boundary without exiting the container directly.
+     * Container finalization is deferred to the `comments` initializer.
      *
      * @this {void}
      *
@@ -909,7 +904,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
       }
 
       // check for comment closer sequence adding to chunk.
-      return effects.check(commentCloser, beforeInlineCloser, addToChunk)(code)
+      return effects.check(commentCloser, beforeCloser, addToChunk)(code)
     }
 
     /**
@@ -940,7 +935,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      * @return {State | undefined}
      *  The next state
      */
-    function beforeInlineCloser(this: void, code: Code): State | undefined {
+    function beforeCloser(this: void, code: Code): State | undefined {
       effects.exit(tt.chunkComment)
       return effects.attempt(commentCloser, closeComment)(code)
     }
@@ -948,10 +943,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     /**
      * Mark the continued comment for closure.
      *
-     * Container finalization is deferred to the `source` initializer.
-     *
-     * Via {@linkcode self.containerState}, this state records that the comment
-     * has reached its closing boundary without exiting the container directly.
+     * Container finalization is deferred to the `comments` initializer.
      *
      * @this {void}
      *
@@ -999,7 +991,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *
      * @var {Info} lastMarker
      */
-    let lastMarker: Info = finalMarker(markers.opener)
+    let lastMarker: Info
 
     return startOpener
 
@@ -1032,7 +1024,22 @@ function factoryBlockComment<T extends ContinuableConstruct>(
        *
        * @var {Info | Marker | Sequence} sequence
        */
-      let sequence: Info | Marker | Sequence = markers.opener
+      let sequence: Info | Marker | Sequence
+
+      // initialize the markers configuration.
+      markers = typeof options.markers === 'function'
+        ? options.markers.call(self)
+        : options.markers
+
+      // initialize first markers map.
+      fm = {
+        closer: firstMarker(markers.closer),
+        opener: firstMarker(markers.opener)
+      }
+
+      // get the opening marker sequence and the last marker in the sequence.
+      sequence = markers.opener
+      lastMarker = finalMarker(sequence)
 
       // the comment closer is able to overlap the opener.
       if (
@@ -1110,7 +1117,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function beforeCloserOverlap(this: void, code: Code): State | undefined {
-      raise(effects.exit(tt.commentOpener))
+      propagate(effects.exit(tt.commentOpener))
       return ok(code)
     }
 
@@ -1157,7 +1164,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The next state
      */
     function afterMarkers(this: void, code: Code): State | undefined {
-      raise(effects.exit(tt.commentOpener)) // finish the comment opener.
+      propagate(effects.exit(tt.commentOpener)) // finish the comment opener.
 
       // try capturing trailing whitespace.
       // if attempt fails, check for comment closer sequence.
@@ -1197,7 +1204,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
      *  The comment opener token
      * @return {undefined}
      */
-    function raise(this: void, token: Token): undefined {
+    function propagate(this: void, token: Token): undefined {
       assert(self.containerState, 'expected `containerState` inside comment')
       assert(token.type === tt.commentOpener, 'expected `commentOpener` token')
 
