@@ -16,11 +16,11 @@ import type {
  *
  * @this {void}
  *
- * @param {Point | undefined} [from]
+ * @param {Point | null | undefined} [from]
  *  Where to start parsing from
  * @return {TokenizeContext}
  *  The new tokenization context
  */
-type Create = (this: void, from?: Point | undefined) => TokenizeContext
+type Create = (this: void, from?: Point | null | undefined) => TokenizeContext
 
 export type { Create as default }

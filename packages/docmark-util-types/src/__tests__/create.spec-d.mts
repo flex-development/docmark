@@ -16,9 +16,9 @@ describe('unit-d:Create', () => {
   })
 
   describe('parameters', () => {
-    it('should be callable with [(Point | undefined)?]', () => {
+    it('should be callable with [(Point | null | undefined)?]', () => {
       // Arrange
-      type Expect = [(Point | undefined)?]
+      type Expect = [(Point | null | undefined)?]
 
       // Expect
       expectTypeOf<TestSubject>().parameters.toEqualTypeOf<Expect>()
