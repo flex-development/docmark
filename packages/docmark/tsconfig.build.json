@@ -13,19 +13,13 @@
   "include": ["src/**/**.mts"],
   "references": [
     {
-      "path": "../../examples/docmark-extension-tags/tsconfig.build.json"
+      "path": "../../examples/docmark-extension-sass/tsconfig.build.json"
+    },
+    {
+      "path": "../../examples/docmark-extension-typescript/tsconfig.build.json"
     },
     {
       "path": "../docmark-factory-block/tsconfig.build.json"
-    },
-    {
-      "path": "../docmark-factory-identifier/tsconfig.build.json"
-    },
-    {
-      "path": "../docmark-factory-line/tsconfig.build.json"
-    },
-    {
-      "path": "../docmark-factory-markers/tsconfig.build.json"
     },
     {
       "path": "../docmark-factory-space/tsconfig.build.json"

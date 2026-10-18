@@ -1,6 +1,6 @@
 /**
- * @file Fixtures - lineComment
- * @module docmark/fixtures/constructs/ts/line
+ * @file Constructs - lineComment
+ * @module examples/docmark-extension-typescript/constructs/lineComment
  */
 
 import factory from '@flex-development/docmark-factory-line'

@@ -1,9 +1,9 @@
 /**
- * @file Fixtures - lineComment
- * @module docmark/fixtures/constructs/sass/line
+ * @file Constructs - blockComment
+ * @module examples/docmark-extension-sass/constructs/blockComment
  */
 
-import factory from '@flex-development/docmark-factory-line'
+import factory, { type Markers } from '@flex-development/docmark-factory-block'
 import { codes, ev, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
@@ -13,15 +13,16 @@ import type {
 import { ok } from 'devlop'
 
 /**
- * The sass line comment construct.
+ * The sass block comment construct.
  *
  * This construct is expected to run at the `comments` content level.
  *
- * @const {ContinuableConstruct} lineComment
+ * @const {ContinuableConstruct} blockComment
  */
-const lineComment: ContinuableConstruct = factory({
+const blockComment: ContinuableConstruct = factory({
   /**
-   * Check whether continued lines can be indented in lieu of explicit markers.
+   * Check whether continued lines can be indented in lieu
+   * of an explicit line marker.
    *
    * @this {TokenizeContext}
    *
@@ -31,15 +32,38 @@ const lineComment: ContinuableConstruct = factory({
   allowIndentedContinuation(this: TokenizeContext): boolean {
     return true
   },
-  construct: { resolve: resolveLineComment },
+
+  construct: { resolve: resolveBlockComment },
   fields: { info: undefined },
-  markers: [codes.slash, codes.slash, { code: codes.slash, optional: true }]
+
+  /**
+   * Create a comment markers configuration.
+   *
+   * @this {TokenizeContext}
+   *
+   * @return {Markers}
+   *  The markers configuration
+   */
+  markers(this: TokenizeContext): Markers {
+    return {
+      closer: [
+        { code: codes.asterisk, type: null },
+        { code: codes.slash, type: null }
+      ],
+      line: codes.asterisk,
+      opener: [
+        { code: codes.slash, type: null },
+        { code: codes.asterisk, type: null },
+        { code: codes.asterisk, optional: true, type: null }
+      ]
+    }
+  }
 })
 
-export default lineComment
+export default blockComment
 
 /**
- * Determine if any `comment` tokens represent docline comments.
+ * Determine if any `comment` tokens represent docblocks.
  *
  * @this {void}
  *
@@ -48,7 +72,7 @@ export default lineComment
  * @return {Event[]}
  *  The list of changed events
  */
-function resolveLineComment(this: void, events: Event[]): Event[] {
+function resolveBlockComment(this: void, events: Event[]): Event[] {
   /**
    * The index of the current event.
    *
@@ -60,19 +84,19 @@ function resolveLineComment(this: void, events: Event[]): Event[] {
     ok(events[index], 'expected `events[index]`')
     const [event, token, self] = events[index]!
 
-    // determine if a line comment is a docline.
+    // determine if a block comment is a docblock.
     // the `source` initializer hoists this information via `containerState`
     // using the `documentation` property.
     if (
       event === ev.enter &&
       token.type === tt.comment &&
-      token.kind === kind.line
+      token.kind === kind.block
     ) {
       ok(self.containerState, 'expected `containerState` inside comment')
       ok(self.containerState.openerWidth, 'expected comment opener width')
 
-      // a docline comment opener contains three characters.
-      // any other line comment opener contains two characters.
+      // a docblock comment opener contains three characters.
+      // any other block comment opener contains two characters.
       token.info = self.containerState.openerWidth === 3
       if (!token.info) delete token.info
     }

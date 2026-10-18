@@ -1,18 +1,18 @@
 /**
- * @file Fixtures - typescript
- * @module docmark/fixtures/extensions/typescript
+ * @file extension
+ * @module examples/docmark-extension-typescript/extension
  */
 
-import blockComment from '#fixtures/constructs/ts/block.comment'
-import hashbang from '#fixtures/constructs/ts/hashbang.comment'
-import lineComment from '#fixtures/constructs/ts/line.comment'
-import tripleSlashComment from '#fixtures/constructs/ts/triple-slash.comment'
 import tags from '@flex-development/docmark-extension-tags'
 import {
   combineExtensions
 } from '@flex-development/docmark-util-combine-extensions'
 import { codes, constants } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
+import blockComment from './constructs/block.comment.mts'
+import hashbang from './constructs/hashbang.comment.mts'
+import lineComment from './constructs/line.comment.mts'
+import tripleSlashComment from './constructs/triple-slash.comment.mts'
 
 /**
  * The TypeScript comments syntax extension.

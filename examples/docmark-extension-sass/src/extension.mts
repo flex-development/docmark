@@ -1,16 +1,16 @@
 /**
- * @file Fixtures - sass
- * @module docmark/fixtures/extensions/sass
+ * @file extension
+ * @module examples/docmark-extension-sass/extension
  */
 
-import blockComment from '#fixtures/constructs/sass/block.comment'
-import lineComment from '#fixtures/constructs/sass/line.comment'
 import tags from '@flex-development/docmark-extension-tags'
 import {
   combineExtensions
 } from '@flex-development/docmark-util-combine-extensions'
 import { codes, constants } from '@flex-development/docmark-util-symbol'
 import type { NormalizedExtension } from '@flex-development/docmark-util-types'
+import blockComment from './constructs/block.comment.mts'
+import lineComment from './constructs/line.comment.mts'
 
 /**
  * The sass comments syntax extension.

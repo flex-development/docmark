@@ -7,9 +7,6 @@ import type {
 import type * as mark from '@flex-development/mark/parse'
 
 declare module '@flex-development/docmark-util-types' {
-  interface ContainerState {
-  }
-
   interface ContentTypeMap {
     source: 'source'
   }
@@ -23,15 +20,6 @@ declare module '@flex-development/docmark-util-types' {
      * @internal
      */
     language?: Create | undefined
-  }
-
-  interface TokenFields {
-    /**
-     * For comments, whether the comment is a TypeScript triple-slash comment.
-     *
-     * @internal
-     */
-    triple?: boolean | undefined
   }
 
   interface TokenizeContext {

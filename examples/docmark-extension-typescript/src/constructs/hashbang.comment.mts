@@ -1,6 +1,6 @@
 /**
  * @file Constructs - hashbang
- * @module fixtures/constructs/ts/hashbang
+ * @module examples/docmark-extension-typescript/constructs/hashbang
  */
 
 import { factoryMarkers } from '@flex-development/docmark-factory-markers'

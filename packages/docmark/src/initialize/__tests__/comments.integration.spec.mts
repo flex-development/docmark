@@ -4,10 +4,10 @@
  */
 
 import markdown from '#fixtures/extensions/markdown'
-import sass from '#fixtures/extensions/sass'
-import typescript from '#fixtures/extensions/typescript'
 import snapshot from '#tests/utils/snapshot-events'
 import { parse, preprocess } from '@flex-development/docmark'
+import sass from '@flex-development/docmark-extension-sass'
+import typescript from '@flex-development/docmark-extension-typescript'
 import { ev, tt } from '@flex-development/docmark-util-symbol'
 import type {
   Chunk,

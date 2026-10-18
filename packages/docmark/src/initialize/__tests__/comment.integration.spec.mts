@@ -3,9 +3,9 @@
  * @module docmark/initialize/tests/integration/comment
  */
 
-import typescript from '#fixtures/extensions/typescript'
 import snapshot from '#tests/utils/snapshot-events'
 import { parse, preprocess } from '@flex-development/docmark'
+import typescript from '@flex-development/docmark-extension-typescript'
 import { tt } from '@flex-development/docmark-util-symbol'
 import type {
   Chunk,

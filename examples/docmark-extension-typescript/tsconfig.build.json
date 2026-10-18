@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "extends": "../../tsconfig.build.json",
+  "files": ["typings/@flex-development/docmark-util-types/index.d.mts"],
+  "include": ["src/**/**.mts"],
+  "references": [
+    {
+      "path": "../docmark-extension-tags/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages/docmark-factory-block/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages/docmark-factory-line/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages/docmark-factory-markers/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages/docmark-factory-space/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages/docmark-util-combine-extensions/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages/docmark-util-symbol/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages/docmark-util-types/tsconfig.build.json"
+    }
+  ]
+}

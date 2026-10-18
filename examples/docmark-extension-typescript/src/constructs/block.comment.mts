@@ -1,6 +1,6 @@
 /**
  * @file Constructs - blockComment
- * @module docmark/fixtures/ts/block
+ * @module examples/docmark-extension-typescript/constructs/blockComment
  */
 
 import factory, { type Markers } from '@flex-development/docmark-factory-block'
@@ -58,15 +58,12 @@ const blockComment: ContinuableConstruct = factory({
    */
   markers(this: TokenizeContext): Markers {
     return {
-      closer: [
-        { code: codes.asterisk, type: null },
-        { code: codes.slash, type: null }
-      ],
+      closer: [{ code: codes.asterisk }, { code: codes.slash }],
       line: codes.asterisk,
       opener: [
-        { code: codes.slash, type: null },
-        { code: codes.asterisk, type: null },
-        { code: codes.asterisk, optional: true, type: null }
+        { code: codes.slash },
+        { code: codes.asterisk },
+        { code: codes.asterisk, optional: true }
       ]
     }
   }

@@ -1,0 +1,61 @@
+{
+  "name": "@flex-development/docmark-extension-typescript",
+  "description": "docmark extension to support typescript comment syntax",
+  "version": "0.0.0",
+  "keywords": [],
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/flex-development/docmark/blob/main/examples/docmark-extension-typescript/README.md",
+  "repository": {
+    "directory": "examples/docmark-extension-typescript",
+    "type": "git",
+    "url": "git+https://github.com/flex-development/docmark.git"
+  },
+  "bugs": "https://github.com/flex-development/docmark/issues",
+  "author": {
+    "name": "Lexus Drumgold",
+    "url": "https://github.com/unicornware"
+  },
+  "publishConfig": {
+    "access": "public",
+    "diff-dst-prefix": "docmark-extension-typescript",
+    "diff-src-prefix": "docmark-extension-typescript",
+    "directory": "./",
+    "executableFiles": [],
+    "node-options": null,
+    "pack-destination": ".",
+    "parseable": true,
+    "prefer-dedupe": true,
+    "provenance": true,
+    "tag-version-prefix": "docmark-extension-typescript@"
+  },
+  "type": "module",
+  "files": [
+    "LICENSE.md",
+    "README.md",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "docmark": "./src/index.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "scripts": {
+    "attw": "tsc --build tsconfig.build.json --clean --dry && tsc --build tsconfig.build.json --clean && tsc --build tsconfig.build.json --verbose"
+  },
+  "dependencies": {
+    "@flex-development/docmark-extension-tags": "workspace:*",
+    "@flex-development/docmark-factory-block": "workspace:1.0.0-alpha.13",
+    "@flex-development/docmark-factory-line": "workspace:1.0.0-alpha.16",
+    "@flex-development/docmark-factory-markers": "workspace:1.0.0-alpha.20",
+    "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.20",
+    "@flex-development/docmark-util-combine-extensions": "workspace:1.0.0-alpha.20",
+    "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.12",
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.20",
+    "@flex-development/mark-util-character": "1.1.0"
+  },
+  "sideEffects": false
+}
