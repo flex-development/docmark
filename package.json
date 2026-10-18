@@ -128,6 +128,9 @@
     "vite": "8.3.3",
     "vitest": "5.0.3"
   },
+  "resolutions": {
+    "@flex-development/mark": "1.0.0-alpha.12"
+  },
   "packageManager": "yarn@4.18.0",
   "sideEffects": false,
   "private": true,
