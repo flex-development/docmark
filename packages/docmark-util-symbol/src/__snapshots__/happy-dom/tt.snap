@@ -92,6 +92,7 @@ exports[`unit:tt > should be token type dictionary 1`] = `
   "linePrefix": "linePrefix",
   "lineSuffix": "lineSuffix",
   "link": "link",
+  "listItem": "listItem",
   "listItemIndent": "listItemIndent",
   "listItemMarker": "listItemMarker",
   "listItemPrefix": "listItemPrefix",

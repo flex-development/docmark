@@ -99,6 +99,7 @@ const tt = {
   linePrefix: 'linePrefix',
   lineSuffix: 'lineSuffix',
   link: 'link',
+  listItem: 'listItem',
   listItemIndent: 'listItemIndent',
   listItemMarker: 'listItemMarker',
   listItemPrefix: 'listItemPrefix',
