@@ -1,3 +1,35 @@
+## [docmark-util-subtokenize@1.0.0-alpha.21](https://github.com/flex-development/docmark/compare/docmark-util-subtokenize@1.0.0-alpha.20...docmark-util-subtokenize@1.0.0-alpha.21) (2026-10-19)
+
+### :package: Build
+
+- [[`79c77f1`](https://github.com/flex-development/docmark/commit/79c77f1860ce3e45450f5e08ecb1d5d675517103)] **deps-dev:** Bump cspell from 10.3.6 to 10.4.0 ([#388](https://github.com/flex-development/docmark/issues/388))
+- [[`9d0814b`](https://github.com/flex-development/docmark/commit/9d0814b243a3130cf8eefbdbb7b9e8dd79a2afa6)] **deps-dev:** Bump dprint from 0.61.1 to 0.63.0 ([#389](https://github.com/flex-development/docmark/issues/389))
+- [[`90c9bd6`](https://github.com/flex-development/docmark/commit/90c9bd64d3fc769dd91e9a367e3aa021b74a48a3)] **deps-dev:** Bump happy-dom from 20.14.5 to 21.0.3 ([#387](https://github.com/flex-development/docmark/issues/387))
+- [[`df616b1`](https://github.com/flex-development/docmark/commit/df616b10c2a4d3290b2484724ace5194f47239b3)] **deps-dev:** Bump node-notifier from 10.0.1 to 11.0.0 ([#381](https://github.com/flex-development/docmark/issues/381))
+- [[`83c4cbe`](https://github.com/flex-development/docmark/commit/83c4cbead022a37381df9c4cf14ee0b9c4f6394a)] **deps-dev:** Bump rolldown from 1.2.12 to 1.2.14 ([#383](https://github.com/flex-development/docmark/issues/383))
+- [[`fcb456b`](https://github.com/flex-development/docmark/commit/fcb456bf62768eeec27cb32e534c3a91d10190bd)] **deps-dev:** Bump rollup from 4.64.0 to 4.64.7 ([#382](https://github.com/flex-development/docmark/issues/382))
+- [[`c56c193`](https://github.com/flex-development/docmark/commit/c56c193f700ba21c09a8d4026ee2fac45be5b688)] **deps-dev:** Bump the vitest group across 1 directory with 3 updates ([#386](https://github.com/flex-development/docmark/issues/386))
+- [[`ab33fe1`](https://github.com/flex-development/docmark/commit/ab33fe11e17f440f5c932a24c9d1746575a0d6ee)] **deps-dev:** Bump vite from 8.3.1 to 8.3.2 ([#376](https://github.com/flex-development/docmark/issues/376))
+- [[`f03ef98`](https://github.com/flex-development/docmark/commit/f03ef98502f8be5f6ea336ba4b32362d16f4c2b4)] **deps-dev:** Bump vite from 8.3.2 to 8.3.3 ([#377](https://github.com/flex-development/docmark/issues/377))
+- [[`ff50271`](https://github.com/flex-development/docmark/commit/ff50271a3296d9bae79db4c64f912ba956d1a5e9)] **deps-dev:** Bump vite from 8.3.3 to 8.3.4 ([#390](https://github.com/flex-development/docmark/issues/390))
+- [[`5d69994`](https://github.com/flex-development/docmark/commit/5d6999462b3b0e24afe6633ae32417b0b2f28b1e)] **deps:** bump @flex-development/mark from 1.0.0-alpha.5 to 1.0.0-alpha.12 in the mark group
+
+### :robot: Continuous Integration
+
+- [[`b55798c`](https://github.com/flex-development/docmark/commit/b55798cb93d046a95d512328a3da2620e65f7620)] **deps:** Bump actions/create-github-app-token from 3.2.0 to 3.3.0 ([#384](https://github.com/flex-development/docmark/issues/384))
+- [[`0f81671`](https://github.com/flex-development/docmark/commit/0f81671839ab9e589b35c938b47e1b3a54570120)] **deps:** Bump actions/setup-node from 7.0.0 to 7.1.0 ([#378](https://github.com/flex-development/docmark/issues/378))
+- [[`f6b1b50`](https://github.com/flex-development/docmark/commit/f6b1b50bc37f4450d91f6a3a6772c9a422c1bee0)] **deps:** Bump actions/upload-artifact from 7.0.1 to 7.0.2 ([#379](https://github.com/flex-development/docmark/issues/379))
+- [[`14728ea`](https://github.com/flex-development/docmark/commit/14728ea6b304b989c91e300f70ee70eadee40af2)] **deps:** Bump streetsidesoftware/cspell-action from 9.1.0 to 9.2.0 ([#385](https://github.com/flex-development/docmark/issues/385))
+
+### :sparkles: Features
+
+- [[`a0330b3`](https://github.com/flex-development/docmark/commit/a0330b3bd09d4dcf457baa4df2f58f827bc9b912)] **symbol:** `tt.listItem`
+- [[`f0b08e7`](https://github.com/flex-development/docmark/commit/f0b08e73aa0814c214b73808d7313d18941d584e)] **types:** [`Create`] allow `from` to be `null`
+
+### :house_with_garden: Housekeeping
+
+- [[`f17a802`](https://github.com/flex-development/docmark/commit/f17a80280c81c2d63707511ce7dd8cfa28b78484)] **examples:** add language extension examples
+
 ## [docmark-util-subtokenize@1.0.0-alpha.20](https://github.com/flex-development/docmark/compare/docmark-util-subtokenize@1.0.0-alpha.19...docmark-util-subtokenize@1.0.0-alpha.20) (2026-10-07)
 
 ### ⚠ BREAKING CHANGES
@@ -472,6 +504,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
