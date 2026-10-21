@@ -3,6 +3,7 @@
  * @module docmark-util-types
  */
 
+export type { default as AllowIndentedLines } from './allow-indented-lines.mts'
 export type { default as AnyConstruct } from './any-construct.mts'
 export type { default as AnyExtension } from './any-extension.mts'
 export type {
@@ -31,6 +32,9 @@ export type { default as ContentType } from './content-type.mts'
 export type {
   default as ContinuableConstruct
 } from './continuable-construct.mts'
+export type { default as CreateFields } from './create-fields.mts'
+export type { default as CreateMarkersPack } from './create-markers-pack.mts'
+export type { default as CreateMarkers } from './create-markers.mts'
 export type { default as Create } from './create.mts'
 export type { default as DefineSkip } from './define-skip.mts'
 export type { default as Disable } from './disable.mts'
@@ -44,6 +48,7 @@ export type { default as Exit } from './exit.mts'
 export type { default as Exiter } from './exiter.mts'
 export type { default as Extension } from './extension.mts'
 export type { default as FileLike } from './file-like.mts'
+export type { default as FinalizeConstruct } from './finalize-construct.mts'
 export type { default as FinalizeContext } from './finalize-context.mts'
 export type {
   default as FullNormalizedExtension
@@ -58,7 +63,11 @@ export type { default as LanguageSettings } from './language-settings.mts'
 export type { default as Language } from './language.mts'
 export type { default as Lazy } from './lazy.mts'
 export type { default as Line } from './line.mts'
+export type { default as MarkerInfo } from './marker-info.mts'
+export type { default as MarkerSequence } from './marker-sequence.mts'
 export type { default as Marker } from './marker.mts'
+export type { default as MarkersPack } from './markers-pack.mts'
+export type { default as Markers } from './markers.mts'
 export type { default as NamedConstruct } from './named-construct.mts'
 export type { default as NormalizedExtension } from './normalized-extension.mts'
 export type { default as Now } from './now.mts'
@@ -75,6 +84,7 @@ export type { default as Previous } from './previous.mts'
 export type { default as Resolver } from './resolver.mts'
 export type { default as SerializeOptions } from './serialize-options.mts'
 export type { default as Settings } from './settings.mts'
+export type { default as SkipComment } from './skip-comment.mts'
 export type { default as SliceSerialize } from './slice-serialize.mts'
 export type { default as SliceStream } from './slice-stream.mts'
 export type { default as State } from './state.mts'

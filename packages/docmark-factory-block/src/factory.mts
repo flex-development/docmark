@@ -3,12 +3,8 @@
  * @module docmark-factory-block/factory
  */
 
-import type { Markers, Options } from '@flex-development/docmark-factory-block'
-import {
-  factoryMarkers,
-  type Info,
-  type Sequence
-} from '@flex-development/docmark-factory-markers'
+import type { Options } from '@flex-development/docmark-factory-block'
+import { factoryMarkers } from '@flex-development/docmark-factory-markers'
 import { normalize } from '@flex-development/docmark-factory-markers/utils'
 import { factorySpace } from '@flex-development/docmark-factory-space'
 import {
@@ -21,7 +17,9 @@ import type {
   ContinuableConstruct,
   Effects,
   Event,
-  Marker,
+  MarkerInfo,
+  MarkerSequence,
+  MarkersPack,
   PartialConstruct,
   Place,
   Position,
@@ -167,16 +165,16 @@ function factoryBlockComment<T extends ContinuableConstruct>(
    * Record where each key is a marker type and each value is an info object
    * representing the first marker in a registered marker sequence.
    *
-   * @var {Record<keyof Omit<Markers, 'line'>, Info>} fm
+   * @var {Record<keyof Omit<MarkersPack, 'line'>, MarkerInfo>} fm
    */
-  let fm: Record<keyof Omit<Markers, 'line'>, Info>
+  let fm: Record<keyof Omit<MarkersPack, 'line'>, MarkerInfo>
 
   /**
    * The markers configuration.
    *
-   * @var {Markers} markers
+   * @var {MarkersPack} markers
    */
-  let markers: Markers
+  let markers: MarkersPack
 
   // finalize the block comment construct.
   // this is where users can override the default construct properties.
@@ -989,9 +987,9 @@ function factoryBlockComment<T extends ContinuableConstruct>(
     /**
      * The info representing the last marker in the configured marker sequence.
      *
-     * @var {Info} lastMarker
+     * @var {MarkerInfo} lastMarker
      */
-    let lastMarker: Info
+    let lastMarker: MarkerInfo
 
     return startOpener
 
@@ -1022,9 +1020,9 @@ function factoryBlockComment<T extends ContinuableConstruct>(
       /**
        * The opening marker sequence.
        *
-       * @var {Info | Marker | Sequence} sequence
+       * @var {MarkersPack['opener']} sequence
        */
-      let sequence: Info | Marker | Sequence
+      let sequence: MarkersPack['opener']
 
       // initialize the markers configuration.
       markers = typeof options.markers === 'function'
@@ -1051,7 +1049,7 @@ function factoryBlockComment<T extends ContinuableConstruct>(
         !fm.closer.optional
       ) {
         // remove the optional marker from the current sequence.
-        sequence = markers.opener.slice(0, -1) as Sequence
+        sequence = markers.opener.slice(0, -1) as MarkerSequence
         next = maybeMarker
 
         // ensure no other markers are considered optional.

@@ -3,11 +3,12 @@
  * @module examples/docmark-extension-typescript/constructs/blockComment
  */
 
-import factory, { type Markers } from '@flex-development/docmark-factory-block'
+import { factoryBlockComment } from '@flex-development/docmark-factory-block'
 import { codes, ev, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
   Event,
+  MarkersPack,
   TokenFields,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
@@ -20,7 +21,7 @@ import { ok } from 'devlop'
  *
  * @const {ContinuableConstruct} blockComment
  */
-const blockComment: ContinuableConstruct = factory({
+const blockComment: ContinuableConstruct = factoryBlockComment({
   construct: { resolve: resolveBlockComment },
 
   /**
@@ -53,10 +54,10 @@ const blockComment: ContinuableConstruct = factory({
    *
    * @this {TokenizeContext}
    *
-   * @return {Markers}
+   * @return {MarkersPack}
    *  The markers configuration
    */
-  markers(this: TokenizeContext): Markers {
+  markers(this: TokenizeContext): MarkersPack {
     return {
       closer: [{ code: codes.asterisk }, { code: codes.slash }],
       line: codes.asterisk,

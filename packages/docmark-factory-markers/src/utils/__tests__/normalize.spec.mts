@@ -3,9 +3,8 @@
  * @module docmark-factory-markers/utils/tests/unit/normalize
  */
 
-import type { Info } from '@flex-development/docmark-factory-markers'
 import { codes } from '@flex-development/docmark-util-symbol'
-import type { Marker } from '@flex-development/docmark-util-types'
+import type { Marker, MarkerInfo } from '@flex-development/docmark-util-types'
 import type { CodeCheck } from '@flex-development/mark/parse'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 import testSubject from '../normalize.mts'
@@ -21,7 +20,7 @@ describe('unit:utils/normalize', () => {
 
   it('should return `marker` if `marker` is an `Info` object', () => {
     // Arrange
-    const marker: Info = { code: codes.asterisk }
+    const marker: MarkerInfo = { code: codes.asterisk }
 
     // Act + Expect
     expect(testSubject(marker)).to.eq(marker)

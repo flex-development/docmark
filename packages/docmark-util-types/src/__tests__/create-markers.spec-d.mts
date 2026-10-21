@@ -1,13 +1,16 @@
 /**
- * @file Type Tests - SkipComment
- * @module docmark-factory-line/types/tests/unit-d/SkipComment
+ * @file Type Tests - CreateMarkers
+ * @module docmark-util-types/tests/unit-d/CreateMarkers
  */
 
-import type { TokenizeContext } from '@flex-development/docmark-util-types'
+import type {
+  Markers,
+  TokenizeContext
+} from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
-import type TestSubject from '../skip-comment.mts'
+import type TestSubject from '../create-markers.mts'
 
-describe('unit-d:types/SkipComment', () => {
+describe('unit-d:CreateMarkers', () => {
   it('should match [this: TokenizeContext]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<TokenizeContext>()
   })
@@ -19,8 +22,8 @@ describe('unit-d:types/SkipComment', () => {
   })
 
   describe('returns', () => {
-    it('should return boolean', () => {
-      expectTypeOf<TestSubject>().returns.toEqualTypeOf<boolean>()
+    it('should return Markers', () => {
+      expectTypeOf<TestSubject>().returns.toEqualTypeOf<Markers>()
     })
   })
 })

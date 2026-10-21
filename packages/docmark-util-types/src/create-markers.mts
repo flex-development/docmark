@@ -1,10 +1,12 @@
 /**
- * @file Type Aliases - CreateMarkers
- * @module docmark-factory-block/types/CreateMarkers
+ * @file CreateMarkers
+ * @module docmark-util-types/CreateMarkers
  */
 
-import type { Markers } from '@flex-development/docmark-factory-block'
-import type { TokenizeContext } from '@flex-development/docmark-util-types'
+import type {
+  Markers,
+  TokenizeContext
+} from '@flex-development/docmark-util-types'
 
 /**
  * Create a markers configuration.
@@ -15,7 +17,7 @@ import type { TokenizeContext } from '@flex-development/docmark-util-types'
  * @this {TokenizeContext}
  *
  * @return {Markers}
- *  The markers configuration
+ *  The marker info object, code, or sequence
  */
 type CreateMarkers = (this: TokenizeContext) => Markers
 

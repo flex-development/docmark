@@ -1,6 +1,6 @@
 /**
- * @file Type Aliases - CreateFields
- * @module docmark-factory-block/types/CreateFields
+ * @file CreateFields
+ * @module docmark-util-types/CreateFields
  */
 
 import type {

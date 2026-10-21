@@ -5,14 +5,13 @@
 
 import type {
   AllowIndentedLines,
+  Construct,
+  ContinuableConstruct,
   CreateFields,
   CreateMarkers,
   FinalizeConstruct,
   Markers,
-  SkipComment
-} from '@flex-development/docmark-factory-line'
-import type {
-  Construct,
+  SkipComment,
   TokenFields
 } from '@flex-development/docmark-util-types'
 import type { whitespace } from '@flex-development/mark-util-character'
@@ -59,9 +58,10 @@ interface Options {
   /**
    * Finalize the line comment construct.
    *
+   * @see {@linkcode ContinuableConstruct}
    * @see {@linkcode FinalizeConstruct}
    */
-  finalizeConstruct?: FinalizeConstruct | null | undefined
+  finalizeConstruct?: FinalizeConstruct<ContinuableConstruct> | null | undefined
 
   /**
    * The line markers configuration,

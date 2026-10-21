@@ -3,13 +3,13 @@
  * @module docmark-factory-markers/factory
  */
 
-import type { Info, Sequence } from '@flex-development/docmark-factory-markers'
 import { normalize } from '@flex-development/docmark-factory-markers/utils'
 import { tt } from '@flex-development/docmark-util-symbol'
 import type {
   Code,
   Effects,
-  Marker,
+  MarkerInfo,
+  Markers,
   State
 } from '@flex-development/docmark-util-types'
 import type { CodeCheck } from '@flex-development/mark/parse'
@@ -17,7 +17,7 @@ import { ok as assert } from 'devlop'
 import terminate from './internal/terminate.mts'
 
 /**
- * Create a state that tokenizes a sequence of comment markers.
+ * Create a state that tokenizes a sequence of markers.
  *
  * The returned state consumes each marker in `markers` in order.\
  * Each marker produces a token using the specified token type,
@@ -28,8 +28,7 @@ import terminate from './internal/terminate.mts'
  *
  * @see {@linkcode CodeCheck}
  * @see {@linkcode Effects}
- * @see {@linkcode Marker}
- * @see {@linkcode Sequence}
+ * @see {@linkcode Markers}
  * @see {@linkcode State}
  *
  * @this {void}
@@ -40,8 +39,8 @@ import terminate from './internal/terminate.mts'
  *  The successful tokenization state
  * @param {State} nok
  *  The failed tokenization state
- * @param {CodeCheck | Info | Marker | Sequence} markers
- *  The comment marker matcher, info object, code, or sequence
+ * @param {CodeCheck | Markers} markers
+ *  The marker matcher, info object, code, or sequence
  * @return {State}
  *  The initial state
  */
@@ -50,7 +49,7 @@ function factoryMarkers(
   effects: Effects,
   ok: State,
   nok: State,
-  markers: CodeCheck | Info | Marker | Sequence
+  markers: CodeCheck | Markers
 ): State {
   // normalize the initial sequence.
   if (!Array.isArray(markers)) markers = [markers]
@@ -58,9 +57,9 @@ function factoryMarkers(
   /**
    * The normalized marker sequence.
    *
-   * @const {Info[]} seq
+   * @const {MarkerInfo[]} seq
    */
-  const seq: Info[] = [...markers].map(normalize)
+  const seq: MarkerInfo[] = [...markers].map(normalize)
 
   /**
    * The index of the current marker.
@@ -86,11 +85,11 @@ function factoryMarkers(
     if (index === seq.length) return ok(code) // sequence complete.
 
     /**
-     * The comment marker info.
+     * The marker info.
      *
-     * @const {Info} info
+     * @const {MarkerInfo} info
      */
-    const info: Info = Object.assign({}, seq[index++])
+    const info: MarkerInfo = Object.assign({}, seq[index++])
 
     /**
      * Whether {@linkcode code} matches the expected marker.

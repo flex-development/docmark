@@ -3,11 +3,12 @@
  * @module examples/docmark-extension-sass/constructs/blockComment
  */
 
-import factory, { type Markers } from '@flex-development/docmark-factory-block'
+import { factoryBlockComment } from '@flex-development/docmark-factory-block'
 import { codes, ev, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
   Event,
+  MarkersPack,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { ok } from 'devlop'
@@ -19,7 +20,7 @@ import { ok } from 'devlop'
  *
  * @const {ContinuableConstruct} blockComment
  */
-const blockComment: ContinuableConstruct = factory({
+const blockComment: ContinuableConstruct = factoryBlockComment({
   /**
    * Check whether continued lines can be indented in lieu
    * of an explicit line marker.
@@ -41,10 +42,10 @@ const blockComment: ContinuableConstruct = factory({
    *
    * @this {TokenizeContext}
    *
-   * @return {Markers}
+   * @return {MarkersPack}
    *  The markers configuration
    */
-  markers(this: TokenizeContext): Markers {
+  markers(this: TokenizeContext): MarkersPack {
     return {
       closer: [
         { code: codes.asterisk, type: null },

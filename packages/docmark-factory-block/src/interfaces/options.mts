@@ -5,14 +5,13 @@
 
 import type {
   AllowIndentedLines,
-  CreateFields,
-  CreateMarkers,
-  FinalizeConstruct,
-  Markers,
-  SkipComment
-} from '@flex-development/docmark-factory-block'
-import type {
   Construct,
+  ContinuableConstruct,
+  CreateFields,
+  CreateMarkersPack,
+  FinalizeConstruct,
+  MarkersPack,
+  SkipComment,
   TokenFields
 } from '@flex-development/docmark-util-types'
 import type { whitespace } from '@flex-development/mark-util-character'
@@ -59,17 +58,18 @@ interface Options {
   /**
    * Finalize the block comment construct.
    *
+   * @see {@linkcode ContinuableConstruct}
    * @see {@linkcode FinalizeConstruct}
    */
-  finalizeConstruct?: FinalizeConstruct | null | undefined
+  finalizeConstruct?: FinalizeConstruct<ContinuableConstruct> | null | undefined
 
   /**
    * The markers configuration, or a function that returns the configuration.
    *
-   * @see {@linkcode CreateMarkers}
-   * @see {@linkcode Markers}
+   * @see {@linkcode CreateMarkersPack}
+   * @see {@linkcode MarkersPack}
    */
-  markers: CreateMarkers | Markers
+  markers: CreateMarkersPack | MarkersPack
 
   /**
    * Check whether a block comment is allowed at the current position.

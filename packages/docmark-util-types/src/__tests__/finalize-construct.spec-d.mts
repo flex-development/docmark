@@ -1,20 +1,24 @@
 /**
  * @file Type Tests - FinalizeConstruct
- * @module docmark-factory-block/types/tests/unit-d/FinalizeConstruct
+ * @module docmark-util-types/tests/unit-d/FinalizeConstruct
  */
 
-import type { ContinuableConstruct } from '@flex-development/docmark-util-types'
+import type {
+  Construct,
+  ContinuableConstruct
+} from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
 import type TestSubject from '../finalize-construct.mts'
 
-describe('unit-d:types/FinalizeConstruct', () => {
+describe('unit-d:FinalizeConstruct', () => {
   it('should match [this: void]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<void>()
   })
 
   describe('parameters', () => {
-    it('should be callable with [ContinuableConstruct]', () => {
-      expectTypeOf<TestSubject>()
+    it('should be callable with [U]', () => {
+      expectTypeOf<TestSubject>().parameters.toEqualTypeOf<[Construct]>()
+      expectTypeOf<TestSubject<ContinuableConstruct>>()
         .parameters
         .toEqualTypeOf<[ContinuableConstruct]>()
     })

@@ -1,16 +1,16 @@
 /**
- * @file Type Tests - CreateFields
- * @module docmark-factory-block/types/tests/unit-d/CreateFields
+ * @file Type Tests - CreateMarkersPack
+ * @module docmark-util-types/tests/unit-d/CreateMarkersPack
  */
 
 import type {
-  TokenFields,
+  MarkersPack,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
-import type TestSubject from '../create-fields.mts'
+import type TestSubject from '../create-markers-pack.mts'
 
-describe('unit-d:CreateFields', () => {
+describe('unit-d:CreateMarkersPack', () => {
   it('should match [this: TokenizeContext]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<TokenizeContext>()
   })
@@ -22,8 +22,8 @@ describe('unit-d:CreateFields', () => {
   })
 
   describe('returns', () => {
-    it('should return TokenFields', () => {
-      expectTypeOf<TestSubject>().returns.toEqualTypeOf<TokenFields>()
+    it('should return MarkersPack', () => {
+      expectTypeOf<TestSubject>().returns.toEqualTypeOf<MarkersPack>()
     })
   })
 })

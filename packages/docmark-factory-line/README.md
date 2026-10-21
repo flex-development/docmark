@@ -20,11 +20,6 @@
 - [API](#api)
   - [`factoryLineComment<T>(options)`][api-factory]
 - [Types](#types)
-  - [`AllowIndentedLines`][api-allow-indented-lines]
-  - [`CreateFields`][api-create-fields]
-  - [`CreateMarkers`][api-create-markers]
-  - [`FinalizeConstruct`][api-finalize-construct]
-  - [`Markers`][api-markers]
   - [`Options`][api-options]
 - [Contribute](#contribute)
 
@@ -101,96 +96,13 @@ Create a construct that tokenizes line comments.
 This package is fully typed with [TypeScript][].\
 It exports additional types.
 
-### `AllowIndentedLines`
-
-Check whether continued lines can be indented in lieu of explicit markers (`type` alias).
-
-A continued line is any line after the first line of an active comment.\
-When indented syntax is enabled, line markers for a continued line are any character codes satisfying
-the [`whitespace`][whitespace] predicate.
-
-```ts
-type AllowIndentedLines = (this: TokenizeContext) => boolean
-```
-
-#### Parameters
-
-- **`this`** ([`TokenizeContext`][tokenize-context])
-  — the tokenization context
-
-#### Returns
-
-(`boolean`) Whether a continued line can be indented
-
-### `CreateFields`
-
-Create a token fields object (`type` alias).
-
-```ts
-type CreateFields = (this: TokenizeContext) => TokenFields
-```
-
-#### Parameters
-
-- **`this`** ([`TokenizeContext`][tokenize-context])
-  — the tokenization context
-
-#### Returns
-
-([`TokenFields`][token-fields]) The token fields object
-
-### `CreateMarkers`
-
-Create a line markers configuration (`type` alias).
-
-```ts
-type CreateMarkers = (this: TokenizeContext) => Markers
-```
-
-#### Parameters
-
-- **`this`** ([`TokenizeContext`][tokenize-context])
-  — the tokenization context
-
-#### Returns
-
-([`Markers`][api-markers]) The marker info object, code, or sequence
-
-### `FinalizeConstruct`
-
-Finalize a line comment construct (`type` alias).
-
-```ts
-type FinalizeConstruct = (
-  this: void,
-  construct: ContinuableConstruct
-) => undefined
-```
-
-#### Parameters
-
-- `construct` ([`ContinuableConstruct`][continuable-construct])
-  — the construct to finalize
-
-#### Returns
-
-(`undefined`) Nothing
-
-### `Markers`
-
-A marker info object, code, or sequence (`type` alias).
-
-```ts
-type Markers = Info | Marker | Sequence
-```
-
 ### `Options`
 
 Options for creating a line comment construct (`interface`).
 
 #### Properties
 
-- `allowIndentedContinuation` ([`AllowIndentedLines`][api-allow-indented-lines] | `boolean` | `undefined`, optional)
+- `allowIndentedContinuation` ([`AllowIndentedLines`][allow-indented-lines] | `boolean` | `undefined`, optional)
   — whether continued lines can be indented in lieu of explicit line markers,
   or a function that returns a boolean indicating as such.\
   a continued line is any line after that first line of an active comment.\
@@ -200,12 +112,12 @@ Options for creating a line comment construct (`interface`).
   — additional construct info.
   > 👉 **note**: the construct's `continuation` and `tokenize` properties will be overridden.\
   > the `exit` hook is called before the factory's `exit` hook exits the line comment
-- `fields` ([`CreateFields`][api-create-fields] | [`TokenFields`][token-fields] | `null` | `undefined`, optional)
+- `fields` ([`CreateFields`][create-fields] | [`TokenFields`][token-fields] | `null` | `undefined`, optional)
   — additional `comment` token fields, or a function that returns the token fields object.\
   fields are applied when the token is `enter`ed.
-- `finalizeConstruct` ([`FinalizeConstruct`][api-finalize-construct] | `null` | `undefined`, optional)
+- `finalizeConstruct` ([`FinalizeConstruct<ContinuableConstruct>`][finalize-construct] | `null` | `undefined`, optional)
   — finalize the line comment construct
-- `markers` ([`CreateMarkers`][api-create-markers] | [`Markers`][api-markers])
+- `markers` ([`CreateMarkers`][create-markers] | [`Markers`][markers])
   — the line markers configuration, or a function that returns the configuration
 
 ## Project
@@ -226,17 +138,9 @@ By interacting with this repository, organization, or community you agree to abi
 Small primitives power larger systems.
 Support long-term stability by sponsoring Flex Development.
 
-[api-allow-indented-lines]: #allowindentedlines
-
-[api-create-fields]: #createfields
-
-[api-create-markers]: #createmarkers
+[allow-indented-lines]: ../docmark-util-types/src/allow-indented-lines.mts
 
 [api-factory]: #factorylinecommenttoptions
-
-[api-finalize-construct]: #finalizeconstruct
-
-[api-markers]: #markers
 
 [api-options]: #options
 
@@ -244,17 +148,23 @@ Support long-term stability by sponsoring Flex Development.
 
 [continuable-construct]: ../docmark-util-types/src/continuable-construct.mts
 
+[create-fields]: ../docmark-util-types/src/create-fields.mts
+
+[create-markers]: ../docmark-util-types/src/create-markers.mts
+
 [docmark]: ../../README.md
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
 [esmsh]: https://esm.sh
 
+[finalize-construct]: ../docmark-util-types/src/finalize-construct.mts
+
+[markers]: ../docmark-util-types/src/markers.mts
+
 [semver]: https://semver.org
 
 [token-fields]: ../docmark-util-types/src/token-fields.mts
-
-[tokenize-context]: ../docmark-util-types/src/tokenize-context.mts
 
 [typescript]: https://www.typescriptlang.org
 

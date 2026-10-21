@@ -1,6 +1,6 @@
 /**
- * @file Type Tests - Info
- * @module docmark-factory-markers/interfaces/tests/unit-d/Info
+ * @file Type Tests - MarkerInfo
+ * @module docmark-util-types/tests/unit-d/MarkerInfo
  */
 
 import type {
@@ -15,9 +15,9 @@ import type {
   RequiredKeys
 } from '@flex-development/tutils'
 import { describe, expectTypeOf, it } from 'vitest'
-import type TestSubject from '../info.mts'
+import type TestSubject from '../marker-info.mts'
 
-describe('unit-d:interfaces/Info', () => {
+describe('unit-d:MarkerInfo', () => {
   type Optional = OptionalKeys<TestSubject>
   type Required = RequiredKeys<TestSubject>
 

@@ -1,14 +1,13 @@
 /**
- * @file Type Tests - CreateMarkers
- * @module docmark-factory-line/types/tests/unit-d/CreateMarkers
+ * @file Type Tests - AllowIndentedLines
+ * @module docmark-util-types/tests/unit-d/AllowIndentedLines
  */
 
-import type { Markers } from '@flex-development/docmark-factory-line'
 import type { TokenizeContext } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
-import type TestSubject from '../create-markers.mts'
+import type TestSubject from '../allow-indented-lines.mts'
 
-describe('unit-d:types/CreateMarkers', () => {
+describe('unit-d:AllowIndentedLines', () => {
   it('should match [this: TokenizeContext]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<TokenizeContext>()
   })
@@ -20,8 +19,8 @@ describe('unit-d:types/CreateMarkers', () => {
   })
 
   describe('returns', () => {
-    it('should return Markers', () => {
-      expectTypeOf<TestSubject>().returns.toEqualTypeOf<Markers>()
+    it('should return boolean', () => {
+      expectTypeOf<TestSubject>().returns.toEqualTypeOf<boolean>()
     })
   })
 })

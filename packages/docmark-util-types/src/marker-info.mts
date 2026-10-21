@@ -1,9 +1,8 @@
 /**
- * @file Interfaces - Info
- * @module docmark-factory-markers/interfaces/Info
+ * @file MarkerInfo
+ * @module docmark-util-types/MarkerInfo
  */
 
-import type { tt } from '@flex-development/docmark-util-symbol'
 import type {
   Marker,
   TokenFields,
@@ -12,9 +11,9 @@ import type {
 import type { CodeCheck } from '@flex-development/mark/parse'
 
 /**
- * Info about how to tokenize a comment marker.
+ * Info about how to tokenize a {@linkcode Marker}.
  */
-interface Info {
+interface MarkerInfo {
   /**
    * The character code to consume or the character code matcher.
    *
@@ -41,7 +40,6 @@ interface Info {
    * The token type to emit when {@linkcode code}, or the character code matched
    * by `code`, is consumed.
    *
-   * If `type` is `undefined`, {@linkcode tt.commentMarker} is used.\
    * If `null`, `code` is consumed without emitting a token.
    *
    * @see {@linkcode TokenType}
@@ -49,4 +47,4 @@ interface Info {
   type?: TokenType | null | undefined
 }
 
-export type { Info as default }
+export type { MarkerInfo as default }

@@ -5,14 +5,13 @@
 
 import type {
   AllowIndentedLines,
-  CreateFields,
-  CreateMarkers,
-  FinalizeConstruct,
-  Markers,
-  SkipComment
-} from '@flex-development/docmark-factory-block'
-import type {
   Construct,
+  ContinuableConstruct,
+  CreateFields,
+  CreateMarkersPack,
+  FinalizeConstruct,
+  MarkersPack,
+  SkipComment,
   TokenFields
 } from '@flex-development/docmark-util-types'
 import type {
@@ -50,18 +49,18 @@ describe('unit-d:interfaces/Options', () => {
       .toEqualTypeOf<Nilable<CreateFields | TokenFields>>()
   })
 
-  it('should match [finalizeConstruct?: FinalizeConstruct | null | undefined]', () => {
+  it('should match [finalizeConstruct?: FinalizeConstruct<ContinuableConstruct> | null | undefined]', () => {
     expectTypeOf<Optional>().extract<'finalizeConstruct'>().not.toBeNever()
     expectTypeOf<TestSubject>()
       .toHaveProperty('finalizeConstruct')
-      .toEqualTypeOf<Nilable<FinalizeConstruct>>()
+      .toEqualTypeOf<Nilable<FinalizeConstruct<ContinuableConstruct>>>()
   })
 
-  it('should match [markers: CreateMarkers | Markers]', () => {
+  it('should match [markers: CreateMarkersPack | MarkersPack]', () => {
     expectTypeOf<Required>().extract<'markers'>().not.toBeNever()
     expectTypeOf<TestSubject>()
       .toHaveProperty('markers')
-      .toEqualTypeOf<CreateMarkers | Markers>()
+      .toEqualTypeOf<CreateMarkersPack | MarkersPack>()
   })
 
   it('should match [skipComment?: SkipComment | null | undefined]', () => {

@@ -5,14 +5,13 @@
 
 import type {
   AllowIndentedLines,
+  Construct,
+  ContinuableConstruct,
   CreateFields,
   CreateMarkers,
   FinalizeConstruct,
   Markers,
-  SkipComment
-} from '@flex-development/docmark-factory-line'
-import type {
-  Construct,
+  SkipComment,
   TokenFields
 } from '@flex-development/docmark-util-types'
 import type {
@@ -50,11 +49,11 @@ describe('unit-d:interfaces/Options', () => {
       .toEqualTypeOf<Nilable<CreateFields | TokenFields>>()
   })
 
-  it('should match [finalizeConstruct?: FinalizeConstruct | null | undefined]', () => {
+  it('should match [finalizeConstruct?: FinalizeConstruct<ContinuableConstruct> | null | undefined]', () => {
     expectTypeOf<Optional>().extract<'finalizeConstruct'>().not.toBeNever()
     expectTypeOf<TestSubject>()
       .toHaveProperty('finalizeConstruct')
-      .toEqualTypeOf<Nilable<FinalizeConstruct>>()
+      .toEqualTypeOf<Nilable<FinalizeConstruct<ContinuableConstruct>>>()
   })
 
   it('should match [markers: CreateMarkers | Markers]', () => {

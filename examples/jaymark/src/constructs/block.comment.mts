@@ -3,15 +3,13 @@
  * @module examples/jaymark/constructs/blockComment
  */
 
-import {
-  factoryBlockComment,
-  type Markers
-} from '@flex-development/docmark-factory-block'
-import type { Sequence } from '@flex-development/docmark-factory-markers'
+import { factoryBlockComment } from '@flex-development/docmark-factory-block'
 import { codes, ev, kind, tt } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
   Event,
+  MarkerSequence,
+  MarkersPack,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
 import { ok as assert } from 'devlop'
@@ -78,18 +76,18 @@ const blockComment: ContinuableConstruct = factoryBlockComment({
    *
    * @this {TokenizeContext}
    *
-   * @return {Markers}
+   * @return {MarkersPack}
    *  The markers configuration
    */
-  markers(this: TokenizeContext): Markers {
+  markers(this: TokenizeContext): MarkersPack {
     assert(this.parser.constructs.settings, 'expected parser settings')
 
     /**
      * The comment opener sequence.
      *
-     * @const {Sequence} opener
+     * @const {MarkerSequence} opener
      */
-    const opener: Sequence = [
+    const opener: MarkerSequence = [
       { code: codes.slash, type: null },
       { code: codes.asterisk, type: null }
     ]
@@ -100,7 +98,7 @@ const blockComment: ContinuableConstruct = factoryBlockComment({
     }
 
     return {
-      closer: opener.slice(0, 2).toReversed() as Sequence,
+      closer: opener.slice(0, 2).toReversed() as MarkerSequence,
       line: codes.asterisk,
       opener
     }

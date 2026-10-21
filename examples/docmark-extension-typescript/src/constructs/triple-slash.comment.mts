@@ -3,10 +3,11 @@
  * @module examples/docmark-extension-typescript/constructs/tripleSlashComment
  */
 
-import factory, { type Markers } from '@flex-development/docmark-factory-line'
+import { factoryLineComment } from '@flex-development/docmark-factory-line'
 import { codes } from '@flex-development/docmark-util-symbol'
 import type {
   ContinuableConstruct,
+  Markers,
   TokenFields,
   TokenizeContext
 } from '@flex-development/docmark-util-types'
@@ -18,7 +19,7 @@ import type {
  *
  * @const {ContinuableConstruct} tripleSlashComment
  */
-const tripleSlashComment: ContinuableConstruct = factory({
+const tripleSlashComment: ContinuableConstruct = factoryLineComment({
   /**
    * Create a token fields object.
    *

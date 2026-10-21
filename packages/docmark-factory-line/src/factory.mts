@@ -3,7 +3,7 @@
  * @module docmark-factory-line/factory
  */
 
-import type { Markers, Options } from '@flex-development/docmark-factory-line'
+import type { Options } from '@flex-development/docmark-factory-line'
 import { factoryMarkers } from '@flex-development/docmark-factory-markers'
 import { factorySpace } from '@flex-development/docmark-factory-space'
 import { blankLine } from '@flex-development/docmark-grammar'
@@ -14,6 +14,7 @@ import type {
   ContinuableConstruct,
   Effects,
   Event,
+  Markers,
   PartialConstruct,
   State,
   Token,

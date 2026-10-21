@@ -3,7 +3,10 @@
  * @module docmark-factory-block/internal/firstMarker
  */
 
-import type { Info, Sequence } from '@flex-development/docmark-factory-markers'
+import type {
+  MarkerInfo,
+  MarkerSequence
+} from '@flex-development/docmark-util-types'
 
 /**
  * Get the first marker in a marker sequence.
@@ -12,12 +15,15 @@ import type { Info, Sequence } from '@flex-development/docmark-factory-markers'
  *
  * @this {void}
  *
- * @param {Sequence | Sequence[0]} sequence
+ * @param {MarkerSequence | MarkerSequence[0]} sequence
  *  The marker sequence to evaluate
- * @return {Info}
+ * @return {MarkerInfo}
  *  The info representing the first marker in `sequence`
  */
-function firstMarker(this: void, sequence: Sequence | Sequence[0]): Info {
+function firstMarker(
+  this: void,
+  sequence: MarkerSequence | MarkerSequence[0]
+): MarkerInfo {
   if (Array.isArray(sequence)) return firstMarker(sequence[0])
   return typeof sequence === 'object' ? sequence : { code: sequence }
 }

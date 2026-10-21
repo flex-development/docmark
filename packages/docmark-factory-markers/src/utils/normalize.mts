@@ -3,15 +3,14 @@
  * @module docmark-factory-markers/utils/normalize
  */
 
-import type { Info } from '@flex-development/docmark-factory-markers'
-import type { Marker } from '@flex-development/docmark-util-types'
+import type { Marker, MarkerInfo } from '@flex-development/docmark-util-types'
 import type { CodeCheck } from '@flex-development/mark/parse'
 
 /**
- * Normalize a comment marker configuration.
+ * Normalize a marker configuration.
  *
  * @see {@linkcode CodeCheck}
- * @see {@linkcode Info}
+ * @see {@linkcode MarkerInfo}
  * @see {@linkcode Marker}
  *
  * @category
@@ -19,12 +18,15 @@ import type { CodeCheck } from '@flex-development/mark/parse'
  *
  * @this {void}
  *
- * @param {CodeCheck | Info | Marker} marker
- *  The comment marker matcher, info object, or code
- * @return {Info}
- *  The comment marker info object
+ * @param {CodeCheck | Marker | MarkerInfo} marker
+ *  The marker matcher, info object, or code
+ * @return {MarkerInfo}
+ *  The marker info object
  */
-function normalize(this: void, marker: CodeCheck | Info | Marker): Info {
+function normalize(
+  this: void,
+  marker: CodeCheck | Marker | MarkerInfo
+): MarkerInfo {
   return typeof marker === 'object' ? marker : { code: marker }
 }
 

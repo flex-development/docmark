@@ -1,13 +1,13 @@
 /**
- * @file Type Tests - AllowIndentedLines
- * @module docmark-factory-block/types/tests/unit-d/AllowIndentedLines
+ * @file Type Tests - SkipComment
+ * @module docmark-util-types/tests/unit-d/SkipComment
  */
 
 import type { TokenizeContext } from '@flex-development/docmark-util-types'
 import { describe, expectTypeOf, it } from 'vitest'
-import type TestSubject from '../allow-indented-lines.mts'
+import type TestSubject from '../skip-comment.mts'
 
-describe('unit-d:types/AllowIndentedLines', () => {
+describe('unit-d:SkipComment', () => {
   it('should match [this: TokenizeContext]', () => {
     expectTypeOf<TestSubject>().thisParameter.toEqualTypeOf<TokenizeContext>()
   })
