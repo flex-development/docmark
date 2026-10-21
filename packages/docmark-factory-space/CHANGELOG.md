@@ -1,3 +1,13 @@
+## [docmark-factory-space@1.0.0-alpha.22](https://github.com/flex-development/docmark/compare/docmark-factory-space@1.0.0-alpha.21...docmark-factory-space@1.0.0-alpha.22) (2026-10-20)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** common factory types
+
+### :sparkles: Features
+
+- [[`c51d0f7`](https://github.com/flex-development/docmark/commit/c51d0f797593c875e9ba1ec6c98bb5f802c93255)] **types:** common factory types
+
 ## [docmark-factory-space@1.0.0-alpha.21](https://github.com/flex-development/docmark/compare/docmark-factory-space@1.0.0-alpha.20...docmark-factory-space@1.0.0-alpha.21) (2026-10-19)
 
 ### :package: Build
@@ -515,6 +525,7 @@
 ### :mechanical_arm: Refactors
 
 - [[`9fb08fa`](https://github.com/flex-development/docmark/commit/9fb08faeb588b258e94fa094eaa8b6320f5d4383)] api overhaul
+
 
 
 
