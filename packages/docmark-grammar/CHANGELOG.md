@@ -1,3 +1,13 @@
+## [docmark-grammar@1.0.0-alpha.22](https://github.com/flex-development/docmark/compare/docmark-grammar@1.0.0-alpha.21...docmark-grammar@1.0.0-alpha.22) (2026-10-20)
+
+### ⚠ BREAKING CHANGES
+
+- **types:** common factory types
+
+### :sparkles: Features
+
+- [[`c51d0f7`](https://github.com/flex-development/docmark/commit/c51d0f797593c875e9ba1ec6c98bb5f802c93255)] **types:** common factory types
+
 ## [docmark-grammar@1.0.0-alpha.21](https://github.com/flex-development/docmark/compare/docmark-grammar@1.0.0-alpha.20...docmark-grammar@1.0.0-alpha.21) (2026-10-19)
 
 ### :package: Build
@@ -504,6 +514,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 

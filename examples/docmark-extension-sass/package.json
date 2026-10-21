@@ -48,12 +48,12 @@
   },
   "dependencies": {
     "@flex-development/docmark-extension-tags": "workspace:*",
-    "@flex-development/docmark-factory-block": "workspace:1.0.0-alpha.14",
-    "@flex-development/docmark-factory-line": "workspace:1.0.0-alpha.17",
-    "@flex-development/docmark-factory-markers": "workspace:1.0.0-alpha.21",
-    "@flex-development/docmark-util-combine-extensions": "workspace:1.0.0-alpha.21",
+    "@flex-development/docmark-factory-block": "workspace:1.0.0-alpha.15",
+    "@flex-development/docmark-factory-line": "workspace:1.0.0-alpha.18",
+    "@flex-development/docmark-factory-markers": "workspace:1.0.0-alpha.22",
+    "@flex-development/docmark-util-combine-extensions": "workspace:1.0.0-alpha.22",
     "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.13",
-    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.21"
+    "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.22"
   },
   "sideEffects": false
 }
