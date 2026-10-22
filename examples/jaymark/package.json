@@ -51,7 +51,7 @@
     "attw": "tsc --build tsconfig.build.json --clean --dry && tsc --build tsconfig.build.json --clean && tsc --build tsconfig.build.json --verbose"
   },
   "dependencies": {
-    "@flex-development/docmark": "workspace:1.0.0-alpha.22",
+    "@flex-development/docmark": "workspace:1.0.0-alpha.23",
     "@flex-development/docmark-extension-tags": "workspace:*",
     "@flex-development/docmark-factory-block": "workspace:1.0.0-alpha.15",
     "@flex-development/docmark-factory-line": "workspace:1.0.0-alpha.18",
