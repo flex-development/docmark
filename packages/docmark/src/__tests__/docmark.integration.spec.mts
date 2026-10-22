@@ -4,13 +4,12 @@
  */
 
 import snapshot from '#tests/utils/snapshot-events'
-import { parse, postprocess, preprocess } from '@flex-development/docmark'
+import { docmark, type Options } from '@flex-development/docmark'
 import typescript from '@flex-development/docmark-extension-typescript'
-import { ev, tt } from '@flex-development/docmark-util-symbol'
+import { constants, ev, tt } from '@flex-development/docmark-util-symbol'
 import type {
-  Chunk,
-  FileLike,
-  ParseOptions
+  ContentType,
+  FileLike
 } from '@flex-development/docmark-util-types'
 import pathe from '@flex-development/pathe'
 import { readSync as read } from 'to-vfile'
@@ -25,12 +24,12 @@ describe('integration:docmark', () => {
 
   it('should handle no content', () => {
     // Arrange
+    const contentType: ContentType = constants.contentTypeComments
     const file: FileLike = read(pathe.join(directory, 'source/empty.txt'))
-    const options: ParseOptions = { extensions: [typescript] }
-    const slice: Chunk[] = preprocess()(file, undefined, true)
+    const options: Options = { contentType, extensions: [typescript] }
 
     // Act
-    const result = parse(options).comments().write(slice)
+    const result = docmark(file, 'utf8', options)
 
     // Expect
     expect(result).to.have.property('length', 2)
@@ -40,7 +39,7 @@ describe('integration:docmark', () => {
     expect(snapshot(result)).toMatchSnapshot()
   })
 
-  it.each<[path: string, ...Parameters<typeof parse>]>([
+  it.each<[path: string, options?: Options | null | undefined]>([
     ['opener-only/01.txt'],
     ['opener-only/02.txt'],
     ['opener-only/03.txt'],
@@ -75,7 +74,7 @@ describe('integration:docmark', () => {
     void test('comments/block/' + path, options)
   })
 
-  it.each<[path: string, ...Parameters<typeof parse>]>([
+  it.each<[path: string, options?: Options | null | undefined]>([
     ['opener-only/01.txt'],
     ['opener-only/02.txt'],
     ['opener-only/03.txt'],
@@ -90,7 +89,7 @@ describe('integration:docmark', () => {
     void test('comments/line/' + path, options)
   })
 
-  it.each<[path: string, ...Parameters<typeof parse>]>([
+  it.each<[path: string, options?: Options | null | undefined]>([
     ['modules/01.txt'],
     ['modules/02.txt'],
     ['modules/03.txt'],
@@ -104,24 +103,20 @@ describe('integration:docmark', () => {
    *
    * @param {string} path
    *  The fixture path, relative to {@linkcode directory}
-   * @param {ParseOptions | null | undefined} [options]
-   *  The parse options
+   * @param {Options | null | undefined} [options]
+   *  The configuration options
    * @return {undefined}
    */
   function test(
     this: void,
     path: string,
-    options?: ParseOptions | null | undefined
+    options?: Options | null | undefined
   ): undefined {
     // Arrange
     const file: FileLike = read(pathe.join(directory, path))
-    const slice: Chunk[] = preprocess()(file, undefined, true)
-
-    // Setup
-    options ??= { extensions: [typescript] }
 
     // Act
-    const result = postprocess(parse(options).comments().write(slice))
+    const result = docmark(file, options ?? { extensions: [typescript] })
     const beforeLast = result.at(-2)
     const last = result.at(-1)
 

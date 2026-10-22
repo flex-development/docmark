@@ -22,10 +22,12 @@ a comment parser with support for markdown.
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`docmark(value[, encoding][, options])`][api-docmark]
   - [`parse([options])`][api-parse]
   - [`postprocess(events)`][api-postprocess]
   - [`preprocess([options])`][api-preprocess]
 - [Types](#types)
+  - [`Options`][types-options]
 - [Contribute](#contribute)
 
 ## What is this?
@@ -60,14 +62,14 @@ yarn add @flex-development/docmark
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { parse, postprocess, preprocess } from 'https://esm.sh/@flex-development/docmark'
+import { docmark } from 'https://esm.sh/@flex-development/docmark'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { parse, postprocess, preprocess } from 'https://esm.sh/@flex-development/docmark'
+  import { docmark } from 'https://esm.sh/@flex-development/docmark'
 </script>
 ```
 
@@ -77,9 +79,45 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-This package exports the identifiers [`parse`][api-parse], [`postprocess`][api-postprocess],
+This package exports the identifiers [`docmark`][api-docmark], [`parse`][api-parse], [`postprocess`][api-postprocess],
 and [`preprocess`][api-preprocess].\
-There is no default export.
+The default export is `docmark`.
+
+### `docmark(value[, encoding][, options])`
+
+Create an event stream.
+
+#### Overloads
+
+```ts
+function docmark(
+  this: void,
+  value: FileLike | Value | null | undefined,
+  encoding?: Encoding | null | undefined,
+  options?: Options | null | undefined
+): Event[]
+```
+
+```ts
+function docmark(
+  this: void,
+  value: FileLike | Value | null | undefined,
+  options?: Options | null | undefined
+): Event[]
+```
+
+#### Parameters
+
+- `value` ([`FileLike`][file-like] | [`Value`][value] | `null` | `undefined`)
+  — the source file or content to parse
+- `encoding` ([`Encoding`][encoding] | `null` | `undefined`, optional)
+  — the character encoding to use when `value` or its contents is an `Uint8Array`
+- `options` ([`Options`][types-options] | `null` | `undefined`, optional)
+  — the configuration options
+
+#### Returns
+
+([`Event[]`][event]) The list of events
 
 ### `parse([options])`
 
@@ -126,14 +164,33 @@ Create a preprocessor to turn a value into chunks.
 ## Types
 
 This package is fully typed with [TypeScript][].\
-It exports no additional types.
+It exports additional types.
+
+### `Options`
+
+#### Extends
+
+- [`ParseOptions`][parse-options]
+- [`PreprocessOptions`][preprocess-options]
+
+#### Properties
+
+- `contentType` ([`ContentType`][content-type] | `null` | `undefined`, optional)
+  — the content type of the parser to run
+  - **default**: [`constants.contentTypeComments`][constants]
+- `from` ([`Point`][point] | `null` | `undefined`, optional)
+  — the point before the first character in the content.\
+  token positions will be relative to this point
+  - **default**: `{ column: 1, line: 1, offset: 0 }`
 
 ## Contribute
 
 See [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
 
-This project has a [code of conduct](../../CODE_OF_CONDUCT.md).
+This project has a [code of conduct](../../CODE_OF_CONDUCT.md).\
 By interacting with this repository, organization, or community you agree to abide by its terms.
+
+[api-docmark]: #docmarkvalue-encoding-options
 
 [api-parse]: #parseoptions
 
@@ -141,7 +198,13 @@ By interacting with this repository, organization, or community you agree to abi
 
 [api-preprocess]: #preprocessoptions
 
+[constants]: ../docmark-util-symbol/src/constants.mts
+
+[content-type]: ../docmark-util-types/src/content-type.mts
+
 [docmark]: ../../README.md
+
+[encoding]: ../docmark-util-types/src/encoding.mts
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
@@ -149,14 +212,22 @@ By interacting with this repository, organization, or community you agree to abi
 
 [event]: ../docmark-util-types/src/event.mts
 
+[file-like]: ../docmark-util-types/src/file-like.mts
+
 [parse-context]: ../docmark-util-types/src/parse-context.mts
 
 [parse-options]: ../docmark-util-types/src/parse-options.mts
+
+[point]: ../docmark-util-types/src/point.mts
 
 [preprocess-options]: ../docmark-util-types/src/preprocess-options.mts
 
 [preprocessor]: ../docmark-util-types/src/preprocessor.mts
 
+[types-options]: #options
+
 [typescript]: https://www.typescriptlang.org
+
+[value]: ../docmark-util-types/src/value.mts
 
 [yarn]: https://yarnpkg.com
