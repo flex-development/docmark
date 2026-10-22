@@ -1,3 +1,16 @@
+## [docmark@1.0.0-alpha.23](https://github.com/flex-development/docmark/compare/docmark@1.0.0-alpha.22...docmark@1.0.0-alpha.23) (2026-10-22)
+
+### :package: Build
+
+- [[`b4d419f`](https://github.com/flex-development/docmark/commit/b4d419f9c6aed97f5ed6b72eaa820e09967f271d)] **deps-dev:** Bump @commitlint/cli from 21.2.3 to 21.2.4 in the commitlint group ([#416](https://github.com/flex-development/docmark/issues/416))
+- [[`0575967`](https://github.com/flex-development/docmark/commit/0575967f4bee6564cab13f42a6ad554ac297d50e)] **deps-dev:** Bump dprint from 0.63.0 to 0.64.0 ([#417](https://github.com/flex-development/docmark/issues/417))
+- [[`72cfcff`](https://github.com/flex-development/docmark/commit/72cfcff8c853ea16f2074b1e2678bbfa1ab912c5)] **deps-dev:** Bump rollup from 4.64.7 to 4.64.9 ([#415](https://github.com/flex-development/docmark/issues/415))
+- [[`1053cec`](https://github.com/flex-development/docmark/commit/1053cec9fd669b484e85ec1eee6972b943bc1761)] **deps-dev:** Bump rollup from 4.64.9 to 4.64.10 ([#418](https://github.com/flex-development/docmark/issues/418))
+
+### :sparkles: Features
+
+- [[`8bd38ce`](https://github.com/flex-development/docmark/commit/8bd38cea1ef959740533eecd30a6e4087243656a)] **docmark:** `docmark`
+
 ## [docmark@1.0.0-alpha.22](https://github.com/flex-development/docmark/compare/docmark@1.0.0-alpha.21...docmark@1.0.0-alpha.22) (2026-10-20)
 
 ### ⚠ BREAKING CHANGES
@@ -514,6 +527,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
