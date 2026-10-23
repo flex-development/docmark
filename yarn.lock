@@ -1876,7 +1876,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@flex-development/docmark@workspace:1.0.0-alpha.23, @flex-development/docmark@workspace:packages/docmark":
+"@flex-development/docmark@workspace:1.0.0-alpha.24, @flex-development/docmark@workspace:packages/docmark":
   version: 0.0.0-use.local
   resolution: "@flex-development/docmark@workspace:packages/docmark"
   dependencies:
@@ -2102,7 +2102,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@flex-development/jaymark@workspace:examples/jaymark"
   dependencies:
-    "@flex-development/docmark": "workspace:1.0.0-alpha.23"
+    "@flex-development/docmark": "workspace:1.0.0-alpha.24"
     "@flex-development/docmark-extension-tags": "workspace:*"
     "@flex-development/docmark-factory-block": "workspace:1.0.0-alpha.15"
     "@flex-development/docmark-factory-line": "workspace:1.0.0-alpha.18"
