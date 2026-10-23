@@ -1,3 +1,14 @@
+## [docmark@1.0.0-alpha.24](https://github.com/flex-development/docmark/compare/docmark@1.0.0-alpha.23...docmark@1.0.0-alpha.24) (2026-10-23)
+
+### :package: Build
+
+- [[`dc6f77b`](https://github.com/flex-development/docmark/commit/dc6f77b43c6e58ee86f80db85238d3383ae7d634)] **deps-dev:** Bump rollup from 4.64.10 to 4.64.12 ([#421](https://github.com/flex-development/docmark/issues/421))
+- [[`ce41f6d`](https://github.com/flex-development/docmark/commit/ce41f6d89bc907023346d0a6f5de2482844e0312)] **yarn:** bump yarn from 4.18.0 to 4.18.1
+
+### :bug: Fixes
+
+- [[`ae66e19`](https://github.com/flex-development/docmark/commit/ae66e191bbf140d52971cf3ba08793b5c6bc3776)] **docmark:** `encoding` normalization
+
 ## [docmark@1.0.0-alpha.23](https://github.com/flex-development/docmark/compare/docmark@1.0.0-alpha.22...docmark@1.0.0-alpha.23) (2026-10-22)
 
 ### :package: Build
@@ -527,6 +538,7 @@
 - [[`ddaed13`](https://github.com/flex-development/docmark/commit/ddaed1399acef384b4d4ca70f5153eabb814a4cd)] release: 1.0.0-dev.1 ([#52](https://github.com/flex-development/docmark/issues/52))
 - [[`092eb43`](https://github.com/flex-development/docmark/commit/092eb4382f69ceed93d36e622fd9e376f4a4b15f)] release: 1.0.0-dev.1 ([#53](https://github.com/flex-development/docmark/issues/53))
 - [[`f2692a6`](https://github.com/flex-development/docmark/commit/f2692a631666a8e7cdacc66e4e0cc54ccd6ae2c3)] release: 1.0.0-dev.2 ([#54](https://github.com/flex-development/docmark/issues/54))
+
 
 
 
