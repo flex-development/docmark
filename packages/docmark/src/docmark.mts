@@ -96,7 +96,7 @@ function docmark(
   encoding?: Encoding | Options | null | undefined,
   options?: Options | null | undefined
 ): Event[] {
-  if (typeof encoding !== 'string') {
+  if (encoding && typeof encoding === 'object') {
     options = encoding
     encoding = undefined
   }
