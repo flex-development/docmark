@@ -56,7 +56,7 @@
   "dependencies": {
     "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.13",
     "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.22",
-    "@flex-development/mark": "1.0.0-alpha.12",
+    "@flex-development/mark": "1.0.0-alpha.13",
     "devlop": "1.1.0"
   },
   "sideEffects": false
