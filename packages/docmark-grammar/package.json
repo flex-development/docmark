@@ -64,7 +64,7 @@
     "@flex-development/docmark-factory-space": "workspace:1.0.0-alpha.22",
     "@flex-development/docmark-util-symbol": "workspace:1.0.0-alpha.13",
     "@flex-development/docmark-util-types": "workspace:1.0.0-alpha.22",
-    "@flex-development/mark-util-character": "1.1.0",
+    "@flex-development/mark-util-character": "1.1.1",
     "devlop": "1.1.0"
   },
   "sideEffects": false
